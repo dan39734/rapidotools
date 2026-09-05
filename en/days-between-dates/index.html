@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Days between two dates – Rapido Tools</title>
+<meta name="description" content="Count the days, weeks, months and working days between two dates. Perfect for deadlines, holidays, countdowns and durations.">
+
+<link rel="canonical" href="https://rapidotools.com/en/days-between-dates/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/giorni-tra-due-date/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/days-between-dates/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/days-between-dates/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Days between two dates – Rapido Tools">
+<meta property="og:description" content="Count the days, weeks, months and working days between two dates. Perfect for deadlines, holidays, countdowns and durations.">
+<meta property="og:url" content="https://rapidotools.com/en/days-between-dates/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Days between two dates", "url": "https://rapidotools.com/en/days-between-dates/", "description": "Count the days, weeks, months and working days between two dates. Perfect for deadlines, holidays, countdowns and durations.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the end date included in the count?", "acceptedAnswer": {"@type": "Answer", "text": "No, by default the calculator counts the days \"between\" the two dates. Tick \"Include the end date too\" to count both ends, as you would for holidays or stays."}}, {"@type": "Question", "name": "Are public holidays removed?", "acceptedAnswer": {"@type": "Answer", "text": "No. Only Saturdays and Sundays are excluded from the working-day count; national holidays must be subtracted by hand."}}, {"@type": "Question", "name": "Can I use dates in the past or far in the future?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, any valid calendar date works, even decades apart. If the end date is before the start, the dates are swapped automatically."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/giorni-tra-due-date/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-date">📅 Dates &amp; time</a></nav>
+<h1>Days between two dates</h1>
+<p class="lead">Pick a start date and an end date to instantly get the total days, weeks, months and working days (Monday–Friday) between them.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Days between two dates">
+
+<div class="row">
+  <div class="field"><label for="d1">Start date</label><input type="date" id="d1"></div>
+  <div class="field"><label for="d2">End date</label><input type="date" id="d2"></div>
+</div>
+<div class="inline">
+  <label class="check"><input type="checkbox" id="incl"> Include the end date too</label>
+  <button class="btn small" type="button" id="swap">⇄ Swap</button>
+  <button class="btn small" type="button" id="today">Today</button>
+</div>
+<p class="msg warn hide" id="past">The end date is before the start date: the dates were swapped for the calculation.</p>
+<div class="result hide" id="out">
+  <div class="big" id="main"></div>
+  <div class="sub" id="sub"></div>
+  <div class="stats">
+    <div class="stat"><b id="wk"></b><span>Weeks and days</span></div>
+    <div class="stat"><b id="ym"></b><span>Years, months and days</span></div>
+    <div class="stat"><b id="work"></b><span>Working days (Mon–Fri)</span></div>
+    <div class="stat"><b id="wend"></b><span>Weekend days</span></div>
+  </div>
+</div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>How days between dates are counted</h2>
+<p>The calculator counts the days from the start date to the end date. By default the end date is <em>not</em> included: from 1 to 10 September gives 9 days, i.e. the distance between the two dates. If you need the length of a period "inclusive", such as a holiday from 1 to 10 September (10 days), tick "Include the end date too".</p>
+<h2>Working days and weekends</h2>
+<p>Working days are Monday to Friday; Saturday and Sunday count as weekend. Public holidays are not subtracted, because they differ by country and year: if the period contains weekday holidays, subtract them by hand.</p>
+<h2>Practical examples</h2>
+<ul>
+<li><strong>How many days until an event?</strong> Set today as the start (the "Today" button) and the event date as the end.</li>
+<li><strong>Length of a contract or subscription:</strong> start and end of the contract, without including the end date if the deadline is "by".</li>
+<li><strong>Holiday or sick days:</strong> tick "Include the end date too" and read the working days.</li>
+<li><strong>How much time has passed?</strong> Enter the past date as the start: the result also shows years, months and days.</li>
+</ul>
+<p>Leap years and months of different lengths are handled automatically.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>Is the end date included in the count?</summary><p>No, by default the calculator counts the days "between" the two dates. Tick "Include the end date too" to count both ends, as you would for holidays or stays.</p></details><details><summary>Are public holidays removed?</summary><p>No. Only Saturdays and Sundays are excluded from the working-day count; national holidays must be subtracted by hand.</p></details><details><summary>Can I use dates in the past or far in the future?</summary><p>Yes, any valid calendar date works, even decades apart. If the end date is before the start, the dates are swapped automatically.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/age-calculator/" data-search="age calculator exact years, months and days from a date of birth how old am i birthday date of birth"><div class="ic">🎂</div><b>Age calculator</b><span>Exact years, months and days from a date of birth</span></a><a class="card" href="../../en/add-days-to-date/" data-search="add or subtract days from a date what date is 30, 60 or 90 days from now? weeks, months and working days too 30 days from today 60 days from today 90 days from today date calculator deadline"><div class="ic">➕</div><b>Add or subtract days from a date</b><span>What date is 30, 60 or 90 days from now? Weeks, months and working days too</span></a><a class="card" href="../../en/online-timer/" data-search="online timer and stopwatch countdown with alarm and stopwatch with laps 5 minute timer 10 minute timer pomodoro stopwatch countdown"><div class="ic">⏱️</div><b>Online timer and stopwatch</b><span>Countdown with alarm and stopwatch with laps</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "from": "Start date", "to": "End date", "include": "Include the end date too", "days": "days", "day": "day", "weeks": "weeks", "week": "week", "months": "months", "month": "month", "years": "years", "year": "year", "total": "Total days", "work": "Working days (Mon–Fri)", "weekend": "Weekend days", "wk": "Weeks and days", "ym": "Years, months and days", "hours": "hours", "from_wd": "Start", "to_wd": "End", "swap": "Swap", "today": "Today", "past": "The end date is before the start date: the dates were swapped for the calculation."};</script>
+<script>
+(function(){
+
+var d1 = RT.$('#d1'), d2 = RT.$('#d2'), incl = RT.$('#incl'), out = RT.$('#out'), past = RT.$('#past');
+d1.value = RT.isoToday();
+var end = new Date(); end.setDate(end.getDate() + 30);
+d2.value = end.getFullYear() + '-' + RT.pad(end.getMonth() + 1) + '-' + RT.pad(end.getDate());
+function pl(n, one, many) { return RT.fmt(n, 0) + ' ' + (n === 1 ? one : many); }
+function ymd(a, b) {
+  var y = b.getFullYear() - a.getFullYear(), m = b.getMonth() - a.getMonth(), d = b.getDate() - a.getDate();
+  if (d < 0) { m--; d += new Date(b.getFullYear(), b.getMonth(), 0).getDate(); }
+  if (m < 0) { y--; m += 12; }
+  return [y, m, d];
+}
+function calc() {
+  var a = RT.parseDate(d1.value), b = RT.parseDate(d2.value);
+  if (!a || !b) { out.classList.add('hide'); return; }
+  var swapped = false;
+  if (b < a) { var t = a; a = b; b = t; swapped = true; }
+  past.classList.toggle('hide', !swapped);
+  var total = RT.daysBetween(a, b) + (incl.checked ? 1 : 0);
+  // working days
+  var work = 0, wend = 0, cur = new Date(a.getFullYear(), a.getMonth(), a.getDate());
+  var lastExclusive = incl.checked ? total : total; // iterate `total` days starting at a
+  for (var i = 0; i < total; i++) {
+    var wd = cur.getDay(); if (wd === 0 || wd === 6) wend++; else work++;
+    cur.setDate(cur.getDate() + 1);
+  }
+  RT.$('#main').textContent = pl(total, T.day, T.days);
+  RT.$('#sub').textContent = T.from_wd + ': ' + RT.weekday(a) + ' ' + RT.date(a) + ' → ' + T.to_wd + ': ' + RT.weekday(b) + ' ' + RT.date(b) + ' · ' + RT.fmt(total * 24, 0) + ' ' + T.hours;
+  RT.$('#wk').textContent = pl(Math.floor(total / 7), T.week, T.weeks) + (total % 7 ? ' + ' + pl(total % 7, T.day, T.days) : '');
+  var r = ymd(a, b); if (incl.checked) { var b2 = new Date(b); b2.setDate(b2.getDate() + 1); r = ymd(a, b2); }
+  RT.$('#ym').textContent = pl(r[0], T.year, T.years) + ', ' + pl(r[1], T.month, T.months) + ', ' + pl(r[2], T.day, T.days);
+  RT.$('#work').textContent = RT.fmt(work, 0);
+  RT.$('#wend').textContent = RT.fmt(wend, 0);
+  out.classList.remove('hide');
+}
+RT.$('#swap').addEventListener('click', function () { var t = d1.value; d1.value = d2.value; d2.value = t; calc(); });
+RT.$('#today').addEventListener('click', function () { d1.value = RT.isoToday(); calc(); });
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

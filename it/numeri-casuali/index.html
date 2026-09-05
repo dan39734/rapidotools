@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generatore di numeri casuali, dadi e testa o croce – Rapido Tools</title>
+<meta name="description" content="Genera numeri casuali tra un minimo e un massimo (anche senza ripetizioni), lancia uno o più dadi da 4 a 100 facce e tira una moneta. Ideale per sorteggi, giochi e decisioni.">
+
+<link rel="canonical" href="https://rapidotools.com/it/numeri-casuali/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/numeri-casuali/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/random-number-generator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/random-number-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Generatore di numeri casuali, dadi e testa o croce – Rapido Tools">
+<meta property="og:description" content="Genera numeri casuali tra un minimo e un massimo (anche senza ripetizioni), lancia uno o più dadi da 4 a 100 facce e tira una moneta. Ideale per sorteggi, giochi e decisioni.">
+<meta property="og:url" content="https://rapidotools.com/it/numeri-casuali/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Generatore di numeri casuali, dadi e testa o croce", "url": "https://rapidotools.com/it/numeri-casuali/", "description": "Genera numeri casuali tra un minimo e un massimo (anche senza ripetizioni), lancia uno o più dadi da 4 a 100 facce e tira una moneta. Ideale per sorteggi, giochi e decisioni.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "I numeri sono davvero casuali?", "acceptedAnswer": {"@type": "Answer", "text": "Sì. Vengono generati con il generatore crittografico del browser, non con una formula prevedibile, e ogni numero dell'intervallo ha la stessa probabilità."}}, {"@type": "Question", "name": "Posso estrarre numeri senza ripetizioni?", "acceptedAnswer": {"@type": "Answer", "text": "Sì: spunta «Senza ripetizioni». Il numero di estrazioni non può superare l'ampiezza dell'intervallo."}}, {"@type": "Question", "name": "Quanti numeri posso generare in una volta?", "acceptedAnswer": {"@type": "Answer", "text": "Fino a 1.000 per estrazione; per i dadi fino a 50 lanci insieme."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/random-number-generator/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-numbers">🔢 Numeri e conversioni</a></nav>
+<h1>Generatore di numeri casuali, dadi e testa o croce</h1>
+<p class="lead">Imposta l&#x27;intervallo e quanti numeri vuoi, oppure scegli i dadi da lanciare o affidati alla moneta: i risultati usano il generatore crittografico del browser, quindi sono davvero imprevedibili.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Generatore di numeri casuali, dadi e testa o croce">
+
+<div class="tabs"><button type="button" class="on" data-tab="n">Numeri</button><button type="button" data-tab="d">Dadi</button><button type="button" data-tab="c">Testa o croce</button></div>
+<div id="tab-n">
+  <div class="row">
+    <div class="field"><label for="min">Minimo</label><input type="number" id="min" value="1" inputmode="numeric"></div>
+    <div class="field"><label for="max">Massimo</label><input type="number" id="max" value="100" inputmode="numeric"></div>
+    <div class="field"><label for="cnt">Quanti numeri</label><input type="number" id="cnt" value="1" min="1" max="1000" inputmode="numeric"></div>
+  </div>
+  <div class="inline"><label class="check"><input type="checkbox" id="uniq"> Senza ripetizioni</label><label class="check"><input type="checkbox" id="sorted"> In ordine crescente</label></div>
+  <p class="msg bad hide" id="err"></p>
+  <div class="btns"><button class="btn primary" type="button" id="gen">Genera</button></div>
+</div>
+<div id="tab-d" class="hide">
+  <div class="row">
+    <div class="field"><label for="die">Tipo di dado</label><select id="die"><option value="4">D4</option><option value="6" selected>D6</option><option value="8">D8</option><option value="10">D10</option><option value="12">D12</option><option value="20">D20</option><option value="100">D100</option></select></div>
+    <div class="field"><label for="nd">Numero di dadi</label><input type="number" id="nd" value="2" min="1" max="50" inputmode="numeric"></div>
+  </div>
+  <div class="btns"><button class="btn primary" type="button" id="roll">🎲 Lancia</button></div>
+</div>
+<div id="tab-c" class="hide">
+  <div class="btns"><button class="btn primary" type="button" id="flip">🪙 Tira la moneta</button></div>
+</div>
+<div class="result hide" id="out"><div class="big" id="main" style="word-break:break-word"></div><div class="sub" id="sub"></div></div>
+<p class="msg" id="hist"></p>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Come funziona</h2>
+<p>I numeri vengono estratti con <code>crypto.getRandomValues</code>, il generatore crittografico del browser: è lo stesso meccanismo usato per creare chiavi e password, quindi non c'è nessuno schema ripetitivo e nessun modo di prevedere il prossimo risultato. Ogni valore dell'intervallo ha esattamente la stessa probabilità di uscire.</p>
+<h2>Numeri</h2>
+<p>Imposta minimo e massimo (entrambi inclusi) e quanti numeri vuoi. Con «Senza ripetizioni» ottieni un'estrazione come quella del lotto o di una tombola: ogni numero può uscire una volta sola, utile per sorteggiare i vincitori di un concorso o l'ordine di intervento in una riunione. «In ordine crescente» rende più facile leggere una lista lunga.</p>
+<h2>Dadi</h2>
+<p>Puoi lanciare da 1 a 50 dadi a 4, 6, 8, 10, 12, 20 o 100 facce, quelli dei giochi da tavolo e dei giochi di ruolo. Il risultato mostra i singoli lanci e la somma. Per «2d6» scegli D6 e 2 dadi; per un tiro salvezza con vantaggio lancia 2 D20 e tieni il più alto.</p>
+<h2>Testa o croce</h2>
+<p>Una moneta equa al 50%: per decidere chi inizia, chi lava i piatti o quale film guardare. Lo storico sotto il risultato mostra gli ultimi lanci.</p>
+<h2>Idee d'uso</h2>
+<ul>
+<li>Sorteggi tra i partecipanti a un evento (assegna a ciascuno un numero e estrai).</li>
+<li>Scegliere a caso un esercizio, una ricetta, una domanda d'esame da ripassare.</li>
+<li>Simulazioni e giochi in classe, esempi di statistica, bingo e tombola.</li>
+</ul>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>I numeri sono davvero casuali?</summary><p>Sì. Vengono generati con il generatore crittografico del browser, non con una formula prevedibile, e ogni numero dell'intervallo ha la stessa probabilità.</p></details><details><summary>Posso estrarre numeri senza ripetizioni?</summary><p>Sì: spunta «Senza ripetizioni». Il numero di estrazioni non può superare l'ampiezza dell'intervallo.</p></details><details><summary>Quanti numeri posso generare in una volta?</summary><p>Fino a 1.000 per estrazione; per i dadi fino a 50 lanci insieme.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/calcolo-percentuale/" data-search="calcolo percentuale quanto è il 20% di 150, che percentuale è 30 su 200, variazione tra due numeri calcolare la percentuale percentuale di un numero aumento percentuale variazione percentuale"><div class="ic">％</div><b>Calcolo percentuale</b><span>Quanto è il 20% di 150, che percentuale è 30 su 200, variazione tra due numeri</span></a><a class="card" href="../../it/calcolo-sconto/" data-search="calcolo sconto prezzo finale e risparmio con uno o due sconti, o sconto a partire dai prezzi prezzo scontato saldi sconto del 30% doppio sconto quanto risparmio"><div class="ic">🏷️</div><b>Calcolo sconto</b><span>Prezzo finale e risparmio con uno o due sconti, o sconto a partire dai prezzi</span></a><a class="card" href="../../it/numeri-romani/" data-search="convertitore numeri romani da numero a romano e viceversa, da 1 a 3999, con tabella numeri romani da 1 a 100 2026 in numeri romani mmxxvi come si scrive in romano"><div class="ic">🏛️</div><b>Convertitore numeri romani</b><span>Da numero a romano e viceversa, da 1 a 3999, con tabella</span></a><a class="card" href="../../it/convertitore-unita-di-misura/" data-search="convertitore di unità di misura lunghezza, peso, temperatura, volume, area, velocità, dati pollici in cm miglia in km fahrenheit in celsius libbre in kg once in grammi piedi in metri conversione unità"><div class="ic">📏</div><b>Convertitore di unità di misura</b><span>Lunghezza, peso, temperatura, volume, area, velocità, dati</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "tab_n": "Numeri", "tab_d": "Dadi", "tab_c": "Testa o croce", "min": "Minimo", "max": "Massimo", "count": "Quanti numeri", "unique": "Senza ripetizioni", "sorted": "In ordine crescente", "gen": "Genera", "roll": "Lancia", "flip": "Tira la moneta", "dice": "Tipo di dado", "ndice": "Numero di dadi", "sum": "Somma", "heads": "Testa", "tails": "Croce", "err_range": "Il massimo deve essere maggiore o uguale al minimo.", "err_unique": "Per estrarre senza ripetizioni servono almeno tanti numeri quanti ne chiedi.", "history": "Storico"};</script>
+<script>
+(function(){
+
+var tabs = RT.$$('.tabs button'), cur = 'n', hist = [];
+tabs.forEach(function (b) { b.addEventListener('click', function () { cur = b.getAttribute('data-tab'); tabs.forEach(function (x) { x.classList.toggle('on', x === b); }); ['n', 'd', 'c'].forEach(function (k) { RT.$('#tab-' + k).classList.toggle('hide', k !== cur); }); RT.$('#out').classList.add('hide'); }); });
+function rnd(n) { var a = new Uint32Array(1); var max = Math.floor(4294967296 / n) * n; do { crypto.getRandomValues(a); } while (a[0] >= max); return a[0] % n; }
+function show(main, sub) { RT.$('#main').textContent = main; RT.$('#sub').textContent = sub || ''; RT.$('#out').classList.remove('hide'); hist.unshift(main); hist = hist.slice(0, 8); RT.$('#hist').textContent = hist.length > 1 ? T.history + ': ' + hist.slice(1).join(' | ') : ''; }
+RT.$('#gen').addEventListener('click', function () {
+  var err = RT.$('#err'); err.classList.add('hide');
+  var lo = parseInt(RT.$('#min').value, 10), hi = parseInt(RT.$('#max').value, 10), n = Math.min(1000, Math.max(1, parseInt(RT.$('#cnt').value, 10) || 1));
+  if (isNaN(lo) || isNaN(hi) || hi < lo) { err.textContent = T.err_range; err.classList.remove('hide'); return; }
+  var span = hi - lo + 1, res = [];
+  if (RT.$('#uniq').checked) {
+    if (n > span) { err.textContent = T.err_unique; err.classList.remove('hide'); return; }
+    if (span <= 100000) { var pool = []; for (var i = lo; i <= hi; i++) pool.push(i); for (var k = 0; k < n; k++) { var j = k + rnd(pool.length - k); var t = pool[k]; pool[k] = pool[j]; pool[j] = t; res.push(pool[k]); } }
+    else { var seen = {}; while (res.length < n) { var x = lo + rnd(span); if (!seen[x]) { seen[x] = 1; res.push(x); } } }
+  } else { for (var m = 0; m < n; m++) res.push(lo + rnd(span)); }
+  if (RT.$('#sorted').checked) res.sort(function (a, b) { return a - b; });
+  show(res.join(', '), n > 1 ? T.sum + ': ' + RT.fmt(res.reduce(function (a, b) { return a + b; }, 0), 0) : '');
+});
+RT.$('#roll').addEventListener('click', function () {
+  var sides = +RT.$('#die').value, n = Math.min(50, Math.max(1, parseInt(RT.$('#nd').value, 10) || 1)), res = [];
+  for (var i = 0; i < n; i++) res.push(1 + rnd(sides));
+  show(res.join(' + '), (n > 1 ? T.sum + ': ' + res.reduce(function (a, b) { return a + b; }, 0) + ' · ' : '') + n + '×D' + sides);
+});
+RT.$('#flip').addEventListener('click', function () { show(rnd(2) ? '🪙 ' + T.heads : '🪙 ' + T.tails); });
+
+})();
+</script>
+</body>
+</html>

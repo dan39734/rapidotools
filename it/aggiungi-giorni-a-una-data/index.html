@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aggiungi o sottrai giorni a una data – Rapido Tools</title>
+<meta name="description" content="Calcola la data che cade dopo (o prima) un certo numero di giorni, settimane, mesi o anni. Anche solo giorni lavorativi: perfetto per scadenze e termini.">
+
+<link rel="canonical" href="https://rapidotools.com/it/aggiungi-giorni-a-una-data/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/aggiungi-giorni-a-una-data/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/add-days-to-date/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/add-days-to-date/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Aggiungi o sottrai giorni a una data – Rapido Tools">
+<meta property="og:description" content="Calcola la data che cade dopo (o prima) un certo numero di giorni, settimane, mesi o anni. Anche solo giorni lavorativi: perfetto per scadenze e termini.">
+<meta property="og:url" content="https://rapidotools.com/it/aggiungi-giorni-a-una-data/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Aggiungi o sottrai giorni a una data", "url": "https://rapidotools.com/it/aggiungi-giorni-a-una-data/", "description": "Calcola la data che cade dopo (o prima) un certo numero di giorni, settimane, mesi o anni. Anche solo giorni lavorativi: perfetto per scadenze e termini.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Che giorno sarà tra 30 giorni?", "acceptedAnswer": {"@type": "Answer", "text": "Premi la scorciatoia «+30» con la data di oggi come partenza: il risultato mostra la data e il giorno della settimana."}}, {"@type": "Question", "name": "Cosa succede se il giorno non esiste nel mese di arrivo?", "acceptedAnswer": {"@type": "Answer", "text": "Il calcolatore usa l'ultimo giorno del mese: 31 gennaio più un mese diventa 28 (o 29) febbraio."}}, {"@type": "Question", "name": "Posso andare indietro nel tempo?", "acceptedAnswer": {"@type": "Answer", "text": "Sì: scegli «Sottrai» per sapere, per esempio, quale data era 90 giorni fa."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/add-days-to-date/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-date">📅 Date e tempo</a></nav>
+<h1>Aggiungi o sottrai giorni a una data</h1>
+<p class="lead">Parti da una data, indica quanto tempo aggiungere o togliere e leggi la data risultante con il giorno della settimana. Utile per scadenze a 30, 60 o 90 giorni, preavvisi e termini di consegna.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Aggiungi o sottrai giorni a una data">
+
+<div class="row">
+  <div class="field"><label for="start">Data di partenza</label><input type="date" id="start"></div>
+  <div class="field"><label for="dir">Operazione</label><select id="dir"><option value="1">Aggiungi</option><option value="-1">Sottrai</option></select></div>
+</div>
+<div class="row">
+  <div class="field"><label for="n">Quantità</label><input type="number" id="n" value="30" min="0" step="1" inputmode="numeric"></div>
+  <div class="field"><label for="unit">Unità</label><select id="unit">
+    <option value="d">giorni</option><option value="w">giorni lavorativi (lun–ven)</option><option value="wk">settimane</option><option value="m">mesi</option><option value="y">anni</option></select></div>
+</div>
+<div class="inline"><span class="lbl">Scorciatoie:</span>
+  <button class="btn small" type="button" data-q="7">+7</button><button class="btn small" type="button" data-q="14">+14</button>
+  <button class="btn small" type="button" data-q="30">+30</button><button class="btn small" type="button" data-q="60">+60</button>
+  <button class="btn small" type="button" data-q="90">+90</button><button class="btn small" type="button" data-q="180">+180</button>
+  <button class="btn small" type="button" data-q="365">+365</button></div>
+<div class="result hide" id="out">
+  <div class="sub">Data risultante</div>
+  <div class="big" id="main"></div>
+  <div class="sub" id="sub"></div>
+</div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>A cosa serve</h2>
+<p>Molte scadenze sono espresse come «entro 30 giorni», «60 giorni dalla consegna», «preavviso di 15 giorni lavorativi» o «tra 6 mesi». Contare sul calendario è lento e si sbaglia facilmente, soprattutto a cavallo di mesi di lunghezza diversa o di un anno bisestile. Questo strumento fa il conto per te e mostra anche il giorno della settimana, così vedi subito se la scadenza cade di sabato o domenica.</p>
+<h2>Come si contano mesi e anni</h2>
+<p>Aggiungere un mese significa spostarsi allo stesso giorno del mese successivo: dal 15 marzo al 15 aprile. Se il giorno non esiste nel mese di arrivo (per esempio 31 gennaio + 1 mese), il risultato è l'ultimo giorno disponibile, cioè il 28 o 29 febbraio. Lo stesso vale per gli anni: 29 febbraio 2024 + 1 anno = 28 febbraio 2025.</p>
+<h2>Giorni lavorativi</h2>
+<p>Con «giorni lavorativi» si saltano sabato e domenica: 10 giorni lavorativi da un lunedì portano al venerdì della settimana dopo. Le festività nazionali non sono considerate, perché variano da paese a paese.</p>
+<h2>Esempi</h2>
+<ul>
+<li>Fattura con pagamento a 60 giorni emessa il 5 settembre: scade il 4 novembre.</li>
+<li>Recesso con preavviso di 30 giorni comunicato il 20 gennaio: decorre dal 19 febbraio.</li>
+<li>Garanzia di 2 anni da un acquisto del 10 giugno 2026: termina il 10 giugno 2028.</li>
+</ul>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Che giorno sarà tra 30 giorni?</summary><p>Premi la scorciatoia «+30» con la data di oggi come partenza: il risultato mostra la data e il giorno della settimana.</p></details><details><summary>Cosa succede se il giorno non esiste nel mese di arrivo?</summary><p>Il calcolatore usa l'ultimo giorno del mese: 31 gennaio più un mese diventa 28 (o 29) febbraio.</p></details><details><summary>Posso andare indietro nel tempo?</summary><p>Sì: scegli «Sottrai» per sapere, per esempio, quale data era 90 giorni fa.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/calcolo-eta/" data-search="calcolo età anni, mesi e giorni esatti da una data di nascita quanti anni ho età esatta compleanno data di nascita"><div class="ic">🎂</div><b>Calcolo età</b><span>Anni, mesi e giorni esatti da una data di nascita</span></a><a class="card" href="../../it/giorni-tra-due-date/" data-search="giorni tra due date quanti giorni, settimane e giorni lavorativi separano due date quanti giorni mancano differenza tra date conta giorni giorni lavorativi"><div class="ic">📆</div><b>Giorni tra due date</b><span>Quanti giorni, settimane e giorni lavorativi separano due date</span></a><a class="card" href="../../it/timer-online/" data-search="timer e cronometro online conto alla rovescia con suono e cronometro con giri timer 5 minuti timer 10 minuti pomodoro cronometro online conto alla rovescia"><div class="ic">⏱️</div><b>Timer e cronometro online</b><span>Conto alla rovescia con suono e cronometro con giri</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Data risultante", "invalid": "Controlla i valori inseriti.", "start": "Data di partenza", "amount": "Quantità", "unit": "Unità", "dir": "Operazione", "add": "Aggiungi", "sub": "Sottrai", "days": "giorni", "workdays": "giorni lavorativi (lun–ven)", "weeks": "settimane", "months": "mesi", "years": "anni", "today": "Oggi", "quick": "Scorciatoie", "diff": "differenza effettiva", "week_no": "Settimana n.", "day_of_year": "giorno dell'anno"};</script>
+<script>
+(function(){
+
+var start = RT.$('#start'), n = RT.$('#n'), unit = RT.$('#unit'), dir = RT.$('#dir'), out = RT.$('#out');
+start.value = RT.isoToday();
+function weekNumber(d) { // ISO 8601
+  var t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  var day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day);
+  var y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+  return Math.ceil(((t - y0) / 86400000 + 1) / 7);
+}
+function calc() {
+  var s = RT.parseDate(start.value), q = parseInt(n.value, 10), sign = parseInt(dir.value, 10);
+  if (!s || isNaN(q) || q < 0) { out.classList.add('hide'); return; }
+  var r = new Date(s.getFullYear(), s.getMonth(), s.getDate());
+  var u = unit.value;
+  if (u === 'd') r.setDate(r.getDate() + sign * q);
+  else if (u === 'wk') r.setDate(r.getDate() + sign * q * 7);
+  else if (u === 'm' || u === 'y') {
+    var months = sign * (u === 'm' ? q : q * 12);
+    var target = new Date(r.getFullYear(), r.getMonth() + months, 1);
+    var dim = new Date(target.getFullYear(), target.getMonth() + 1, 0).getDate();
+    r = new Date(target.getFullYear(), target.getMonth(), Math.min(s.getDate(), dim));
+  } else { // working days
+    var left = q;
+    while (left > 0) { r.setDate(r.getDate() + sign); var wd = r.getDay(); if (wd !== 0 && wd !== 6) left--; }
+  }
+  RT.$('#main').textContent = RT.weekday(r) + ' ' + RT.date(r);
+  var diff = RT.daysBetween(s, r);
+  var y0 = new Date(r.getFullYear(), 0, 1), doy = RT.daysBetween(y0, r) + 1;
+  RT.$('#sub').textContent = RT.fmt(Math.abs(diff), 0) + ' ' + T.days + ' (' + T.diff + ') · ' + T.week_no + ' ' + weekNumber(r) + ' · ' + doy + '° ' + T.day_of_year;
+  out.classList.remove('hide');
+}
+RT.$$('[data-q]').forEach(function (b) { b.addEventListener('click', function () { n.value = b.getAttribute('data-q'); unit.value = 'd'; dir.value = '1'; calc(); }); });
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

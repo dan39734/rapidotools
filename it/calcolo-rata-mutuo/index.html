@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolo rata mutuo e prestito – Rapido Tools</title>
+<meta name="description" content="Calcola la rata mensile di un mutuo o prestito a tasso fisso, il totale degli interessi e il piano di ammortamento completo (metodo francese). Gratis e senza registrazione.">
+
+<link rel="canonical" href="https://rapidotools.com/it/calcolo-rata-mutuo/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-rata-mutuo/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/loan-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/loan-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Calcolo rata mutuo e prestito – Rapido Tools">
+<meta property="og:description" content="Calcola la rata mensile di un mutuo o prestito a tasso fisso, il totale degli interessi e il piano di ammortamento completo (metodo francese). Gratis e senza registrazione.">
+<meta property="og:url" content="https://rapidotools.com/it/calcolo-rata-mutuo/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calcolo rata mutuo e prestito", "url": "https://rapidotools.com/it/calcolo-rata-mutuo/", "description": "Calcola la rata mensile di un mutuo o prestito a tasso fisso, il totale degli interessi e il piano di ammortamento completo (metodo francese). Gratis e senza registrazione.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Il calcolo vale anche per prestiti personali e finanziamenti auto?", "acceptedAnswer": {"@type": "Answer", "text": "Sì: la formula della rata costante è la stessa per mutui, prestiti personali e finanziamenti. Inserisci importo, TAN e durata."}}, {"@type": "Question", "name": "Perché la rata reale della banca è un po' diversa?", "acceptedAnswer": {"@type": "Answer", "text": "Perché la banca può usare giorni effettivi invece di mesi uguali, arrotondare in modo diverso e aggiungere spese e assicurazioni. La differenza è di solito di pochi euro."}}, {"@type": "Question", "name": "Come uso il piano di ammortamento?", "acceptedAnswer": {"@type": "Answer", "text": "Premi «Mostra piano di ammortamento»: per ogni rata vedi quota interessi, quota capitale e debito residuo, con i totali di ogni anno. Il debito residuo ti dice quanto dovresti pagare per estinguere il mutuo in quel momento."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/loan-calculator/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-money">💶 Soldi</a></nav>
+<h1>Calcolo rata mutuo e prestito</h1>
+<p class="lead">Inserisci importo, tasso annuo e durata: ottieni la rata mensile, quanto pagherai in tutto e quanto di interessi, con il piano di ammortamento mese per mese.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Calcolo rata mutuo e prestito">
+
+<div class="row">
+  <div class="field"><label for="amt">Importo del finanziamento</label><input type="text" inputmode="decimal" id="amt" value="150000"></div>
+  <div class="field"><label for="rate">Tasso annuo (TAN) %</label><input type="text" inputmode="decimal" id="rate" value="3.5"></div>
+</div>
+<div class="row">
+  <div class="field"><label for="yrs">Durata (anni)</label><input type="text" inputmode="numeric" id="yrs" value="25"></div>
+  <div class="field"><label for="mos">Mesi aggiuntivi</label><input type="text" inputmode="numeric" id="mos" value="0"></div>
+</div>
+<div class="result hide" id="out">
+  <div class="sub">Rata mensile</div><div class="big" id="pmt"></div>
+  <div class="stats"><div class="stat"><b id="tot"></b><span>Totale da restituire</span></div><div class="stat"><b id="int"></b><span>Interessi totali</span></div></div>
+  <div class="btns"><button class="btn small" type="button" id="toggle">Mostra piano di ammortamento</button></div>
+  <div class="table-wrap hide" id="sched" style="max-height:420px;overflow:auto;margin-top:10px"><table><thead><tr><th>Rata</th><th>Interessi</th><th>Capitale</th><th>Debito residuo</th></tr></thead><tbody id="rows"></tbody></table></div>
+</div>
+<p class="msg">Il calcolo usa il metodo francese (rata costante) e non include spese, assicurazioni e imposte: il TAEG reale sarà leggermente più alto.</p>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Come si calcola la rata</h2>
+<p>Per un mutuo o un prestito a tasso fisso con rata costante (il cosiddetto ammortamento «alla francese», usato da quasi tutte le banche italiane) la formula è:</p>
+<p><strong>Rata = C × i ÷ (1 − (1 + i)<sup>−n</sup>)</strong>, dove C è il capitale, i il tasso mensile (tasso annuo ÷ 12) e n il numero di rate.</p>
+<p>Esempio: 150.000 € al 3,5% per 25 anni. Tasso mensile 0,2917%, 300 rate: rata di circa <strong>751 €</strong>, per un totale di 225.300 € di cui 75.300 € di interessi.</p>
+<h2>Leggere il piano di ammortamento</h2>
+<p>Ogni rata è composta da una quota di interessi e una quota di capitale. All'inizio gli interessi sono alti perché il debito è grande; col passare degli anni la quota capitale cresce e gli interessi calano. Per questo estinguere in anticipo conviene di più nei primi anni, e per questo dopo 5 anni di un mutuo venticinquennale hai restituito molto meno di un quinto del capitale.</p>
+<h2>TAN, TAEG e costi accessori</h2>
+<p>Il calcolatore usa il <strong>TAN</strong> (tasso annuo nominale). Il <strong>TAEG</strong> include anche spese di istruttoria, perizia, assicurazioni obbligatorie e imposte, ed è il numero giusto per confrontare le offerte di banche diverse. Per un mutuo casa in Italia ci sono anche l'imposta sostitutiva (0,25% per la prima casa) e le spese notarili.</p>
+<h2>Quanto incide la durata</h2>
+<p>Allungare la durata abbassa la rata ma aumenta molto gli interessi totali: gli stessi 150.000 € al 3,5% costano 75.300 € di interessi in 25 anni e circa 92.500 € in 30 anni. Prova durate diverse per trovare l'equilibrio tra rata sostenibile e costo complessivo. Come regola prudente, la rata non dovrebbe superare un terzo del reddito mensile netto.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Il calcolo vale anche per prestiti personali e finanziamenti auto?</summary><p>Sì: la formula della rata costante è la stessa per mutui, prestiti personali e finanziamenti. Inserisci importo, TAN e durata.</p></details><details><summary>Perché la rata reale della banca è un po&#x27; diversa?</summary><p>Perché la banca può usare giorni effettivi invece di mesi uguali, arrotondare in modo diverso e aggiungere spese e assicurazioni. La differenza è di solito di pochi euro.</p></details><details><summary>Come uso il piano di ammortamento?</summary><p>Premi «Mostra piano di ammortamento»: per ogni rata vedi quota interessi, quota capitale e debito residuo, con i totali di ogni anno. Il debito residuo ti dice quanto dovresti pagare per estinguere il mutuo in quel momento.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/calcolo-iva/" data-search="calcolo iva: aggiungi o scorpora l&#x27;iva da imponibile a totale e viceversa, con aliquote 22, 10, 5 e 4% scorporo iva iva al 22 calcolo imponibile prezzo con iva iva inclusa aliquote iva"><div class="ic">🧾</div><b>Calcolo IVA: aggiungi o scorpora l&#x27;IVA</b><span>Da imponibile a totale e viceversa, con aliquote 22, 10, 5 e 4%</span></a><a class="card" href="../../it/dividi-il-conto/" data-search="dividi il conto e calcola la mancia quanto paga ciascuno, con mancia e arrotondamento conto alla romana calcolo mancia dividere spesa quota a testa"><div class="ic">🍽️</div><b>Dividi il conto e calcola la mancia</b><span>Quanto paga ciascuno, con mancia e arrotondamento</span></a><a class="card" href="../../it/calcolo-eta/" data-search="calcolo età anni, mesi e giorni esatti da una data di nascita quanti anni ho età esatta compleanno data di nascita"><div class="ic">🎂</div><b>Calcolo età</b><span>Anni, mesi e giorni esatti da una data di nascita</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "amount": "Importo del finanziamento", "rate": "Tasso annuo (TAN) %", "years": "Durata (anni)", "months": "Mesi aggiuntivi", "payment": "Rata mensile", "total": "Totale da restituire", "interest": "Interessi totali", "schedule": "Mostra piano di ammortamento", "hide": "Nascondi piano", "n": "Rata", "quota_i": "Interessi", "quota_c": "Capitale", "residuo": "Debito residuo", "year": "Anno", "note": "Il calcolo usa il metodo francese (rata costante) e non include spese, assicurazioni e imposte: il TAEG reale sarà leggermente più alto."};</script>
+<script>
+(function(){
+
+var out = RT.$('#out'), sched = RT.$('#sched'), rows = RT.$('#rows'), toggle = RT.$('#toggle');
+var open = false;
+toggle.addEventListener('click', function () { open = !open; sched.classList.toggle('hide', !open); toggle.textContent = open ? T.hide : T.schedule; if (open) calc(); });
+function calc() {
+  var P = RT.num(RT.$('#amt').value), r = RT.num(RT.$('#rate').value) / 100 / 12, n = Math.round((RT.num(RT.$('#yrs').value) || 0) * 12 + (RT.num(RT.$('#mos').value) || 0));
+  if (!(P > 0) || !(n > 0) || !isFinite(r) || r < 0) { out.classList.add('hide'); return; }
+  var pmt = r === 0 ? P / n : P * r / (1 - Math.pow(1 + r, -n));
+  RT.$('#pmt').textContent = RT.money(pmt); RT.$('#tot').textContent = RT.money(pmt * n); RT.$('#int').textContent = RT.money(pmt * n - P);
+  out.classList.remove('hide');
+  if (open) {
+    var bal = P, html = '', yi = 0, yc = 0;
+    for (var i = 1; i <= n; i++) {
+      var ip = bal * r, cp = pmt - ip; bal = Math.max(0, bal - cp); yi += ip; yc += cp;
+      html += '<tr><td>' + i + '</td><td>' + RT.money(ip) + '</td><td>' + RT.money(cp) + '</td><td>' + RT.money(bal) + '</td></tr>';
+      if (i % 12 === 0 || i === n) { html += '<tr style="background:var(--soft);font-weight:600"><td>' + T.year + ' ' + Math.ceil(i / 12) + '</td><td>' + RT.money(yi) + '</td><td>' + RT.money(yc) + '</td><td></td></tr>'; yi = 0; yc = 0; }
+    }
+    rows.innerHTML = html;
+  }
+}
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

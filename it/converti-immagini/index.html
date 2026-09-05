@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Converti immagini: PNG, JPG, WebP – Rapido Tools</title>
+<meta name="description" content="Converti immagini da PNG, WebP, GIF o BMP a JPG, PNG o WebP direttamente nel browser, anche più file insieme. Senza caricamenti su server, gratis e senza registrazione.">
+
+<link rel="canonical" href="https://rapidotools.com/it/converti-immagini/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/converti-immagini/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/image-converter/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/image-converter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Converti immagini: PNG, JPG, WebP – Rapido Tools">
+<meta property="og:description" content="Converti immagini da PNG, WebP, GIF o BMP a JPG, PNG o WebP direttamente nel browser, anche più file insieme. Senza caricamenti su server, gratis e senza registrazione.">
+<meta property="og:url" content="https://rapidotools.com/it/converti-immagini/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Converti immagini: PNG, JPG, WebP", "url": "https://rapidotools.com/it/converti-immagini/", "description": "Converti immagini da PNG, WebP, GIF o BMP a JPG, PNG o WebP direttamente nel browser, anche più file insieme. Senza caricamenti su server, gratis e senza registrazione.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Posso convertire le foto HEIC dell'iPhone?", "acceptedAnswer": {"@type": "Answer", "text": "Non direttamente: i browser non leggono l'HEIC. Sull'iPhone vai in Impostazioni › Fotocamera › Formati e scegli «Più compatibile», oppure condividi la foto: viene inviata come JPG."}}, {"@type": "Question", "name": "La conversione peggiora la qualità?", "acceptedAnswer": {"@type": "Answer", "text": "Da PNG a PNG o WebP senza perdita no. Verso JPG c'è una leggera compressione: con qualità 90 è invisibile. Convertire un JPG in PNG non recupera qualità già persa."}}, {"@type": "Question", "name": "Le immagini restano sul mio dispositivo?", "acceptedAnswer": {"@type": "Answer", "text": "Sì: la conversione avviene nel browser e nessun file viene caricato su un server."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/image-converter/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-images">🖼️ Immagini e QR</a></nav>
+<h1>Converti immagini: PNG, JPG, WebP</h1>
+<p class="lead">Scegli uno o più file, il formato di destinazione e, per JPG e WebP, la qualità: ogni immagine viene convertita sul tuo dispositivo e scaricata con un clic.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Converti immagini: PNG, JPG, WebP">
+
+<label class="dropzone" id="dz"><input type="file" id="file" accept="image/*" multiple><strong>Trascina qui le immagini o clicca per sceglierle</strong><br><small>PNG, JPG, WebP, GIF, BMP – anche più file insieme</small></label>
+<p class="msg bad hide" id="err">Nessuna immagine valida. Nota: i file HEIC/HEIF dell'iPhone vanno prima convertiti in JPG dal telefono.</p>
+<div class="row" style="margin-top:12px">
+  <div class="field"><label for="fmt">Converti in</label><select id="fmt"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></div>
+  <div class="field"><label for="q">Qualità (JPG/WebP): <b id="qv">90</b>%</label><input type="range" id="q" min="30" max="100" value="90"></div>
+  <div class="field"><label for="bg">Sfondo per le trasparenze (JPG)</label><input type="color" id="bg" value="#ffffff" style="height:42px;width:80px"></div>
+</div>
+<div class="btns"><button class="btn primary" type="button" id="go" disabled>Converti</button><button class="btn" type="button" id="all" disabled>Scarica tutte</button></div>
+<div class="table-wrap hide" id="listwrap" style="margin-top:14px"><table><thead><tr><th>File</th><th>Prima</th><th>Dopo</th><th></th></tr></thead><tbody id="list"></tbody></table></div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Quale formato scegliere</h2>
+<ul>
+<li><strong>JPG</strong> – il formato universale per le foto: file leggeri, accettato da qualsiasi sito, modulo e programma. Non supporta la trasparenza: le aree trasparenti vengono riempite con il colore di sfondo che scegli (bianco per impostazione predefinita).</li>
+<li><strong>PNG</strong> – senza perdita di qualità e con trasparenza: ideale per loghi, icone, schermate e grafica con testo. Per le fotografie produce file molto grandi.</li>
+<li><strong>WebP</strong> – il formato moderno per il web: più leggero del JPG e del PNG, supporta la trasparenza. È letto da tutti i browser recenti, ma alcuni programmi e siti più vecchi non lo accettano: in quel caso convertilo in JPG o PNG.</li>
+</ul>
+<h2>Casi tipici</h2>
+<ul>
+<li><strong>WebP → JPG:</strong> hai scaricato un'immagine da un sito e il tuo programma non la apre.</li>
+<li><strong>PNG → JPG:</strong> uno screenshot o una grafica da inviare via email o caricare dove il PNG è troppo pesante o non accettato.</li>
+<li><strong>JPG → PNG:</strong> un modulo o un servizio che accetta solo PNG (la conversione non migliora la qualità, la mantiene).</li>
+<li><strong>GIF/BMP → PNG o JPG:</strong> per aggiornare formati vecchi; delle GIF animate viene conservato solo il primo fotogramma.</li>
+</ul>
+<h2>Conversione in blocco</h2>
+<p>Puoi selezionare più immagini insieme: vengono convertite una dopo l'altra e per ciascuna trovi il pulsante di download nella tabella, con il peso prima e dopo. «Scarica tutte» avvia i download in sequenza (il browser potrebbe chiedere il permesso per i download multipli). La conversione mantiene le dimensioni originali in pixel: se vuoi anche ridurle, usa lo strumento <a href="../ridimensiona-comprimi-immagini/">Ridimensiona e comprimi immagini</a>.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Posso convertire le foto HEIC dell&#x27;iPhone?</summary><p>Non direttamente: i browser non leggono l'HEIC. Sull'iPhone vai in Impostazioni › Fotocamera › Formati e scegli «Più compatibile», oppure condividi la foto: viene inviata come JPG.</p></details><details><summary>La conversione peggiora la qualità?</summary><p>Da PNG a PNG o WebP senza perdita no. Verso JPG c'è una leggera compressione: con qualità 90 è invisibile. Convertire un JPG in PNG non recupera qualità già persa.</p></details><details><summary>Le immagini restano sul mio dispositivo?</summary><p>Sì: la conversione avviene nel browser e nessun file viene caricato su un server.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/ridimensiona-comprimi-immagini/" data-search="ridimensiona e comprimi immagini riduci dimensioni e peso di foto jpg, png e webp senza caricarle online ridurre peso foto comprimere immagine ridimensionare foto foto sotto 1 mb ridurre dimensioni jpg foto per concorso"><div class="ic">🖼️</div><b>Ridimensiona e comprimi immagini</b><span>Riduci dimensioni e peso di foto JPG, PNG e WebP senza caricarle online</span></a><a class="card" href="../../it/generatore-codice-qr/" data-search="generatore di codici qr qr per link, testo, wi-fi, telefono ed email, da scaricare in png o svg crea qr code qr code gratis qr wifi qr code menu codice qr link"><div class="ic">▦</div><b>Generatore di codici QR</b><span>QR per link, testo, Wi-Fi, telefono ed email, da scaricare in PNG o SVG</span></a><a class="card" href="../../it/calcolo-eta/" data-search="calcolo età anni, mesi e giorni esatti da una data di nascita quanti anni ho età esatta compleanno data di nascita"><div class="ic">🎂</div><b>Calcolo età</b><span>Anni, mesi e giorni esatti da una data di nascita</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "drop": "Trascina qui le immagini o clicca per sceglierle", "formats": "PNG, JPG, WebP, GIF, BMP – anche più file insieme", "to": "Converti in", "quality": "Qualità (JPG/WebP)", "bg": "Sfondo per le trasparenze (JPG)", "convert": "Converti", "all": "Scarica tutte", "err": "Nessuna immagine valida. Nota: i file HEIC/HEIF dell'iPhone vanno prima convertiti in JPG dal telefono.", "done": "Convertite", "file": "File", "before": "Prima", "after": "Dopo"};</script>
+<script>
+(function(){
+
+var file = RT.$('#file'), dz = RT.$('#dz'), err = RT.$('#err'), list = RT.$('#list'), go = RT.$('#go'), all = RT.$('#all');
+var files = [], results = [];
+RT.$('#q').addEventListener('input', function () { RT.$('#qv').textContent = RT.$('#q').value; });
+function setFiles(fl) {
+  files = Array.prototype.filter.call(fl, function (f) { return /^image\//.test(f.type); });
+  err.classList.toggle('hide', files.length > 0); go.disabled = !files.length; all.disabled = true; results = [];
+  list.innerHTML = files.map(function (f, i) { return '<tr id="r' + i + '"><td>' + f.name + '</td><td>' + RT.bytes(f.size) + '</td><td>–</td><td></td></tr>'; }).join('');
+  RT.$('#listwrap').classList.toggle('hide', !files.length);
+}
+file.addEventListener('change', function () { setFiles(file.files); });
+['dragenter', 'dragover'].forEach(function (e) { dz.addEventListener(e, function (ev) { ev.preventDefault(); dz.classList.add('over'); }); });
+['dragleave', 'drop'].forEach(function (e) { dz.addEventListener(e, function (ev) { ev.preventDefault(); dz.classList.remove('over'); }); });
+dz.addEventListener('drop', function (ev) { setFiles(ev.dataTransfer.files); });
+function convertOne(f, type, q, bg) {
+  return new Promise(function (resolve, reject) {
+    var img = new Image(), url = URL.createObjectURL(f);
+    img.onload = function () {
+      var c = document.createElement('canvas'); c.width = img.naturalWidth; c.height = img.naturalHeight;
+      var ctx = c.getContext('2d');
+      if (type === 'image/jpeg') { ctx.fillStyle = bg; ctx.fillRect(0, 0, c.width, c.height); }
+      ctx.drawImage(img, 0, 0); URL.revokeObjectURL(url);
+      c.toBlob(function (b) { b ? resolve(b) : reject(); }, type, q);
+    };
+    img.onerror = reject; img.src = url;
+  });
+}
+go.addEventListener('click', function () {
+  var type = RT.$('#fmt').value, q = +RT.$('#q').value / 100, bg = RT.$('#bg').value, ext = type === 'image/png' ? 'png' : type === 'image/webp' ? 'webp' : 'jpg';
+  go.disabled = true; results = [];
+  var chain = Promise.resolve();
+  files.forEach(function (f, i) {
+    chain = chain.then(function () {
+      return convertOne(f, type, q, bg).then(function (blob) {
+        var name = f.name.replace(/\.[^.]+$/, '') + '.' + ext, url = URL.createObjectURL(blob);
+        results.push({ url: url, name: name });
+        var tr = RT.$('#r' + i); tr.children[2].textContent = RT.bytes(blob.size);
+        tr.children[3].innerHTML = '<a class="btn small primary" download="' + name + '" href="' + url + '">⬇ ' + T.download + '</a>';
+      }, function () { var tr = RT.$('#r' + i); tr.children[2].textContent = '✗'; });
+    });
+  });
+  chain.then(function () { go.disabled = false; all.disabled = results.length < 2; });
+});
+all.addEventListener('click', function () { results.forEach(function (r, i) { setTimeout(function () { RT.download(r.url, r.name); }, i * 300); }); });
+
+})();
+</script>
+</body>
+</html>

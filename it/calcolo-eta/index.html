@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolo età – Rapido Tools</title>
+<meta name="description" content="Calcola l&#x27;età esatta in anni, mesi e giorni da una data di nascita, i giorni totali vissuti e quanto manca al prossimo compleanno. Gratis, senza registrazione.">
+
+<link rel="canonical" href="https://rapidotools.com/it/calcolo-eta/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-eta/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/age-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/age-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Calcolo età – Rapido Tools">
+<meta property="og:description" content="Calcola l&#x27;età esatta in anni, mesi e giorni da una data di nascita, i giorni totali vissuti e quanto manca al prossimo compleanno. Gratis, senza registrazione.">
+<meta property="og:url" content="https://rapidotools.com/it/calcolo-eta/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calcolo età", "url": "https://rapidotools.com/it/calcolo-eta/", "description": "Calcola l'età esatta in anni, mesi e giorni da una data di nascita, i giorni totali vissuti e quanto manca al prossimo compleanno. Gratis, senza registrazione.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Come si calcola l'età esatta?", "acceptedAnswer": {"@type": "Answer", "text": "Si contano gli anni compiuti, poi i mesi interi trascorsi dall'ultimo compleanno e infine i giorni rimanenti. Il calcolatore fa tutto in automatico, tenendo conto della lunghezza dei mesi e degli anni bisestili."}}, {"@type": "Question", "name": "Quanti giorni ha vissuto una persona di 18 anni?", "acceptedAnswer": {"@type": "Answer", "text": "Circa 6.574 giorni (18 anni × 365,25 giorni). Inserisci la data di nascita per avere il numero esatto."}}, {"@type": "Question", "name": "Posso calcolare l'età a una data futura?", "acceptedAnswer": {"@type": "Answer", "text": "Sì: cambia il campo «Età al giorno» con la data che ti interessa, per esempio quella di un concorso o di una scadenza."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/age-calculator/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-date">📅 Date e tempo</a></nav>
+<h1>Calcolo età</h1>
+<p class="lead">Inserisci la data di nascita e scopri subito l&#x27;età esatta in anni, mesi e giorni, oltre ai giorni totali e al conto alla rovescia per il prossimo compleanno.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Calcolo età">
+
+<div class="row">
+  <div class="field"><label for="dob">Data di nascita</label><input type="date" id="dob" max="2100-12-31"></div>
+  <div class="field"><label for="at">Età al giorno</label><input type="date" id="at"></div>
+</div>
+<p class="msg bad hide" id="err">La data di nascita deve essere precedente alla data scelta.</p>
+<div class="result hide" id="out">
+  <div class="big" id="main"></div>
+  <div class="sub" id="born"></div>
+  <div class="stats">
+    <div class="stat"><b id="tdays"></b><span>Giorni totali</span></div>
+    <div class="stat"><b id="tweeks"></b><span>Settimane totali</span></div>
+    <div class="stat"><b id="tmonths"></b><span>Mesi totali</span></div>
+    <div class="stat"><b id="nbd"></b><span>Prossimo compleanno</span></div>
+  </div>
+</div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Come funziona il calcolo dell'età</h2>
+<p>L'età «anagrafica» si conta in anni compiuti: si diventa più vecchi di un anno solo al compleanno, non prima. Questo calcolatore fa la stessa cosa, ma aggiunge anche i mesi e i giorni trascorsi dall'ultimo compleanno, così sai esattamente quanto tempo è passato dalla nascita. Per esempio, una persona nata il 15 marzo 1990 ha, il 5 settembre 2026, 36 anni, 5 mesi e 21 giorni.</p>
+<p>Il campo «Età al giorno» è impostato su oggi, ma puoi cambiarlo per sapere quanti anni avevi (o avrai) in una data qualsiasi: utile per documenti, concorsi, iscrizioni e limiti di età.</p>
+<h2>Cosa significano i numeri</h2>
+<ul>
+<li><strong>Anni, mesi, giorni:</strong> gli anni compiuti, i mesi interi passati dall'ultimo compleanno e i giorni rimanenti.</li>
+<li><strong>Giorni totali:</strong> tutti i giorni vissuti, contando gli anni bisestili. Una persona di 30 anni ha vissuto circa 10.957 giorni.</li>
+<li><strong>Settimane e mesi totali:</strong> gli stessi giorni espressi in settimane intere e in mesi compiuti.</li>
+<li><strong>Prossimo compleanno:</strong> quanti giorni mancano e quanti anni compirai.</li>
+</ul>
+<h2>Anni bisestili e 29 febbraio</h2>
+<p>Il calcolo tiene conto degli anni bisestili: i giorni totali sono esatti. Chi è nato il 29 febbraio, negli anni non bisestili, festeggia il compleanno il 28 febbraio: il calcolatore segue la stessa regola per il conto alla rovescia.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Come si calcola l&#x27;età esatta?</summary><p>Si contano gli anni compiuti, poi i mesi interi trascorsi dall'ultimo compleanno e infine i giorni rimanenti. Il calcolatore fa tutto in automatico, tenendo conto della lunghezza dei mesi e degli anni bisestili.</p></details><details><summary>Quanti giorni ha vissuto una persona di 18 anni?</summary><p>Circa 6.574 giorni (18 anni × 365,25 giorni). Inserisci la data di nascita per avere il numero esatto.</p></details><details><summary>Posso calcolare l&#x27;età a una data futura?</summary><p>Sì: cambia il campo «Età al giorno» con la data che ti interessa, per esempio quella di un concorso o di una scadenza.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/giorni-tra-due-date/" data-search="giorni tra due date quanti giorni, settimane e giorni lavorativi separano due date quanti giorni mancano differenza tra date conta giorni giorni lavorativi"><div class="ic">📆</div><b>Giorni tra due date</b><span>Quanti giorni, settimane e giorni lavorativi separano due date</span></a><a class="card" href="../../it/aggiungi-giorni-a-una-data/" data-search="aggiungi o sottrai giorni a una data che giorno sarà tra 30, 60 o 90 giorni? anche settimane, mesi e giorni lavorativi tra 30 giorni tra 60 giorni tra 90 giorni calcolo scadenza data futura"><div class="ic">➕</div><b>Aggiungi o sottrai giorni a una data</b><span>Che giorno sarà tra 30, 60 o 90 giorni? Anche settimane, mesi e giorni lavorativi</span></a><a class="card" href="../../it/timer-online/" data-search="timer e cronometro online conto alla rovescia con suono e cronometro con giri timer 5 minuti timer 10 minuti pomodoro cronometro online conto alla rovescia"><div class="ic">⏱️</div><b>Timer e cronometro online</b><span>Conto alla rovescia con suono e cronometro con giri</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "dob": "Data di nascita", "at": "Età al giorno", "today": "Oggi", "years": "anni", "months": "mesi", "days": "giorni", "weeks": "settimane", "hours": "ore", "total_days": "Giorni totali", "total_weeks": "Settimane totali", "total_months": "Mesi totali", "next_bd": "Prossimo compleanno", "in_days": "tra {n} giorni", "today_bd": "È oggi: auguri! 🎉", "born_on": "Nato/a di", "turning": "compirai {n} anni", "err": "La data di nascita deve essere precedente alla data scelta.", "y1": "anno", "m1": "mese", "d1": "giorno"};</script>
+<script>
+(function(){
+
+var dob = RT.$('#dob'), at = RT.$('#at'), out = RT.$('#out'), err = RT.$('#err');
+at.value = RT.isoToday();
+function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+function calc() {
+  var b = RT.parseDate(dob.value), a = RT.parseDate(at.value);
+  if (!b || !a) { out.classList.add('hide'); err.classList.add('hide'); return; }
+  if (a < b) { out.classList.add('hide'); err.classList.remove('hide'); return; }
+  err.classList.add('hide');
+  var y = a.getFullYear() - b.getFullYear(), m = a.getMonth() - b.getMonth(), d = a.getDate() - b.getDate();
+  if (d < 0) { m--; d += new Date(a.getFullYear(), a.getMonth(), 0).getDate(); }
+  if (m < 0) { y--; m += 12; }
+  var total = RT.daysBetween(b, a);
+  RT.$('#main').textContent = plural(y, T.y1, T.years) + ', ' + plural(m, T.m1, T.months) + ', ' + plural(d, T.d1, T.days);
+  RT.$('#born').textContent = T.born_on + ' ' + RT.weekday(b) + ' (' + RT.date(b) + ')';
+  RT.$('#tdays').textContent = RT.fmt(total, 0);
+  RT.$('#tweeks').textContent = RT.fmt(Math.floor(total / 7), 0);
+  RT.$('#tmonths').textContent = RT.fmt(y * 12 + m, 0);
+  var nb = new Date(a.getFullYear(), b.getMonth(), b.getDate());
+  if (nb.getMonth() !== b.getMonth()) nb = new Date(a.getFullYear(), b.getMonth() + 1, 0);
+  if (nb <= a) { nb = new Date(a.getFullYear() + 1, b.getMonth(), b.getDate()); if (nb.getMonth() !== b.getMonth()) nb = new Date(a.getFullYear() + 1, b.getMonth() + 1, 0); }
+  var left = RT.daysBetween(a, nb);
+  var same = a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+  RT.$('#nbd').textContent = same ? T.today_bd : T.in_days.replace('{n}', left) + ' · ' + T.turning.replace('{n}', nb.getFullYear() - b.getFullYear());
+  out.classList.remove('hide');
+}
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

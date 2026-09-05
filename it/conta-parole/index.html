@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conta parole e caratteri – Rapido Tools</title>
+<meta name="description" content="Conta parole, caratteri (con e senza spazi), frasi e paragrafi di un testo in tempo reale, con tempo di lettura e di lettura ad alta voce. Gratis e senza registrazione.">
+
+<link rel="canonical" href="https://rapidotools.com/it/conta-parole/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/conta-parole/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/word-counter/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/word-counter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Conta parole e caratteri – Rapido Tools">
+<meta property="og:description" content="Conta parole, caratteri (con e senza spazi), frasi e paragrafi di un testo in tempo reale, con tempo di lettura e di lettura ad alta voce. Gratis e senza registrazione.">
+<meta property="og:url" content="https://rapidotools.com/it/conta-parole/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Conta parole e caratteri", "url": "https://rapidotools.com/it/conta-parole/", "description": "Conta parole, caratteri (con e senza spazi), frasi e paragrafi di un testo in tempo reale, con tempo di lettura e di lettura ad alta voce. Gratis e senza registrazione.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Cosa sono le battute?", "acceptedAnswer": {"@type": "Answer", "text": "Le battute sono i caratteri di un testo, spazi inclusi. Una cartella editoriale standard è di 1.800 battute (30 righe da 60 battute)."}}, {"@type": "Question", "name": "Come viene calcolato il tempo di lettura?", "acceptedAnswer": {"@type": "Answer", "text": "Dividendo il numero di parole per 200, la velocità media di un lettore adulto. Per la lettura ad alta voce si usano 130 parole al minuto."}}, {"@type": "Question", "name": "Il conteggio corrisponde a quello di Word?", "acceptedAnswer": {"@type": "Answer", "text": "Nella grande maggioranza dei casi sì: entrambi contano come parola ogni gruppo di caratteri separato da spazi. Piccole differenze possono nascere da simboli o numeri isolati."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/word-counter/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-text">✍️ Testo</a></nav>
+<h1>Conta parole e caratteri</h1>
+<p class="lead">Incolla o scrivi il testo: i conteggi si aggiornano mentre digiti. Perfetto per temi, tesi, post sui social, descrizioni e limiti di battute.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Conta parole e caratteri">
+
+<div class="field"><textarea id="txt" placeholder="Scrivi o incolla qui il testo…" rows="8" autofocus></textarea></div>
+<div class="btns"><button class="btn small" type="button" data-copy="#txt" data-done="Copiato!">Copia</button><button class="btn small" type="button" id="clear">Svuota</button></div>
+<div class="stats">
+  <div class="stat"><b id="w">0</b><span>Parole</span></div>
+  <div class="stat"><b id="c">0</b><span>Caratteri</span></div>
+  <div class="stat"><b id="cn">0</b><span>Caratteri senza spazi</span></div>
+  <div class="stat"><b id="s">0</b><span>Frasi</span></div>
+  <div class="stat"><b id="p">0</b><span>Paragrafi</span></div>
+  <div class="stat"><b id="avg">0</b><span>Lunghezza media parola</span></div>
+  <div class="stat"><b id="rt">0 s</b><span>Tempo di lettura</span></div>
+  <div class="stat"><b id="st">0 s</b><span>Lettura ad alta voce</span></div>
+</div>
+<div class="result" style="margin-top:14px">
+  <div class="lbl">Limiti comuni</div>
+  <div class="table-wrap"><table id="limits"><tbody>
+    <tr><td>Post X/Twitter (280)</td><td data-lim="280"></td></tr>
+    <tr><td>SMS (160)</td><td data-lim="160"></td></tr>
+    <tr><td>Meta description (155)</td><td data-lim="155"></td></tr>
+    <tr><td>Didascalia Instagram (2.200)</td><td data-lim="2200"></td></tr>
+  </tbody></table></div>
+  <div class="lbl" style="margin-top:12px">Parole più frequenti</div>
+  <p id="top" class="msg">–</p>
+</div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Cosa conta questo strumento</h2>
+<ul>
+<li><strong>Parole:</strong> le sequenze di caratteri separate da spazi o a capo. «L'acqua» conta come una parola, come nella maggior parte dei programmi di scrittura.</li>
+<li><strong>Caratteri:</strong> tutti i segni, spazi compresi. È il numero che conta per i limiti dei social e dei moduli online. Nell'editoria si parla di «battute»: sono i caratteri spazi inclusi.</li>
+<li><strong>Caratteri senza spazi:</strong> utile per tariffe di traduzione e per alcune norme redazionali.</li>
+<li><strong>Frasi e paragrafi:</strong> le frasi terminano con punto, punto esclamativo o interrogativo; i paragrafi sono separati da una riga vuota.</li>
+<li><strong>Tempo di lettura:</strong> stimato a 200 parole al minuto (lettura silenziosa) e 130 parole al minuto (ad alta voce, come in un discorso o un video).</li>
+</ul>
+<h2>Limiti da tenere a mente</h2>
+<p>Un post su X/Twitter può avere al massimo 280 caratteri, un SMS classico 160, una didascalia di Instagram 2.200. La «meta description» di una pagina web viene di solito troncata da Google intorno ai 155 caratteri. Una cartella editoriale corrisponde a 1.800 battute; un tema di maturità tipico è tra le 600 e le 1.000 parole.</p>
+<h2>Parole più frequenti</h2>
+<p>La lista delle parole più usate (escluse quelle grammaticali come articoli e preposizioni) aiuta a scovare ripetizioni e a controllare che le parole chiave di un testo per il web compaiano davvero.</p>
+<p>Il testo non lascia mai il tuo dispositivo: il conteggio avviene nel browser.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Cosa sono le battute?</summary><p>Le battute sono i caratteri di un testo, spazi inclusi. Una cartella editoriale standard è di 1.800 battute (30 righe da 60 battute).</p></details><details><summary>Come viene calcolato il tempo di lettura?</summary><p>Dividendo il numero di parole per 200, la velocità media di un lettore adulto. Per la lettura ad alta voce si usano 130 parole al minuto.</p></details><details><summary>Il conteggio corrisponde a quello di Word?</summary><p>Nella grande maggioranza dei casi sì: entrambi contano come parola ogni gruppo di caratteri separato da spazi. Piccole differenze possono nascere da simboli o numeri isolati.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/maiuscolo-minuscolo/" data-search="convertitore maiuscolo / minuscolo trasforma un testo in maiuscolo, minuscolo, iniziali maiuscole o frase tutto maiuscolo tutto minuscolo iniziali maiuscole cambia caso trasforma testo"><div class="ic">Aa</div><b>Convertitore maiuscolo / minuscolo</b><span>Trasforma un testo in MAIUSCOLO, minuscolo, Iniziali Maiuscole o Frase</span></a><a class="card" href="../../it/generatore-password/" data-search="generatore di password sicure password casuali o frasi facili da ricordare, con misura della robustezza password sicura password casuale genera password passphrase"><div class="ic">🔑</div><b>Generatore di password sicure</b><span>Password casuali o frasi facili da ricordare, con misura della robustezza</span></a><a class="card" href="../../it/rimuovi-righe-duplicate/" data-search="rimuovi righe duplicate e ordina elenchi pulisci un elenco: via doppioni e righe vuote, ordine alfabetico ordina alfabeticamente elimina duplicati pulisci elenco righe vuote"><div class="ic">🧹</div><b>Rimuovi righe duplicate e ordina elenchi</b><span>Pulisci un elenco: via doppioni e righe vuote, ordine alfabetico</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "ph": "Scrivi o incolla qui il testo…", "words": "Parole", "chars": "Caratteri", "nospace": "Caratteri senza spazi", "sentences": "Frasi", "paragraphs": "Paragrafi", "read": "Tempo di lettura", "speak": "Lettura ad alta voce", "min": "min", "sec": "s", "clear": "Svuota", "top": "Parole più frequenti", "avg": "Lunghezza media parola", "limits": "Limiti comuni", "limit_tweet": "Post X/Twitter (280)", "limit_ig": "Didascalia Instagram (2.200)", "limit_meta": "Meta description (155)", "limit_sms": "SMS (160)", "left": "rimanenti", "over": "oltre il limite"};</script>
+<script>
+(function(){
+
+var txt = RT.$('#txt');
+var stop = RT.lang === 'it' ? 'di,a,da,in,con,su,per,tra,fra,il,lo,la,i,gli,le,un,uno,una,e,o,ma,che,non,si,del,della,dei,delle,al,alla,ai,alle,dal,dalla,nel,nella,è,sono,ho,hai,ha,come,più,anche,se,ci,mi,ti,questo,questa' : 'the,a,an,and,or,but,of,to,in,on,at,for,with,by,from,is,are,was,were,be,it,this,that,as,i,you,he,she,we,they,not,have,has,do,does,my,your,its';
+stop = stop.split(',');
+function fmtTime(sec) { if (sec < 60) return Math.round(sec) + ' ' + T.sec; var m = Math.floor(sec / 60), s = Math.round(sec % 60); return m + ' ' + T.min + (s ? ' ' + s + ' ' + T.sec : ''); }
+function calc() {
+  var v = txt.value;
+  var words = v.trim() ? v.trim().split(/\s+/) : [];
+  var chars = v.length, nospace = v.replace(/\s/g, '').length;
+  var sentences = v.trim() ? (v.match(/[^.!?…]+[.!?…]+(\s|$)|[^.!?…]+$/g) || []).length : 0;
+  var paragraphs = v.trim() ? v.split(/\n\s*\n/).filter(function (p) { return p.trim(); }).length : 0;
+  var letters = words.join('').replace(/[^\p{L}\p{N}]/gu, '').length;
+  RT.$('#w').textContent = RT.fmt(words.length, 0); RT.$('#c').textContent = RT.fmt(chars, 0); RT.$('#cn').textContent = RT.fmt(nospace, 0);
+  RT.$('#s').textContent = RT.fmt(sentences, 0); RT.$('#p').textContent = RT.fmt(paragraphs, 0);
+  RT.$('#avg').textContent = words.length ? RT.fmt(letters / words.length, 1) : '0';
+  RT.$('#rt').textContent = fmtTime(words.length / 200 * 60); RT.$('#st').textContent = fmtTime(words.length / 130 * 60);
+  RT.$$('#limits [data-lim]').forEach(function (td) { var lim = +td.getAttribute('data-lim'), left = lim - chars; td.innerHTML = left >= 0 ? RT.fmt(left, 0) + ' ' + T.left : '<span style="color:var(--bad)">' + RT.fmt(-left, 0) + ' ' + T.over + '</span>'; });
+  var freq = {};
+  words.forEach(function (w) { w = w.toLowerCase().replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, ''); if (w.length > 2 && stop.indexOf(w) < 0) freq[w] = (freq[w] || 0) + 1; });
+  var top = Object.keys(freq).sort(function (a, b) { return freq[b] - freq[a]; }).slice(0, 8);
+  RT.$('#top').textContent = top.length ? top.map(function (w) { return w + ' (' + freq[w] + ')'; }).join(' · ') : '–';
+}
+RT.$('#clear').addEventListener('click', function () { txt.value = ''; calc(); txt.focus(); });
+txt.addEventListener('input', calc); calc();
+
+})();
+</script>
+</body>
+</html>

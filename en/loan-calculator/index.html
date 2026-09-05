@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loan and mortgage payment calculator – Rapido Tools</title>
+<meta name="description" content="Calculate the monthly payment on a fixed-rate mortgage or loan, the total interest and the full amortisation schedule. Free, no sign-up.">
+
+<link rel="canonical" href="https://rapidotools.com/en/loan-calculator/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-rata-mutuo/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/loan-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/loan-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Loan and mortgage payment calculator – Rapido Tools">
+<meta property="og:description" content="Calculate the monthly payment on a fixed-rate mortgage or loan, the total interest and the full amortisation schedule. Free, no sign-up.">
+<meta property="og:url" content="https://rapidotools.com/en/loan-calculator/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Loan and mortgage payment calculator", "url": "https://rapidotools.com/en/loan-calculator/", "description": "Calculate the monthly payment on a fixed-rate mortgage or loan, the total interest and the full amortisation schedule. Free, no sign-up.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does this work for personal and car loans too?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: the constant-payment formula is the same for mortgages, personal loans and financing. Enter the amount, the interest rate and the term."}}, {"@type": "Question", "name": "Why is my lender's payment slightly different?", "acceptedAnswer": {"@type": "Answer", "text": "Because lenders may count actual days instead of equal months, round differently and add fees and insurance. The difference is usually a few units of currency."}}, {"@type": "Question", "name": "How do I use the amortisation schedule?", "acceptedAnswer": {"@type": "Answer", "text": "Press \"Show amortisation schedule\": for every payment you see the interest part, the principal part and the remaining balance, with yearly totals. The balance tells you how much you would need to pay to settle the loan at that point."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/calcolo-rata-mutuo/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-money">💵 Money</a></nav>
+<h1>Loan and mortgage payment calculator</h1>
+<p class="lead">Enter the amount, annual rate and term to get the monthly payment, the total you will repay, the total interest, and a month-by-month amortisation schedule.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Loan and mortgage payment calculator">
+
+<div class="row">
+  <div class="field"><label for="amt">Loan amount</label><input type="text" inputmode="decimal" id="amt" value="150000"></div>
+  <div class="field"><label for="rate">Annual interest rate %</label><input type="text" inputmode="decimal" id="rate" value="3.5"></div>
+</div>
+<div class="row">
+  <div class="field"><label for="yrs">Term (years)</label><input type="text" inputmode="numeric" id="yrs" value="25"></div>
+  <div class="field"><label for="mos">Extra months</label><input type="text" inputmode="numeric" id="mos" value="0"></div>
+</div>
+<div class="result hide" id="out">
+  <div class="sub">Monthly payment</div><div class="big" id="pmt"></div>
+  <div class="stats"><div class="stat"><b id="tot"></b><span>Total repaid</span></div><div class="stat"><b id="int"></b><span>Total interest</span></div></div>
+  <div class="btns"><button class="btn small" type="button" id="toggle">Show amortisation schedule</button></div>
+  <div class="table-wrap hide" id="sched" style="max-height:420px;overflow:auto;margin-top:10px"><table><thead><tr><th>Payment</th><th>Interest</th><th>Principal</th><th>Balance</th></tr></thead><tbody id="rows"></tbody></table></div>
+</div>
+<p class="msg">The calculation uses a standard fixed-payment (annuity) formula and excludes fees, insurance and taxes: the real APR will be slightly higher.</p>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>How the payment is calculated</h2>
+<p>For a fixed-rate mortgage or loan with a constant payment (a standard amortising loan) the formula is:</p>
+<p><strong>Payment = P × i ÷ (1 − (1 + i)<sup>−n</sup>)</strong>, where P is the principal, i the monthly rate (annual rate ÷ 12) and n the number of payments.</p>
+<p>Example: 150,000 at 3.5% over 25 years. Monthly rate 0.2917%, 300 payments: a payment of about <strong>751</strong>, for a total of 225,300 of which 75,300 is interest.</p>
+<h2>Reading the amortisation schedule</h2>
+<p>Every payment is made up of an interest part and a principal part. Early on, interest is high because the balance is large; over the years the principal part grows and the interest shrinks. That is why paying off early saves more in the first years, and why after 5 years of a 25-year mortgage you have repaid far less than a fifth of the principal.</p>
+<h2>Interest rate vs APR</h2>
+<p>The calculator uses the nominal annual interest rate. The <strong>APR</strong> also includes arrangement fees, valuation, compulsory insurance and taxes, and is the right number for comparing offers from different lenders. Depending on the country there may be additional closing costs, notary or stamp duty.</p>
+<h2>How much the term matters</h2>
+<p>A longer term lowers the payment but greatly increases the total interest: the same 150,000 at 3.5% costs 75,300 in interest over 25 years and about 92,500 over 30 years. Try different terms to find the balance between an affordable payment and the overall cost. As a prudent rule, the payment should not exceed a third of your net monthly income.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>Does this work for personal and car loans too?</summary><p>Yes: the constant-payment formula is the same for mortgages, personal loans and financing. Enter the amount, the interest rate and the term.</p></details><details><summary>Why is my lender&#x27;s payment slightly different?</summary><p>Because lenders may count actual days instead of equal months, round differently and add fees and insurance. The difference is usually a few units of currency.</p></details><details><summary>How do I use the amortisation schedule?</summary><p>Press "Show amortisation schedule": for every payment you see the interest part, the principal part and the remaining balance, with yearly totals. The balance tells you how much you would need to pay to settle the loan at that point.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/vat-calculator/" data-search="vat calculator: add or remove vat from net to gross and back, with any rate vat inclusive vat exclusive reverse vat sales tax calculator net to gross"><div class="ic">🧾</div><b>VAT calculator: add or remove VAT</b><span>From net to gross and back, with any rate</span></a><a class="card" href="../../en/split-bill-calculator/" data-search="split the bill and calculate the tip how much each person pays, with tip and rounding tip calculator bill splitter per person gratuity"><div class="ic">🍽️</div><b>Split the bill and calculate the tip</b><span>How much each person pays, with tip and rounding</span></a><a class="card" href="../../en/age-calculator/" data-search="age calculator exact years, months and days from a date of birth how old am i birthday date of birth"><div class="ic">🎂</div><b>Age calculator</b><span>Exact years, months and days from a date of birth</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "amount": "Loan amount", "rate": "Annual interest rate %", "years": "Term (years)", "months": "Extra months", "payment": "Monthly payment", "total": "Total repaid", "interest": "Total interest", "schedule": "Show amortisation schedule", "hide": "Hide schedule", "n": "Payment", "quota_i": "Interest", "quota_c": "Principal", "residuo": "Balance", "year": "Year", "note": "The calculation uses a standard fixed-payment (annuity) formula and excludes fees, insurance and taxes: the real APR will be slightly higher."};</script>
+<script>
+(function(){
+
+var out = RT.$('#out'), sched = RT.$('#sched'), rows = RT.$('#rows'), toggle = RT.$('#toggle');
+var open = false;
+toggle.addEventListener('click', function () { open = !open; sched.classList.toggle('hide', !open); toggle.textContent = open ? T.hide : T.schedule; if (open) calc(); });
+function calc() {
+  var P = RT.num(RT.$('#amt').value), r = RT.num(RT.$('#rate').value) / 100 / 12, n = Math.round((RT.num(RT.$('#yrs').value) || 0) * 12 + (RT.num(RT.$('#mos').value) || 0));
+  if (!(P > 0) || !(n > 0) || !isFinite(r) || r < 0) { out.classList.add('hide'); return; }
+  var pmt = r === 0 ? P / n : P * r / (1 - Math.pow(1 + r, -n));
+  RT.$('#pmt').textContent = RT.money(pmt); RT.$('#tot').textContent = RT.money(pmt * n); RT.$('#int').textContent = RT.money(pmt * n - P);
+  out.classList.remove('hide');
+  if (open) {
+    var bal = P, html = '', yi = 0, yc = 0;
+    for (var i = 1; i <= n; i++) {
+      var ip = bal * r, cp = pmt - ip; bal = Math.max(0, bal - cp); yi += ip; yc += cp;
+      html += '<tr><td>' + i + '</td><td>' + RT.money(ip) + '</td><td>' + RT.money(cp) + '</td><td>' + RT.money(bal) + '</td></tr>';
+      if (i % 12 === 0 || i === n) { html += '<tr style="background:var(--soft);font-weight:600"><td>' + T.year + ' ' + Math.ceil(i / 12) + '</td><td>' + RT.money(yi) + '</td><td>' + RT.money(yc) + '</td><td></td></tr>'; yi = 0; yc = 0; }
+    }
+    rows.innerHTML = html;
+  }
+}
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

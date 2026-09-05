@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rimuovi righe duplicate e ordina elenchi – Rapido Tools</title>
+<meta name="description" content="Elimina le righe duplicate e vuote da un elenco, ordina in ordine alfabetico o numerico, togli gli spazi in eccesso. Tutto nel browser, gratis e senza registrazione.">
+
+<link rel="canonical" href="https://rapidotools.com/it/rimuovi-righe-duplicate/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/rimuovi-righe-duplicate/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/remove-duplicate-lines/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/remove-duplicate-lines/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Rimuovi righe duplicate e ordina elenchi – Rapido Tools">
+<meta property="og:description" content="Elimina le righe duplicate e vuote da un elenco, ordina in ordine alfabetico o numerico, togli gli spazi in eccesso. Tutto nel browser, gratis e senza registrazione.">
+<meta property="og:url" content="https://rapidotools.com/it/rimuovi-righe-duplicate/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Rimuovi righe duplicate e ordina elenchi", "url": "https://rapidotools.com/it/rimuovi-righe-duplicate/", "description": "Elimina le righe duplicate e vuote da un elenco, ordina in ordine alfabetico o numerico, togli gli spazi in eccesso. Tutto nel browser, gratis e senza registrazione.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Le righe duplicate vengono contate?", "acceptedAnswer": {"@type": "Answer", "text": "Sì: sotto il risultato vedi quante righe c'erano in ingresso, quante restano e quante sono state rimosse."}}, {"@type": "Question", "name": "L'ordine alfabetico gestisce gli accenti?", "acceptedAnswer": {"@type": "Answer", "text": "Sì: usa le regole della lingua, quindi «è» e «e» vengono ordinate insieme e i numeri dentro le parole seguono l'ordine naturale."}}, {"@type": "Question", "name": "Posso ordinare numeri con la virgola?", "acceptedAnswer": {"@type": "Answer", "text": "Sì: scegli «Numerico crescente». Vengono accettati sia 1,5 sia 1.5."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/remove-duplicate-lines/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-text">✍️ Testo</a></nav>
+<h1>Rimuovi righe duplicate e ordina elenchi</h1>
+<p class="lead">Incolla un elenco (email, nomi, codici, indirizzi) e ottieni una versione pulita: senza doppioni, senza righe vuote e, se vuoi, in ordine alfabetico.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Rimuovi righe duplicate e ordina elenchi">
+
+<div class="field"><textarea id="txt" placeholder="Una voce per riga…" rows="8" autofocus></textarea></div>
+<div class="row">
+  <div>
+    <label class="check"><input type="checkbox" id="dedupe" checked> Rimuovi righe duplicate</label>
+    <label class="check"><input type="checkbox" id="nocase"> Ignora maiuscole/minuscole nel confronto</label>
+    <label class="check"><input type="checkbox" id="empty" checked> Rimuovi righe vuote</label>
+    <label class="check"><input type="checkbox" id="trim" checked> Togli spazi a inizio e fine riga</label>
+    <label class="check"><input type="checkbox" id="prefix"> Aggiungi numerazione</label>
+  </div>
+  <div class="field"><label for="sort">Ordinamento</label><select id="sort">
+    <option value="none">Nessuno (ordine originale)</option><option value="az">A → Z</option><option value="za">Z → A</option><option value="num">Numerico crescente</option><option value="len">Per lunghezza</option><option value="rev">Inverti ordine</option><option value="shuffle">Mescola</option></select></div>
+</div>
+<div class="btns"><button class="btn small" type="button" id="clear">Svuota</button></div>
+<div class="field out" style="margin-top:14px"><label for="res">Risultato</label><textarea id="res" rows="8" readonly></textarea><button class="btn small copy" type="button" data-copy="#res" data-done="Copiato!" style="top:32px">Copia</button></div>
+<p class="msg" id="info"></p>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Cosa fa questo strumento</h2>
+<p>Prende un testo con una voce per riga e lo ripulisce secondo le opzioni scelte:</p>
+<ul>
+<li><strong>Rimuovi righe duplicate:</strong> conserva solo la prima occorrenza di ogni riga. Con «Ignora maiuscole/minuscole», <em>Mario</em> e <em>mario</em> vengono considerati la stessa voce.</li>
+<li><strong>Rimuovi righe vuote</strong> e <strong>togli spazi</strong> a inizio e fine riga: sistemano gli elenchi copiati da fogli di calcolo, email o PDF.</li>
+<li><strong>Ordinamento:</strong> alfabetico (A→Z o Z→A, con accenti e numeri gestiti in modo naturale: «file2» viene prima di «file10»), numerico, per lunghezza, invertito o casuale.</li>
+<li><strong>Numerazione:</strong> aggiunge «1. », «2. »… davanti a ogni riga.</li>
+</ul>
+<h2>Esempi d'uso</h2>
+<ul>
+<li>Unire due liste di email per una newsletter senza inviare doppioni.</li>
+<li>Mettere in ordine alfabetico un elenco di nomi per un registro o un'assemblea.</li>
+<li>Ripulire una lista di codici prodotto o di parole chiave esportata da un programma.</li>
+<li>Estrarre un sorteggio: incolla i partecipanti e scegli «Mescola».</li>
+</ul>
+<p>Il confronto tra righe è esatto: se due voci differiscono per uno spazio interno o un accento, restano entrambe. Il testo non viene inviato a nessun server.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Le righe duplicate vengono contate?</summary><p>Sì: sotto il risultato vedi quante righe c'erano in ingresso, quante restano e quante sono state rimosse.</p></details><details><summary>L&#x27;ordine alfabetico gestisce gli accenti?</summary><p>Sì: usa le regole della lingua, quindi «è» e «e» vengono ordinate insieme e i numeri dentro le parole seguono l'ordine naturale.</p></details><details><summary>Posso ordinare numeri con la virgola?</summary><p>Sì: scegli «Numerico crescente». Vengono accettati sia 1,5 sia 1.5.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/conta-parole/" data-search="conta parole e caratteri parole, caratteri, frasi, paragrafi e tempo di lettura contatore caratteri conta lettere numero di parole tempo di lettura battute"><div class="ic">🔤</div><b>Conta parole e caratteri</b><span>Parole, caratteri, frasi, paragrafi e tempo di lettura</span></a><a class="card" href="../../it/maiuscolo-minuscolo/" data-search="convertitore maiuscolo / minuscolo trasforma un testo in maiuscolo, minuscolo, iniziali maiuscole o frase tutto maiuscolo tutto minuscolo iniziali maiuscole cambia caso trasforma testo"><div class="ic">Aa</div><b>Convertitore maiuscolo / minuscolo</b><span>Trasforma un testo in MAIUSCOLO, minuscolo, Iniziali Maiuscole o Frase</span></a><a class="card" href="../../it/generatore-password/" data-search="generatore di password sicure password casuali o frasi facili da ricordare, con misura della robustezza password sicura password casuale genera password passphrase"><div class="ic">🔑</div><b>Generatore di password sicure</b><span>Password casuali o frasi facili da ricordare, con misura della robustezza</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "ph": "Una voce per riga…", "dedupe": "Rimuovi righe duplicate", "nocase": "Ignora maiuscole/minuscole nel confronto", "empty": "Rimuovi righe vuote", "trim": "Togli spazi a inizio e fine riga", "sort": "Ordinamento", "none": "Nessuno (ordine originale)", "az": "A → Z", "za": "Z → A", "num": "Numerico crescente", "len": "Per lunghezza", "rev": "Inverti ordine", "shuffle": "Mescola", "out": "Risultato", "in_lines": "righe in ingresso", "out_lines": "righe in uscita", "removed": "rimosse", "clear": "Svuota", "prefix": "Aggiungi numerazione"};</script>
+<script>
+(function(){
+
+var txt = RT.$('#txt'), res = RT.$('#res'), info = RT.$('#info');
+var coll = new Intl.Collator(RT.locale, { numeric: true, sensitivity: 'base' });
+function run() {
+  var lines = txt.value.split(/\r?\n/), inN = lines.length;
+  if (RT.$('#trim').checked) lines = lines.map(function (l) { return l.trim(); });
+  if (RT.$('#empty').checked) lines = lines.filter(function (l) { return l.trim() !== ''; });
+  if (RT.$('#dedupe').checked) { var seen = {}, nc = RT.$('#nocase').checked; lines = lines.filter(function (l) { var k = nc ? l.toLowerCase() : l; if (seen[k]) return false; seen[k] = 1; return true; }); }
+  var s = RT.$('#sort').value;
+  if (s === 'az') lines.sort(coll.compare); else if (s === 'za') lines.sort(coll.compare).reverse();
+  else if (s === 'num') lines.sort(function (a, b) { return (RT.num(a) || 0) - (RT.num(b) || 0); });
+  else if (s === 'len') lines.sort(function (a, b) { return a.length - b.length || coll.compare(a, b); });
+  else if (s === 'rev') lines.reverse();
+  else if (s === 'shuffle') { for (var i = lines.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = lines[i]; lines[i] = lines[j]; lines[j] = t; } }
+  if (RT.$('#prefix').checked) lines = lines.map(function (l, i) { return (i + 1) + '. ' + l; });
+  res.value = lines.join('\n');
+  if (!txt.value) { res.value = ''; info.textContent = ''; return; }
+  info.textContent = RT.fmt(inN, 0) + ' ' + T.in_lines + ' → ' + RT.fmt(lines.length, 0) + ' ' + T.out_lines + ' (' + RT.fmt(Math.max(0, inN - lines.length), 0) + ' ' + T.removed + ')';
+}
+RT.$('#clear').addEventListener('click', function () { txt.value = ''; run(); txt.focus(); });
+RT.live(document.getElementById('tool'), run);
+
+})();
+</script>
+</body>
+</html>

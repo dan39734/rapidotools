@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Split the bill and calculate the tip – Rapido Tools</title>
+<meta name="description" content="Split a restaurant bill between friends in seconds: per-person share, percentage tip, rounding and total. Works offline, on your phone.">
+
+<link rel="canonical" href="https://rapidotools.com/en/split-bill-calculator/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/dividi-il-conto/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/split-bill-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/split-bill-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Split the bill and calculate the tip – Rapido Tools">
+<meta property="og:description" content="Split a restaurant bill between friends in seconds: per-person share, percentage tip, rounding and total. Works offline, on your phone.">
+<meta property="og:url" content="https://rapidotools.com/en/split-bill-calculator/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Split the bill and calculate the tip", "url": "https://rapidotools.com/en/split-bill-calculator/", "description": "Split a restaurant bill between friends in seconds: per-person share, percentage tip, rounding and total. Works offline, on your phone.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do you split a bill fairly?", "acceptedAnswer": {"@type": "Answer", "text": "The simplest way is equal shares. If orders differ a lot, everyone pays for their own and only shared items (starters, drinks, service) are divided."}}, {"@type": "Question", "name": "How much should I tip?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the country: 15-20% in the US, 10-12.5% in the UK when service is not included, rounding up or 5-10% in much of Europe."}}, {"@type": "Question", "name": "Does rounding increase the tip?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: the difference between the rounded-up share and the exact one is added to the tip, and the calculator shows it."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/dividi-il-conto/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-money">💵 Money</a></nav>
+<h1>Split the bill and calculate the tip</h1>
+<p class="lead">Enter the bill total, how many of you there are and the tip, if any: you get each person&#x27;s share instantly, with an option to round up so nobody argues over small change.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Split the bill and calculate the tip">
+
+<div class="row">
+  <div class="field"><label for="tot">Bill total</label><input type="text" inputmode="decimal" id="tot" value="86.50"></div>
+  <div class="field"><label for="ppl">Number of people</label><input type="number" inputmode="numeric" id="ppl" value="4" min="1"></div>
+  <div class="field"><label for="tip">Tip %</label><input type="text" inputmode="decimal" id="tip" value="0"></div>
+</div>
+<div class="inline"><span class="lbl">Quick tip:</span>
+  <button class="btn small" type="button" data-t="0">0%</button><button class="btn small" type="button" data-t="5">5%</button><button class="btn small" type="button" data-t="10">10%</button>
+  <button class="btn small" type="button" data-t="12.5">12.5%</button><button class="btn small" type="button" data-t="15">15%</button><button class="btn small" type="button" data-t="18">18%</button><button class="btn small" type="button" data-t="20">20%</button></div>
+<div class="field" style="margin-top:12px"><label for="round">Round each share</label><select id="round"><option value="0">No</option><option value="0.5">To 0.50</option><option value="1">To 1</option><option value="5">To 5</option></select></div>
+<div class="result hide" id="out">
+  <div class="sub">Per person</div><div class="big" id="each"></div>
+  <div class="stats"><div class="stat"><b id="tipt"></b><span>Total tip</span></div><div class="stat"><b id="grand"></b><span>Total with tip</span></div></div>
+  <p class="msg hide" id="extra"></p>
+</div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>How it works</h2>
+<p>The bill is split into equal shares: total plus tip, divided by the number of people. If you choose a rounding option, each share is rounded up to the chosen amount (0.50, 1 or 5) and the difference goes towards the tip: the calculator shows what the tip becomes, so you can decide whether that suits you.</p>
+<h2>Tipping customs</h2>
+<p>Tipping habits vary a lot. In the United States 15-20% of the pre-tax bill is customary at restaurants, and leaving nothing is considered rude; in the United Kingdom 10-12.5% when service is not already added; in Germany and Austria people round up or leave 5-10%; in Italy and Spain tipping is optional, with a couple of euros or rounding up as a nice gesture; in Japan tips are not expected and may even be refused.</p>
+<h2>Practical tips</h2>
+<ul>
+<li>If someone ordered much less than the others, equal shares can be unfair: work out their part separately and subtract it from the total first.</li>
+<li>For app or bank payments, rounding to 1 avoids awkward decimals.</li>
+<li>Check whether a service charge is already on the receipt: in that case the tip is an extra.</li>
+</ul>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>How do you split a bill fairly?</summary><p>The simplest way is equal shares. If orders differ a lot, everyone pays for their own and only shared items (starters, drinks, service) are divided.</p></details><details><summary>How much should I tip?</summary><p>It depends on the country: 15-20% in the US, 10-12.5% in the UK when service is not included, rounding up or 5-10% in much of Europe.</p></details><details><summary>Does rounding increase the tip?</summary><p>Yes: the difference between the rounded-up share and the exact one is added to the tip, and the calculator shows it.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/loan-calculator/" data-search="loan and mortgage payment calculator monthly payment, total interest and amortisation schedule mortgage payment monthly payment amortization schedule loan interest fixed rate"><div class="ic">🏠</div><b>Loan and mortgage payment calculator</b><span>Monthly payment, total interest and amortisation schedule</span></a><a class="card" href="../../en/vat-calculator/" data-search="vat calculator: add or remove vat from net to gross and back, with any rate vat inclusive vat exclusive reverse vat sales tax calculator net to gross"><div class="ic">🧾</div><b>VAT calculator: add or remove VAT</b><span>From net to gross and back, with any rate</span></a><a class="card" href="../../en/age-calculator/" data-search="age calculator exact years, months and days from a date of birth how old am i birthday date of birth"><div class="ic">🎂</div><b>Age calculator</b><span>Exact years, months and days from a date of birth</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "total": "Bill total", "people": "Number of people", "tip": "Tip %", "round": "Round each share", "r0": "No", "r1": "To 1", "r5": "To 5", "r05": "To 0.50", "each": "Per person", "tip_total": "Total tip", "grand": "Total with tip", "extra": "With rounding the tip becomes", "quick": "Quick tip", "q125": "12.5%"};</script>
+<script>
+(function(){
+
+var out = RT.$('#out');
+function calc() {
+  var tot = RT.num(RT.$('#tot').value), n = parseInt(RT.$('#ppl').value, 10), tip = RT.num(RT.$('#tip').value) || 0, step = +RT.$('#round').value;
+  if (!(tot >= 0) || !(n >= 1)) { out.classList.add('hide'); return; }
+  var tipAmt = tot * tip / 100, grand = tot + tipAmt, each = grand / n;
+  var extra = RT.$('#extra'); extra.classList.add('hide');
+  if (step > 0) { var r = Math.ceil(each / step - 1e-9) * step; if (r > each + 1e-9) { extra.textContent = T.extra + ' ' + RT.money(r * n - tot) + ' (' + RT.fmt((r * n - tot) / tot * 100, 1) + '%)'; extra.classList.remove('hide'); } each = r; grand = r * n; tipAmt = grand - tot; }
+  RT.$('#each').textContent = RT.money(each); RT.$('#tipt').textContent = RT.money(tipAmt); RT.$('#grand').textContent = RT.money(grand);
+  out.classList.remove('hide');
+}
+RT.$$('[data-t]').forEach(function (b) { b.addEventListener('click', function () { RT.$('#tip').value = b.getAttribute('data-t'); calc(); }); });
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

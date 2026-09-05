@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BMI calculator (body mass index) – Rapido Tools</title>
+<meta name="description" content="Calculate your BMI (body mass index) from weight and height, see which WHO category you fall into and the normal weight range for your height.">
+
+<link rel="canonical" href="https://rapidotools.com/en/bmi-calculator/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-bmi/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/bmi-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/bmi-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="BMI calculator (body mass index) – Rapido Tools">
+<meta property="og:description" content="Calculate your BMI (body mass index) from weight and height, see which WHO category you fall into and the normal weight range for your height.">
+<meta property="og:url" content="https://rapidotools.com/en/bmi-calculator/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "BMI calculator (body mass index)", "url": "https://rapidotools.com/en/bmi-calculator/", "description": "Calculate your BMI (body mass index) from weight and height, see which WHO category you fall into and the normal weight range for your height.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is BMI calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Weight in kilograms divided by height in metres squared. Example: 70 kg and 1.70 m → 70 ÷ 2.89 = 24.2. In imperial units: weight in pounds × 703 ÷ height in inches squared."}}, {"@type": "Question", "name": "What is the ideal BMI?", "acceptedAnswer": {"@type": "Answer", "text": "For adults the \"normal\" range is 18.5 to 24.9. Many studies point to 20–25 as the range with the lowest risk, but the optimal value depends on the person."}}, {"@type": "Question", "name": "Does BMI apply to children?", "acceptedAnswer": {"@type": "Answer", "text": "No: for children and teenagers up to 18, age- and sex-specific growth charts are used, not adult thresholds."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/calcolo-bmi/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-health">❤️ Health</a></nav>
+<h1>BMI calculator (body mass index)</h1>
+<p class="lead">Enter your height and weight to get your BMI, its category (underweight, normal, overweight, obese) and the weight range considered normal for your height. For adults.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="BMI calculator (body mass index)">
+
+<div class="tabs"><button type="button" class="on" data-u="m">Metric (cm, kg)</button><button type="button" data-u="i">Imperial (ft, lb)</button></div>
+<div class="row" id="metric">
+  <div class="field"><label for="hcm">Height (cm)</label><input type="text" inputmode="decimal" id="hcm" value="175"></div>
+  <div class="field"><label for="wkg">Weight (kg)</label><input type="text" inputmode="decimal" id="wkg" value="72"></div>
+</div>
+<div class="row hide" id="imperial">
+  <div class="field"><label for="hft">Height (feet)</label><input type="text" inputmode="numeric" id="hft" value="5"></div>
+  <div class="field"><label for="hin">Height (inches)</label><input type="text" inputmode="decimal" id="hin" value="9"></div>
+  <div class="field"><label for="wlb">Weight (pounds)</label><input type="text" inputmode="decimal" id="wlb" value="160"></div>
+</div>
+<div class="result hide" id="out">
+  <div class="sub">Your BMI</div><div class="big" id="val"></div>
+  <div class="sub" id="cat"></div>
+  <div class="meter" style="background:linear-gradient(90deg,#74c0fc 0 20%,#69db7c 20% 42%,#ffd43b 42% 55%,#ff922b 55% 70%,#ff6b6b 70% 100%);position:relative;height:12px"><i id="mark" style="position:absolute;top:-4px;width:4px;height:20px;background:var(--fg);border-radius:2px"></i></div>
+  <div class="stats"><div class="stat"><b id="range"></b><span>Normal weight for your height</span></div><div class="stat"><b id="diff" style="font-size:1rem"></b><span id="difflbl"></span></div></div>
+</div>
+<p class="msg">BMI is a statistical indicator for adults: it does not distinguish muscle from fat and is no substitute for medical advice.</p>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>What BMI is</h2>
+<p>BMI (Body Mass Index) relates weight to height with the formula <strong>weight in kg ÷ (height in metres)²</strong>. A person 1.75 m tall weighing 72 kg has a BMI of 72 ÷ (1.75 × 1.75) = 23.5. It is the indicator the World Health Organization uses to classify adult weight across large populations.</p>
+<h2>WHO categories</h2>
+<div class="table-wrap"><table>
+<tr><th>BMI</th><th>Category</th></tr>
+<tr><td>below 18.5</td><td>Underweight</td></tr>
+<tr><td>18.5 – 24.9</td><td>Normal weight</td></tr>
+<tr><td>25 – 29.9</td><td>Overweight</td></tr>
+<tr><td>30 – 34.9</td><td>Obesity class I</td></tr>
+<tr><td>35 – 39.9</td><td>Obesity class II</td></tr>
+<tr><td>40 and above</td><td>Obesity class III</td></tr>
+</table></div>
+<h2>Limits of BMI</h2>
+<p>BMI is a simple number and therefore imperfect: it does not tell fat from muscle (a muscular athlete may read as "overweight"), it ignores age, sex and fat distribution, and it does not apply to children and teenagers, who use age-specific charts, or during pregnancy. Waist circumference and body composition complete the picture. For personal assessments see a doctor or a dietitian.</p>
+<h2>The "normal" weight for your height</h2>
+<p>The range shown by the calculator corresponds to a BMI between 18.5 and 24.9: for 1.75 m (5 ft 9 in) it goes from about 57 to 76 kg (125 to 168 lb). It is a statistical reference, not a target to hit at any cost.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>How is BMI calculated?</summary><p>Weight in kilograms divided by height in metres squared. Example: 70 kg and 1.70 m → 70 ÷ 2.89 = 24.2. In imperial units: weight in pounds × 703 ÷ height in inches squared.</p></details><details><summary>What is the ideal BMI?</summary><p>For adults the "normal" range is 18.5 to 24.9. Many studies point to 20–25 as the range with the lowest risk, but the optimal value depends on the person.</p></details><details><summary>Does BMI apply to children?</summary><p>No: for children and teenagers up to 18, age- and sex-specific growth charts are used, not adult thresholds.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/calorie-calculator/" data-search="daily calorie needs calculator basal metabolic rate, maintenance calories and targets to lose or gain weight how many calories a day bmr tdee calories to lose weight maintenance calories"><div class="ic">🍎</div><b>Daily calorie needs calculator</b><span>Basal metabolic rate, maintenance calories and targets to lose or gain weight</span></a><a class="card" href="../../en/age-calculator/" data-search="age calculator exact years, months and days from a date of birth how old am i birthday date of birth"><div class="ic">🎂</div><b>Age calculator</b><span>Exact years, months and days from a date of birth</span></a><a class="card" href="../../en/days-between-dates/" data-search="days between two dates days, weeks and working days between two dates date difference day counter how many days until business days"><div class="ic">📆</div><b>Days between two dates</b><span>Days, weeks and working days between two dates</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "metric": "Metric (cm, kg)", "imperial": "Imperial (ft, lb)", "height": "Height", "weight": "Weight", "ft": "feet", "inch": "inches", "lb": "pounds", "cm": "cm", "kg": "kg", "bmi": "Your BMI", "cat": "Category", "range": "Normal weight for your height", "diff_lose": "to reach the normal range you would need to lose about", "diff_gain": "to reach the normal range you would need to gain about", "ok": "You are in the normal weight range", "c1": "Underweight", "c2": "Normal weight", "c3": "Overweight", "c4": "Obesity (class I)", "c5": "Obesity (class II)", "c6": "Obesity (class III)", "disclaimer": "BMI is a statistical indicator for adults: it does not distinguish muscle from fat and is no substitute for medical advice."};</script>
+<script>
+(function(){
+
+var unit = 'm';
+var tabs = RT.$$('.tabs button');
+tabs.forEach(function (b) { b.addEventListener('click', function () { unit = b.getAttribute('data-u'); tabs.forEach(function (x) { x.classList.toggle('on', x === b); }); RT.$('#metric').classList.toggle('hide', unit !== 'm'); RT.$('#imperial').classList.toggle('hide', unit !== 'i'); calc(); }); });
+function calc() {
+  var h, w; // metres, kg
+  if (unit === 'm') { h = RT.num(RT.$('#hcm').value) / 100; w = RT.num(RT.$('#wkg').value); }
+  else { h = ((RT.num(RT.$('#hft').value) || 0) * 12 + (RT.num(RT.$('#hin').value) || 0)) * 0.0254; w = RT.num(RT.$('#wlb').value) * 0.45359237; }
+  var out = RT.$('#out');
+  if (!(h > 0.5 && h < 2.8 && w > 10 && w < 700)) { out.classList.add('hide'); return; }
+  var bmi = w / (h * h);
+  var cat = bmi < 18.5 ? T.c1 : bmi < 25 ? T.c2 : bmi < 30 ? T.c3 : bmi < 35 ? T.c4 : bmi < 40 ? T.c5 : T.c6;
+  RT.$('#val').textContent = RT.fmtFixed(bmi, 1); RT.$('#cat').textContent = T.cat + ': ' + cat;
+  RT.$('#mark').style.left = Math.min(98, Math.max(0, (bmi - 12) / 30 * 100)) + '%';
+  var lo = 18.5 * h * h, hi = 24.9 * h * h;
+  function kgOut(x) { return unit === 'm' ? RT.fmt(x, 1) + ' kg' : RT.fmt(x / 0.45359237, 0) + ' lb'; }
+  RT.$('#range').textContent = kgOut(lo) + ' – ' + kgOut(hi);
+  if (w > hi) { RT.$('#diff').textContent = kgOut(w - hi); RT.$('#difflbl').textContent = T.diff_lose; }
+  else if (w < lo) { RT.$('#diff').textContent = kgOut(lo - w); RT.$('#difflbl').textContent = T.diff_gain; }
+  else { RT.$('#diff').textContent = '✓'; RT.$('#difflbl').textContent = T.ok; }
+  out.classList.remove('hide');
+}
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolo IVA: aggiungi o scorpora l&#x27;IVA – Rapido Tools</title>
+<meta name="description" content="Calcola l&#x27;IVA in un attimo: aggiungi l&#x27;IVA a un prezzo netto o scorporala da un prezzo lordo, con le aliquote italiane (22%, 10%, 5%, 4%) o una personalizzata.">
+
+<link rel="canonical" href="https://rapidotools.com/it/calcolo-iva/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-iva/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/vat-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/vat-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Calcolo IVA: aggiungi o scorpora l&#x27;IVA – Rapido Tools">
+<meta property="og:description" content="Calcola l&#x27;IVA in un attimo: aggiungi l&#x27;IVA a un prezzo netto o scorporala da un prezzo lordo, con le aliquote italiane (22%, 10%, 5%, 4%) o una personalizzata.">
+<meta property="og:url" content="https://rapidotools.com/it/calcolo-iva/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calcolo IVA: aggiungi o scorpora l'IVA", "url": "https://rapidotools.com/it/calcolo-iva/", "description": "Calcola l'IVA in un attimo: aggiungi l'IVA a un prezzo netto o scorporala da un prezzo lordo, con le aliquote italiane (22%, 10%, 5%, 4%) o una personalizzata.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Come si scorpora l'IVA al 22%?", "acceptedAnswer": {"@type": "Answer", "text": "Dividi il prezzo lordo per 1,22. Esempio: 244 € ÷ 1,22 = 200 € di imponibile e 44 € di IVA."}}, {"@type": "Question", "name": "Perché non posso semplicemente togliere il 22%?", "acceptedAnswer": {"@type": "Answer", "text": "Perché l'IVA è il 22% del netto, non del lordo. Togliendo il 22% dal totale otterresti un imponibile troppo basso."}}, {"@type": "Question", "name": "Quale aliquota si applica al mio prodotto?", "acceptedAnswer": {"@type": "Answer", "text": "Dipende dalla categoria: la maggior parte dei beni ha il 22%, alimentari e ristorazione spesso il 10% o il 4%. In caso di dubbio consulta le tabelle dell'Agenzia delle Entrate o un commercialista."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/vat-calculator/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-money">💶 Soldi</a></nav>
+<h1>Calcolo IVA: aggiungi o scorpora l&#x27;IVA</h1>
+<p class="lead">Scrivi un importo e scegli l&#x27;aliquota: vedi imponibile, IVA e totale sia partendo dal netto («aggiungi IVA») sia dal prezzo finale («scorpora IVA»).</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Calcolo IVA: aggiungi o scorpora l&#x27;IVA">
+
+<div class="row">
+  <div class="field"><label for="mode">Operazione</label><select id="mode"><option value="add">Aggiungi IVA (parto dal netto)</option><option value="remove">Scorpora IVA (parto dal lordo)</option></select></div>
+  <div class="field"><label for="amt">Importo</label><input type="text" inputmode="decimal" id="amt" value="100"></div>
+</div>
+<div class="row">
+  <div class="field"><label for="rate">Aliquota IVA</label><select id="rate"></select></div>
+  <div class="field hide" id="customf"><label for="crate">Aliquota personalizzata %</label><input type="text" inputmode="decimal" id="crate" value="22"></div>
+</div>
+<div class="result hide" id="out">
+  <div class="stats">
+    <div class="stat"><b id="net"></b><span>Imponibile (netto)</span></div>
+    <div class="stat"><b id="vat"></b><span>IVA <span id="rlbl"></span></span></div>
+    <div class="stat" style="border-color:var(--accent)"><b id="gross"></b><span>Totale (lordo)</span></div>
+  </div>
+</div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Come si calcola l'IVA</h2>
+<p><strong>Aggiungere l'IVA</strong> a un imponibile: totale = netto × (1 + aliquota ÷ 100). Con IVA al 22%, 100 € di imponibile diventano 122 €.</p>
+<p><strong>Scorporare l'IVA</strong> da un prezzo lordo: netto = lordo ÷ (1 + aliquota ÷ 100). Da 122 € si torna a 100 € di imponibile e 22 € di IVA. L'errore più comune è togliere il 22% dal lordo (122 − 22% = 95,16 €): è sbagliato, perché l'IVA è calcolata sul netto, non sul totale.</p>
+<h2>Le aliquote IVA in Italia</h2>
+<ul>
+<li><strong>22%</strong> – aliquota ordinaria, per la maggior parte di beni e servizi.</li>
+<li><strong>10%</strong> – aliquota ridotta: ristorazione e alberghi, molti alimentari, energia elettrica e gas per uso domestico, medicinali, ristrutturazioni edilizie.</li>
+<li><strong>5%</strong> – aliquota ridotta: alcuni alimenti (erbe aromatiche, tartufi), servizi socio-sanitari delle cooperative, prodotti per l'infanzia e per l'igiene femminile.</li>
+<li><strong>4%</strong> – aliquota super ridotta: pane, latte, frutta e verdura, libri, giornali, prima casa, ausili per disabili.</li>
+</ul>
+<p>Le aliquote possono cambiare con le leggi di bilancio: per fatture e dichiarazioni verifica sempre quella in vigore per il tuo prodotto.</p>
+<h2>Quando serve lo scorporo</h2>
+<p>Lo scorporo si usa quando conosci solo il prezzo al pubblico e devi ricavare l'imponibile: per registrare uno scontrino nella contabilità, per confrontare listini «IVA inclusa» e «IVA esclusa», per capire quanta IVA hai pagato su un acquisto o quanto puoi detrarre con la partita IVA.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Come si scorpora l&#x27;IVA al 22%?</summary><p>Dividi il prezzo lordo per 1,22. Esempio: 244 € ÷ 1,22 = 200 € di imponibile e 44 € di IVA.</p></details><details><summary>Perché non posso semplicemente togliere il 22%?</summary><p>Perché l'IVA è il 22% del netto, non del lordo. Togliendo il 22% dal totale otterresti un imponibile troppo basso.</p></details><details><summary>Quale aliquota si applica al mio prodotto?</summary><p>Dipende dalla categoria: la maggior parte dei beni ha il 22%, alimentari e ristorazione spesso il 10% o il 4%. In caso di dubbio consulta le tabelle dell'Agenzia delle Entrate o un commercialista.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/calcolo-rata-mutuo/" data-search="calcolo rata mutuo e prestito rata mensile, interessi totali e piano di ammortamento rata mutuo simulazione mutuo piano di ammortamento interessi prestito tasso fisso quanto pago al mese"><div class="ic">🏠</div><b>Calcolo rata mutuo e prestito</b><span>Rata mensile, interessi totali e piano di ammortamento</span></a><a class="card" href="../../it/dividi-il-conto/" data-search="dividi il conto e calcola la mancia quanto paga ciascuno, con mancia e arrotondamento conto alla romana calcolo mancia dividere spesa quota a testa"><div class="ic">🍽️</div><b>Dividi il conto e calcola la mancia</b><span>Quanto paga ciascuno, con mancia e arrotondamento</span></a><a class="card" href="../../it/calcolo-eta/" data-search="calcolo età anni, mesi e giorni esatti da una data di nascita quanti anni ho età esatta compleanno data di nascita"><div class="ic">🎂</div><b>Calcolo età</b><span>Anni, mesi e giorni esatti da una data di nascita</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "mode": "Operazione", "add": "Aggiungi IVA (parto dal netto)", "remove": "Scorpora IVA (parto dal lordo)", "amount": "Importo", "rate": "Aliquota IVA", "custom": "Personalizzata", "net": "Imponibile (netto)", "vat": "IVA", "gross": "Totale (lordo)", "r22": "22% – ordinaria", "r10": "10% – ridotta", "r5": "5% – ridotta", "r4": "4% – super ridotta", "r20": "20%", "r19": "19%", "r21": "21%", "r23": "23%", "r25": "25%", "rate_custom": "Aliquota personalizzata %"};</script>
+<script>
+(function(){
+
+var rate = RT.$('#rate'), customf = RT.$('#customf'), out = RT.$('#out');
+var rates = RT.lang === 'it' ? [['22', T.r22], ['10', T.r10], ['5', T.r5], ['4', T.r4], ['20', T.r20], ['19', T.r19], ['21', T.r21], ['custom', T.custom]]
+                             : [['20', T.r20], ['19', T.r19], ['21', T.r21], ['22', T.r22], ['23', T.r23], ['25', T.r25], ['10', T.r10], ['5', T.r5], ['custom', T.custom]];
+rates.forEach(function (r) { var o = document.createElement('option'); o.value = r[0]; o.textContent = r[1]; rate.appendChild(o); });
+function calc() {
+  var isCustom = rate.value === 'custom'; customf.classList.toggle('hide', !isCustom);
+  var p = isCustom ? RT.num(RT.$('#crate').value) : +rate.value, a = RT.num(RT.$('#amt').value);
+  if (!isFinite(a) || !isFinite(p) || p < 0) { out.classList.add('hide'); return; }
+  var net, gross;
+  if (RT.$('#mode').value === 'add') { net = a; gross = a * (1 + p / 100); } else { gross = a; net = a / (1 + p / 100); }
+  RT.$('#net').textContent = RT.money(net); RT.$('#vat').textContent = RT.money(gross - net); RT.$('#gross').textContent = RT.money(gross); RT.$('#rlbl').textContent = '(' + RT.fmt(p, 2) + '%)';
+  out.classList.remove('hide');
+}
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

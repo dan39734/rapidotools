@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add or subtract days from a date – Rapido Tools</title>
+<meta name="description" content="Find the date that falls a number of days, weeks, months or years after (or before) a given date. Working days too: perfect for deadlines and notice periods.">
+
+<link rel="canonical" href="https://rapidotools.com/en/add-days-to-date/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/aggiungi-giorni-a-una-data/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/add-days-to-date/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/add-days-to-date/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Add or subtract days from a date – Rapido Tools">
+<meta property="og:description" content="Find the date that falls a number of days, weeks, months or years after (or before) a given date. Working days too: perfect for deadlines and notice periods.">
+<meta property="og:url" content="https://rapidotools.com/en/add-days-to-date/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Add or subtract days from a date", "url": "https://rapidotools.com/en/add-days-to-date/", "description": "Find the date that falls a number of days, weeks, months or years after (or before) a given date. Working days too: perfect for deadlines and notice periods.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What date is 30 days from today?", "acceptedAnswer": {"@type": "Answer", "text": "Press the \"+30\" shortcut with today as the start date: the result shows the date and its weekday."}}, {"@type": "Question", "name": "What if the day doesn't exist in the target month?", "acceptedAnswer": {"@type": "Answer", "text": "The calculator uses the last day of that month: 31 January plus one month becomes 28 (or 29) February."}}, {"@type": "Question", "name": "Can I go back in time?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: choose \"Subtract\" to find, for example, which date it was 90 days ago."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/aggiungi-giorni-a-una-data/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-date">📅 Dates &amp; time</a></nav>
+<h1>Add or subtract days from a date</h1>
+<p class="lead">Start from a date, choose how much time to add or subtract and read the resulting date with its weekday. Great for 30-, 60- or 90-day deadlines, notice periods and delivery dates.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Add or subtract days from a date">
+
+<div class="row">
+  <div class="field"><label for="start">Start date</label><input type="date" id="start"></div>
+  <div class="field"><label for="dir">Operation</label><select id="dir"><option value="1">Add</option><option value="-1">Subtract</option></select></div>
+</div>
+<div class="row">
+  <div class="field"><label for="n">Amount</label><input type="number" id="n" value="30" min="0" step="1" inputmode="numeric"></div>
+  <div class="field"><label for="unit">Unit</label><select id="unit">
+    <option value="d">days</option><option value="w">working days (Mon–Fri)</option><option value="wk">weeks</option><option value="m">months</option><option value="y">years</option></select></div>
+</div>
+<div class="inline"><span class="lbl">Shortcuts:</span>
+  <button class="btn small" type="button" data-q="7">+7</button><button class="btn small" type="button" data-q="14">+14</button>
+  <button class="btn small" type="button" data-q="30">+30</button><button class="btn small" type="button" data-q="60">+60</button>
+  <button class="btn small" type="button" data-q="90">+90</button><button class="btn small" type="button" data-q="180">+180</button>
+  <button class="btn small" type="button" data-q="365">+365</button></div>
+<div class="result hide" id="out">
+  <div class="sub">Resulting date</div>
+  <div class="big" id="main"></div>
+  <div class="sub" id="sub"></div>
+</div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>What it is for</h2>
+<p>Many deadlines are phrased as "within 30 days", "60 days from delivery", "15 working days' notice" or "in 6 months". Counting on a calendar is slow and error-prone, especially across months of different lengths or a leap year. This tool does the counting for you and shows the weekday, so you can see at once whether a deadline lands on a Saturday or Sunday.</p>
+<h2>How months and years are counted</h2>
+<p>Adding a month means moving to the same day of the following month: 15 March becomes 15 April. If that day does not exist in the target month (for example 31 January + 1 month), the result is the last available day, i.e. 28 or 29 February. The same applies to years: 29 February 2024 + 1 year = 28 February 2025.</p>
+<h2>Working days</h2>
+<p>With "working days", Saturdays and Sundays are skipped: 10 working days from a Monday lands on the Friday of the following week. Public holidays are not considered, since they vary by country.</p>
+<h2>Examples</h2>
+<ul>
+<li>An invoice payable in 60 days issued on 5 September is due on 4 November.</li>
+<li>A 30-day notice given on 20 January runs until 19 February.</li>
+<li>A 2-year warranty on a purchase made on 10 June 2026 ends on 10 June 2028.</li>
+</ul>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>What date is 30 days from today?</summary><p>Press the "+30" shortcut with today as the start date: the result shows the date and its weekday.</p></details><details><summary>What if the day doesn&#x27;t exist in the target month?</summary><p>The calculator uses the last day of that month: 31 January plus one month becomes 28 (or 29) February.</p></details><details><summary>Can I go back in time?</summary><p>Yes: choose "Subtract" to find, for example, which date it was 90 days ago.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/age-calculator/" data-search="age calculator exact years, months and days from a date of birth how old am i birthday date of birth"><div class="ic">🎂</div><b>Age calculator</b><span>Exact years, months and days from a date of birth</span></a><a class="card" href="../../en/days-between-dates/" data-search="days between two dates days, weeks and working days between two dates date difference day counter how many days until business days"><div class="ic">📆</div><b>Days between two dates</b><span>Days, weeks and working days between two dates</span></a><a class="card" href="../../en/online-timer/" data-search="online timer and stopwatch countdown with alarm and stopwatch with laps 5 minute timer 10 minute timer pomodoro stopwatch countdown"><div class="ic">⏱️</div><b>Online timer and stopwatch</b><span>Countdown with alarm and stopwatch with laps</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Resulting date", "invalid": "Please check the values you entered.", "start": "Start date", "amount": "Amount", "unit": "Unit", "dir": "Operation", "add": "Add", "sub": "Subtract", "days": "days", "workdays": "working days (Mon–Fri)", "weeks": "weeks", "months": "months", "years": "years", "today": "Today", "quick": "Shortcuts", "diff": "actual difference", "week_no": "Week no.", "day_of_year": "day of the year"};</script>
+<script>
+(function(){
+
+var start = RT.$('#start'), n = RT.$('#n'), unit = RT.$('#unit'), dir = RT.$('#dir'), out = RT.$('#out');
+start.value = RT.isoToday();
+function weekNumber(d) { // ISO 8601
+  var t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  var day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day);
+  var y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+  return Math.ceil(((t - y0) / 86400000 + 1) / 7);
+}
+function calc() {
+  var s = RT.parseDate(start.value), q = parseInt(n.value, 10), sign = parseInt(dir.value, 10);
+  if (!s || isNaN(q) || q < 0) { out.classList.add('hide'); return; }
+  var r = new Date(s.getFullYear(), s.getMonth(), s.getDate());
+  var u = unit.value;
+  if (u === 'd') r.setDate(r.getDate() + sign * q);
+  else if (u === 'wk') r.setDate(r.getDate() + sign * q * 7);
+  else if (u === 'm' || u === 'y') {
+    var months = sign * (u === 'm' ? q : q * 12);
+    var target = new Date(r.getFullYear(), r.getMonth() + months, 1);
+    var dim = new Date(target.getFullYear(), target.getMonth() + 1, 0).getDate();
+    r = new Date(target.getFullYear(), target.getMonth(), Math.min(s.getDate(), dim));
+  } else { // working days
+    var left = q;
+    while (left > 0) { r.setDate(r.getDate() + sign); var wd = r.getDay(); if (wd !== 0 && wd !== 6) left--; }
+  }
+  RT.$('#main').textContent = RT.weekday(r) + ' ' + RT.date(r);
+  var diff = RT.daysBetween(s, r);
+  var y0 = new Date(r.getFullYear(), 0, 1), doy = RT.daysBetween(y0, r) + 1;
+  RT.$('#sub').textContent = RT.fmt(Math.abs(diff), 0) + ' ' + T.days + ' (' + T.diff + ') · ' + T.week_no + ' ' + weekNumber(r) + ' · ' + doy + '° ' + T.day_of_year;
+  out.classList.remove('hide');
+}
+RT.$$('[data-q]').forEach(function (b) { b.addEventListener('click', function () { n.value = b.getAttribute('data-q'); unit.value = 'd'; dir.value = '1'; calc(); }); });
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

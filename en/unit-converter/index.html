@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit converter – Rapido Tools</title>
+<meta name="description" content="Convert units of length, weight, temperature, volume, area, speed and data: inches to cm, miles to km, Fahrenheit to Celsius, pounds to kg and much more. Free, in your browser.">
+
+<link rel="canonical" href="https://rapidotools.com/en/unit-converter/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/convertitore-unita-di-misura/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/unit-converter/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/unit-converter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Unit converter – Rapido Tools">
+<meta property="og:description" content="Convert units of length, weight, temperature, volume, area, speed and data: inches to cm, miles to km, Fahrenheit to Celsius, pounds to kg and much more. Free, in your browser.">
+<meta property="og:url" content="https://rapidotools.com/en/unit-converter/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Unit converter", "url": "https://rapidotools.com/en/unit-converter/", "description": "Convert units of length, weight, temperature, volume, area, speed and data: inches to cm, miles to km, Fahrenheit to Celsius, pounds to kg and much more. Free, in your browser.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many centimetres in an inch?", "acceptedAnswer": {"@type": "Answer", "text": "Exactly 2.54 cm. A 15.6-inch screen therefore measures about 39.6 cm diagonally."}}, {"@type": "Question", "name": "How do I convert Fahrenheit to Celsius in my head?", "acceptedAnswer": {"@type": "Answer", "text": "Subtract 30 and halve it: 70 °F ≈ 20 °C (the exact value is 21.1 °C). For the reverse, double and add 30."}}, {"@type": "Question", "name": "How much is a cup in millilitres?", "acceptedAnswer": {"@type": "Answer", "text": "A US cup is 236.6 ml, roughly 240 ml; a tablespoon is 14.8 ml and a teaspoon 4.9 ml."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/convertitore-unita-di-misura/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-numbers">🔢 Numbers &amp; conversions</a></nav>
+<h1>Unit converter</h1>
+<p class="lead">Pick a category, type the value and choose the units to convert from and to: the result updates instantly, with a table of nearby values for reference.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Unit converter">
+
+<div class="row">
+  <div class="field"><label for="cat">Category</label><select id="cat"></select></div>
+  <div class="field"><label for="val">Value</label><input type="text" inputmode="decimal" id="val" value="1"></div>
+</div>
+<div class="row">
+  <div class="field"><label for="from">From</label><select id="from"></select></div>
+  <div class="field" style="flex:0 0 auto;justify-content:flex-end"><button class="btn" type="button" id="swap">⇄ Swap</button></div>
+  <div class="field"><label for="to">To</label><select id="to"></select></div>
+</div>
+<div class="result"><div class="big" id="out"></div><div class="sub" id="sub"></div></div>
+<div class="lbl" style="margin-top:14px">Nearby values</div>
+<div class="table-wrap"><table id="tbl"></table></div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>The most requested conversions</h2>
+<ul>
+<li><strong>Length:</strong> 1 inch = 2.54 cm; 1 foot = 30.48 cm; 1 yard = 0.9144 m; 1 mile = 1.609 km; 1 nautical mile = 1.852 km.</li>
+<li><strong>Weight:</strong> 1 pound = 453.6 g; 1 ounce = 28.35 g; 1 stone = 6.35 kg; 1 kg = 2.205 pounds.</li>
+<li><strong>Temperature:</strong> °F = °C × 9/5 + 32; °C = (°F − 32) × 5/9. 0 °C = 32 °F, 100 °C = 212 °F, 37 °C = 98.6 °F. Kelvin is °C + 273.15.</li>
+<li><strong>Volume:</strong> 1 US gallon = 3.785 l; 1 fluid ounce = 29.57 ml; 1 US cup = 236.6 ml; 1 tablespoon = 14.8 ml; 1 teaspoon = 4.9 ml.</li>
+<li><strong>Area:</strong> 1 acre = 4,047 m²; 1 hectare = 10,000 m²; 1 square foot = 0.0929 m².</li>
+<li><strong>Speed:</strong> 1 mph = 1.609 km/h; 1 knot = 1.852 km/h; 1 m/s = 3.6 km/h.</li>
+<li><strong>Data:</strong> 1 byte = 8 bits; 1 GB = 1,000 MB (decimal units, the ones used by manufacturers and providers); 100 Mbit/s = 12.5 MB/s.</li>
+</ul>
+<h2>Metric and imperial units</h2>
+<p>The metric system (metres, kilograms, litres) is used almost everywhere; imperial and US customary units (inches, pounds, gallons, Fahrenheit) remain common in the United States and partly in the UK. Mind the differences: the British gallon and pint are larger than the American ones (1 UK gallon = 4.546 l); this converter uses US measures, the most common online and in recipes.</p>
+<h2>Using the table</h2>
+<p>Below the result you get a table of values near the one you entered (for temperature, in steps of 5 and 10 degrees): handy for getting a feel without redoing the calculation, for example when reading a recipe or checking the weather forecast in another country.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>How many centimetres in an inch?</summary><p>Exactly 2.54 cm. A 15.6-inch screen therefore measures about 39.6 cm diagonally.</p></details><details><summary>How do I convert Fahrenheit to Celsius in my head?</summary><p>Subtract 30 and halve it: 70 °F ≈ 20 °C (the exact value is 21.1 °C). For the reverse, double and add 30.</p></details><details><summary>How much is a cup in millilitres?</summary><p>A US cup is 236.6 ml, roughly 240 ml; a tablespoon is 14.8 ml and a teaspoon 4.9 ml.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/percentage-calculator/" data-search="percentage calculator what is 20% of 150, what percent is 30 of 200, change between two numbers percent of a number percentage increase percentage change percent difference"><div class="ic">％</div><b>Percentage calculator</b><span>What is 20% of 150, what percent is 30 of 200, change between two numbers</span></a><a class="card" href="../../en/discount-calculator/" data-search="discount calculator final price and savings with one or two discounts, or the discount from two prices sale price 30% off double discount how much do i save percent off"><div class="ic">🏷️</div><b>Discount calculator</b><span>Final price and savings with one or two discounts, or the discount from two prices</span></a><a class="card" href="../../en/roman-numerals/" data-search="roman numerals converter number to roman and back, from 1 to 3999, with a reference table 2026 in roman numerals mmxxvi roman numeral chart convert roman"><div class="ic">🏛️</div><b>Roman numerals converter</b><span>Number to Roman and back, from 1 to 3999, with a reference table</span></a><a class="card" href="../../en/random-number-generator/" data-search="random number generator, dice and coin flip draw numbers between a minimum and a maximum, roll dice, flip a coin random number 1 to 10 dice roller coin toss raffle pick a number"><div class="ic">🎲</div><b>Random number generator, dice and coin flip</b><span>Draw numbers between a minimum and a maximum, roll dice, flip a coin</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "cat": "Category", "value": "Value", "from": "From", "to": "To", "swap": "Swap", "table": "Nearby values", "length": "Length", "weight": "Weight & mass", "temp": "Temperature", "volume": "Volume", "area": "Area", "speed": "Speed", "data": "Digital data", "u_mm": "millimetres (mm)", "u_cm": "centimetres (cm)", "u_m": "metres (m)", "u_km": "kilometres (km)", "u_in": "inches (in)", "u_ft": "feet (ft)", "u_yd": "yards (yd)", "u_mi": "miles (mi)", "u_nmi": "nautical miles", "u_mg": "milligrams (mg)", "u_g": "grams (g)", "u_kg": "kilograms (kg)", "u_t": "tonnes (t)", "u_oz": "ounces (oz)", "u_lb": "pounds (lb)", "u_st": "stone (st)", "u_c": "degrees Celsius (°C)", "u_f": "degrees Fahrenheit (°F)", "u_k": "kelvin (K)", "u_ml": "millilitres (ml)", "u_cl": "centilitres (cl)", "u_l": "litres (l)", "u_m3": "cubic metres (m³)", "u_tsp": "teaspoons (tsp)", "u_tbsp": "tablespoons (tbsp)", "u_floz": "fluid ounces (fl oz)", "u_cup": "cups (US)", "u_pt": "pints (US)", "u_gal": "gallons (US)", "u_cm2": "square centimetres (cm²)", "u_m2": "square metres (m²)", "u_ha": "hectares (ha)", "u_km2": "square kilometres (km²)", "u_in2": "square inches (in²)", "u_ft2": "square feet (ft²)", "u_ac": "acres (ac)", "u_ms": "metres per second (m/s)", "u_kmh": "kilometres per hour (km/h)", "u_mph": "miles per hour (mph)", "u_kn": "knots (kn)", "u_b": "bytes (B)", "u_kb": "kilobytes (KB)", "u_mb": "megabytes (MB)", "u_gb": "gigabytes (GB)", "u_tb": "terabytes (TB)", "u_mbit": "megabits (Mb)", "u_gbit": "gigabits (Gb)"};</script>
+<script>
+(function(){
+
+var CATS = {
+  length: { units: { mm: 0.001, cm: 0.01, m: 1, km: 1000, 'in': 0.0254, ft: 0.3048, yd: 0.9144, mi: 1609.344, nmi: 1852 }, def: ['in', 'cm'] },
+  weight: { units: { mg: 0.000001, g: 0.001, kg: 1, t: 1000, oz: 0.028349523125, lb: 0.45359237, st: 6.35029318 }, def: ['lb', 'kg'] },
+  temp: { units: { c: 1, f: 1, k: 1 }, def: ['f', 'c'], special: true },
+  volume: { units: { ml: 0.001, cl: 0.01, l: 1, m3: 1000, tsp: 0.00492892159375, tbsp: 0.01478676478125, floz: 0.0295735295625, cup: 0.2365882365, pt: 0.473176473, gal: 3.785411784 }, def: ['gal', 'l'] },
+  area: { units: { cm2: 0.0001, m2: 1, ha: 10000, km2: 1000000, in2: 0.00064516, ft2: 0.09290304, ac: 4046.8564224 }, def: ['ft2', 'm2'] },
+  speed: { units: { ms: 1, kmh: 1 / 3.6, mph: 0.44704, kn: 0.514444444 }, def: ['mph', 'kmh'] },
+  data: { units: { b: 1, kb: 1000, mb: 1e6, gb: 1e9, tb: 1e12, mbit: 125000, gbit: 125000000 }, def: ['gb', 'mb'] }
+};
+var cat = RT.$('#cat'), from = RT.$('#from'), to = RT.$('#to'), val = RT.$('#val'), out = RT.$('#out'), sub = RT.$('#sub'), tbl = RT.$('#tbl');
+Object.keys(CATS).forEach(function (k) { var o = document.createElement('option'); o.value = k; o.textContent = T[k]; cat.appendChild(o); });
+function fill() {
+  var c = CATS[cat.value]; from.innerHTML = ''; to.innerHTML = '';
+  Object.keys(c.units).forEach(function (u) { [from, to].forEach(function (sel) { var o = document.createElement('option'); o.value = u; o.textContent = T['u_' + u]; sel.appendChild(o); }); });
+  from.value = c.def[0]; to.value = c.def[1];
+}
+function toC(v, u) { return u === 'c' ? v : u === 'f' ? (v - 32) * 5 / 9 : v - 273.15; }
+function fromC(v, u) { return u === 'c' ? v : u === 'f' ? v * 9 / 5 + 32 : v + 273.15; }
+function conv(v, a, b) { var c = CATS[cat.value]; if (c.special) return fromC(toC(v, a), b); return v * c.units[a] / c.units[b]; }
+function nice(n) { if (!isFinite(n)) return '–'; var a = Math.abs(n); var d = a === 0 ? 0 : a >= 1000 ? 2 : a >= 1 ? 4 : a >= 0.001 ? 6 : 10; return RT.fmt(n, d); }
+function short(u) { var s = T['u_' + u]; var m = s.match(/\(([^)]+)\)/); return m ? m[1] : s; }
+function calc() {
+  var v = RT.num(val.value), a = from.value, b = to.value;
+  if (!isFinite(v)) { out.textContent = '–'; sub.textContent = ''; tbl.innerHTML = ''; return; }
+  var r = conv(v, a, b);
+  out.textContent = nice(v) + ' ' + short(a) + ' = ' + nice(r) + ' ' + short(b);
+  sub.textContent = CATS[cat.value].special ? '' : '1 ' + short(a) + ' = ' + nice(conv(1, a, b)) + ' ' + short(b) + ' · 1 ' + short(b) + ' = ' + nice(conv(1, b, a)) + ' ' + short(a);
+  var base = CATS[cat.value].special ? [v - 20, v - 10, v - 5, v, v + 5, v + 10, v + 20] : [v * 0.25, v * 0.5, v, v * 2, v * 5, v * 10, v * 100];
+  tbl.innerHTML = '<tr><th>' + short(a) + '</th><th>' + short(b) + '</th></tr>' + base.map(function (x) { return '<tr><td>' + nice(x) + '</td><td>' + nice(conv(x, a, b)) + '</td></tr>'; }).join('');
+}
+cat.addEventListener('change', function () { fill(); calc(); });
+RT.$('#swap').addEventListener('click', function () { var t = from.value; from.value = to.value; to.value = t; calc(); });
+[from, to].forEach(function (s) { s.addEventListener('change', calc); }); val.addEventListener('input', calc);
+fill(); calc();
+
+})();
+</script>
+</body>
+</html>

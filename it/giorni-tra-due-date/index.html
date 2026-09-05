@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giorni tra due date – Rapido Tools</title>
+<meta name="description" content="Calcola quanti giorni, settimane, mesi e giorni lavorativi ci sono tra due date. Perfetto per scadenze, ferie, conto alla rovescia e durate.">
+
+<link rel="canonical" href="https://rapidotools.com/it/giorni-tra-due-date/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/giorni-tra-due-date/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/days-between-dates/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/days-between-dates/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Giorni tra due date – Rapido Tools">
+<meta property="og:description" content="Calcola quanti giorni, settimane, mesi e giorni lavorativi ci sono tra due date. Perfetto per scadenze, ferie, conto alla rovescia e durate.">
+<meta property="og:url" content="https://rapidotools.com/it/giorni-tra-due-date/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Giorni tra due date", "url": "https://rapidotools.com/it/giorni-tra-due-date/", "description": "Calcola quanti giorni, settimane, mesi e giorni lavorativi ci sono tra due date. Perfetto per scadenze, ferie, conto alla rovescia e durate.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Il giorno finale è compreso nel conteggio?", "acceptedAnswer": {"@type": "Answer", "text": "No, per impostazione predefinita si contano i giorni «di distanza» tra le due date. Spunta «Includi anche il giorno finale» per contare entrambi gli estremi, come si fa per ferie o soggiorni."}}, {"@type": "Question", "name": "Vengono tolte le festività?", "acceptedAnswer": {"@type": "Answer", "text": "No. Vengono esclusi solo sabato e domenica nel conteggio dei giorni lavorativi; le festività nazionali vanno sottratte a mano."}}, {"@type": "Question", "name": "Posso usare date nel passato o molto lontane nel futuro?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, qualsiasi data accettata dal calendario funziona, anche a distanza di decenni. Se la fine è prima dell'inizio, le date vengono invertite automaticamente."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/days-between-dates/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-date">📅 Date e tempo</a></nav>
+<h1>Giorni tra due date</h1>
+<p class="lead">Scegli una data di inizio e una di fine: ottieni subito i giorni totali, le settimane, i mesi e i giorni lavorativi (lunedì–venerdì) che le separano.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Giorni tra due date">
+
+<div class="row">
+  <div class="field"><label for="d1">Data di inizio</label><input type="date" id="d1"></div>
+  <div class="field"><label for="d2">Data di fine</label><input type="date" id="d2"></div>
+</div>
+<div class="inline">
+  <label class="check"><input type="checkbox" id="incl"> Includi anche il giorno finale</label>
+  <button class="btn small" type="button" id="swap">⇄ Inverti</button>
+  <button class="btn small" type="button" id="today">Oggi</button>
+</div>
+<p class="msg warn hide" id="past">La data di fine è precedente a quella di inizio: le date sono state invertite nel calcolo.</p>
+<div class="result hide" id="out">
+  <div class="big" id="main"></div>
+  <div class="sub" id="sub"></div>
+  <div class="stats">
+    <div class="stat"><b id="wk"></b><span>Settimane e giorni</span></div>
+    <div class="stat"><b id="ym"></b><span>Anni, mesi e giorni</span></div>
+    <div class="stat"><b id="work"></b><span>Giorni lavorativi (lun–ven)</span></div>
+    <div class="stat"><b id="wend"></b><span>Giorni di weekend</span></div>
+  </div>
+</div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Come si contano i giorni tra due date</h2>
+<p>Il calcolatore conta i giorni che vanno dalla data di inizio alla data di fine. Per impostazione predefinita il giorno finale <em>non</em> è incluso: dal 1° al 10 settembre risultano 9 giorni, cioè la distanza tra le due date. Se ti serve la durata di un periodo «compresi gli estremi», per esempio i giorni di una vacanza dal 1° al 10 settembre (10 giorni), spunta «Includi anche il giorno finale».</p>
+<h2>Giorni lavorativi e weekend</h2>
+<p>I giorni lavorativi sono quelli dal lunedì al venerdì; sabato e domenica contano come weekend. Le festività nazionali non vengono sottratte, perché cambiano da paese a paese e da anno ad anno: se nel periodo ci sono festivi infrasettimanali, toglili a mano dal totale.</p>
+<h2>Esempi pratici</h2>
+<ul>
+<li><strong>Quanti giorni mancano a una data?</strong> Metti oggi come inizio (pulsante «Oggi») e la data dell'evento come fine.</li>
+<li><strong>Durata di un contratto o di un abbonamento:</strong> inizio e fine del contratto, senza includere il giorno finale se la scadenza è «entro il».</li>
+<li><strong>Giorni di ferie o di malattia:</strong> spunta «Includi anche il giorno finale» e leggi i giorni lavorativi.</li>
+<li><strong>Quanto tempo è passato?</strong> Inserisci la data passata come inizio: il risultato mostra anche anni, mesi e giorni.</li>
+</ul>
+<p>Anni bisestili e mesi di lunghezza diversa sono gestiti automaticamente.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Il giorno finale è compreso nel conteggio?</summary><p>No, per impostazione predefinita si contano i giorni «di distanza» tra le due date. Spunta «Includi anche il giorno finale» per contare entrambi gli estremi, come si fa per ferie o soggiorni.</p></details><details><summary>Vengono tolte le festività?</summary><p>No. Vengono esclusi solo sabato e domenica nel conteggio dei giorni lavorativi; le festività nazionali vanno sottratte a mano.</p></details><details><summary>Posso usare date nel passato o molto lontane nel futuro?</summary><p>Sì, qualsiasi data accettata dal calendario funziona, anche a distanza di decenni. Se la fine è prima dell'inizio, le date vengono invertite automaticamente.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/calcolo-eta/" data-search="calcolo età anni, mesi e giorni esatti da una data di nascita quanti anni ho età esatta compleanno data di nascita"><div class="ic">🎂</div><b>Calcolo età</b><span>Anni, mesi e giorni esatti da una data di nascita</span></a><a class="card" href="../../it/aggiungi-giorni-a-una-data/" data-search="aggiungi o sottrai giorni a una data che giorno sarà tra 30, 60 o 90 giorni? anche settimane, mesi e giorni lavorativi tra 30 giorni tra 60 giorni tra 90 giorni calcolo scadenza data futura"><div class="ic">➕</div><b>Aggiungi o sottrai giorni a una data</b><span>Che giorno sarà tra 30, 60 o 90 giorni? Anche settimane, mesi e giorni lavorativi</span></a><a class="card" href="../../it/timer-online/" data-search="timer e cronometro online conto alla rovescia con suono e cronometro con giri timer 5 minuti timer 10 minuti pomodoro cronometro online conto alla rovescia"><div class="ic">⏱️</div><b>Timer e cronometro online</b><span>Conto alla rovescia con suono e cronometro con giri</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "from": "Data di inizio", "to": "Data di fine", "include": "Includi anche il giorno finale", "days": "giorni", "day": "giorno", "weeks": "settimane", "week": "settimana", "months": "mesi", "month": "mese", "years": "anni", "year": "anno", "total": "Giorni totali", "work": "Giorni lavorativi (lun–ven)", "weekend": "Giorni di weekend", "wk": "Settimane e giorni", "ym": "Anni, mesi e giorni", "hours": "ore", "from_wd": "Inizio", "to_wd": "Fine", "swap": "Inverti", "today": "Oggi", "past": "La data di fine è precedente a quella di inizio: le date sono state invertite nel calcolo."};</script>
+<script>
+(function(){
+
+var d1 = RT.$('#d1'), d2 = RT.$('#d2'), incl = RT.$('#incl'), out = RT.$('#out'), past = RT.$('#past');
+d1.value = RT.isoToday();
+var end = new Date(); end.setDate(end.getDate() + 30);
+d2.value = end.getFullYear() + '-' + RT.pad(end.getMonth() + 1) + '-' + RT.pad(end.getDate());
+function pl(n, one, many) { return RT.fmt(n, 0) + ' ' + (n === 1 ? one : many); }
+function ymd(a, b) {
+  var y = b.getFullYear() - a.getFullYear(), m = b.getMonth() - a.getMonth(), d = b.getDate() - a.getDate();
+  if (d < 0) { m--; d += new Date(b.getFullYear(), b.getMonth(), 0).getDate(); }
+  if (m < 0) { y--; m += 12; }
+  return [y, m, d];
+}
+function calc() {
+  var a = RT.parseDate(d1.value), b = RT.parseDate(d2.value);
+  if (!a || !b) { out.classList.add('hide'); return; }
+  var swapped = false;
+  if (b < a) { var t = a; a = b; b = t; swapped = true; }
+  past.classList.toggle('hide', !swapped);
+  var total = RT.daysBetween(a, b) + (incl.checked ? 1 : 0);
+  // working days
+  var work = 0, wend = 0, cur = new Date(a.getFullYear(), a.getMonth(), a.getDate());
+  var lastExclusive = incl.checked ? total : total; // iterate `total` days starting at a
+  for (var i = 0; i < total; i++) {
+    var wd = cur.getDay(); if (wd === 0 || wd === 6) wend++; else work++;
+    cur.setDate(cur.getDate() + 1);
+  }
+  RT.$('#main').textContent = pl(total, T.day, T.days);
+  RT.$('#sub').textContent = T.from_wd + ': ' + RT.weekday(a) + ' ' + RT.date(a) + ' → ' + T.to_wd + ': ' + RT.weekday(b) + ' ' + RT.date(b) + ' · ' + RT.fmt(total * 24, 0) + ' ' + T.hours;
+  RT.$('#wk').textContent = pl(Math.floor(total / 7), T.week, T.weeks) + (total % 7 ? ' + ' + pl(total % 7, T.day, T.days) : '');
+  var r = ymd(a, b); if (incl.checked) { var b2 = new Date(b); b2.setDate(b2.getDate() + 1); r = ymd(a, b2); }
+  RT.$('#ym').textContent = pl(r[0], T.year, T.years) + ', ' + pl(r[1], T.month, T.months) + ', ' + pl(r[2], T.day, T.days);
+  RT.$('#work').textContent = RT.fmt(work, 0);
+  RT.$('#wend').textContent = RT.fmt(wend, 0);
+  out.classList.remove('hide');
+}
+RT.$('#swap').addEventListener('click', function () { var t = d1.value; d1.value = d2.value; d2.value = t; calc(); });
+RT.$('#today').addEventListener('click', function () { d1.value = RT.isoToday(); calc(); });
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

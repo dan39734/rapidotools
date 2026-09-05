@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Convert images: PNG, JPG, WebP – Rapido Tools</title>
+<meta name="description" content="Convert images from PNG, WebP, GIF or BMP to JPG, PNG or WebP right in your browser, several files at once. No server uploads, free and with no sign-up.">
+
+<link rel="canonical" href="https://rapidotools.com/en/image-converter/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/converti-immagini/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/image-converter/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/image-converter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Convert images: PNG, JPG, WebP – Rapido Tools">
+<meta property="og:description" content="Convert images from PNG, WebP, GIF or BMP to JPG, PNG or WebP right in your browser, several files at once. No server uploads, free and with no sign-up.">
+<meta property="og:url" content="https://rapidotools.com/en/image-converter/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Convert images: PNG, JPG, WebP", "url": "https://rapidotools.com/en/image-converter/", "description": "Convert images from PNG, WebP, GIF or BMP to JPG, PNG or WebP right in your browser, several files at once. No server uploads, free and with no sign-up.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I convert iPhone HEIC photos?", "acceptedAnswer": {"@type": "Answer", "text": "Not directly: browsers can't read HEIC. On the iPhone go to Settings › Camera › Formats and choose \"Most Compatible\", or share the photo: it is sent as JPG."}}, {"@type": "Question", "name": "Does conversion reduce quality?", "acceptedAnswer": {"@type": "Answer", "text": "PNG to PNG or lossless WebP, no. To JPG there is slight compression: at quality 90 it is invisible. Converting a JPG to PNG doesn't recover quality already lost."}}, {"@type": "Question", "name": "Do the images stay on my device?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: conversion happens in the browser and no file is uploaded to a server."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/converti-immagini/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-images">🖼️ Images &amp; QR</a></nav>
+<h1>Convert images: PNG, JPG, WebP</h1>
+<p class="lead">Pick one or more files, the target format and, for JPG and WebP, the quality: every image is converted on your device and downloaded with one click.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Convert images: PNG, JPG, WebP">
+
+<label class="dropzone" id="dz"><input type="file" id="file" accept="image/*" multiple><strong>Drag images here or click to choose them</strong><br><small>PNG, JPG, WebP, GIF, BMP – several files at once</small></label>
+<p class="msg bad hide" id="err">No valid image. Note: iPhone HEIC/HEIF files must be converted to JPG on the phone first.</p>
+<div class="row" style="margin-top:12px">
+  <div class="field"><label for="fmt">Convert to</label><select id="fmt"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></div>
+  <div class="field"><label for="q">Quality (JPG/WebP): <b id="qv">90</b>%</label><input type="range" id="q" min="30" max="100" value="90"></div>
+  <div class="field"><label for="bg">Background for transparency (JPG)</label><input type="color" id="bg" value="#ffffff" style="height:42px;width:80px"></div>
+</div>
+<div class="btns"><button class="btn primary" type="button" id="go" disabled>Convert</button><button class="btn" type="button" id="all" disabled>Download all</button></div>
+<div class="table-wrap hide" id="listwrap" style="margin-top:14px"><table><thead><tr><th>File</th><th>Before</th><th>After</th><th></th></tr></thead><tbody id="list"></tbody></table></div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>Which format to choose</h2>
+<ul>
+<li><strong>JPG</strong> – the universal format for photos: small files, accepted by any website, form and program. It has no transparency: transparent areas are filled with the background colour you pick (white by default).</li>
+<li><strong>PNG</strong> – lossless and with transparency: ideal for logos, icons, screenshots and graphics with text. For photographs it produces very large files.</li>
+<li><strong>WebP</strong> – the modern web format: lighter than JPG and PNG, with transparency support. All recent browsers read it, but some older programs and websites don't accept it: convert it to JPG or PNG in that case.</li>
+</ul>
+<h2>Typical cases</h2>
+<ul>
+<li><strong>WebP → JPG:</strong> you downloaded an image from a website and your program won't open it.</li>
+<li><strong>PNG → JPG:</strong> a screenshot or graphic to email or upload where PNG is too heavy or not accepted.</li>
+<li><strong>JPG → PNG:</strong> a form or service that only accepts PNG (conversion keeps the quality, it doesn't improve it).</li>
+<li><strong>GIF/BMP → PNG or JPG:</strong> to update old formats; for animated GIFs only the first frame is kept.</li>
+</ul>
+<h2>Batch conversion</h2>
+<p>You can select several images at once: they are converted one after another and each gets a download button in the table, with the size before and after. "Download all" starts the downloads in sequence (the browser may ask permission for multiple downloads). Conversion keeps the original pixel dimensions: to shrink them as well, use the <a href="../resize-compress-image/">Resize and compress images</a> tool.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>Can I convert iPhone HEIC photos?</summary><p>Not directly: browsers can't read HEIC. On the iPhone go to Settings › Camera › Formats and choose "Most Compatible", or share the photo: it is sent as JPG.</p></details><details><summary>Does conversion reduce quality?</summary><p>PNG to PNG or lossless WebP, no. To JPG there is slight compression: at quality 90 it is invisible. Converting a JPG to PNG doesn't recover quality already lost.</p></details><details><summary>Do the images stay on my device?</summary><p>Yes: conversion happens in the browser and no file is uploaded to a server.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/resize-compress-image/" data-search="resize and compress images shrink the size and weight of jpg, png and webp photos without uploading them reduce image size compress jpg shrink photo image under 1mb resize picture"><div class="ic">🖼️</div><b>Resize and compress images</b><span>Shrink the size and weight of JPG, PNG and WebP photos without uploading them</span></a><a class="card" href="../../en/qr-code-generator/" data-search="qr code generator qr codes for links, text, wi-fi, phone and email, downloadable as png or svg create qr code free qr code wifi qr qr code for link qr code png"><div class="ic">▦</div><b>QR code generator</b><span>QR codes for links, text, Wi-Fi, phone and email, downloadable as PNG or SVG</span></a><a class="card" href="../../en/age-calculator/" data-search="age calculator exact years, months and days from a date of birth how old am i birthday date of birth"><div class="ic">🎂</div><b>Age calculator</b><span>Exact years, months and days from a date of birth</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "drop": "Drag images here or click to choose them", "formats": "PNG, JPG, WebP, GIF, BMP – several files at once", "to": "Convert to", "quality": "Quality (JPG/WebP)", "bg": "Background for transparency (JPG)", "convert": "Convert", "all": "Download all", "err": "No valid image. Note: iPhone HEIC/HEIF files must be converted to JPG on the phone first.", "done": "Converted", "file": "File", "before": "Before", "after": "After"};</script>
+<script>
+(function(){
+
+var file = RT.$('#file'), dz = RT.$('#dz'), err = RT.$('#err'), list = RT.$('#list'), go = RT.$('#go'), all = RT.$('#all');
+var files = [], results = [];
+RT.$('#q').addEventListener('input', function () { RT.$('#qv').textContent = RT.$('#q').value; });
+function setFiles(fl) {
+  files = Array.prototype.filter.call(fl, function (f) { return /^image\//.test(f.type); });
+  err.classList.toggle('hide', files.length > 0); go.disabled = !files.length; all.disabled = true; results = [];
+  list.innerHTML = files.map(function (f, i) { return '<tr id="r' + i + '"><td>' + f.name + '</td><td>' + RT.bytes(f.size) + '</td><td>–</td><td></td></tr>'; }).join('');
+  RT.$('#listwrap').classList.toggle('hide', !files.length);
+}
+file.addEventListener('change', function () { setFiles(file.files); });
+['dragenter', 'dragover'].forEach(function (e) { dz.addEventListener(e, function (ev) { ev.preventDefault(); dz.classList.add('over'); }); });
+['dragleave', 'drop'].forEach(function (e) { dz.addEventListener(e, function (ev) { ev.preventDefault(); dz.classList.remove('over'); }); });
+dz.addEventListener('drop', function (ev) { setFiles(ev.dataTransfer.files); });
+function convertOne(f, type, q, bg) {
+  return new Promise(function (resolve, reject) {
+    var img = new Image(), url = URL.createObjectURL(f);
+    img.onload = function () {
+      var c = document.createElement('canvas'); c.width = img.naturalWidth; c.height = img.naturalHeight;
+      var ctx = c.getContext('2d');
+      if (type === 'image/jpeg') { ctx.fillStyle = bg; ctx.fillRect(0, 0, c.width, c.height); }
+      ctx.drawImage(img, 0, 0); URL.revokeObjectURL(url);
+      c.toBlob(function (b) { b ? resolve(b) : reject(); }, type, q);
+    };
+    img.onerror = reject; img.src = url;
+  });
+}
+go.addEventListener('click', function () {
+  var type = RT.$('#fmt').value, q = +RT.$('#q').value / 100, bg = RT.$('#bg').value, ext = type === 'image/png' ? 'png' : type === 'image/webp' ? 'webp' : 'jpg';
+  go.disabled = true; results = [];
+  var chain = Promise.resolve();
+  files.forEach(function (f, i) {
+    chain = chain.then(function () {
+      return convertOne(f, type, q, bg).then(function (blob) {
+        var name = f.name.replace(/\.[^.]+$/, '') + '.' + ext, url = URL.createObjectURL(blob);
+        results.push({ url: url, name: name });
+        var tr = RT.$('#r' + i); tr.children[2].textContent = RT.bytes(blob.size);
+        tr.children[3].innerHTML = '<a class="btn small primary" download="' + name + '" href="' + url + '">⬇ ' + T.download + '</a>';
+      }, function () { var tr = RT.$('#r' + i); tr.children[2].textContent = '✗'; });
+    });
+  });
+  chain.then(function () { go.disabled = false; all.disabled = results.length < 2; });
+});
+all.addEventListener('click', function () { results.forEach(function (r, i) { setTimeout(function () { RT.download(r.url, r.name); }, i * 300); }); });
+
+})();
+</script>
+</body>
+</html>

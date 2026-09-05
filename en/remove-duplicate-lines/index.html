@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remove duplicate lines and sort lists – Rapido Tools</title>
+<meta name="description" content="Remove duplicate and blank lines from a list, sort alphabetically or numerically, trim extra spaces. All in your browser, free and with no sign-up.">
+
+<link rel="canonical" href="https://rapidotools.com/en/remove-duplicate-lines/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/rimuovi-righe-duplicate/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/remove-duplicate-lines/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/remove-duplicate-lines/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Remove duplicate lines and sort lists – Rapido Tools">
+<meta property="og:description" content="Remove duplicate and blank lines from a list, sort alphabetically or numerically, trim extra spaces. All in your browser, free and with no sign-up.">
+<meta property="og:url" content="https://rapidotools.com/en/remove-duplicate-lines/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Remove duplicate lines and sort lists", "url": "https://rapidotools.com/en/remove-duplicate-lines/", "description": "Remove duplicate and blank lines from a list, sort alphabetically or numerically, trim extra spaces. All in your browser, free and with no sign-up.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are duplicate lines counted?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: under the result you can see how many lines came in, how many remain and how many were removed."}}, {"@type": "Question", "name": "Does alphabetical sorting handle accents?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: it uses language rules, so \"é\" and \"e\" sort together and numbers inside words follow natural order."}}, {"@type": "Question", "name": "Can I sort decimal numbers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: choose \"Numeric ascending\". Both 1.5 and 1,5 are accepted."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/rimuovi-righe-duplicate/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-text">✍️ Text</a></nav>
+<h1>Remove duplicate lines and sort lists</h1>
+<p class="lead">Paste a list (emails, names, codes, addresses) and get a clean version: no duplicates, no blank lines and, if you like, sorted alphabetically.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Remove duplicate lines and sort lists">
+
+<div class="field"><textarea id="txt" placeholder="One item per line…" rows="8" autofocus></textarea></div>
+<div class="row">
+  <div>
+    <label class="check"><input type="checkbox" id="dedupe" checked> Remove duplicate lines</label>
+    <label class="check"><input type="checkbox" id="nocase"> Ignore upper/lower case when comparing</label>
+    <label class="check"><input type="checkbox" id="empty" checked> Remove blank lines</label>
+    <label class="check"><input type="checkbox" id="trim" checked> Trim spaces at start and end of lines</label>
+    <label class="check"><input type="checkbox" id="prefix"> Add numbering</label>
+  </div>
+  <div class="field"><label for="sort">Sort</label><select id="sort">
+    <option value="none">None (original order)</option><option value="az">A → Z</option><option value="za">Z → A</option><option value="num">Numeric ascending</option><option value="len">By length</option><option value="rev">Reverse order</option><option value="shuffle">Shuffle</option></select></div>
+</div>
+<div class="btns"><button class="btn small" type="button" id="clear">Clear</button></div>
+<div class="field out" style="margin-top:14px"><label for="res">Result</label><textarea id="res" rows="8" readonly></textarea><button class="btn small copy" type="button" data-copy="#res" data-done="Copied!" style="top:32px">Copy</button></div>
+<p class="msg" id="info"></p>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>What this tool does</h2>
+<p>It takes a text with one item per line and cleans it according to the options you choose:</p>
+<ul>
+<li><strong>Remove duplicate lines:</strong> keeps only the first occurrence of each line. With "Ignore upper/lower case", <em>Mario</em> and <em>mario</em> count as the same item.</li>
+<li><strong>Remove blank lines</strong> and <strong>trim spaces</strong> at the start and end of lines: they fix lists copied from spreadsheets, emails or PDFs.</li>
+<li><strong>Sort:</strong> alphabetical (A→Z or Z→A, with accents and numbers handled naturally: "file2" comes before "file10"), numeric, by length, reversed or random.</li>
+<li><strong>Numbering:</strong> adds "1. ", "2. "… in front of each line.</li>
+</ul>
+<h2>Example uses</h2>
+<ul>
+<li>Merge two email lists for a newsletter without sending duplicates.</li>
+<li>Alphabetise a list of names for a register or a meeting.</li>
+<li>Clean up a list of product codes or keywords exported from a program.</li>
+<li>Run a draw: paste the participants and choose "Shuffle".</li>
+</ul>
+<p>Line comparison is exact: if two items differ by an inner space or an accent, both are kept. The text is not sent to any server.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>Are duplicate lines counted?</summary><p>Yes: under the result you can see how many lines came in, how many remain and how many were removed.</p></details><details><summary>Does alphabetical sorting handle accents?</summary><p>Yes: it uses language rules, so "é" and "e" sort together and numbers inside words follow natural order.</p></details><details><summary>Can I sort decimal numbers?</summary><p>Yes: choose "Numeric ascending". Both 1.5 and 1,5 are accepted.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/word-counter/" data-search="word and character counter words, characters, sentences, paragraphs and reading time character counter letter count reading time word count"><div class="ic">🔤</div><b>Word and character counter</b><span>Words, characters, sentences, paragraphs and reading time</span></a><a class="card" href="../../en/case-converter/" data-search="uppercase / lowercase converter turn text into uppercase, lowercase, title case or sentence case capitalize title case sentence case change case all caps"><div class="ic">Aa</div><b>Uppercase / lowercase converter</b><span>Turn text into UPPERCASE, lowercase, Title Case or Sentence case</span></a><a class="card" href="../../en/password-generator/" data-search="strong password generator random passwords or memorable passphrases, with strength rating random password secure password passphrase generator strong password"><div class="ic">🔑</div><b>Strong password generator</b><span>Random passwords or memorable passphrases, with strength rating</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "ph": "One item per line…", "dedupe": "Remove duplicate lines", "nocase": "Ignore upper/lower case when comparing", "empty": "Remove blank lines", "trim": "Trim spaces at start and end of lines", "sort": "Sort", "none": "None (original order)", "az": "A → Z", "za": "Z → A", "num": "Numeric ascending", "len": "By length", "rev": "Reverse order", "shuffle": "Shuffle", "out": "Result", "in_lines": "input lines", "out_lines": "output lines", "removed": "removed", "clear": "Clear", "prefix": "Add numbering"};</script>
+<script>
+(function(){
+
+var txt = RT.$('#txt'), res = RT.$('#res'), info = RT.$('#info');
+var coll = new Intl.Collator(RT.locale, { numeric: true, sensitivity: 'base' });
+function run() {
+  var lines = txt.value.split(/\r?\n/), inN = lines.length;
+  if (RT.$('#trim').checked) lines = lines.map(function (l) { return l.trim(); });
+  if (RT.$('#empty').checked) lines = lines.filter(function (l) { return l.trim() !== ''; });
+  if (RT.$('#dedupe').checked) { var seen = {}, nc = RT.$('#nocase').checked; lines = lines.filter(function (l) { var k = nc ? l.toLowerCase() : l; if (seen[k]) return false; seen[k] = 1; return true; }); }
+  var s = RT.$('#sort').value;
+  if (s === 'az') lines.sort(coll.compare); else if (s === 'za') lines.sort(coll.compare).reverse();
+  else if (s === 'num') lines.sort(function (a, b) { return (RT.num(a) || 0) - (RT.num(b) || 0); });
+  else if (s === 'len') lines.sort(function (a, b) { return a.length - b.length || coll.compare(a, b); });
+  else if (s === 'rev') lines.reverse();
+  else if (s === 'shuffle') { for (var i = lines.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = lines[i]; lines[i] = lines[j]; lines[j] = t; } }
+  if (RT.$('#prefix').checked) lines = lines.map(function (l, i) { return (i + 1) + '. ' + l; });
+  res.value = lines.join('\n');
+  if (!txt.value) { res.value = ''; info.textContent = ''; return; }
+  info.textContent = RT.fmt(inN, 0) + ' ' + T.in_lines + ' → ' + RT.fmt(lines.length, 0) + ' ' + T.out_lines + ' (' + RT.fmt(Math.max(0, inN - lines.length), 0) + ' ' + T.removed + ')';
+}
+RT.$('#clear').addEventListener('click', function () { txt.value = ''; run(); txt.focus(); });
+RT.live(document.getElementById('tool'), run);
+
+})();
+</script>
+</body>
+</html>

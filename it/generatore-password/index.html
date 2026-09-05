@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generatore di password sicure – Rapido Tools</title>
+<meta name="description" content="Genera password sicure e casuali (lettere, numeri, simboli) o frasi segrete facili da ricordare. Creazione nel browser: nessuna password viene inviata o salvata.">
+
+<link rel="canonical" href="https://rapidotools.com/it/generatore-password/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/generatore-password/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/password-generator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/password-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Generatore di password sicure – Rapido Tools">
+<meta property="og:description" content="Genera password sicure e casuali (lettere, numeri, simboli) o frasi segrete facili da ricordare. Creazione nel browser: nessuna password viene inviata o salvata.">
+<meta property="og:url" content="https://rapidotools.com/it/generatore-password/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Generatore di password sicure", "url": "https://rapidotools.com/it/generatore-password/", "description": "Genera password sicure e casuali (lettere, numeri, simboli) o frasi segrete facili da ricordare. Creazione nel browser: nessuna password viene inviata o salvata.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quanto deve essere lunga una password?", "acceptedAnswer": {"@type": "Answer", "text": "Almeno 12 caratteri casuali; 16 o più per gli account importanti. Con una frase segreta, 4 parole bastano, 5 sono ottime."}}, {"@type": "Question", "name": "Le password generate qui sono davvero casuali?", "acceptedAnswer": {"@type": "Answer", "text": "Sì: usano crypto.getRandomValues, il generatore crittografico del browser, lo stesso usato dai gestori di password."}}, {"@type": "Question", "name": "Posso fidarmi a generare una password su un sito?", "acceptedAnswer": {"@type": "Answer", "text": "In questo caso sì, perché la generazione avviene solo nel tuo browser e nulla viene inviato a un server. Puoi verificarlo staccando la connessione: lo strumento continua a funzionare."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/password-generator/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-text">✍️ Testo</a></nav>
+<h1>Generatore di password sicure</h1>
+<p class="lead">Scegli lunghezza e caratteri, oppure crea una frase segreta di parole casuali: la password viene generata sul tuo dispositivo con un generatore crittografico e non lascia mai il browser.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Generatore di password sicure">
+
+<div class="tabs"><button type="button" class="on" data-tab="pw">Password casuale</button><button type="button" data-tab="pp">Frase segreta</button></div>
+<div id="tab-pw">
+  <div class="field"><label for="len">Lunghezza: <b id="lenv">16</b></label><input type="range" id="len" min="6" max="64" value="16"></div>
+  <div class="row">
+    <label class="check"><input type="checkbox" id="up" checked> Maiuscole (A-Z)</label>
+    <label class="check"><input type="checkbox" id="lo" checked> Minuscole (a-z)</label>
+    <label class="check"><input type="checkbox" id="di" checked> Numeri (0-9)</label>
+    <label class="check"><input type="checkbox" id="sy" checked> Simboli (!@#$%…)</label>
+  </div>
+  <label class="check"><input type="checkbox" id="am"> Evita caratteri ambigui (l, 1, I, O, 0)</label>
+</div>
+<div id="tab-pp" class="hide">
+  <div class="row">
+    <div class="field"><label for="nw">Numero di parole</label><select id="nw"><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option></select></div>
+    <div class="field"><label for="sep">Separatore</label><select id="sep"><option value="-">-</option><option value=".">.</option><option value="_">_</option><option value=" ">spazio</option><option value="">nessuno</option></select></div>
+    <div class="field"><label for="wl">Lingua delle parole</label><select id="wl"><option value="it">Italiano</option><option value="en">Inglese</option></select></div>
+  </div>
+  <label class="check"><input type="checkbox" id="cap" checked> Iniziali maiuscole</label>
+  <label class="check"><input type="checkbox" id="addnum" checked> Aggiungi un numero</label>
+</div>
+<p class="msg bad hide" id="err">Seleziona almeno un tipo di carattere.</p>
+<div class="result">
+  <div class="out"><input type="text" id="pw" class="mono" readonly style="font-size:1.15rem;padding-right:90px"><button class="btn small copy" type="button" data-copy="#pw" data-done="Copiato!" style="top:6px">Copia</button></div>
+  <div class="meter"><i id="bar"></i></div>
+  <div class="sub"><span id="str"></span> · <span id="bits"></span> bit di entropia</div>
+  <div class="btns"><button class="btn primary" type="button" id="gen">Genera di nuovo</button></div>
+</div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Cosa rende sicura una password</h2>
+<p>Due cose: la <strong>lunghezza</strong> e la <strong>casualità</strong>. Una password di 8 caratteri, anche con simboli, può essere indovinata da un computer in poche ore; una di 16 caratteri casuali richiede secoli. Le parole del dizionario, le date di nascita e le sostituzioni «furbe» come P@ssw0rd sono le prime cose che i programmi di attacco provano, quindi non aggiungono sicurezza reale.</p>
+<p>La <strong>robustezza</strong> mostrata sotto la password è espressa in bit di entropia: ogni bit raddoppia il numero di tentativi necessari. Sopra i 60 bit sei al sicuro dagli attacchi comuni; sopra gli 80 anche da quelli più determinati.</p>
+<h2>Password casuale o frase segreta?</h2>
+<p>La password casuale (es. <code>x7#Kq2!mVp9$Lw4R</code>) è ideale se usi un gestore di password che la ricorda per te. La <strong>frase segreta</strong> (es. <code>Volpe-Lampada-Miele-Treno-42</code>) è altrettanto sicura con 4-5 parole, ma è molto più facile da ricordare e da digitare: perfetta per la password principale del gestore, del computer o della posta elettronica.</p>
+<h2>Consigli pratici</h2>
+<ul>
+<li>Usa una password diversa per ogni servizio: se un sito viene violato, gli altri restano al sicuro.</li>
+<li>Affidati a un gestore di password (quello del browser va già bene) invece di riusare la stessa ovunque.</li>
+<li>Attiva la verifica in due passaggi dove possibile: è la protezione più efficace.</li>
+<li>Non inviare password via email o chat e non salvarle in un file di testo.</li>
+</ul>
+<p>Le password vengono generate con il generatore crittografico del browser e non vengono mai trasmesse o salvate: quando chiudi la pagina spariscono.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Quanto deve essere lunga una password?</summary><p>Almeno 12 caratteri casuali; 16 o più per gli account importanti. Con una frase segreta, 4 parole bastano, 5 sono ottime.</p></details><details><summary>Le password generate qui sono davvero casuali?</summary><p>Sì: usano crypto.getRandomValues, il generatore crittografico del browser, lo stesso usato dai gestori di password.</p></details><details><summary>Posso fidarmi a generare una password su un sito?</summary><p>In questo caso sì, perché la generazione avviene solo nel tuo browser e nulla viene inviato a un server. Puoi verificarlo staccando la connessione: lo strumento continua a funzionare.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/conta-parole/" data-search="conta parole e caratteri parole, caratteri, frasi, paragrafi e tempo di lettura contatore caratteri conta lettere numero di parole tempo di lettura battute"><div class="ic">🔤</div><b>Conta parole e caratteri</b><span>Parole, caratteri, frasi, paragrafi e tempo di lettura</span></a><a class="card" href="../../it/maiuscolo-minuscolo/" data-search="convertitore maiuscolo / minuscolo trasforma un testo in maiuscolo, minuscolo, iniziali maiuscole o frase tutto maiuscolo tutto minuscolo iniziali maiuscole cambia caso trasforma testo"><div class="ic">Aa</div><b>Convertitore maiuscolo / minuscolo</b><span>Trasforma un testo in MAIUSCOLO, minuscolo, Iniziali Maiuscole o Frase</span></a><a class="card" href="../../it/rimuovi-righe-duplicate/" data-search="rimuovi righe duplicate e ordina elenchi pulisci un elenco: via doppioni e righe vuote, ordine alfabetico ordina alfabeticamente elimina duplicati pulisci elenco righe vuote"><div class="ic">🧹</div><b>Rimuovi righe duplicate e ordina elenchi</b><span>Pulisci un elenco: via doppioni e righe vuote, ordine alfabetico</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "tab_pw": "Password casuale", "tab_pp": "Frase segreta", "length": "Lunghezza", "upper": "Maiuscole (A-Z)", "lower": "Minuscole (a-z)", "digits": "Numeri (0-9)", "symbols": "Simboli (!@#$%…)", "ambig": "Evita caratteri ambigui (l, 1, I, O, 0)", "generate": "Genera", "again": "Genera di nuovo", "strength": "Robustezza", "weak": "Debole", "fair": "Discreta", "good": "Buona", "strong": "Forte", "very": "Molto forte", "bits": "bit di entropia", "words": "Numero di parole", "sep": "Separatore", "cap": "Iniziali maiuscole", "addnum": "Aggiungi un numero", "lang_words": "Lingua delle parole", "it": "Italiano", "en": "Inglese", "space": "spazio", "none": "nessuno", "err": "Seleziona almeno un tipo di carattere."};</script>
+<script>
+(function(){
+
+var WORDS = { it: ['albero', 'amico', 'ancora', 'aprile', 'arancia', 'argento', 'aria', 'autunno', 'banana', 'barca', 'bianco', 'bosco', 'bottiglia', 'caffe', 'calore', 'campo', 'cane', 'carta', 'casa', 'castello', 'cavallo', 'cena', 'chiave', 'cielo', 'cinema', 'citta', 'collina', 'colore', 'coniglio', 'corda', 'cucina', 'cuore', 'delfino', 'dente', 'domenica', 'donna', 'erba', 'estate', 'farfalla', 'ferro', 'festa', 'fiore', 'fiume', 'foglia', 'forchetta', 'formica', 'fragola', 'freddo', 'frutta', 'fuoco', 'gatto', 'gelato', 'giallo', 'giardino', 'giornale', 'giovedi', 'girasole', 'grano', 'isola', 'lago', 'lampada', 'latte', 'legno', 'leone', 'lettera', 'libro', 'limone', 'luce', 'luna', 'lupo', 'mano', 'mare', 'martedi', 'matita', 'mattina', 'medusa', 'mela', 'mercato', 'miele', 'montagna', 'musica', 'nave', 'neve', 'notte', 'nuvola', 'oceano', 'olio', 'ombra', 'onda', 'orologio', 'orso', 'ospite', 'pane', 'panna', 'pesce', 'piano', 'pianta', 'piazza', 'pietra', 'pioggia', 'pizza', 'ponte', 'porta', 'prato', 'primavera', 'quadro', 'radice', 'ragno', 'rana', 'regalo', 'riso', 'rosa', 'rosso', 'ruota', 'sabbia', 'sale', 'scuola', 'sedia', 'sera', 'serpente', 'sole', 'specchio', 'spiaggia', 'stella', 'strada', 'tavolo', 'tazza', 'teatro', 'terra', 'tetto', 'tigre', 'torre', 'treno', 'uccello', 'uovo', 'valle', 'vento', 'verde', 'vetro', 'viaggio', 'vino', 'viola', 'volpe', 'zaino', 'zucchero'], en: ['apple', 'anchor', 'arrow', 'autumn', 'badger', 'bamboo', 'basket', 'beach', 'bench', 'berry', 'bird', 'blanket', 'bottle', 'branch', 'bread', 'breeze', 'bridge', 'butter', 'cabin', 'candle', 'canyon', 'carrot', 'castle', 'cherry', 'cloud', 'coffee', 'comet', 'copper', 'coral', 'cotton', 'cricket', 'crystal', 'dolphin', 'donkey', 'dragon', 'eagle', 'ember', 'engine', 'falcon', 'feather', 'fiddle', 'forest', 'fossil', 'garden', 'garlic', 'ginger', 'glacier', 'goose', 'guitar', 'hammer', 'harbor', 'hazel', 'honey', 'island', 'jacket', 'jungle', 'kettle', 'lantern', 'lemon', 'lily', 'lobster', 'maple', 'marble', 'meadow', 'melon', 'mirror', 'monkey', 'mountain', 'muffin', 'needle', 'nickel', 'noodle', 'oak', 'ocean', 'olive', 'orbit', 'orchid', 'otter', 'oyster', 'paddle', 'panda', 'parrot', 'pebble', 'pencil', 'pepper', 'piano', 'pillow', 'pirate', 'planet', 'plum', 'pocket', 'puzzle', 'rabbit', 'radio', 'rainbow', 'river', 'rocket', 'saddle', 'salmon', 'sandal', 'shadow', 'silver', 'spider', 'spoon', 'square', 'summer', 'sunset', 'thunder', 'tiger', 'tomato', 'tulip', 'turtle', 'umbrella', 'valley', 'velvet', 'violin', 'walnut', 'walrus', 'willow', 'window', 'winter', 'yogurt', 'zebra'] };
+var tab = 'pw';
+var tabs = RT.$$('.tabs button');
+tabs.forEach(function (b) { b.addEventListener('click', function () { tab = b.getAttribute('data-tab'); tabs.forEach(function (x) { x.classList.toggle('on', x === b); }); RT.$('#tab-pw').classList.toggle('hide', tab !== 'pw'); RT.$('#tab-pp').classList.toggle('hide', tab !== 'pp'); gen(); }); });
+RT.$('#wl').value = RT.lang;
+function rnd(n) { var a = new Uint32Array(1); var max = Math.floor(4294967296 / n) * n; do { crypto.getRandomValues(a); } while (a[0] >= max); return a[0] % n; }
+function pick(s) { return s[rnd(s.length)]; }
+function shuffle(arr) { for (var i = arr.length - 1; i > 0; i--) { var j = rnd(i + 1); var t = arr[i]; arr[i] = arr[j]; arr[j] = t; } return arr; }
+function rate(bits) {
+  var lvl = bits < 40 ? [T.weak, 'var(--bad)', 20] : bits < 60 ? [T.fair, 'var(--warn)', 40] : bits < 80 ? [T.good, 'var(--ok)', 60] : bits < 100 ? [T.strong, 'var(--ok)', 80] : [T.very, 'var(--ok)', 100];
+  RT.$('#str').textContent = lvl[0]; RT.$('#bar').style.background = lvl[1]; RT.$('#bar').style.width = lvl[2] + '%'; RT.$('#bits').textContent = Math.round(bits);
+}
+function gen() {
+  RT.$('#err').classList.add('hide');
+  if (tab === 'pw') {
+    var sets = [], am = RT.$('#am').checked;
+    var U = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', L = 'abcdefghijklmnopqrstuvwxyz', D = '0123456789', S = '!@#$%^&*()-_=+[]{};:,.?/~';
+    if (am) { U = U.replace(/[IO]/g, ''); L = L.replace(/[l]/g, ''); D = D.replace(/[01]/g, ''); }
+    if (RT.$('#up').checked) sets.push(U); if (RT.$('#lo').checked) sets.push(L); if (RT.$('#di').checked) sets.push(D); if (RT.$('#sy').checked) sets.push(S);
+    if (!sets.length) { RT.$('#err').classList.remove('hide'); RT.$('#pw').value = ''; return; }
+    var len = +RT.$('#len').value, all = sets.join(''), out = [];
+    sets.forEach(function (s) { out.push(pick(s)); });
+    while (out.length < len) out.push(pick(all));
+    RT.$('#pw').value = shuffle(out).join('');
+    rate(len * Math.log2(all.length));
+  } else {
+    var list = WORDS[RT.$('#wl').value], n = +RT.$('#nw').value, sep = RT.$('#sep').value, cap = RT.$('#cap').checked, an = RT.$('#addnum').checked;
+    var w = []; for (var i = 0; i < n; i++) { var x = pick(list); if (cap) x = x.charAt(0).toUpperCase() + x.slice(1); w.push(x); }
+    if (an) w.splice(rnd(n + 1), 0, String(rnd(100)));
+    RT.$('#pw').value = w.join(sep);
+    rate(n * Math.log2(list.length) + (an ? Math.log2(100) : 0));
+  }
+}
+RT.$('#len').addEventListener('input', function () { RT.$('#lenv').textContent = RT.$('#len').value; gen(); });
+RT.$$('#tab-pw input, #tab-pp input, #tab-pp select').forEach(function (el) { el.addEventListener('change', gen); });
+RT.$('#gen').addEventListener('click', gen);
+gen();
+
+})();
+</script>
+</body>
+</html>

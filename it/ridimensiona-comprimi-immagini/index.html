@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ridimensiona e comprimi immagini – Rapido Tools</title>
+<meta name="description" content="Ridimensiona e comprimi foto e immagini direttamente nel browser: scegli larghezza, altezza o percentuale, regola la qualità e scarica il file più leggero. Nessun caricamento su server.">
+
+<link rel="canonical" href="https://rapidotools.com/it/ridimensiona-comprimi-immagini/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/ridimensiona-comprimi-immagini/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/resize-compress-image/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/resize-compress-image/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Ridimensiona e comprimi immagini – Rapido Tools">
+<meta property="og:description" content="Ridimensiona e comprimi foto e immagini direttamente nel browser: scegli larghezza, altezza o percentuale, regola la qualità e scarica il file più leggero. Nessun caricamento su server.">
+<meta property="og:url" content="https://rapidotools.com/it/ridimensiona-comprimi-immagini/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Ridimensiona e comprimi immagini", "url": "https://rapidotools.com/it/ridimensiona-comprimi-immagini/", "description": "Ridimensiona e comprimi foto e immagini direttamente nel browser: scegli larghezza, altezza o percentuale, regola la qualità e scarica il file più leggero. Nessun caricamento su server.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Le mie foto vengono caricate da qualche parte?", "acceptedAnswer": {"@type": "Answer", "text": "No. L'elaborazione avviene nel browser, sul tuo dispositivo: puoi usare lo strumento anche senza connessione."}}, {"@type": "Question", "name": "Come porto una foto sotto 1 MB?", "acceptedAnswer": {"@type": "Answer", "text": "Imposta «Lato massimo» a 1600 px, formato JPG e qualità 80, poi premi Applica: nella didascalia vedi il nuovo peso. Se serve, abbassa la qualità o le dimensioni."}}, {"@type": "Question", "name": "Perché il PNG resta pesante?", "acceptedAnswer": {"@type": "Answer", "text": "Il PNG è un formato senza perdita: la qualità non incide. Per le foto scegli JPG o WebP; usa il PNG solo per grafica, loghi e immagini con trasparenza."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/resize-compress-image/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-images">🖼️ Immagini e QR</a></nav>
+<h1>Ridimensiona e comprimi immagini</h1>
+<p class="lead">Carica una foto, scegli le nuove dimensioni e la qualità: l&#x27;immagine viene elaborata sul tuo dispositivo e puoi scaricarla subito, più leggera. Ideale per email, moduli online e concorsi con limiti di peso.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Ridimensiona e comprimi immagini">
+
+<label class="dropzone" id="dz"><input type="file" id="file" accept="image/*"><strong>Trascina qui un'immagine o clicca per sceglierla</strong><br><small>JPG, PNG, WebP, GIF, BMP</small></label>
+<p class="msg bad hide" id="err">File non riconosciuto come immagine. Nota: le foto HEIC/HEIF dell'iPhone vanno prima convertite in JPG dal telefono.</p>
+<div id="panel" class="hide">
+  <div class="preview"><figure><img id="orig" alt=""><figcaption id="origcap"></figcaption></figure></div>
+  <div class="inline" style="margin-top:12px"><span class="lbl">Preset:</span>
+    <button class="btn small" type="button" data-max="1600">Email (1600 px)</button><button class="btn small" type="button" data-max="1200">Web (1200 px)</button>
+    <button class="btn small" type="button" data-max="1080">Social (1080 px)</button><button class="btn small" type="button" data-max="400">Anteprima (400 px)</button></div>
+  <div class="row" style="margin-top:12px">
+    <div class="field"><label for="mode">Ridimensiona per</label><select id="mode"><option value="max">Lato massimo (px)</option><option value="w">Larghezza (px)</option><option value="h">Altezza (px)</option><option value="p">Percentuale (%)</option></select></div>
+    <div class="field"><label for="val">Valore</label><input type="number" id="val" value="1600" min="1" inputmode="numeric"></div>
+    <div class="field"><label for="fmt">Formato di uscita</label><select id="fmt"><option value="">Come l'originale</option><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></div>
+  </div>
+  <div class="field"><label for="q">Qualità: <b id="qv">85</b>%</label><input type="range" id="q" min="30" max="100" value="85"></div>
+  <div class="btns"><button class="btn primary" type="button" id="apply">Applica</button></div>
+  <div class="result hide" id="out">
+    <div class="preview"><figure><img id="res" alt=""><figcaption id="rescap"></figcaption></figure></div>
+    <div class="btns"><a class="btn primary" id="dl" download>⬇ Scarica</a></div>
+  </div>
+</div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Come funziona</h2>
+<p>Scegli un'immagine (o trascinala, o incollala con Ctrl+V), imposta le nuove dimensioni e la qualità, premi <strong>Applica</strong> e scarica il risultato. Tutto avviene nel browser grazie alle funzioni di disegno del tuo dispositivo: la foto non viene caricata su nessun server, quindi funziona anche offline ed è adatta a documenti e foto personali.</p>
+<h2>Ridimensionare: quale opzione scegliere</h2>
+<ul>
+<li><strong>Lato massimo:</strong> il modo più semplice. Imposti quanti pixel deve avere il lato più lungo (1600 per un'email, 1200 per un sito, 1080 per i social) e le proporzioni restano identiche.</li>
+<li><strong>Larghezza o altezza:</strong> quando un modulo richiede una misura precisa, per esempio 600 px di larghezza.</li>
+<li><strong>Percentuale:</strong> per dimezzare (50%) o ridurre a un quarto (25%) qualsiasi immagine.</li>
+</ul>
+<p>Le foto dei telefoni moderni misurano 4000 × 3000 pixel o più: per lo schermo e per il web ne bastano 1200-1600, che pesano dieci volte meno senza differenze visibili.</p>
+<h2>Comprimere: formato e qualità</h2>
+<p>Il <strong>JPG</strong> è il formato giusto per le foto: con qualità 80-85 l'occhio non nota differenze e il file si riduce molto. Il <strong>WebP</strong> pesa circa il 25-30% meno del JPG a parità di qualità ed è supportato da tutti i browser recenti. Il <strong>PNG</strong> è senza perdita e conserva la trasparenza: perfetto per loghi, schermate e grafica, ma pesante per le foto (la qualità non ha effetto sul PNG).</p>
+<h2>Limiti di peso comuni</h2>
+<p>Moduli della pubblica amministrazione e concorsi chiedono spesso foto sotto 1 MB o 500 KB; molti portali accettano al massimo 2 MB; le foto per i documenti hanno formati precisi (per esempio 35 × 45 mm, 413 × 531 px). Con lato massimo 1200 px e qualità 80 una foto da 5 MB scende di solito sotto i 300 KB.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Le mie foto vengono caricate da qualche parte?</summary><p>No. L'elaborazione avviene nel browser, sul tuo dispositivo: puoi usare lo strumento anche senza connessione.</p></details><details><summary>Come porto una foto sotto 1 MB?</summary><p>Imposta «Lato massimo» a 1600 px, formato JPG e qualità 80, poi premi Applica: nella didascalia vedi il nuovo peso. Se serve, abbassa la qualità o le dimensioni.</p></details><details><summary>Perché il PNG resta pesante?</summary><p>Il PNG è un formato senza perdita: la qualità non incide. Per le foto scegli JPG o WebP; usa il PNG solo per grafica, loghi e immagini con trasparenza.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/converti-immagini/" data-search="converti immagini: png, jpg, webp cambia formato a una o più immagini nel browser, anche in blocco png in jpg webp in jpg jpg in png convertire foto cambiare formato immagine"><div class="ic">🔄</div><b>Converti immagini: PNG, JPG, WebP</b><span>Cambia formato a una o più immagini nel browser, anche in blocco</span></a><a class="card" href="../../it/generatore-codice-qr/" data-search="generatore di codici qr qr per link, testo, wi-fi, telefono ed email, da scaricare in png o svg crea qr code qr code gratis qr wifi qr code menu codice qr link"><div class="ic">▦</div><b>Generatore di codici QR</b><span>QR per link, testo, Wi-Fi, telefono ed email, da scaricare in PNG o SVG</span></a><a class="card" href="../../it/calcolo-eta/" data-search="calcolo età anni, mesi e giorni esatti da una data di nascita quanti anni ho età esatta compleanno data di nascita"><div class="ic">🎂</div><b>Calcolo età</b><span>Anni, mesi e giorni esatti da una data di nascita</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "drop": "Trascina qui un'immagine o clicca per sceglierla", "formats": "JPG, PNG, WebP, GIF, BMP", "original": "Originale", "mode": "Ridimensiona per", "m_w": "Larghezza (px)", "m_h": "Altezza (px)", "m_p": "Percentuale (%)", "m_max": "Lato massimo (px)", "value": "Valore", "format": "Formato di uscita", "same": "Come l'originale", "quality": "Qualità", "apply": "Applica", "saving": "risparmio", "dims": "dimensioni", "size": "peso", "err": "File non riconosciuto come immagine. Nota: le foto HEIC/HEIF dell'iPhone vanno prima convertite in JPG dal telefono.", "presets": "Preset", "p_email": "Email (1600 px)", "p_web": "Web (1200 px)", "p_social": "Social (1080 px)", "p_thumb": "Anteprima (400 px)"};</script>
+<script>
+(function(){
+
+var file = RT.$('#file'), dz = RT.$('#dz'), panel = RT.$('#panel'), err = RT.$('#err'), img = new Image(), origFile = null, outBlob = null;
+function fmtDims(w, h) { return w + ' × ' + h + ' px'; }
+function load(f) {
+  if (!f || !/^image\//.test(f.type)) { err.classList.remove('hide'); return; }
+  err.classList.add('hide'); origFile = f;
+  var url = URL.createObjectURL(f);
+  img.onload = function () {
+    RT.$('#orig').src = url; RT.$('#origcap').textContent = T.original + ': ' + fmtDims(img.naturalWidth, img.naturalHeight) + ' · ' + RT.bytes(f.size);
+    panel.classList.remove('hide'); RT.$('#out').classList.add('hide');
+    if (RT.$('#mode').value === 'max' && +RT.$('#val').value > Math.max(img.naturalWidth, img.naturalHeight)) RT.$('#val').value = Math.max(img.naturalWidth, img.naturalHeight);
+    apply();
+  };
+  img.onerror = function () { err.classList.remove('hide'); };
+  img.src = url;
+}
+file.addEventListener('change', function () { load(file.files[0]); });
+['dragenter', 'dragover'].forEach(function (e) { dz.addEventListener(e, function (ev) { ev.preventDefault(); dz.classList.add('over'); }); });
+['dragleave', 'drop'].forEach(function (e) { dz.addEventListener(e, function (ev) { ev.preventDefault(); dz.classList.remove('over'); }); });
+dz.addEventListener('drop', function (ev) { if (ev.dataTransfer.files[0]) load(ev.dataTransfer.files[0]); });
+document.addEventListener('paste', function (ev) { var items = ev.clipboardData && ev.clipboardData.items; if (!items) return; for (var i = 0; i < items.length; i++) if (items[i].type.indexOf('image') === 0) { load(items[i].getAsFile()); break; } });
+RT.$('#q').addEventListener('input', function () { RT.$('#qv').textContent = RT.$('#q').value; });
+RT.$$('[data-max]').forEach(function (b) { b.addEventListener('click', function () { RT.$('#mode').value = 'max'; RT.$('#val').value = b.getAttribute('data-max'); apply(); }); });
+function target() {
+  var W = img.naturalWidth, H = img.naturalHeight, v = +RT.$('#val').value || 1, m = RT.$('#mode').value, w, h;
+  if (m === 'w') { w = v; h = Math.round(H * v / W); } else if (m === 'h') { h = v; w = Math.round(W * v / H); }
+  else if (m === 'p') { w = Math.round(W * v / 100); h = Math.round(H * v / 100); }
+  else { var s = Math.min(1, v / Math.max(W, H)); w = Math.round(W * s); h = Math.round(H * s); }
+  return [Math.max(1, w), Math.max(1, h)];
+}
+function apply() {
+  if (!origFile) return;
+  var t = target(), type = RT.$('#fmt').value || (origFile.type === 'image/png' || origFile.type === 'image/webp' ? origFile.type : 'image/jpeg');
+  if (type === 'image/gif' || type === 'image/bmp') type = 'image/png';
+  var c = document.createElement('canvas'); c.width = t[0]; c.height = t[1];
+  var ctx = c.getContext('2d');
+  if (type === 'image/jpeg') { ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height); }
+  // step-down for quality when shrinking a lot
+  var src = img, sw = img.naturalWidth, sh = img.naturalHeight;
+  while (sw / 2 > t[0] && sh / 2 > t[1]) { var tmp = document.createElement('canvas'); tmp.width = Math.round(sw / 2); tmp.height = Math.round(sh / 2); tmp.getContext('2d').drawImage(src, 0, 0, tmp.width, tmp.height); src = tmp; sw = tmp.width; sh = tmp.height; }
+  ctx.imageSmoothingQuality = 'high'; ctx.drawImage(src, 0, 0, c.width, c.height);
+  c.toBlob(function (blob) {
+    if (!blob) return; outBlob = blob;
+    var url = URL.createObjectURL(blob); RT.$('#res').src = url;
+    var saving = origFile.size ? Math.round((1 - blob.size / origFile.size) * 100) : 0;
+    RT.$('#rescap').textContent = T.result + ': ' + fmtDims(c.width, c.height) + ' · ' + RT.bytes(blob.size) + (saving > 0 ? ' (−' + saving + '% ' + T.saving + ')' : '');
+    var ext = type === 'image/png' ? 'png' : type === 'image/webp' ? 'webp' : 'jpg';
+    var dl = RT.$('#dl'); dl.href = url; dl.download = origFile.name.replace(/\.[^.]+$/, '') + '-' + c.width + 'x' + c.height + '.' + ext;
+    RT.$('#out').classList.remove('hide');
+  }, type, +RT.$('#q').value / 100);
+}
+RT.$('#apply').addEventListener('click', apply);
+
+})();
+</script>
+</body>
+</html>

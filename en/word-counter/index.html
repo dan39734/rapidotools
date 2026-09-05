@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word and character counter – Rapido Tools</title>
+<meta name="description" content="Count words, characters (with and without spaces), sentences and paragraphs in real time, with reading and speaking time. Free, no sign-up.">
+
+<link rel="canonical" href="https://rapidotools.com/en/word-counter/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/conta-parole/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/word-counter/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/word-counter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Word and character counter – Rapido Tools">
+<meta property="og:description" content="Count words, characters (with and without spaces), sentences and paragraphs in real time, with reading and speaking time. Free, no sign-up.">
+<meta property="og:url" content="https://rapidotools.com/en/word-counter/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Word and character counter", "url": "https://rapidotools.com/en/word-counter/", "description": "Count words, characters (with and without spaces), sentences and paragraphs in real time, with reading and speaking time. Free, no sign-up.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is reading time calculated?", "acceptedAnswer": {"@type": "Answer", "text": "By dividing the number of words by 200, the average speed of an adult reader. Speaking time uses 130 words per minute."}}, {"@type": "Question", "name": "Does the count match Microsoft Word?", "acceptedAnswer": {"@type": "Answer", "text": "In the vast majority of cases yes: both count every group of characters separated by spaces as a word. Small differences can arise from isolated symbols or numbers."}}, {"@type": "Question", "name": "Do characters include spaces?", "acceptedAnswer": {"@type": "Answer", "text": "The \"Characters\" figure includes spaces; \"Characters without spaces\" excludes them. Social media limits count spaces."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/conta-parole/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-text">✍️ Text</a></nav>
+<h1>Word and character counter</h1>
+<p class="lead">Paste or type your text: the counts update as you type. Perfect for essays, theses, social posts, descriptions and character limits.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Word and character counter">
+
+<div class="field"><textarea id="txt" placeholder="Type or paste your text here…" rows="8" autofocus></textarea></div>
+<div class="btns"><button class="btn small" type="button" data-copy="#txt" data-done="Copied!">Copy</button><button class="btn small" type="button" id="clear">Clear</button></div>
+<div class="stats">
+  <div class="stat"><b id="w">0</b><span>Words</span></div>
+  <div class="stat"><b id="c">0</b><span>Characters</span></div>
+  <div class="stat"><b id="cn">0</b><span>Characters without spaces</span></div>
+  <div class="stat"><b id="s">0</b><span>Sentences</span></div>
+  <div class="stat"><b id="p">0</b><span>Paragraphs</span></div>
+  <div class="stat"><b id="avg">0</b><span>Average word length</span></div>
+  <div class="stat"><b id="rt">0 s</b><span>Reading time</span></div>
+  <div class="stat"><b id="st">0 s</b><span>Speaking time</span></div>
+</div>
+<div class="result" style="margin-top:14px">
+  <div class="lbl">Common limits</div>
+  <div class="table-wrap"><table id="limits"><tbody>
+    <tr><td>X/Twitter post (280)</td><td data-lim="280"></td></tr>
+    <tr><td>SMS (160)</td><td data-lim="160"></td></tr>
+    <tr><td>Meta description (155)</td><td data-lim="155"></td></tr>
+    <tr><td>Instagram caption (2,200)</td><td data-lim="2200"></td></tr>
+  </tbody></table></div>
+  <div class="lbl" style="margin-top:12px">Most frequent words</div>
+  <p id="top" class="msg">–</p>
+</div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>What this tool counts</h2>
+<ul>
+<li><strong>Words:</strong> sequences of characters separated by spaces or line breaks. "Don't" counts as one word, as in most word processors.</li>
+<li><strong>Characters:</strong> every symbol, spaces included. This is the number that matters for social media and online form limits.</li>
+<li><strong>Characters without spaces:</strong> useful for translation rates and some editorial guidelines.</li>
+<li><strong>Sentences and paragraphs:</strong> sentences end with a full stop, exclamation or question mark; paragraphs are separated by a blank line.</li>
+<li><strong>Reading time:</strong> estimated at 200 words per minute (silent reading) and 130 words per minute (out loud, as in a speech or a video).</li>
+</ul>
+<h2>Limits worth remembering</h2>
+<p>A post on X/Twitter can have at most 280 characters, a classic SMS 160, an Instagram caption 2,200. A web page's "meta description" is usually truncated by Google at around 155 characters. A typical college essay is between 500 and 1,000 words; a standard manuscript page is about 250 words.</p>
+<h2>Most frequent words</h2>
+<p>The list of the most used words (excluding grammatical ones such as articles and prepositions) helps you spot repetition and check that the keywords of a web text actually appear.</p>
+<p>Your text never leaves your device: the counting happens in the browser.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>How is reading time calculated?</summary><p>By dividing the number of words by 200, the average speed of an adult reader. Speaking time uses 130 words per minute.</p></details><details><summary>Does the count match Microsoft Word?</summary><p>In the vast majority of cases yes: both count every group of characters separated by spaces as a word. Small differences can arise from isolated symbols or numbers.</p></details><details><summary>Do characters include spaces?</summary><p>The "Characters" figure includes spaces; "Characters without spaces" excludes them. Social media limits count spaces.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/case-converter/" data-search="uppercase / lowercase converter turn text into uppercase, lowercase, title case or sentence case capitalize title case sentence case change case all caps"><div class="ic">Aa</div><b>Uppercase / lowercase converter</b><span>Turn text into UPPERCASE, lowercase, Title Case or Sentence case</span></a><a class="card" href="../../en/password-generator/" data-search="strong password generator random passwords or memorable passphrases, with strength rating random password secure password passphrase generator strong password"><div class="ic">🔑</div><b>Strong password generator</b><span>Random passwords or memorable passphrases, with strength rating</span></a><a class="card" href="../../en/remove-duplicate-lines/" data-search="remove duplicate lines and sort lists clean up a list: drop duplicates and blank lines, sort alphabetically sort alphabetically dedupe unique lines clean list"><div class="ic">🧹</div><b>Remove duplicate lines and sort lists</b><span>Clean up a list: drop duplicates and blank lines, sort alphabetically</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "ph": "Type or paste your text here…", "words": "Words", "chars": "Characters", "nospace": "Characters without spaces", "sentences": "Sentences", "paragraphs": "Paragraphs", "read": "Reading time", "speak": "Speaking time", "min": "min", "sec": "s", "clear": "Clear", "top": "Most frequent words", "avg": "Average word length", "limits": "Common limits", "limit_tweet": "X/Twitter post (280)", "limit_ig": "Instagram caption (2,200)", "limit_meta": "Meta description (155)", "limit_sms": "SMS (160)", "left": "left", "over": "over the limit"};</script>
+<script>
+(function(){
+
+var txt = RT.$('#txt');
+var stop = RT.lang === 'it' ? 'di,a,da,in,con,su,per,tra,fra,il,lo,la,i,gli,le,un,uno,una,e,o,ma,che,non,si,del,della,dei,delle,al,alla,ai,alle,dal,dalla,nel,nella,è,sono,ho,hai,ha,come,più,anche,se,ci,mi,ti,questo,questa' : 'the,a,an,and,or,but,of,to,in,on,at,for,with,by,from,is,are,was,were,be,it,this,that,as,i,you,he,she,we,they,not,have,has,do,does,my,your,its';
+stop = stop.split(',');
+function fmtTime(sec) { if (sec < 60) return Math.round(sec) + ' ' + T.sec; var m = Math.floor(sec / 60), s = Math.round(sec % 60); return m + ' ' + T.min + (s ? ' ' + s + ' ' + T.sec : ''); }
+function calc() {
+  var v = txt.value;
+  var words = v.trim() ? v.trim().split(/\s+/) : [];
+  var chars = v.length, nospace = v.replace(/\s/g, '').length;
+  var sentences = v.trim() ? (v.match(/[^.!?…]+[.!?…]+(\s|$)|[^.!?…]+$/g) || []).length : 0;
+  var paragraphs = v.trim() ? v.split(/\n\s*\n/).filter(function (p) { return p.trim(); }).length : 0;
+  var letters = words.join('').replace(/[^\p{L}\p{N}]/gu, '').length;
+  RT.$('#w').textContent = RT.fmt(words.length, 0); RT.$('#c').textContent = RT.fmt(chars, 0); RT.$('#cn').textContent = RT.fmt(nospace, 0);
+  RT.$('#s').textContent = RT.fmt(sentences, 0); RT.$('#p').textContent = RT.fmt(paragraphs, 0);
+  RT.$('#avg').textContent = words.length ? RT.fmt(letters / words.length, 1) : '0';
+  RT.$('#rt').textContent = fmtTime(words.length / 200 * 60); RT.$('#st').textContent = fmtTime(words.length / 130 * 60);
+  RT.$$('#limits [data-lim]').forEach(function (td) { var lim = +td.getAttribute('data-lim'), left = lim - chars; td.innerHTML = left >= 0 ? RT.fmt(left, 0) + ' ' + T.left : '<span style="color:var(--bad)">' + RT.fmt(-left, 0) + ' ' + T.over + '</span>'; });
+  var freq = {};
+  words.forEach(function (w) { w = w.toLowerCase().replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, ''); if (w.length > 2 && stop.indexOf(w) < 0) freq[w] = (freq[w] || 0) + 1; });
+  var top = Object.keys(freq).sort(function (a, b) { return freq[b] - freq[a]; }).slice(0, 8);
+  RT.$('#top').textContent = top.length ? top.map(function (w) { return w + ' (' + freq[w] + ')'; }).join(' · ') : '–';
+}
+RT.$('#clear').addEventListener('click', function () { txt.value = ''; calc(); txt.focus(); });
+txt.addEventListener('input', calc); calc();
+
+})();
+</script>
+</body>
+</html>

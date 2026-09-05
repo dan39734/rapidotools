@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolo percentuale – Rapido Tools</title>
+<meta name="description" content="Calcola la percentuale di un numero, che percentuale è un numero rispetto a un altro, l&#x27;aumento o la diminuzione percentuale e il valore con la percentuale aggiunta o tolta. Con formule ed esempi.">
+
+<link rel="canonical" href="https://rapidotools.com/it/calcolo-percentuale/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-percentuale/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/percentage-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/percentage-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Calcolo percentuale – Rapido Tools">
+<meta property="og:description" content="Calcola la percentuale di un numero, che percentuale è un numero rispetto a un altro, l&#x27;aumento o la diminuzione percentuale e il valore con la percentuale aggiunta o tolta. Con formule ed esempi.">
+<meta property="og:url" content="https://rapidotools.com/it/calcolo-percentuale/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calcolo percentuale", "url": "https://rapidotools.com/it/calcolo-percentuale/", "description": "Calcola la percentuale di un numero, che percentuale è un numero rispetto a un altro, l'aumento o la diminuzione percentuale e il valore con la percentuale aggiunta o tolta. Con formule ed esempi.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Come si calcola la percentuale tra due numeri?", "acceptedAnswer": {"@type": "Answer", "text": "Dividi il primo numero per il secondo e moltiplica per 100: 45 su 60 = 45 ÷ 60 × 100 = 75%."}}, {"@type": "Question", "name": "Come calcolo lo sconto in percentuale?", "acceptedAnswer": {"@type": "Answer", "text": "Usa la variazione: (prezzo scontato − prezzo pieno) ÷ prezzo pieno × 100. Per i prezzi c'è anche il nostro calcolatore di sconto dedicato."}}, {"@type": "Question", "name": "Posso usare la virgola per i decimali?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, il calcolatore accetta sia la virgola sia il punto."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/percentage-calculator/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-numbers">🔢 Numeri e conversioni</a></nav>
+<h1>Calcolo percentuale</h1>
+<p class="lead">Quattro calcoli in uno: la percentuale di un numero, il rapporto tra due numeri in percentuale, la variazione tra un valore iniziale e uno finale, e un numero aumentato o diminuito di una percentuale.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Calcolo percentuale">
+
+<div class="result" style="margin-top:0">
+  <div class="inline"><span>Quanto è il</span><input type="text" inputmode="decimal" id="p1" value="20" style="width:90px"><span>% di</span><input type="text" inputmode="decimal" id="n1" value="150" style="width:110px"><span>?</span></div>
+  <div class="big" id="r1" style="font-size:1.5rem;margin-top:8px"></div>
+</div>
+<div class="result">
+  <div class="inline"><span>Il numero</span><input type="text" inputmode="decimal" id="a2" value="30" style="width:100px"><span>è che percentuale di</span><input type="text" inputmode="decimal" id="b2" value="200" style="width:110px"><span>?</span></div>
+  <div class="big" id="r2" style="font-size:1.5rem;margin-top:8px"></div>
+</div>
+<div class="result">
+  <div class="inline"><span>Variazione da</span><input type="text" inputmode="decimal" id="a3" value="80" style="width:100px"><span>a</span><input type="text" inputmode="decimal" id="b3" value="100" style="width:100px"><span>?</span></div>
+  <div class="big" id="r3" style="font-size:1.5rem;margin-top:8px"></div>
+</div>
+<div class="result">
+  <div class="inline"><span>Il numero</span><input type="text" inputmode="decimal" id="a4" value="1200" style="width:100px"><span>aumentato o diminuito del</span><input type="text" inputmode="decimal" id="p4" value="15" style="width:80px"><span>% (usa il meno per diminuire)</span></div>
+  <div class="big" id="r4" style="font-size:1.5rem;margin-top:8px"></div>
+</div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Le formule</h2>
+<ul>
+<li><strong>Percentuale di un numero:</strong> numero × percentuale ÷ 100. Il 20% di 150 = 150 × 20 ÷ 100 = <strong>30</strong>.</li>
+<li><strong>Che percentuale è A di B:</strong> A ÷ B × 100. 30 su 200 = 30 ÷ 200 × 100 = <strong>15%</strong>.</li>
+<li><strong>Variazione percentuale:</strong> (finale − iniziale) ÷ iniziale × 100. Da 80 a 100 = (100 − 80) ÷ 80 × 100 = <strong>+25%</strong>. Da 100 a 80 invece è −20%: la base del calcolo è sempre il valore di partenza, per questo salita e discesa non sono simmetriche.</li>
+<li><strong>Aumentare o diminuire di una percentuale:</strong> numero × (1 + percentuale ÷ 100). 1.200 aumentato del 15% = 1.200 × 1,15 = <strong>1.380</strong>; diminuito del 15% = 1.200 × 0,85 = 1.020.</li>
+</ul>
+<h2>Trucchi per calcolare a mente</h2>
+<p>Il 10% si ottiene spostando la virgola di un posto (10% di 240 = 24); il 5% è la metà del 10%; l'1% è un centesimo. Per il 15% somma 10% e 5%: 15% di 240 = 24 + 12 = 36. E ricorda che a% di b è uguale a b% di a: l'8% di 50 è lo stesso del 50% di 8, cioè 4.</p>
+<h2>Attenzione ai punti percentuali</h2>
+<p>Se un tasso passa dal 2% al 3% è aumentato di <em>un punto percentuale</em>, ma in termini relativi è cresciuto del 50%. Le due cose vengono spesso confuse nelle notizie e nelle pubblicità.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Come si calcola la percentuale tra due numeri?</summary><p>Dividi il primo numero per il secondo e moltiplica per 100: 45 su 60 = 45 ÷ 60 × 100 = 75%.</p></details><details><summary>Come calcolo lo sconto in percentuale?</summary><p>Usa la variazione: (prezzo scontato − prezzo pieno) ÷ prezzo pieno × 100. Per i prezzi c'è anche il nostro calcolatore di sconto dedicato.</p></details><details><summary>Posso usare la virgola per i decimali?</summary><p>Sì, il calcolatore accetta sia la virgola sia il punto.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/calcolo-sconto/" data-search="calcolo sconto prezzo finale e risparmio con uno o due sconti, o sconto a partire dai prezzi prezzo scontato saldi sconto del 30% doppio sconto quanto risparmio"><div class="ic">🏷️</div><b>Calcolo sconto</b><span>Prezzo finale e risparmio con uno o due sconti, o sconto a partire dai prezzi</span></a><a class="card" href="../../it/numeri-romani/" data-search="convertitore numeri romani da numero a romano e viceversa, da 1 a 3999, con tabella numeri romani da 1 a 100 2026 in numeri romani mmxxvi come si scrive in romano"><div class="ic">🏛️</div><b>Convertitore numeri romani</b><span>Da numero a romano e viceversa, da 1 a 3999, con tabella</span></a><a class="card" href="../../it/convertitore-unita-di-misura/" data-search="convertitore di unità di misura lunghezza, peso, temperatura, volume, area, velocità, dati pollici in cm miglia in km fahrenheit in celsius libbre in kg once in grammi piedi in metri conversione unità"><div class="ic">📏</div><b>Convertitore di unità di misura</b><span>Lunghezza, peso, temperatura, volume, area, velocità, dati</span></a><a class="card" href="../../it/numeri-casuali/" data-search="generatore di numeri casuali, dadi e testa o croce estrai numeri tra un minimo e un massimo, lancia dadi, tira una moneta numero casuale da 1 a 10 estrazione casuale lancia dadi online sorteggio tira moneta"><div class="ic">🎲</div><b>Generatore di numeri casuali, dadi e testa o croce</b><span>Estrai numeri tra un minimo e un massimo, lancia dadi, tira una moneta</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "q1a": "Quanto è il", "q1b": "% di", "q2a": "Il numero", "q2b": "è che percentuale di", "q3a": "Variazione da", "q3b": "a", "q4a": "Il numero", "q4b": "aumentato o diminuito del", "q4c": "% (usa il meno per diminuire)", "res": "Risultato", "inc": "Aumento", "dec": "Diminuzione", "of": "di", "is": "è il"};</script>
+<script>
+(function(){
+
+function v(id) { return RT.num(RT.$('#' + id).value); }
+function calc() {
+  var p1 = v('p1'), n1 = v('n1'); RT.$('#r1').textContent = isFinite(p1 * n1) ? RT.fmt(p1 * n1 / 100, 4) : '–';
+  var a2 = v('a2'), b2 = v('b2'); RT.$('#r2').textContent = isFinite(a2 / b2) && b2 !== 0 ? RT.fmt(a2 / b2 * 100, 2) + ' %' : '–';
+  var a3 = v('a3'), b3 = v('b3');
+  if (isFinite(a3) && isFinite(b3) && a3 !== 0) { var ch = (b3 - a3) / Math.abs(a3) * 100; RT.$('#r3').textContent = (ch >= 0 ? '+' : '−') + RT.fmt(Math.abs(ch), 2) + ' % (' + (ch >= 0 ? T.inc : T.dec) + ' ' + RT.fmt(Math.abs(b3 - a3), 4) + ')'; } else RT.$('#r3').textContent = '–';
+  var a4 = v('a4'), p4 = v('p4'); RT.$('#r4').textContent = isFinite(a4 * p4) ? RT.fmt(a4 * (1 + p4 / 100), 4) : '–';
+}
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

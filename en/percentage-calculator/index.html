@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Percentage calculator – Rapido Tools</title>
+<meta name="description" content="Work out a percentage of a number, what percent one number is of another, percentage increase or decrease and a value with a percentage added or removed. With formulas and examples.">
+
+<link rel="canonical" href="https://rapidotools.com/en/percentage-calculator/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-percentuale/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/percentage-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/percentage-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Percentage calculator – Rapido Tools">
+<meta property="og:description" content="Work out a percentage of a number, what percent one number is of another, percentage increase or decrease and a value with a percentage added or removed. With formulas and examples.">
+<meta property="og:url" content="https://rapidotools.com/en/percentage-calculator/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Percentage calculator", "url": "https://rapidotools.com/en/percentage-calculator/", "description": "Work out a percentage of a number, what percent one number is of another, percentage increase or decrease and a value with a percentage added or removed. With formulas and examples.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate the percentage between two numbers?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the first number by the second and multiply by 100: 45 out of 60 = 45 ÷ 60 × 100 = 75%."}}, {"@type": "Question", "name": "How do I work out a discount percentage?", "acceptedAnswer": {"@type": "Answer", "text": "Use the change formula: (sale price − full price) ÷ full price × 100. For prices there is also our dedicated discount calculator."}}, {"@type": "Question", "name": "Can I use a comma for decimals?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the calculator accepts both a comma and a point."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/calcolo-percentuale/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-numbers">🔢 Numbers &amp; conversions</a></nav>
+<h1>Percentage calculator</h1>
+<p class="lead">Four calculations in one: a percentage of a number, one number as a percentage of another, the change between a starting and a final value, and a number increased or decreased by a percentage.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Percentage calculator">
+
+<div class="result" style="margin-top:0">
+  <div class="inline"><span>What is</span><input type="text" inputmode="decimal" id="p1" value="20" style="width:90px"><span>% of</span><input type="text" inputmode="decimal" id="n1" value="150" style="width:110px"><span>?</span></div>
+  <div class="big" id="r1" style="font-size:1.5rem;margin-top:8px"></div>
+</div>
+<div class="result">
+  <div class="inline"><span>The number</span><input type="text" inputmode="decimal" id="a2" value="30" style="width:100px"><span>is what percent of</span><input type="text" inputmode="decimal" id="b2" value="200" style="width:110px"><span>?</span></div>
+  <div class="big" id="r2" style="font-size:1.5rem;margin-top:8px"></div>
+</div>
+<div class="result">
+  <div class="inline"><span>Change from</span><input type="text" inputmode="decimal" id="a3" value="80" style="width:100px"><span>to</span><input type="text" inputmode="decimal" id="b3" value="100" style="width:100px"><span>?</span></div>
+  <div class="big" id="r3" style="font-size:1.5rem;margin-top:8px"></div>
+</div>
+<div class="result">
+  <div class="inline"><span>The number</span><input type="text" inputmode="decimal" id="a4" value="1200" style="width:100px"><span>increased or decreased by</span><input type="text" inputmode="decimal" id="p4" value="15" style="width:80px"><span>% (use a minus sign to decrease)</span></div>
+  <div class="big" id="r4" style="font-size:1.5rem;margin-top:8px"></div>
+</div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>The formulas</h2>
+<ul>
+<li><strong>Percentage of a number:</strong> number × percentage ÷ 100. 20% of 150 = 150 × 20 ÷ 100 = <strong>30</strong>.</li>
+<li><strong>What percent A is of B:</strong> A ÷ B × 100. 30 out of 200 = 30 ÷ 200 × 100 = <strong>15%</strong>.</li>
+<li><strong>Percentage change:</strong> (final − initial) ÷ initial × 100. From 80 to 100 = (100 − 80) ÷ 80 × 100 = <strong>+25%</strong>. From 100 to 80 it is −20%: the base is always the starting value, which is why rises and falls are not symmetrical.</li>
+<li><strong>Increase or decrease by a percentage:</strong> number × (1 + percentage ÷ 100). 1,200 increased by 15% = 1,200 × 1.15 = <strong>1,380</strong>; decreased by 15% = 1,200 × 0.85 = 1,020.</li>
+</ul>
+<h2>Mental-maths shortcuts</h2>
+<p>10% is the number with the decimal point moved one place (10% of 240 = 24); 5% is half of 10%; 1% is one hundredth. For 15% add 10% and 5%: 15% of 240 = 24 + 12 = 36. And remember that a% of b equals b% of a: 8% of 50 is the same as 50% of 8, i.e. 4.</p>
+<h2>Mind the percentage points</h2>
+<p>If a rate goes from 2% to 3% it has risen by <em>one percentage point</em>, but in relative terms it has grown by 50%. The two are often confused in news and advertising.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>How do I calculate the percentage between two numbers?</summary><p>Divide the first number by the second and multiply by 100: 45 out of 60 = 45 ÷ 60 × 100 = 75%.</p></details><details><summary>How do I work out a discount percentage?</summary><p>Use the change formula: (sale price − full price) ÷ full price × 100. For prices there is also our dedicated discount calculator.</p></details><details><summary>Can I use a comma for decimals?</summary><p>Yes, the calculator accepts both a comma and a point.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/discount-calculator/" data-search="discount calculator final price and savings with one or two discounts, or the discount from two prices sale price 30% off double discount how much do i save percent off"><div class="ic">🏷️</div><b>Discount calculator</b><span>Final price and savings with one or two discounts, or the discount from two prices</span></a><a class="card" href="../../en/roman-numerals/" data-search="roman numerals converter number to roman and back, from 1 to 3999, with a reference table 2026 in roman numerals mmxxvi roman numeral chart convert roman"><div class="ic">🏛️</div><b>Roman numerals converter</b><span>Number to Roman and back, from 1 to 3999, with a reference table</span></a><a class="card" href="../../en/unit-converter/" data-search="unit converter length, weight, temperature, volume, area, speed, data inches to cm miles to km fahrenheit to celsius pounds to kg ounces to grams feet to meters"><div class="ic">📏</div><b>Unit converter</b><span>Length, weight, temperature, volume, area, speed, data</span></a><a class="card" href="../../en/random-number-generator/" data-search="random number generator, dice and coin flip draw numbers between a minimum and a maximum, roll dice, flip a coin random number 1 to 10 dice roller coin toss raffle pick a number"><div class="ic">🎲</div><b>Random number generator, dice and coin flip</b><span>Draw numbers between a minimum and a maximum, roll dice, flip a coin</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "q1a": "What is", "q1b": "% of", "q2a": "The number", "q2b": "is what percent of", "q3a": "Change from", "q3b": "to", "q4a": "The number", "q4b": "increased or decreased by", "q4c": "% (use a minus sign to decrease)", "res": "Result", "inc": "Increase", "dec": "Decrease", "of": "of", "is": "is"};</script>
+<script>
+(function(){
+
+function v(id) { return RT.num(RT.$('#' + id).value); }
+function calc() {
+  var p1 = v('p1'), n1 = v('n1'); RT.$('#r1').textContent = isFinite(p1 * n1) ? RT.fmt(p1 * n1 / 100, 4) : '–';
+  var a2 = v('a2'), b2 = v('b2'); RT.$('#r2').textContent = isFinite(a2 / b2) && b2 !== 0 ? RT.fmt(a2 / b2 * 100, 2) + ' %' : '–';
+  var a3 = v('a3'), b3 = v('b3');
+  if (isFinite(a3) && isFinite(b3) && a3 !== 0) { var ch = (b3 - a3) / Math.abs(a3) * 100; RT.$('#r3').textContent = (ch >= 0 ? '+' : '−') + RT.fmt(Math.abs(ch), 2) + ' % (' + (ch >= 0 ? T.inc : T.dec) + ' ' + RT.fmt(Math.abs(b3 - a3), 4) + ')'; } else RT.$('#r3').textContent = '–';
+  var a4 = v('a4'), p4 = v('p4'); RT.$('#r4').textContent = isFinite(a4 * p4) ? RT.fmt(a4 * (1 + p4 / 100), 4) : '–';
+}
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

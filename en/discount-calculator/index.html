@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discount calculator – Rapido Tools</title>
+<meta name="description" content="Work out the sale price and how much you save with a percentage discount, even with an extra second discount, or find the discount applied between full and final price.">
+
+<link rel="canonical" href="https://rapidotools.com/en/discount-calculator/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-sconto/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/discount-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/discount-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Discount calculator – Rapido Tools">
+<meta property="og:description" content="Work out the sale price and how much you save with a percentage discount, even with an extra second discount, or find the discount applied between full and final price.">
+<meta property="og:url" content="https://rapidotools.com/en/discount-calculator/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Discount calculator", "url": "https://rapidotools.com/en/discount-calculator/", "description": "Work out the sale price and how much you save with a percentage discount, even with an extra second discount, or find the discount applied between full and final price.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I take 30% off a price?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply the price by 0.70 (that is 100% − 30%). On $80 you get $56."}}, {"@type": "Question", "name": "Do two 20% discounts equal 40%?", "acceptedAnswer": {"@type": "Answer", "text": "No: the second applies to the already discounted price, so two 20% discounts equal 36% (0.8 × 0.8 = 0.64)."}}, {"@type": "Question", "name": "Does the calculator handle cents?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, results are shown with two decimals; you can enter decimals with a point or a comma."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/calcolo-sconto/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-numbers">🔢 Numbers &amp; conversions</a></nav>
+<h1>Discount calculator</h1>
+<p class="lead">Enter the price and the discount to instantly see the final price and your savings. Add a second discount (like an &#x27;extra 20%&#x27; sale) or work out the discount percentage from the two prices.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Discount calculator">
+
+<div class="tabs"><button type="button" class="on" data-tab="1">Sale price</button><button type="button" data-tab="2">Discount between two prices</button></div>
+<div id="tab-1">
+  <div class="row">
+    <div class="field"><label for="price">Full price</label><input type="text" inputmode="decimal" id="price" value="80"></div>
+    <div class="field"><label for="disc">Discount %</label><input type="text" inputmode="decimal" id="disc" value="30"></div>
+    <div class="field"><label for="disc2">Second discount % (optional)</label><input type="text" inputmode="decimal" id="disc2" value=""></div>
+  </div>
+  <div class="inline"><span class="lbl">Quick discounts:</span>
+    <button class="btn small" type="button" data-d="10">10%</button><button class="btn small" type="button" data-d="15">15%</button><button class="btn small" type="button" data-d="20">20%</button>
+    <button class="btn small" type="button" data-d="25">25%</button><button class="btn small" type="button" data-d="30">30%</button><button class="btn small" type="button" data-d="40">40%</button>
+    <button class="btn small" type="button" data-d="50">50%</button><button class="btn small" type="button" data-d="70">70%</button></div>
+  <div class="result">
+    <div class="sub">Final price</div><div class="big" id="final"></div>
+    <div class="stats"><div class="stat"><b id="save"></b><span>You save</span></div><div class="stat"><b id="eff"></b><span>Effective total discount</span></div></div>
+  </div>
+</div>
+<div id="tab-2" class="hide">
+  <div class="row">
+    <div class="field"><label for="full">Full price</label><input type="text" inputmode="decimal" id="full" value="120"></div>
+    <div class="field"><label for="paid">Final price</label><input type="text" inputmode="decimal" id="paid" value="89.90"></div>
+  </div>
+  <div class="result">
+    <div class="sub">Discount applied</div><div class="big" id="pct"></div>
+    <div class="stats"><div class="stat"><b id="saved"></b><span>Savings</span></div></div>
+  </div>
+</div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>How a discount is calculated</h2>
+<p>The sale price is the full price multiplied by (100 − discount) ÷ 100. An $80 item at 30% off costs 80 × 0.70 = <strong>$56</strong>, and you save $24. Alternatively, work out the discount first (80 × 30 ÷ 100 = 24) and subtract it.</p>
+<h2>Double discounts don't add up</h2>
+<p>Sales often advertise "30% off plus an extra 20% at checkout". The total is not 50%: the second discount applies to the already reduced price. From $80 you go to $56, then to 56 × 0.80 = <strong>$44.80</strong>, an effective discount of 44%. The calculator shows exactly that effective total discount, so you are not misled.</p>
+<h2>Finding the discount from two prices</h2>
+<p>If you know the full price and the final price, the discount is (full − final) ÷ full × 100. From $120 to $89.90 the discount is 25.08%. Handy for comparing offers or checking that a price tag tells the truth.</p>
+<h2>Shopping tips</h2>
+<ul>
+<li>Always compare the final price, not the percentage: 40% off an inflated price can cost more than 20% off an honest one.</li>
+<li>In online shops, check whether the discount applies before or after shipping costs.</li>
+<li>For mental maths: 25% is a quarter, 50% is half, 10% is the number with the decimal point moved one place.</li>
+</ul>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>How do I take 30% off a price?</summary><p>Multiply the price by 0.70 (that is 100% − 30%). On $80 you get $56.</p></details><details><summary>Do two 20% discounts equal 40%?</summary><p>No: the second applies to the already discounted price, so two 20% discounts equal 36% (0.8 × 0.8 = 0.64).</p></details><details><summary>Does the calculator handle cents?</summary><p>Yes, results are shown with two decimals; you can enter decimals with a point or a comma.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/percentage-calculator/" data-search="percentage calculator what is 20% of 150, what percent is 30 of 200, change between two numbers percent of a number percentage increase percentage change percent difference"><div class="ic">％</div><b>Percentage calculator</b><span>What is 20% of 150, what percent is 30 of 200, change between two numbers</span></a><a class="card" href="../../en/roman-numerals/" data-search="roman numerals converter number to roman and back, from 1 to 3999, with a reference table 2026 in roman numerals mmxxvi roman numeral chart convert roman"><div class="ic">🏛️</div><b>Roman numerals converter</b><span>Number to Roman and back, from 1 to 3999, with a reference table</span></a><a class="card" href="../../en/unit-converter/" data-search="unit converter length, weight, temperature, volume, area, speed, data inches to cm miles to km fahrenheit to celsius pounds to kg ounces to grams feet to meters"><div class="ic">📏</div><b>Unit converter</b><span>Length, weight, temperature, volume, area, speed, data</span></a><a class="card" href="../../en/random-number-generator/" data-search="random number generator, dice and coin flip draw numbers between a minimum and a maximum, roll dice, flip a coin random number 1 to 10 dice roller coin toss raffle pick a number"><div class="ic">🎲</div><b>Random number generator, dice and coin flip</b><span>Draw numbers between a minimum and a maximum, roll dice, flip a coin</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "tab1": "Sale price", "tab2": "Discount between two prices", "price": "Full price", "disc": "Discount %", "disc2": "Second discount % (optional)", "final": "Final price", "save": "You save", "eff": "Effective total discount", "full": "Full price", "paid": "Final price", "discount": "Discount applied", "per": "Savings", "quick": "Quick discounts"};</script>
+<script>
+(function(){
+
+var tabs = RT.$$('.tabs button');
+tabs.forEach(function (b) { b.addEventListener('click', function () { tabs.forEach(function (x) { x.classList.toggle('on', x === b); }); RT.$('#tab-1').classList.toggle('hide', b.getAttribute('data-tab') !== '1'); RT.$('#tab-2').classList.toggle('hide', b.getAttribute('data-tab') !== '2'); }); });
+function calc() {
+  var p = RT.num(RT.$('#price').value), d = RT.num(RT.$('#disc').value), d2 = RT.num(RT.$('#disc2').value);
+  if (isFinite(p) && isFinite(d)) {
+    var f = p * (1 - d / 100); if (isFinite(d2)) f = f * (1 - d2 / 100);
+    RT.$('#final').textContent = RT.money(f); RT.$('#save').textContent = RT.money(p - f); RT.$('#eff').textContent = p ? RT.fmt((p - f) / p * 100, 2) + ' %' : '–';
+  } else { RT.$('#final').textContent = '–'; RT.$('#save').textContent = '–'; RT.$('#eff').textContent = '–'; }
+  var full = RT.num(RT.$('#full').value), paid = RT.num(RT.$('#paid').value);
+  if (isFinite(full) && isFinite(paid) && full > 0) { RT.$('#pct').textContent = RT.fmt((full - paid) / full * 100, 2) + ' %'; RT.$('#saved').textContent = RT.money(full - paid); }
+  else { RT.$('#pct').textContent = '–'; RT.$('#saved').textContent = '–'; }
+}
+RT.$$('[data-d]').forEach(function (b) { b.addEventListener('click', function () { RT.$('#disc').value = b.getAttribute('data-d'); calc(); }); });
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Random number generator, dice and coin flip – Rapido Tools</title>
+<meta name="description" content="Generate random numbers between a minimum and a maximum (with or without repeats), roll one or more dice from 4 to 100 sides and flip a coin. Ideal for raffles, games and decisions.">
+
+<link rel="canonical" href="https://rapidotools.com/en/random-number-generator/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/numeri-casuali/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/random-number-generator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/random-number-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Random number generator, dice and coin flip – Rapido Tools">
+<meta property="og:description" content="Generate random numbers between a minimum and a maximum (with or without repeats), roll one or more dice from 4 to 100 sides and flip a coin. Ideal for raffles, games and decisions.">
+<meta property="og:url" content="https://rapidotools.com/en/random-number-generator/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Random number generator, dice and coin flip", "url": "https://rapidotools.com/en/random-number-generator/", "description": "Generate random numbers between a minimum and a maximum (with or without repeats), roll one or more dice from 4 to 100 sides and flip a coin. Ideal for raffles, games and decisions.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are the numbers truly random?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. They are generated with the browser's cryptographic generator, not a predictable formula, and every number in the range is equally likely."}}, {"@type": "Question", "name": "Can I draw numbers without repeats?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: tick \"No repeats\". The number of draws cannot exceed the size of the range."}}, {"@type": "Question", "name": "How many numbers can I generate at once?", "acceptedAnswer": {"@type": "Answer", "text": "Up to 1,000 per draw; for dice up to 50 rolls at a time."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/numeri-casuali/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-numbers">🔢 Numbers &amp; conversions</a></nav>
+<h1>Random number generator, dice and coin flip</h1>
+<p class="lead">Set the range and how many numbers you want, or pick the dice to roll or leave it to the coin: results use the browser&#x27;s cryptographic generator, so they are truly unpredictable.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Random number generator, dice and coin flip">
+
+<div class="tabs"><button type="button" class="on" data-tab="n">Numbers</button><button type="button" data-tab="d">Dice</button><button type="button" data-tab="c">Coin flip</button></div>
+<div id="tab-n">
+  <div class="row">
+    <div class="field"><label for="min">Minimum</label><input type="number" id="min" value="1" inputmode="numeric"></div>
+    <div class="field"><label for="max">Maximum</label><input type="number" id="max" value="100" inputmode="numeric"></div>
+    <div class="field"><label for="cnt">How many numbers</label><input type="number" id="cnt" value="1" min="1" max="1000" inputmode="numeric"></div>
+  </div>
+  <div class="inline"><label class="check"><input type="checkbox" id="uniq"> No repeats</label><label class="check"><input type="checkbox" id="sorted"> Sort ascending</label></div>
+  <p class="msg bad hide" id="err"></p>
+  <div class="btns"><button class="btn primary" type="button" id="gen">Generate</button></div>
+</div>
+<div id="tab-d" class="hide">
+  <div class="row">
+    <div class="field"><label for="die">Die type</label><select id="die"><option value="4">D4</option><option value="6" selected>D6</option><option value="8">D8</option><option value="10">D10</option><option value="12">D12</option><option value="20">D20</option><option value="100">D100</option></select></div>
+    <div class="field"><label for="nd">Number of dice</label><input type="number" id="nd" value="2" min="1" max="50" inputmode="numeric"></div>
+  </div>
+  <div class="btns"><button class="btn primary" type="button" id="roll">🎲 Roll</button></div>
+</div>
+<div id="tab-c" class="hide">
+  <div class="btns"><button class="btn primary" type="button" id="flip">🪙 Flip the coin</button></div>
+</div>
+<div class="result hide" id="out"><div class="big" id="main" style="word-break:break-word"></div><div class="sub" id="sub"></div></div>
+<p class="msg" id="hist"></p>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>How it works</h2>
+<p>Numbers are drawn with <code>crypto.getRandomValues</code>, the browser's cryptographic generator: the same mechanism used to create keys and passwords, so there is no repeating pattern and no way to predict the next result. Every value in the range has exactly the same chance of coming up.</p>
+<h2>Numbers</h2>
+<p>Set the minimum and maximum (both included) and how many numbers you want. With "No repeats" you get a draw like a lottery or a raffle: each number can come up only once, useful for picking contest winners or the speaking order in a meeting. "Sort ascending" makes a long list easier to read.</p>
+<h2>Dice</h2>
+<p>Roll 1 to 50 dice with 4, 6, 8, 10, 12, 20 or 100 sides, the ones used in board games and role-playing games. The result shows each roll and the total. For "2d6" choose D6 and 2 dice; for a saving throw with advantage roll 2 D20 and keep the higher.</p>
+<h2>Coin flip</h2>
+<p>A fair 50/50 coin: to decide who starts, who does the dishes or which film to watch. The history under the result shows the latest flips.</p>
+<h2>Ideas</h2>
+<ul>
+<li>Draws among event participants (give everyone a number and draw).</li>
+<li>Pick a random exercise, recipe or exam question to revise.</li>
+<li>Classroom games and simulations, statistics examples, bingo.</li>
+</ul>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>Are the numbers truly random?</summary><p>Yes. They are generated with the browser's cryptographic generator, not a predictable formula, and every number in the range is equally likely.</p></details><details><summary>Can I draw numbers without repeats?</summary><p>Yes: tick "No repeats". The number of draws cannot exceed the size of the range.</p></details><details><summary>How many numbers can I generate at once?</summary><p>Up to 1,000 per draw; for dice up to 50 rolls at a time.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/percentage-calculator/" data-search="percentage calculator what is 20% of 150, what percent is 30 of 200, change between two numbers percent of a number percentage increase percentage change percent difference"><div class="ic">％</div><b>Percentage calculator</b><span>What is 20% of 150, what percent is 30 of 200, change between two numbers</span></a><a class="card" href="../../en/discount-calculator/" data-search="discount calculator final price and savings with one or two discounts, or the discount from two prices sale price 30% off double discount how much do i save percent off"><div class="ic">🏷️</div><b>Discount calculator</b><span>Final price and savings with one or two discounts, or the discount from two prices</span></a><a class="card" href="../../en/roman-numerals/" data-search="roman numerals converter number to roman and back, from 1 to 3999, with a reference table 2026 in roman numerals mmxxvi roman numeral chart convert roman"><div class="ic">🏛️</div><b>Roman numerals converter</b><span>Number to Roman and back, from 1 to 3999, with a reference table</span></a><a class="card" href="../../en/unit-converter/" data-search="unit converter length, weight, temperature, volume, area, speed, data inches to cm miles to km fahrenheit to celsius pounds to kg ounces to grams feet to meters"><div class="ic">📏</div><b>Unit converter</b><span>Length, weight, temperature, volume, area, speed, data</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "tab_n": "Numbers", "tab_d": "Dice", "tab_c": "Coin flip", "min": "Minimum", "max": "Maximum", "count": "How many numbers", "unique": "No repeats", "sorted": "Sort ascending", "gen": "Generate", "roll": "Roll", "flip": "Flip the coin", "dice": "Die type", "ndice": "Number of dice", "sum": "Total", "heads": "Heads", "tails": "Tails", "err_range": "The maximum must be greater than or equal to the minimum.", "err_unique": "Drawing without repeats needs at least as many numbers as you ask for.", "history": "History"};</script>
+<script>
+(function(){
+
+var tabs = RT.$$('.tabs button'), cur = 'n', hist = [];
+tabs.forEach(function (b) { b.addEventListener('click', function () { cur = b.getAttribute('data-tab'); tabs.forEach(function (x) { x.classList.toggle('on', x === b); }); ['n', 'd', 'c'].forEach(function (k) { RT.$('#tab-' + k).classList.toggle('hide', k !== cur); }); RT.$('#out').classList.add('hide'); }); });
+function rnd(n) { var a = new Uint32Array(1); var max = Math.floor(4294967296 / n) * n; do { crypto.getRandomValues(a); } while (a[0] >= max); return a[0] % n; }
+function show(main, sub) { RT.$('#main').textContent = main; RT.$('#sub').textContent = sub || ''; RT.$('#out').classList.remove('hide'); hist.unshift(main); hist = hist.slice(0, 8); RT.$('#hist').textContent = hist.length > 1 ? T.history + ': ' + hist.slice(1).join(' | ') : ''; }
+RT.$('#gen').addEventListener('click', function () {
+  var err = RT.$('#err'); err.classList.add('hide');
+  var lo = parseInt(RT.$('#min').value, 10), hi = parseInt(RT.$('#max').value, 10), n = Math.min(1000, Math.max(1, parseInt(RT.$('#cnt').value, 10) || 1));
+  if (isNaN(lo) || isNaN(hi) || hi < lo) { err.textContent = T.err_range; err.classList.remove('hide'); return; }
+  var span = hi - lo + 1, res = [];
+  if (RT.$('#uniq').checked) {
+    if (n > span) { err.textContent = T.err_unique; err.classList.remove('hide'); return; }
+    if (span <= 100000) { var pool = []; for (var i = lo; i <= hi; i++) pool.push(i); for (var k = 0; k < n; k++) { var j = k + rnd(pool.length - k); var t = pool[k]; pool[k] = pool[j]; pool[j] = t; res.push(pool[k]); } }
+    else { var seen = {}; while (res.length < n) { var x = lo + rnd(span); if (!seen[x]) { seen[x] = 1; res.push(x); } } }
+  } else { for (var m = 0; m < n; m++) res.push(lo + rnd(span)); }
+  if (RT.$('#sorted').checked) res.sort(function (a, b) { return a - b; });
+  show(res.join(', '), n > 1 ? T.sum + ': ' + RT.fmt(res.reduce(function (a, b) { return a + b; }, 0), 0) : '');
+});
+RT.$('#roll').addEventListener('click', function () {
+  var sides = +RT.$('#die').value, n = Math.min(50, Math.max(1, parseInt(RT.$('#nd').value, 10) || 1)), res = [];
+  for (var i = 0; i < n; i++) res.push(1 + rnd(sides));
+  show(res.join(' + '), (n > 1 ? T.sum + ': ' + res.reduce(function (a, b) { return a + b; }, 0) + ' · ' : '') + n + '×D' + sides);
+});
+RT.$('#flip').addEventListener('click', function () { show(rnd(2) ? '🪙 ' + T.heads : '🪙 ' + T.tails); });
+
+})();
+</script>
+</body>
+</html>

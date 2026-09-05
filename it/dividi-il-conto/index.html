@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dividi il conto e calcola la mancia – Rapido Tools</title>
+<meta name="description" content="Dividi il conto del ristorante tra amici in un attimo: quota a testa, mancia in percentuale, arrotondamento e totale. Funziona anche offline, dal telefono.">
+
+<link rel="canonical" href="https://rapidotools.com/it/dividi-il-conto/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/dividi-il-conto/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/split-bill-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/split-bill-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Dividi il conto e calcola la mancia – Rapido Tools">
+<meta property="og:description" content="Dividi il conto del ristorante tra amici in un attimo: quota a testa, mancia in percentuale, arrotondamento e totale. Funziona anche offline, dal telefono.">
+<meta property="og:url" content="https://rapidotools.com/it/dividi-il-conto/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Dividi il conto e calcola la mancia", "url": "https://rapidotools.com/it/dividi-il-conto/", "description": "Dividi il conto del ristorante tra amici in un attimo: quota a testa, mancia in percentuale, arrotondamento e totale. Funziona anche offline, dal telefono.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Come si divide un conto in modo equo?", "acceptedAnswer": {"@type": "Answer", "text": "Il modo più semplice è dividere in parti uguali. Se le ordinazioni sono molto diverse, ognuno paga il suo e si divide solo ciò che è stato condiviso (antipasti, bevande, coperto)."}}, {"@type": "Question", "name": "Quanta mancia si lascia in Italia?", "acceptedAnswer": {"@type": "Answer", "text": "Non c'è una regola: è facoltativa. Molti arrotondano o lasciano il 5-10% quando il servizio è stato particolarmente buono."}}, {"@type": "Question", "name": "L'arrotondamento aumenta la mancia?", "acceptedAnswer": {"@type": "Answer", "text": "Sì: la differenza tra la quota arrotondata per eccesso e quella esatta va ad aggiungersi alla mancia, e il calcolatore te la mostra."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/split-bill-calculator/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-money">💶 Soldi</a></nav>
+<h1>Dividi il conto e calcola la mancia</h1>
+<p class="lead">Inserisci il totale del conto, in quanti siete e l&#x27;eventuale mancia: ottieni subito quanto deve mettere ciascuno, con l&#x27;opzione di arrotondare per non litigare sugli spiccioli.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Dividi il conto e calcola la mancia">
+
+<div class="row">
+  <div class="field"><label for="tot">Totale del conto</label><input type="text" inputmode="decimal" id="tot" value="86.50"></div>
+  <div class="field"><label for="ppl">Numero di persone</label><input type="number" inputmode="numeric" id="ppl" value="4" min="1"></div>
+  <div class="field"><label for="tip">Mancia %</label><input type="text" inputmode="decimal" id="tip" value="0"></div>
+</div>
+<div class="inline"><span class="lbl">Mancia rapida:</span>
+  <button class="btn small" type="button" data-t="0">0%</button><button class="btn small" type="button" data-t="5">5%</button><button class="btn small" type="button" data-t="10">10%</button>
+  <button class="btn small" type="button" data-t="12.5">12,5%</button><button class="btn small" type="button" data-t="15">15%</button><button class="btn small" type="button" data-t="18">18%</button><button class="btn small" type="button" data-t="20">20%</button></div>
+<div class="field" style="margin-top:12px"><label for="round">Arrotonda la quota a testa</label><select id="round"><option value="0">No</option><option value="0.5">A 0,50 €</option><option value="1">A 1 €</option><option value="5">A 5 €</option></select></div>
+<div class="result hide" id="out">
+  <div class="sub">A testa</div><div class="big" id="each"></div>
+  <div class="stats"><div class="stat"><b id="tipt"></b><span>Mancia totale</span></div><div class="stat"><b id="grand"></b><span>Totale con mancia</span></div></div>
+  <p class="msg hide" id="extra"></p>
+</div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Come funziona</h2>
+<p>Il conto viene diviso in parti uguali («alla romana»): totale più mancia, diviso per il numero di persone. Se scegli un arrotondamento, la quota a testa viene arrotondata per eccesso alla cifra scelta (50 centesimi, 1 o 5 euro) e la differenza va ad aumentare la mancia: il calcolatore ti mostra quanto diventa, così decidi se ti sta bene.</p>
+<h2>La mancia in Italia e all'estero</h2>
+<p>In Italia la mancia non è obbligatoria: il servizio è spesso incluso nel «coperto» o nel prezzo, e lasciare qualche euro o arrotondare è un gesto apprezzato ma facoltativo. All'estero le abitudini cambiano molto: negli Stati Uniti si lascia il 15-20% del conto prima delle tasse, e non lasciarla è considerato scortese; nel Regno Unito il 10-12,5% se il servizio non è già in conto; in Germania e Austria si arrotonda o si lascia il 5-10%; in Giappone non si lascia mancia.</p>
+<h2>Consigli pratici</h2>
+<ul>
+<li>Se qualcuno ha ordinato molto meno degli altri, dividere in parti uguali può essere ingiusto: calcola prima la sua quota a parte e sottraila dal totale.</li>
+<li>Per i pagamenti con app o bonifico, arrotondare a 1 € evita decimali scomodi.</li>
+<li>Controlla se sullo scontrino il servizio è già incluso: in quel caso la mancia è un extra.</li>
+</ul>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Come si divide un conto in modo equo?</summary><p>Il modo più semplice è dividere in parti uguali. Se le ordinazioni sono molto diverse, ognuno paga il suo e si divide solo ciò che è stato condiviso (antipasti, bevande, coperto).</p></details><details><summary>Quanta mancia si lascia in Italia?</summary><p>Non c'è una regola: è facoltativa. Molti arrotondano o lasciano il 5-10% quando il servizio è stato particolarmente buono.</p></details><details><summary>L&#x27;arrotondamento aumenta la mancia?</summary><p>Sì: la differenza tra la quota arrotondata per eccesso e quella esatta va ad aggiungersi alla mancia, e il calcolatore te la mostra.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/calcolo-rata-mutuo/" data-search="calcolo rata mutuo e prestito rata mensile, interessi totali e piano di ammortamento rata mutuo simulazione mutuo piano di ammortamento interessi prestito tasso fisso quanto pago al mese"><div class="ic">🏠</div><b>Calcolo rata mutuo e prestito</b><span>Rata mensile, interessi totali e piano di ammortamento</span></a><a class="card" href="../../it/calcolo-iva/" data-search="calcolo iva: aggiungi o scorpora l&#x27;iva da imponibile a totale e viceversa, con aliquote 22, 10, 5 e 4% scorporo iva iva al 22 calcolo imponibile prezzo con iva iva inclusa aliquote iva"><div class="ic">🧾</div><b>Calcolo IVA: aggiungi o scorpora l&#x27;IVA</b><span>Da imponibile a totale e viceversa, con aliquote 22, 10, 5 e 4%</span></a><a class="card" href="../../it/calcolo-eta/" data-search="calcolo età anni, mesi e giorni esatti da una data di nascita quanti anni ho età esatta compleanno data di nascita"><div class="ic">🎂</div><b>Calcolo età</b><span>Anni, mesi e giorni esatti da una data di nascita</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "total": "Totale del conto", "people": "Numero di persone", "tip": "Mancia %", "round": "Arrotonda la quota a testa", "r0": "No", "r1": "A 1 €", "r5": "A 5 €", "r05": "A 0,50 €", "each": "A testa", "tip_total": "Mancia totale", "grand": "Totale con mancia", "extra": "Con l'arrotondamento la mancia diventa", "quick": "Mancia rapida", "q125": "12,5%"};</script>
+<script>
+(function(){
+
+var out = RT.$('#out');
+function calc() {
+  var tot = RT.num(RT.$('#tot').value), n = parseInt(RT.$('#ppl').value, 10), tip = RT.num(RT.$('#tip').value) || 0, step = +RT.$('#round').value;
+  if (!(tot >= 0) || !(n >= 1)) { out.classList.add('hide'); return; }
+  var tipAmt = tot * tip / 100, grand = tot + tipAmt, each = grand / n;
+  var extra = RT.$('#extra'); extra.classList.add('hide');
+  if (step > 0) { var r = Math.ceil(each / step - 1e-9) * step; if (r > each + 1e-9) { extra.textContent = T.extra + ' ' + RT.money(r * n - tot) + ' (' + RT.fmt((r * n - tot) / tot * 100, 1) + '%)'; extra.classList.remove('hide'); } each = r; grand = r * n; tipAmt = grand - tot; }
+  RT.$('#each').textContent = RT.money(each); RT.$('#tipt').textContent = RT.money(tipAmt); RT.$('#grand').textContent = RT.money(grand);
+  out.classList.remove('hide');
+}
+RT.$$('[data-t]').forEach(function (b) { b.addEventListener('click', function () { RT.$('#tip').value = b.getAttribute('data-t'); calc(); }); });
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

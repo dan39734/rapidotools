@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily calorie needs calculator – Rapido Tools</title>
+<meta name="description" content="Calculate your basal metabolic rate and daily maintenance calories from sex, age, weight, height and activity level, with targets for losing or gaining weight. Mifflin-St Jeor formula.">
+
+<link rel="canonical" href="https://rapidotools.com/en/calorie-calculator/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-calorie-giornaliere/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/calorie-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/calorie-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Daily calorie needs calculator – Rapido Tools">
+<meta property="og:description" content="Calculate your basal metabolic rate and daily maintenance calories from sex, age, weight, height and activity level, with targets for losing or gaining weight. Mifflin-St Jeor formula.">
+<meta property="og:url" content="https://rapidotools.com/en/calorie-calculator/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Daily calorie needs calculator", "url": "https://rapidotools.com/en/calorie-calculator/", "description": "Calculate your basal metabolic rate and daily maintenance calories from sex, age, weight, height and activity level, with targets for losing or gaining weight. Mifflin-St Jeor formula.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many calories do I need a day?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on sex, age, build and activity: on average about 2,000-2,500 kcal for a woman and 2,500-3,000 for a man. The calculator gives the value for your details."}}, {"@type": "Question", "name": "What is the difference between BMR and TDEE?", "acceptedAnswer": {"@type": "Answer", "text": "BMR is your absolute resting expenditure; TDEE adds the energy spent moving, working and digesting, and is the number to use when planning meals."}}, {"@type": "Question", "name": "How many calories should I cut to lose a pound a week?", "acceptedAnswer": {"@type": "Answer", "text": "About 500 kcal a day below maintenance, i.e. 3,500 kcal a week."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/calcolo-calorie-giornaliere/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-health">❤️ Health</a></nav>
+<h1>Daily calorie needs calculator</h1>
+<p class="lead">Enter your details and activity level to get your basal metabolic rate, the calories to maintain your weight and indicative targets to lose or gain weight gradually.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Daily calorie needs calculator">
+
+<div class="tabs"><button type="button" class="on" data-u="m">Metric (cm, kg)</button><button type="button" data-u="i">Imperial (ft, lb)</button></div>
+<div class="row">
+  <div class="field"><label for="sex">Sex</label><select id="sex"><option value="m">Male</option><option value="f">Female</option></select></div>
+  <div class="field"><label for="age">Age (years)</label><input type="text" inputmode="numeric" id="age" value="35"></div>
+</div>
+<div class="row" id="metric">
+  <div class="field"><label for="hcm">Height (cm)</label><input type="text" inputmode="decimal" id="hcm" value="175"></div>
+  <div class="field"><label for="wkg">Weight (kg)</label><input type="text" inputmode="decimal" id="wkg" value="72"></div>
+</div>
+<div class="row hide" id="imperial">
+  <div class="field"><label for="hft">Height (feet)</label><input type="text" inputmode="numeric" id="hft" value="5"></div>
+  <div class="field"><label for="hin">Height (inches)</label><input type="text" inputmode="decimal" id="hin" value="9"></div>
+  <div class="field"><label for="wlb">Weight (lb)</label><input type="text" inputmode="decimal" id="wlb" value="160"></div>
+</div>
+<div class="field"><label for="act">Activity level</label><select id="act">
+  <option value="1.2">Sedentary (little or no exercise)</option><option value="1.375" selected>Light (1–3 workouts a week)</option><option value="1.55">Moderate (3–5 workouts a week)</option><option value="1.725">Active (6–7 workouts a week)</option><option value="1.9">Very active (physical job + training)</option></select></div>
+<div class="result hide" id="out">
+  <div class="stats">
+    <div class="stat"><b id="bmr"></b><span>Basal metabolic rate (BMR) · kcal/day</span></div>
+    <div class="stat" style="border-color:var(--accent)"><b id="tdee"></b><span>Maintenance (TDEE) · kcal/day</span></div>
+  </div>
+  <div class="lbl" style="margin-top:14px">Indicative targets</div>
+  <div class="table-wrap"><table>
+    <tr><td>Lose weight (−1 lb/week)</td><td><b id="l2"></b> kcal/day</td></tr>
+    <tr><td>Lose weight slowly (−0.5 lb/week)</td><td><b id="l1"></b> kcal/day</td></tr>
+    <tr><td>Gain slowly (+0.5 lb/week)</td><td><b id="g1"></b> kcal/day</td></tr>
+    <tr><td>Gain (+1 lb/week)</td><td><b id="g2"></b> kcal/day</td></tr>
+  </table></div>
+  <p class="msg warn hide" id="warn">Very low value: below 1,200 kcal (women) or 1,500 kcal (men) you would need professional supervision.</p>
+</div>
+<p class="msg">Statistical estimate for healthy adults: real needs vary from person to person. For diets and medical conditions consult a doctor or dietitian.</p>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>How the calculation works</h2>
+<p>The calculator uses the <strong>Mifflin-St Jeor</strong> equation, considered the most accurate for adults by the main dietetic associations:</p>
+<ul>
+<li>Men: BMR = 10 × weight (kg) + 6.25 × height (cm) − 5 × age + 5</li>
+<li>Women: BMR = 10 × weight (kg) + 6.25 × height (cm) − 5 × age − 161</li>
+</ul>
+<p>The <strong>basal metabolic rate (BMR)</strong> is the energy your body burns at complete rest to breathe, circulate blood and keep its temperature. Multiplying it by an activity factor gives the <strong>TDEE</strong>, the calories you burn on a typical day: 1.2 for sedentary people up to 1.9 for those with physical jobs who also train daily. Example: a 35-year-old man, 175 cm and 72 kg, has a BMR of about 1,640 kcal and, with light activity, a maintenance level of about 2,260 kcal.</p>
+<h2>Losing or gaining weight</h2>
+<p>A pound of body fat holds roughly 3,500 kcal. A deficit of 500 kcal a day therefore means losing about one pound (0.5 kg) a week, a pace considered sustainable; 250 kcal a day is about half a pound a week. The same applies in reverse for gaining. Harsher deficits also burn muscle and are hard to keep up.</p>
+<h2>Using these numbers well</h2>
+<ul>
+<li>They are an estimate: the real figure can differ by ±10-15%. Weigh yourself for two or three weeks and adjust by 100-200 kcal if your weight is not moving as expected.</li>
+<li>Don't go below 1,200 kcal (women) or 1,500 kcal (men) without professional advice.</li>
+<li>Pick your activity level honestly: most people overestimate it.</li>
+<li>Protein (1.2-1.6 g per kg of body weight) helps preserve muscle while dieting.</li>
+</ul>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>How many calories do I need a day?</summary><p>It depends on sex, age, build and activity: on average about 2,000-2,500 kcal for a woman and 2,500-3,000 for a man. The calculator gives the value for your details.</p></details><details><summary>What is the difference between BMR and TDEE?</summary><p>BMR is your absolute resting expenditure; TDEE adds the energy spent moving, working and digesting, and is the number to use when planning meals.</p></details><details><summary>How many calories should I cut to lose a pound a week?</summary><p>About 500 kcal a day below maintenance, i.e. 3,500 kcal a week.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/bmi-calculator/" data-search="bmi calculator (body mass index) your body mass index, weight category and healthy weight range body mass index healthy weight ideal weight overweight underweight"><div class="ic">⚖️</div><b>BMI calculator (body mass index)</b><span>Your body mass index, weight category and healthy weight range</span></a><a class="card" href="../../en/age-calculator/" data-search="age calculator exact years, months and days from a date of birth how old am i birthday date of birth"><div class="ic">🎂</div><b>Age calculator</b><span>Exact years, months and days from a date of birth</span></a><a class="card" href="../../en/days-between-dates/" data-search="days between two dates days, weeks and working days between two dates date difference day counter how many days until business days"><div class="ic">📆</div><b>Days between two dates</b><span>Days, weeks and working days between two dates</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "metric": "Metric (cm, kg)", "imperial": "Imperial (ft, lb)", "sex": "Sex", "m": "Male", "f": "Female", "age": "Age (years)", "height": "Height", "weight": "Weight", "ft": "feet", "inch": "inches", "activity": "Activity level", "a1": "Sedentary (little or no exercise)", "a2": "Light (1–3 workouts a week)", "a3": "Moderate (3–5 workouts a week)", "a4": "Active (6–7 workouts a week)", "a5": "Very active (physical job + training)", "bmr": "Basal metabolic rate (BMR)", "tdee": "Maintenance (TDEE)", "kcal": "kcal/day", "goals": "Indicative targets", "lose1": "Lose weight slowly (−0.5 lb/week)", "lose2": "Lose weight (−1 lb/week)", "gain1": "Gain slowly (+0.5 lb/week)", "gain2": "Gain (+1 lb/week)", "warn": "Very low value: below 1,200 kcal (women) or 1,500 kcal (men) you would need professional supervision.", "disclaimer": "Statistical estimate for healthy adults: real needs vary from person to person. For diets and medical conditions consult a doctor or dietitian."};</script>
+<script>
+(function(){
+
+var unit = 'm';
+var tabs = RT.$$('.tabs button');
+tabs.forEach(function (b) { b.addEventListener('click', function () { unit = b.getAttribute('data-u'); tabs.forEach(function (x) { x.classList.toggle('on', x === b); }); RT.$('#metric').classList.toggle('hide', unit !== 'm'); RT.$('#imperial').classList.toggle('hide', unit !== 'i'); calc(); }); });
+function calc() {
+  var h, w, age = RT.num(RT.$('#age').value), sex = RT.$('#sex').value, act = +RT.$('#act').value;
+  if (unit === 'm') { h = RT.num(RT.$('#hcm').value); w = RT.num(RT.$('#wkg').value); }
+  else { h = ((RT.num(RT.$('#hft').value) || 0) * 12 + (RT.num(RT.$('#hin').value) || 0)) * 2.54; w = RT.num(RT.$('#wlb').value) * 0.45359237; }
+  var out = RT.$('#out');
+  if (!(h > 100 && h < 260 && w > 25 && w < 400 && age >= 15 && age < 110)) { out.classList.add('hide'); return; }
+  var bmr = 10 * w + 6.25 * h - 5 * age + (sex === 'm' ? 5 : -161);
+  var tdee = bmr * act;
+  RT.$('#bmr').textContent = RT.fmt(Math.round(bmr), 0); RT.$('#tdee').textContent = RT.fmt(Math.round(tdee), 0);
+  RT.$('#l2').textContent = RT.fmt(Math.round(tdee - 500), 0); RT.$('#l1').textContent = RT.fmt(Math.round(tdee - 250), 0);
+  RT.$('#g1').textContent = RT.fmt(Math.round(tdee + 250), 0); RT.$('#g2').textContent = RT.fmt(Math.round(tdee + 500), 0);
+  RT.$('#warn').classList.toggle('hide', !(tdee - 500 < (sex === 'm' ? 1500 : 1200)));
+  out.classList.remove('hide');
+}
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

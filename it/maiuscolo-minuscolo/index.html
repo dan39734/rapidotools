@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Convertitore maiuscolo / minuscolo – Rapido Tools</title>
+<meta name="description" content="Converti un testo in maiuscolo, minuscolo, con le iniziali maiuscole o in stile frase con un clic. Funziona con lettere accentate, gratis e senza registrazione.">
+
+<link rel="canonical" href="https://rapidotools.com/it/maiuscolo-minuscolo/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/maiuscolo-minuscolo/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/case-converter/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/case-converter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Convertitore maiuscolo / minuscolo – Rapido Tools">
+<meta property="og:description" content="Converti un testo in maiuscolo, minuscolo, con le iniziali maiuscole o in stile frase con un clic. Funziona con lettere accentate, gratis e senza registrazione.">
+<meta property="og:url" content="https://rapidotools.com/it/maiuscolo-minuscolo/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Convertitore maiuscolo / minuscolo", "url": "https://rapidotools.com/it/maiuscolo-minuscolo/", "description": "Converti un testo in maiuscolo, minuscolo, con le iniziali maiuscole o in stile frase con un clic. Funziona con lettere accentate, gratis e senza registrazione.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Le lettere accentate vengono convertite?", "acceptedAnswer": {"@type": "Answer", "text": "Sì: è diventa È, à diventa À e così via, e anche il contrario. Lo strumento usa le regole della lingua italiana."}}, {"@type": "Question", "name": "Il testo viene salvato da qualche parte?", "acceptedAnswer": {"@type": "Answer", "text": "No. Tutto avviene nel tuo browser: il testo non viene inviato a nessun server."}}, {"@type": "Question", "name": "Come scrivo i titoli in italiano?", "acceptedAnswer": {"@type": "Answer", "text": "In italiano i titoli vanno in stile frase: maiuscola solo sulla prima parola e sui nomi propri. Le iniziali maiuscole su tutte le parole sono una convenzione inglese."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/case-converter/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-text">✍️ Testo</a></nav>
+<h1>Convertitore maiuscolo / minuscolo</h1>
+<p class="lead">Incolla il testo, scegli la trasformazione e copia il risultato. Gestisce correttamente accenti e apostrofi, e conserva a capo e spazi.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Convertitore maiuscolo / minuscolo">
+
+<div class="field"><textarea id="txt" placeholder="Scrivi o incolla qui il testo…" rows="6" autofocus></textarea></div>
+<div class="btns">
+  <button class="btn primary" type="button" data-m="upper">MAIUSCOLO</button>
+  <button class="btn primary" type="button" data-m="lower">minuscolo</button>
+  <button class="btn primary" type="button" data-m="title">Iniziali Maiuscole</button>
+  <button class="btn primary" type="button" data-m="sentence">Stile frase</button>
+  <button class="btn" type="button" data-m="invert">iNVERTI</button>
+  <button class="btn" type="button" data-m="alt">aLtErNaTo</button>
+  <button class="btn" type="button" data-m="trim">Rimuovi spazi doppi</button>
+  <button class="btn" type="button" id="clear">Svuota</button>
+</div>
+<div class="field out" style="margin-top:14px"><label for="res">Risultato</label><textarea id="res" rows="6" readonly></textarea><button class="btn small copy" type="button" data-copy="#res" data-done="Copiato!" style="top:32px">Copia</button></div>
+<p class="msg" id="info"></p>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Le trasformazioni disponibili</h2>
+<ul>
+<li><strong>MAIUSCOLO:</strong> tutte le lettere in maiuscolo, accenti compresi (è → È). Utile per titoli, targhe, codici e moduli che lo richiedono.</li>
+<li><strong>minuscolo:</strong> tutte le lettere in minuscolo, per «spegnere» un testo scritto tutto in maiuscolo.</li>
+<li><strong>Iniziali Maiuscole:</strong> la prima lettera di ogni parola in maiuscolo, come nei titoli in inglese o nei nomi propri (Mario Rossi, Via Giuseppe Verdi).</li>
+<li><strong>Stile frase:</strong> maiuscola solo all'inizio di ogni frase, dopo punto, punto esclamativo o interrogativo, e a inizio riga. È lo stile corretto per i testi in italiano.</li>
+<li><strong>iNVERTI e aLtErNaTo:</strong> scambiano o alternano maiuscole e minuscole; servono per correggere un testo scritto con il blocco maiuscole attivo o per effetti scherzosi.</li>
+<li><strong>Rimuovi spazi doppi:</strong> elimina spazi ripetuti e spazi a inizio e fine riga, tipici dei testi copiati da PDF o email.</li>
+</ul>
+<h2>Quando serve</h2>
+<p>Capita spesso di ricevere un elenco di nomi tutto in maiuscolo, un titolo scritto in minuscolo o un testo con il blocco maiuscole rimasto acceso. Riscriverlo a mano è noioso: con questo strumento lo sistemi in un secondo e lo copi con un clic. Ricorda che in italiano, a differenza dell'inglese, i titoli usano lo stile frase (solo la prima parola e i nomi propri in maiuscolo) e che i nomi di mesi e giorni vanno in minuscolo.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Le lettere accentate vengono convertite?</summary><p>Sì: è diventa È, à diventa À e così via, e anche il contrario. Lo strumento usa le regole della lingua italiana.</p></details><details><summary>Il testo viene salvato da qualche parte?</summary><p>No. Tutto avviene nel tuo browser: il testo non viene inviato a nessun server.</p></details><details><summary>Come scrivo i titoli in italiano?</summary><p>In italiano i titoli vanno in stile frase: maiuscola solo sulla prima parola e sui nomi propri. Le iniziali maiuscole su tutte le parole sono una convenzione inglese.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/conta-parole/" data-search="conta parole e caratteri parole, caratteri, frasi, paragrafi e tempo di lettura contatore caratteri conta lettere numero di parole tempo di lettura battute"><div class="ic">🔤</div><b>Conta parole e caratteri</b><span>Parole, caratteri, frasi, paragrafi e tempo di lettura</span></a><a class="card" href="../../it/generatore-password/" data-search="generatore di password sicure password casuali o frasi facili da ricordare, con misura della robustezza password sicura password casuale genera password passphrase"><div class="ic">🔑</div><b>Generatore di password sicure</b><span>Password casuali o frasi facili da ricordare, con misura della robustezza</span></a><a class="card" href="../../it/rimuovi-righe-duplicate/" data-search="rimuovi righe duplicate e ordina elenchi pulisci un elenco: via doppioni e righe vuote, ordine alfabetico ordina alfabeticamente elimina duplicati pulisci elenco righe vuote"><div class="ic">🧹</div><b>Rimuovi righe duplicate e ordina elenchi</b><span>Pulisci un elenco: via doppioni e righe vuote, ordine alfabetico</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "ph": "Scrivi o incolla qui il testo…", "upper": "MAIUSCOLO", "lower": "minuscolo", "title": "Iniziali Maiuscole", "sentence": "Stile frase", "invert": "iNVERTI", "alt": "aLtErNaTo", "clear": "Svuota", "out": "Risultato", "chars": "caratteri", "trim": "Rimuovi spazi doppi"};</script>
+<script>
+(function(){
+
+var txt = RT.$('#txt'), res = RT.$('#res'), info = RT.$('#info');
+var lc = RT.lang === 'it' ? 'it-IT' : 'en-US';
+function titleCase(s) { return s.toLocaleLowerCase(lc).replace(/(^|[\s\-("'«“])(\p{L})/gu, function (m, pre, ch) { return pre + ch.toLocaleUpperCase(lc); }); }
+function sentenceCase(s) { return s.toLocaleLowerCase(lc).replace(/(^\s*|[.!?…]\s+|\n\s*)(\p{L})/gu, function (m, pre, ch) { return pre + ch.toLocaleUpperCase(lc); }).replace(/\bi\b/g, RT.lang === 'en' ? 'I' : 'i'); }
+function invert(s) { return s.split('').map(function (c) { var u = c.toLocaleUpperCase(lc); return c === u ? c.toLocaleLowerCase(lc) : u; }).join(''); }
+function alt(s) { var i = 0; return s.split('').map(function (c) { if (!/\p{L}/u.test(c)) return c; return (i++ % 2 === 0) ? c.toLocaleLowerCase(lc) : c.toLocaleUpperCase(lc); }).join(''); }
+var ops = { upper: function (s) { return s.toLocaleUpperCase(lc); }, lower: function (s) { return s.toLocaleLowerCase(lc); }, title: titleCase, sentence: sentenceCase, invert: invert, alt: alt,
+  trim: function (s) { return s.replace(/[ \t]{2,}/g, ' ').replace(/^[ \t]+|[ \t]+$/gm, '').replace(/\n{3,}/g, '\n\n'); } };
+RT.$$('[data-m]').forEach(function (b) { b.addEventListener('click', function () { var v = txt.value; res.value = ops[b.getAttribute('data-m')](v); info.textContent = RT.fmt(res.value.length, 0) + ' ' + T.chars; }); });
+RT.$('#clear').addEventListener('click', function () { txt.value = ''; res.value = ''; info.textContent = ''; txt.focus(); });
+
+})();
+</script>
+</body>
+</html>

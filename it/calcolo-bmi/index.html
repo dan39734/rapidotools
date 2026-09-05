@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolo BMI (indice di massa corporea) – Rapido Tools</title>
+<meta name="description" content="Calcola il BMI (indice di massa corporea) da peso e altezza, scopri in quale fascia ti trovi secondo l&#x27;OMS e qual è l&#x27;intervallo di peso normale per la tua altezza.">
+
+<link rel="canonical" href="https://rapidotools.com/it/calcolo-bmi/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-bmi/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/bmi-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/bmi-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Calcolo BMI (indice di massa corporea) – Rapido Tools">
+<meta property="og:description" content="Calcola il BMI (indice di massa corporea) da peso e altezza, scopri in quale fascia ti trovi secondo l&#x27;OMS e qual è l&#x27;intervallo di peso normale per la tua altezza.">
+<meta property="og:url" content="https://rapidotools.com/it/calcolo-bmi/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calcolo BMI (indice di massa corporea)", "url": "https://rapidotools.com/it/calcolo-bmi/", "description": "Calcola il BMI (indice di massa corporea) da peso e altezza, scopri in quale fascia ti trovi secondo l'OMS e qual è l'intervallo di peso normale per la tua altezza.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Come si calcola il BMI?", "acceptedAnswer": {"@type": "Answer", "text": "Peso in chilogrammi diviso per l'altezza in metri al quadrato. Esempio: 70 kg e 1,70 m → 70 ÷ 2,89 = 24,2."}}, {"@type": "Question", "name": "Qual è il BMI ideale?", "acceptedAnswer": {"@type": "Answer", "text": "Per gli adulti la fascia «normopeso» va da 18,5 a 24,9. Molti studi indicano la zona 20–25 come quella associata al minor rischio, ma il valore ottimale dipende dalla persona."}}, {"@type": "Question", "name": "Il BMI vale anche per i bambini?", "acceptedAnswer": {"@type": "Answer", "text": "No: per bambini e ragazzi fino a 18 anni si usano curve di crescita per età e sesso, non le soglie degli adulti."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/bmi-calculator/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-health">❤️ Salute</a></nav>
+<h1>Calcolo BMI (indice di massa corporea)</h1>
+<p class="lead">Inserisci altezza e peso: ottieni il BMI, la categoria (sottopeso, normopeso, sovrappeso, obesità) e l&#x27;intervallo di peso considerato normale per la tua altezza. Valido per adulti.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Calcolo BMI (indice di massa corporea)">
+
+<div class="tabs"><button type="button" class="on" data-u="m">Metrico (cm, kg)</button><button type="button" data-u="i">Imperiale (ft, lb)</button></div>
+<div class="row" id="metric">
+  <div class="field"><label for="hcm">Altezza (cm)</label><input type="text" inputmode="decimal" id="hcm" value="175"></div>
+  <div class="field"><label for="wkg">Peso (kg)</label><input type="text" inputmode="decimal" id="wkg" value="72"></div>
+</div>
+<div class="row hide" id="imperial">
+  <div class="field"><label for="hft">Altezza (piedi)</label><input type="text" inputmode="numeric" id="hft" value="5"></div>
+  <div class="field"><label for="hin">Altezza (pollici)</label><input type="text" inputmode="decimal" id="hin" value="9"></div>
+  <div class="field"><label for="wlb">Peso (libbre)</label><input type="text" inputmode="decimal" id="wlb" value="160"></div>
+</div>
+<div class="result hide" id="out">
+  <div class="sub">Il tuo BMI</div><div class="big" id="val"></div>
+  <div class="sub" id="cat"></div>
+  <div class="meter" style="background:linear-gradient(90deg,#74c0fc 0 20%,#69db7c 20% 42%,#ffd43b 42% 55%,#ff922b 55% 70%,#ff6b6b 70% 100%);position:relative;height:12px"><i id="mark" style="position:absolute;top:-4px;width:4px;height:20px;background:var(--fg);border-radius:2px"></i></div>
+  <div class="stats"><div class="stat"><b id="range"></b><span>Peso normale per la tua altezza</span></div><div class="stat"><b id="diff" style="font-size:1rem"></b><span id="difflbl"></span></div></div>
+</div>
+<p class="msg">Il BMI è un indicatore statistico per adulti: non distingue massa muscolare e grasso e non sostituisce una valutazione medica.</p>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Cos'è il BMI</h2>
+<p>Il BMI (Body Mass Index, in italiano IMC, indice di massa corporea) mette in relazione peso e altezza con la formula <strong>peso in kg ÷ (altezza in metri)²</strong>. Una persona alta 1,75 m che pesa 72 kg ha un BMI di 72 ÷ (1,75 × 1,75) = 23,5. È l'indicatore usato dall'Organizzazione Mondiale della Sanità per classificare il peso degli adulti su grandi numeri.</p>
+<h2>Le fasce dell'OMS</h2>
+<div class="table-wrap"><table>
+<tr><th>BMI</th><th>Categoria</th></tr>
+<tr><td>meno di 18,5</td><td>Sottopeso</td></tr>
+<tr><td>18,5 – 24,9</td><td>Normopeso</td></tr>
+<tr><td>25 – 29,9</td><td>Sovrappeso</td></tr>
+<tr><td>30 – 34,9</td><td>Obesità di classe I</td></tr>
+<tr><td>35 – 39,9</td><td>Obesità di classe II</td></tr>
+<tr><td>40 e oltre</td><td>Obesità di classe III</td></tr>
+</table></div>
+<h2>I limiti del BMI</h2>
+<p>Il BMI è un numero semplice e per questo imperfetto: non distingue il grasso dai muscoli (un atleta muscoloso può risultare «sovrappeso»), non tiene conto di età, sesso e distribuzione del grasso, e non vale per bambini e adolescenti, per i quali si usano tabelle per età, né in gravidanza. La circonferenza della vita e la composizione corporea completano il quadro. Per valutazioni personali rivolgiti al medico o a un dietista.</p>
+<h2>Il peso «normale» per la tua altezza</h2>
+<p>L'intervallo mostrato dal calcolatore corrisponde a un BMI tra 18,5 e 24,9: per 1,75 m va da circa 57 a 76 kg. Non è un obiettivo da raggiungere a tutti i costi, ma un riferimento statistico.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Come si calcola il BMI?</summary><p>Peso in chilogrammi diviso per l'altezza in metri al quadrato. Esempio: 70 kg e 1,70 m → 70 ÷ 2,89 = 24,2.</p></details><details><summary>Qual è il BMI ideale?</summary><p>Per gli adulti la fascia «normopeso» va da 18,5 a 24,9. Molti studi indicano la zona 20–25 come quella associata al minor rischio, ma il valore ottimale dipende dalla persona.</p></details><details><summary>Il BMI vale anche per i bambini?</summary><p>No: per bambini e ragazzi fino a 18 anni si usano curve di crescita per età e sesso, non le soglie degli adulti.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/calcolo-calorie-giornaliere/" data-search="calcolo del fabbisogno calorico giornaliero metabolismo basale, calorie di mantenimento e per dimagrire o aumentare quante calorie al giorno metabolismo basale tdee calorie per dimagrire fabbisogno energetico"><div class="ic">🍎</div><b>Calcolo del fabbisogno calorico giornaliero</b><span>Metabolismo basale, calorie di mantenimento e per dimagrire o aumentare</span></a><a class="card" href="../../it/calcolo-eta/" data-search="calcolo età anni, mesi e giorni esatti da una data di nascita quanti anni ho età esatta compleanno data di nascita"><div class="ic">🎂</div><b>Calcolo età</b><span>Anni, mesi e giorni esatti da una data di nascita</span></a><a class="card" href="../../it/giorni-tra-due-date/" data-search="giorni tra due date quanti giorni, settimane e giorni lavorativi separano due date quanti giorni mancano differenza tra date conta giorni giorni lavorativi"><div class="ic">📆</div><b>Giorni tra due date</b><span>Quanti giorni, settimane e giorni lavorativi separano due date</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "metric": "Metrico (cm, kg)", "imperial": "Imperiale (ft, lb)", "height": "Altezza", "weight": "Peso", "ft": "piedi", "inch": "pollici", "lb": "libbre", "cm": "cm", "kg": "kg", "bmi": "Il tuo BMI", "cat": "Categoria", "range": "Peso normale per la tua altezza", "diff_lose": "per rientrare nella fascia normale dovresti perdere circa", "diff_gain": "per rientrare nella fascia normale dovresti prendere circa", "ok": "Sei nella fascia di peso normale", "c1": "Sottopeso", "c2": "Normopeso", "c3": "Sovrappeso", "c4": "Obesità (classe I)", "c5": "Obesità (classe II)", "c6": "Obesità (classe III)", "disclaimer": "Il BMI è un indicatore statistico per adulti: non distingue massa muscolare e grasso e non sostituisce una valutazione medica."};</script>
+<script>
+(function(){
+
+var unit = 'm';
+var tabs = RT.$$('.tabs button');
+tabs.forEach(function (b) { b.addEventListener('click', function () { unit = b.getAttribute('data-u'); tabs.forEach(function (x) { x.classList.toggle('on', x === b); }); RT.$('#metric').classList.toggle('hide', unit !== 'm'); RT.$('#imperial').classList.toggle('hide', unit !== 'i'); calc(); }); });
+function calc() {
+  var h, w; // metres, kg
+  if (unit === 'm') { h = RT.num(RT.$('#hcm').value) / 100; w = RT.num(RT.$('#wkg').value); }
+  else { h = ((RT.num(RT.$('#hft').value) || 0) * 12 + (RT.num(RT.$('#hin').value) || 0)) * 0.0254; w = RT.num(RT.$('#wlb').value) * 0.45359237; }
+  var out = RT.$('#out');
+  if (!(h > 0.5 && h < 2.8 && w > 10 && w < 700)) { out.classList.add('hide'); return; }
+  var bmi = w / (h * h);
+  var cat = bmi < 18.5 ? T.c1 : bmi < 25 ? T.c2 : bmi < 30 ? T.c3 : bmi < 35 ? T.c4 : bmi < 40 ? T.c5 : T.c6;
+  RT.$('#val').textContent = RT.fmtFixed(bmi, 1); RT.$('#cat').textContent = T.cat + ': ' + cat;
+  RT.$('#mark').style.left = Math.min(98, Math.max(0, (bmi - 12) / 30 * 100)) + '%';
+  var lo = 18.5 * h * h, hi = 24.9 * h * h;
+  function kgOut(x) { return unit === 'm' ? RT.fmt(x, 1) + ' kg' : RT.fmt(x / 0.45359237, 0) + ' lb'; }
+  RT.$('#range').textContent = kgOut(lo) + ' – ' + kgOut(hi);
+  if (w > hi) { RT.$('#diff').textContent = kgOut(w - hi); RT.$('#difflbl').textContent = T.diff_lose; }
+  else if (w < lo) { RT.$('#diff').textContent = kgOut(lo - w); RT.$('#difflbl').textContent = T.diff_gain; }
+  else { RT.$('#diff').textContent = '✓'; RT.$('#difflbl').textContent = T.ok; }
+  out.classList.remove('hide');
+}
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

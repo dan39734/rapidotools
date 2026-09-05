@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roman numerals converter – Rapido Tools</title>
+<meta name="description" content="Convert a number to Roman numerals and a Roman numeral to Arabic digits (from 1 to 3999). With writing rules, years in Roman numerals and a chart from 1 to 100.">
+
+<link rel="canonical" href="https://rapidotools.com/en/roman-numerals/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/numeri-romani/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/roman-numerals/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/roman-numerals/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Roman numerals converter – Rapido Tools">
+<meta property="og:description" content="Convert a number to Roman numerals and a Roman numeral to Arabic digits (from 1 to 3999). With writing rules, years in Roman numerals and a chart from 1 to 100.">
+<meta property="og:url" content="https://rapidotools.com/en/roman-numerals/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Roman numerals converter", "url": "https://rapidotools.com/en/roman-numerals/", "description": "Convert a number to Roman numerals and a Roman numeral to Arabic digits (from 1 to 3999). With writing rules, years in Roman numerals and a chart from 1 to 100.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do you write 2026 in Roman numerals?", "acceptedAnswer": {"@type": "Answer", "text": "MMXXVI: MM (2000) + XX (20) + VI (6)."}}, {"@type": "Question", "name": "Why does the converter say IIII or IC are invalid?", "acceptedAnswer": {"@type": "Answer", "text": "Because they break the standard rules: 4 is written IV and 99 is XCIX. The converter accepts only the canonical form, the same one used on monuments and documents."}}, {"@type": "Question", "name": "What is the largest Roman numeral?", "acceptedAnswer": {"@type": "Answer", "text": "With standard notation 3999, i.e. MMMCMXCIX. Larger numbers use a bar over the letters, which multiplies them by a thousand."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/numeri-romani/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-numbers">🔢 Numbers &amp; conversions</a></nav>
+<h1>Roman numerals converter</h1>
+<p class="lead">Type a number (for example 2026) or a Roman numeral (MMXXVI): the conversion happens as you type, in both directions.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Roman numerals converter">
+
+<div class="row">
+  <div class="field"><label for="num">Number (1–3999)</label><input type="text" inputmode="numeric" id="num" value="2026"></div>
+  <div class="field"><label for="rom">Roman numeral</label><input type="text" id="rom" value="MMXXVI" style="text-transform:uppercase" autocapitalize="characters"></div>
+</div>
+<p class="msg" id="msg"></p>
+<div class="result">
+  <div class="big" id="out"></div>
+  <div class="sub" id="explain"></div>
+</div>
+<div class="lbl" style="margin-top:14px">Quick chart</div>
+<div class="table-wrap"><table id="tbl"></table></div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>How Roman numerals work</h2>
+<p>Seven letters are used: <strong>I</strong> = 1, <strong>V</strong> = 5, <strong>X</strong> = 10, <strong>L</strong> = 50, <strong>C</strong> = 100, <strong>D</strong> = 500, <strong>M</strong> = 1000. Letters are written from largest to smallest and added up: MMXXVI = 1000 + 1000 + 10 + 10 + 5 + 1 = 2026.</p>
+<h2>The subtraction rule</h2>
+<p>When a smaller letter comes before a larger one, it is subtracted: IV = 4, IX = 9, XL = 40, XC = 90, CD = 400, CM = 900. Only I, X and C can be subtracted, and only from the next two larger letters: 99 is XCIX, not IC. The same letter is never repeated more than three times in a row (4 is IV, not IIII, with the traditional exception of clock faces).</p>
+<h2>Where they are still used</h2>
+<ul>
+<li>Years on monuments, in film credits and founding dates: MCMXCIX = 1999, MMXXVI = 2026.</li>
+<li>Names of popes and monarchs (John XXIII, Louis XIV), centuries (21st century), chapters and volumes.</li>
+<li>Editions of events such as the Olympics and the Super Bowl, hour marks on clock faces.</li>
+</ul>
+<p>The Roman system has no zero and no standard way to write numbers above 3999 (a bar over a letter multiplies it by 1000), which is why the converter stops at MMMCMXCIX.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>How do you write 2026 in Roman numerals?</summary><p>MMXXVI: MM (2000) + XX (20) + VI (6).</p></details><details><summary>Why does the converter say IIII or IC are invalid?</summary><p>Because they break the standard rules: 4 is written IV and 99 is XCIX. The converter accepts only the canonical form, the same one used on monuments and documents.</p></details><details><summary>What is the largest Roman numeral?</summary><p>With standard notation 3999, i.e. MMMCMXCIX. Larger numbers use a bar over the letters, which multiplies them by a thousand.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/percentage-calculator/" data-search="percentage calculator what is 20% of 150, what percent is 30 of 200, change between two numbers percent of a number percentage increase percentage change percent difference"><div class="ic">％</div><b>Percentage calculator</b><span>What is 20% of 150, what percent is 30 of 200, change between two numbers</span></a><a class="card" href="../../en/discount-calculator/" data-search="discount calculator final price and savings with one or two discounts, or the discount from two prices sale price 30% off double discount how much do i save percent off"><div class="ic">🏷️</div><b>Discount calculator</b><span>Final price and savings with one or two discounts, or the discount from two prices</span></a><a class="card" href="../../en/unit-converter/" data-search="unit converter length, weight, temperature, volume, area, speed, data inches to cm miles to km fahrenheit to celsius pounds to kg ounces to grams feet to meters"><div class="ic">📏</div><b>Unit converter</b><span>Length, weight, temperature, volume, area, speed, data</span></a><a class="card" href="../../en/random-number-generator/" data-search="random number generator, dice and coin flip draw numbers between a minimum and a maximum, roll dice, flip a coin random number 1 to 10 dice roller coin toss raffle pick a number"><div class="ic">🎲</div><b>Random number generator, dice and coin flip</b><span>Draw numbers between a minimum and a maximum, roll dice, flip a coin</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "num": "Number (1–3999)", "rom": "Roman numeral", "bad": "Invalid Roman numeral", "range": "Enter a whole number between 1 and 3999", "table": "Quick chart", "year": "Current year"};</script>
+<script>
+(function(){
+
+var num = RT.$('#num'), rom = RT.$('#rom'), out = RT.$('#out'), msg = RT.$('#msg'), explain = RT.$('#explain');
+var MAP = [[1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'], [100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
+function toRoman(n) { var s = '', parts = []; MAP.forEach(function (p) { while (n >= p[0]) { s += p[1]; parts.push(p[1] + '=' + p[0]); n -= p[0]; } }); return [s, parts]; }
+function fromRoman(s) { var r = toRomanStrict(s); return r; }
+function toRomanStrict(s) {
+  s = s.toUpperCase().trim(); if (!/^[MDCLXVI]+$/.test(s)) return NaN;
+  var i = 0, n = 0;
+  MAP.forEach(function (p) { while (s.substr(i, p[1].length) === p[1]) { n += p[0]; i += p[1].length; } });
+  if (i !== s.length) return NaN;
+  return toRoman(n)[0] === s ? n : NaN;
+}
+var lock = false;
+num.addEventListener('input', function () {
+  if (lock) return; lock = true;
+  var n = parseInt(num.value.replace(/\D/g, ''), 10);
+  if (n >= 1 && n <= 3999) { var r = toRoman(n); rom.value = r[0]; out.textContent = n + ' = ' + r[0]; explain.textContent = r[1].join(' + '); msg.textContent = ''; }
+  else { out.textContent = '–'; explain.textContent = ''; msg.textContent = T.range; }
+  lock = false;
+});
+rom.addEventListener('input', function () {
+  if (lock) return; lock = true;
+  var n = toRomanStrict(rom.value);
+  if (isFinite(n)) { num.value = n; out.textContent = rom.value.toUpperCase() + ' = ' + n; explain.textContent = toRoman(n)[1].join(' + '); msg.textContent = ''; }
+  else { out.textContent = '–'; explain.textContent = ''; msg.textContent = rom.value ? T.bad : ''; }
+  lock = false;
+});
+num.dispatchEvent(new Event('input'));
+var tbl = RT.$('#tbl'), rows = '';
+var list = [];
+for (var i = 1; i <= 20; i++) list.push(i);
+[30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1500, 2000, 2026, 2500, 3000, 3999].forEach(function (x) { list.push(x); });
+for (var j = 0; j < list.length; j += 4) { rows += '<tr>' + list.slice(j, j + 4).map(function (x) { return '<td><b>' + x + '</b> ' + toRoman(x)[0] + '</td>'; }).join('') + '</tr>'; }
+tbl.innerHTML = rows;
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generatore di codici QR – Rapido Tools</title>
+<meta name="description" content="Crea codici QR gratuiti e senza scadenza per link, testo, rete Wi-Fi, numero di telefono o email. Scegli dimensione e colori, scarica in PNG o SVG. Generati nel browser, senza registrazione.">
+
+<link rel="canonical" href="https://rapidotools.com/it/generatore-codice-qr/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/generatore-codice-qr/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/qr-code-generator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/qr-code-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Generatore di codici QR – Rapido Tools">
+<meta property="og:description" content="Crea codici QR gratuiti e senza scadenza per link, testo, rete Wi-Fi, numero di telefono o email. Scegli dimensione e colori, scarica in PNG o SVG. Generati nel browser, senza registrazione.">
+<meta property="og:url" content="https://rapidotools.com/it/generatore-codice-qr/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.0.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Generatore di codici QR", "url": "https://rapidotools.com/it/generatore-codice-qr/", "description": "Crea codici QR gratuiti e senza scadenza per link, testo, rete Wi-Fi, numero di telefono o email. Scegli dimensione e colori, scarica in PNG o SVG. Generati nel browser, senza registrazione.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "I codici QR creati qui scadono?", "acceptedAnswer": {"@type": "Answer", "text": "No. Sono codici statici: il contenuto è dentro il codice stesso e funziona per sempre, senza abbonamenti o servizi esterni."}}, {"@type": "Question", "name": "Posso cambiare il link dopo aver stampato il codice?", "acceptedAnswer": {"@type": "Answer", "text": "No, in un codice statico il link è fisso. Se prevedi di cambiarlo, fai puntare il QR a una tua pagina web e aggiorna quella."}}, {"@type": "Question", "name": "PNG o SVG?", "acceptedAnswer": {"@type": "Answer", "text": "PNG per social, documenti Word e uso generale; SVG per grafici, tipografie e stampe grandi, perché non perde qualità ingrandendo."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/qr-code-generator/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-images">🖼️ Immagini e QR</a></nav>
+<h1>Generatore di codici QR</h1>
+<p class="lead">Scrivi un link o un testo, oppure compila i campi per Wi-Fi, telefono ed email: il codice QR compare subito e puoi scaricarlo in PNG (per stampe e social) o SVG (per grafica e loghi). Nessun account, nessuna scadenza.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Generatore di codici QR">
+
+<div class="tabs">
+  <button type="button" class="on" data-tab="url">Link / testo</button><button type="button" data-tab="wifi">Wi-Fi</button>
+  <button type="button" data-tab="tel">Telefono</button><button type="button" data-tab="mail">Email</button><button type="button" data-tab="sms">SMS</button>
+</div>
+<div id="tab-url"><div class="field"><label for="url">Link o testo</label><textarea id="url" rows="3" placeholder="https://esempio.it oppure un testo qualsiasi">https://rapidotools.com</textarea></div></div>
+<div id="tab-wifi" class="hide">
+  <div class="row"><div class="field"><label for="ssid">Nome della rete (SSID)</label><input type="text" id="ssid"></div><div class="field"><label for="wpass">Password</label><input type="text" id="wpass"></div></div>
+  <div class="row"><div class="field"><label for="enc">Sicurezza</label><select id="enc"><option value="WPA">WPA / WPA2 / WPA3</option><option value="WEP">WEP</option><option value="nopass">Nessuna (rete aperta)</option></select></div>
+  <label class="check"><input type="checkbox" id="whidden"> Rete nascosta</label></div>
+</div>
+<div id="tab-tel" class="hide"><div class="field"><label for="tel">Numero di telefono</label><input type="tel" id="tel" placeholder="+39 333 1234567"></div></div>
+<div id="tab-mail" class="hide">
+  <div class="field"><label for="mail">Indirizzo email</label><input type="email" id="mail"></div>
+  <div class="row"><div class="field"><label for="subj">Oggetto (facoltativo)</label><input type="text" id="subj"></div><div class="field"><label for="body">Messaggio (facoltativo)</label><input type="text" id="body"></div></div>
+</div>
+<div id="tab-sms" class="hide">
+  <div class="row"><div class="field"><label for="smsn">Numero di telefono</label><input type="tel" id="smsn"></div><div class="field"><label for="smst">Testo del messaggio (facoltativo)</label><input type="text" id="smst"></div></div>
+</div>
+<div class="row">
+  <div class="field"><label for="size">Dimensione (px)</label><select id="size"><option>256</option><option>512</option><option selected>1024</option><option>2048</option></select></div>
+  <div class="field"><label for="ecc">Correzione errori</label><select id="ecc"><option value="L">Bassa (7%)</option><option value="M" selected>Media (15%)</option><option value="Q">Alta (25%)</option><option value="H">Massima (30%)</option></select></div>
+  <div class="field"><label for="dark">Colore</label><input type="color" id="dark" value="#000000" style="height:42px"></div>
+  <div class="field"><label for="light">Sfondo</label><input type="color" id="light" value="#ffffff" style="height:42px"></div>
+</div>
+<p class="msg bad hide" id="err"></p>
+<div class="qr"><canvas id="cv" style="max-width:280px;width:100%;image-rendering:pixelated"></canvas></div>
+<p class="msg" id="info" style="text-align:center"></p>
+<div class="btns" style="justify-content:center"><button class="btn primary" type="button" id="png">⬇ Scarica PNG</button><button class="btn" type="button" id="svg">⬇ Scarica SVG</button></div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Cosa puoi mettere in un codice QR</h2>
+<ul>
+<li><strong>Link:</strong> il caso più comune. Inquadrando il codice, il telefono propone di aprire la pagina: menu del ristorante, sito, profilo social, volantino, biglietto da visita, recensioni.</li>
+<li><strong>Testo:</strong> qualsiasi testo, per esempio un codice sconto, un indirizzo o un messaggio.</li>
+<li><strong>Wi-Fi:</strong> nome della rete, tipo di sicurezza e password: gli ospiti si collegano inquadrando il codice, senza digitare nulla. Perfetto per case vacanza, bar e uffici.</li>
+<li><strong>Telefono, email, SMS:</strong> il telefono apre direttamente la chiamata, una nuova email (con oggetto e testo già compilati) o un messaggio.</li>
+</ul>
+<h2>Dimensione, colori e correzione errori</h2>
+<p>Per la stampa scegli almeno <strong>1024 px</strong> o scarica l'<strong>SVG</strong>, che si ingrandisce all'infinito senza perdere nitidezza (ideale per grafici e tipografie). Il codice deve avere un buon contrasto: colore scuro su sfondo chiaro, mai il contrario, e lascia sempre un bordo bianco intorno (è già incluso). Con un lato di almeno 2 cm su carta si legge senza problemi da 20-30 cm di distanza.</p>
+<p>La <strong>correzione errori</strong> permette di leggere il codice anche se è in parte rovinato o coperto: «Media» va bene quasi sempre; scegli «Alta» o «Massima» se prevedi di sovrapporre un logo al centro o di stampare su superfici che si usurano. Livelli più alti producono codici più fitti.</p>
+<h2>Nessuna scadenza, nessun tracciamento</h2>
+<p>I codici creati qui sono «statici»: il contenuto è scritto direttamente nel codice, quindi funzionano per sempre, non dipendono da un servizio esterno e non tracciano chi li inquadra. Il rovescio della medaglia è che non puoi cambiare il link dopo la stampa: se ti serve questa flessibilità, punta il QR a una pagina tua che potrai aggiornare.</p>
+<h2>Consigli prima di stampare</h2>
+<ul>
+<li>Prova sempre il codice con due o tre telefoni diversi prima di stamparlo in grande.</li>
+<li>Usa link brevi: meno caratteri significano un codice meno fitto e più facile da leggere.</li>
+<li>Scrivi accanto al codice cosa succede inquadrandolo («Menu», «Wi-Fi gratis», «Prenota»).</li>
+</ul>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>I codici QR creati qui scadono?</summary><p>No. Sono codici statici: il contenuto è dentro il codice stesso e funziona per sempre, senza abbonamenti o servizi esterni.</p></details><details><summary>Posso cambiare il link dopo aver stampato il codice?</summary><p>No, in un codice statico il link è fisso. Se prevedi di cambiarlo, fai puntare il QR a una tua pagina web e aggiorna quella.</p></details><details><summary>PNG o SVG?</summary><p>PNG per social, documenti Word e uso generale; SVG per grafici, tipografie e stampe grandi, perché non perde qualità ingrandendo.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/ridimensiona-comprimi-immagini/" data-search="ridimensiona e comprimi immagini riduci dimensioni e peso di foto jpg, png e webp senza caricarle online ridurre peso foto comprimere immagine ridimensionare foto foto sotto 1 mb ridurre dimensioni jpg foto per concorso"><div class="ic">🖼️</div><b>Ridimensiona e comprimi immagini</b><span>Riduci dimensioni e peso di foto JPG, PNG e WebP senza caricarle online</span></a><a class="card" href="../../it/converti-immagini/" data-search="converti immagini: png, jpg, webp cambia formato a una o più immagini nel browser, anche in blocco png in jpg webp in jpg jpg in png convertire foto cambiare formato immagine"><div class="ic">🔄</div><b>Converti immagini: PNG, JPG, WebP</b><span>Cambia formato a una o più immagini nel browser, anche in blocco</span></a><a class="card" href="../../it/calcolo-eta/" data-search="calcolo età anni, mesi e giorni esatti da una data di nascita quanti anni ho età esatta compleanno data di nascita"><div class="ic">🎂</div><b>Calcolo età</b><span>Anni, mesi e giorni esatti da una data di nascita</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.0.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "t_url": "Link / testo", "t_wifi": "Wi-Fi", "t_tel": "Telefono", "t_mail": "Email", "t_sms": "SMS", "content": "Link o testo", "ph_url": "https://esempio.it oppure un testo qualsiasi", "ssid": "Nome della rete (SSID)", "pass": "Password", "enc": "Sicurezza", "hidden": "Rete nascosta", "tel": "Numero di telefono", "email": "Indirizzo email", "subject": "Oggetto (facoltativo)", "body": "Messaggio (facoltativo)", "sms_text": "Testo del messaggio (facoltativo)", "size": "Dimensione (px)", "ecc": "Correzione errori", "e_l": "Bassa (7%)", "e_m": "Media (15%)", "e_q": "Alta (25%)", "e_h": "Massima (30%)", "dark": "Colore", "light": "Sfondo", "png": "Scarica PNG", "svg": "Scarica SVG", "copy_img": "Copia immagine", "empty": "Inserisci un contenuto per generare il codice.", "too_long": "Testo troppo lungo per un codice QR (massimo circa 2.900 caratteri).", "info": "Versione {v} · {n}×{n} moduli · correzione {e}", "nopass": "Nessuna (rete aperta)"};</script>
+<script src="../../assets/qr.js?v=1.0.0"></script>
+<script>
+(function(){
+
+var tab = 'url', tabs = RT.$$('.tabs button'), cv = RT.$('#cv'), err = RT.$('#err'), info = RT.$('#info'), current = null;
+tabs.forEach(function (b) { b.addEventListener('click', function () { tab = b.getAttribute('data-tab'); tabs.forEach(function (x) { x.classList.toggle('on', x === b); }); ['url', 'wifi', 'tel', 'mail', 'sms'].forEach(function (k) { RT.$('#tab-' + k).classList.toggle('hide', k !== tab); }); render(); }); });
+function escWifi(s) { return s.replace(/([\\;,:"])/g, '\\$1'); }
+function payload() {
+  if (tab === 'url') return RT.$('#url').value.trim();
+  if (tab === 'wifi') { var ssid = RT.$('#ssid').value.trim(); if (!ssid) return ''; var enc = RT.$('#enc').value; return 'WIFI:T:' + enc + ';S:' + escWifi(ssid) + ';' + (enc !== 'nopass' ? 'P:' + escWifi(RT.$('#wpass').value) + ';' : '') + (RT.$('#whidden').checked ? 'H:true;' : '') + ';'; }
+  if (tab === 'tel') { var t = RT.$('#tel').value.replace(/[\s().-]/g, ''); return t ? 'tel:' + t : ''; }
+  if (tab === 'mail') { var m = RT.$('#mail').value.trim(); if (!m) return ''; var q = []; if (RT.$('#subj').value) q.push('subject=' + encodeURIComponent(RT.$('#subj').value)); if (RT.$('#body').value) q.push('body=' + encodeURIComponent(RT.$('#body').value)); return 'mailto:' + m + (q.length ? '?' + q.join('&') : ''); }
+  if (tab === 'sms') { var n = RT.$('#smsn').value.replace(/[\s().-]/g, ''); if (!n) return ''; return 'SMSTO:' + n + ':' + RT.$('#smst').value; }
+  return '';
+}
+function render() {
+  var text = payload(); err.classList.add('hide'); current = null;
+  if (!text) { err.textContent = T.empty; err.classList.remove('hide'); cv.getContext('2d').clearRect(0, 0, cv.width, cv.height); info.textContent = ''; return; }
+  var qr = RTQR.encode(text, RT.$('#ecc').value, true);
+  if (!qr) { err.textContent = T.too_long; err.classList.remove('hide'); info.textContent = ''; return; }
+  current = qr;
+  var size = +RT.$('#size').value, scale = Math.max(1, Math.floor(size / (qr.size + 8)));
+  RTQR.draw(qr, cv, scale, 4, RT.$('#dark').value, RT.$('#light').value);
+  info.textContent = T.info.replace('{v}', qr.version).replace(/\{n\}/g, qr.size).replace('{e}', qr.ecl);
+}
+function svgString() {
+  var q = current, b = 4, n = q.size + b * 2, d = '';
+  for (var y = 0; y < q.size; y++) for (var x = 0; x < q.size; x++) if (q.modules[y][x]) d += 'M' + (x + b) + ' ' + (y + b) + 'h1v1h-1z';
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + n + ' ' + n + '" shape-rendering="crispEdges"><rect width="100%" height="100%" fill="' + RT.$('#light').value + '"/><path d="' + d + '" fill="' + RT.$('#dark').value + '"/></svg>';
+}
+RT.$('#png').addEventListener('click', function () { if (!current) return; cv.toBlob(function (b) { RT.download(b, 'qr-code.png'); }, 'image/png'); });
+RT.$('#svg').addEventListener('click', function () { if (!current) return; RT.download(new Blob([svgString()], { type: 'image/svg+xml' }), 'qr-code.svg'); });
+RT.live(document.getElementById('tool'), render);
+
+})();
+</script>
+</body>
+</html>
