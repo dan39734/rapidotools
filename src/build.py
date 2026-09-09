@@ -16,8 +16,8 @@ from site_text import SITE_NAME, DOMAIN, YEAR, LANGS, TEXT, CAT_ORDER, STATIC_SL
 from pages import PAGES  # noqa: E402
 import tools  # noqa: E402
 
-VERSION = "1.0.0"
-LASTMOD = "2026-09-05"
+VERSION = "1.1.0"
+LASTMOD = "2026-09-10"
 
 LOGO_SVG = ('<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" '
             'fill="currentColor"/></svg>')
@@ -118,7 +118,7 @@ def build_home(lang, all_tools):
     rel = "../"
     sections = []
     for cat in CAT_ORDER:
-        items = [t for t in all_tools if t["cat"] == cat]
+        items = [t for t in all_tools if t["cat"] == cat and t.get("home", True)]
         if not items:
             continue
         icon, name = T["cats"][cat]
@@ -172,9 +172,10 @@ def build_tool(tool, lang, all_tools):
     if faq:
         faq_html = '<h2>%s</h2><div class="faq">%s</div>' % (esc(T["faq"]), "".join(
             '<details><summary>%s</summary><p>%s</p></details>' % (esc(q), a) for q, a in faq))
-    related = [t for t in all_tools if t["cat"] == tool["cat"] and t["id"] != tool["id"]]
+    pool = [t for t in all_tools if t.get("home", True)]
+    related = [t for t in pool if t["cat"] == tool["cat"] and t["id"] != tool["id"]]
     if len(related) < 3:
-        related += [t for t in all_tools if t["cat"] != tool["cat"]][: 3 - len(related)]
+        related += [t for t in pool if t["cat"] != tool["cat"]][: 3 - len(related)]
     related_html = '<section class="related"><h2>%s</h2><div class="grid">%s</div></section>' % (
         esc(T["related"]), "".join(card(t, lang, rel) for t in related[:4]))
     strings = tool_strings(tool, lang)

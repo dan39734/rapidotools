@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TFR (severance pay) for domestic workers in Italy (colf, badante) – Rapido Tools</title>
+<meta name="description" content="Work out the TFR (severance pay) of a domestic worker in Italy: annual pay divided by 13.5 for each year, pro rata for the months accrued (15-day rule), estimated yearly revaluation and a year-by-year table. Free, under the national contract.">
+
+<link rel="canonical" href="https://rapidotools.com/en/tfr-severance-domestic-worker-italy/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-tfr-colf-badante/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/tfr-severance-domestic-worker-italy/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/tfr-severance-domestic-worker-italy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="TFR (severance pay) for domestic workers in Italy (colf, badante) – Rapido Tools">
+<meta property="og:description" content="Work out the TFR (severance pay) of a domestic worker in Italy: annual pay divided by 13.5 for each year, pro rata for the months accrued (15-day rule), estimated yearly revaluation and a year-by-year table. Free, under the national contract.">
+<meta property="og:url" content="https://rapidotools.com/en/tfr-severance-domestic-worker-italy/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.1.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "TFR (severance pay) for domestic workers in Italy (colf, badante)", "url": "https://rapidotools.com/en/tfr-severance-domestic-worker-italy/", "description": "Work out the TFR (severance pay) of a domestic worker in Italy: annual pay divided by 13.5 for each year, pro rata for the months accrued (15-day rule), estimated yearly revaluation and a year-by-year table. Free, under the national contract.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much TFR does a domestic worker accrue in a year?", "acceptedAnswer": {"@type": "Answer", "text": "The annual pay (13 months, board and lodging allowance included for live-in workers) divided by 13.5: about 7.4% of what she earns in a year."}}, {"@type": "Question", "name": "Is the TFR due if the worker resigns?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the TFR is always due at the end of employment, whether the worker resigns or is dismissed, pro rata to the period worked."}}, {"@type": "Question", "name": "Can I pay the TFR every year instead of at the end?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with the worker's agreement: the contract allows paying it yearly or advancing up to 70% of it. It must be recorded on the payslip."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/calcolo-tfr-colf-badante/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-work">🎓 School &amp; work</a></nav>
+<h1>TFR (severance pay) for domestic workers in Italy (colf, badante)</h1>
+<p class="lead">Enter the pay (hourly or monthly) and the hiring and end dates: you get the gross TFR accrued, with each year&#x27;s quota and the estimated revaluation.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="TFR (severance pay) for domestic workers in Italy (colf, badante)">
+
+<div class="row">
+  <div class="field"><label for="type">Type of contract</label><select id="type"><option value="h">Hourly (non live-in)</option><option value="m">Monthly (live-in or full time)</option></select></div>
+  <div class="field only-h"><label for="rate">Gross hourly rate (€)</label><input type="number" id="rate" min="0" step="0.01" value="9"></div>
+  <div class="field only-h"><label for="hours">Hours per week</label><input type="number" id="hours" min="1" max="60" step="0.5" value="20"></div>
+  <div class="field only-m hide"><label for="monthly">Gross monthly pay (€)</label><input type="number" id="monthly" min="0" step="0.01" placeholder="es. 1200"></div>
+  <div class="field only-m hide"><label for="kind">Board and lodging allowance per month (€, live-in only)</label><input type="number" id="kind" min="0" step="0.01" placeholder="0"></div>
+</div>
+
+<div class="row">
+  <div class="field"><label for="start">Hiring date</label><input type="date" id="start"></div>
+  <div class="field"><label for="end">End date (or today)</label><input type="date" id="end"></div>
+  <div class="field"><label for="infl">Average annual inflation for revaluation (%)</label><input type="number" id="infl" min="0" max="20" step="0.1" value="0"><span class="msg" style="margin:0">Coefficient = 1.5% fixed + 75% of inflation (with 0 only the 1.5% applies)</span></div>
+</div>
+<p class="msg">Contract rule: a month counts if the employment lasted at least 15 days in that month.</p>
+<p class="msg bad hide" id="err">Enter the pay and a valid period (the end date must come after the hiring date).</p>
+<div class="result hide" id="out">
+  <div class="big" id="main"></div>
+  <div class="sub" id="sub"></div>
+  <div class="stats">
+    <div class="stat"><b id="annual"></b><span>Annual pay counted (13 months)</span></div>
+    <div class="stat"><b id="quota"></b><span>TFR for a full year (÷ 13.5)</span></div>
+    <div class="stat"><b id="years"></b><span>Seniority accrued</span></div>
+    <div class="stat"><b id="reval"></b><span>Estimated revaluation</span></div>
+  </div>
+  <div class="table-wrap" style="margin-top:14px"><table><thead><tr><th>Year</th><th>Months</th><th>Quota</th><th>Revaluation</th><th>Total at year end</th></tr></thead><tbody id="rows"></tbody></table></div>
+</div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>How the TFR is calculated for domestic workers</h2>
+<p>The TFR (<em>trattamento di fine rapporto</em>, severance pay) is due to every domestic worker in Italy at the end of employment, whatever the reason. For each year of work the employer sets aside the <strong>annual pay divided by 13.5</strong>; for fractions of a year the quota is pro rata to the months, counting as a whole month any month in which the employment lasted at least 15 days. The pay counted includes the base pay, the 13th month and, for live-in workers, the board and lodging allowance; the calculator therefore uses <strong>13 months</strong> of the reference monthly pay (for hourly workers: hourly rate × weekly hours × 52 ÷ 12).</p>
+<p><em>Example:</em> €9 per hour for 20 hours a week → €780 a month → €10,140 a year → TFR quota of <strong>€751.11</strong> for each full year, €62.59 per month.</p>
+<h2>Revaluation</h2>
+<p>Every 31 December the TFR set aside up to the previous year is revalued with a coefficient equal to <strong>1.5% fixed plus 75% of inflation</strong> (ISTAT FOI index). The exact coefficient is published by ISTAT every year; the calculator estimates it from the average annual inflation you enter (with 0 only the fixed 1.5% applies; in recent years Italian inflation has ranged between 1% and 8%). Revaluation is taxed at 17%, while the TFR itself is subject to separate taxation: the amount shown is <strong>gross</strong>.</p>
+<h2>When and how it is paid</h2>
+<ul>
+<li>The TFR is paid with the final payslip, together with the accrued 13th month and the untaken holidays.</li>
+<li>With the worker's agreement the employer may advance the accrued TFR once a year (up to 70%) or pay it every year: in that case each year starts from zero and there is no revaluation.</li>
+<li>If hours or pay change during the employment, the calculation must be done by periods and added up; this tool assumes a constant pay.</li>
+</ul>
+
+<h2>The reference contract</h2>
+<p>The rules applied are those of the <strong>Italian national collective agreement for domestic work</strong> (CCNL lavoro domestico: housekeepers, carers, babysitters), which covers every regular domestic employment in Italy. Amounts are <strong>gross</strong>: INPS social contributions (including the worker's share) and taxes are separate. This calculator is meant for a quick estimate; for the official payslip and special cases (vertical part-time, changes of hours during the year, long absences) ask an employers' association, a labour consultant or a payroll service.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>How much TFR does a domestic worker accrue in a year?</summary><p>The annual pay (13 months, board and lodging allowance included for live-in workers) divided by 13.5: about 7.4% of what she earns in a year.</p></details><details><summary>Is the TFR due if the worker resigns?</summary><p>Yes, the TFR is always due at the end of employment, whether the worker resigns or is dismissed, pro rata to the period worked.</p></details><details><summary>Can I pay the TFR every year instead of at the end?</summary><p>Yes, with the worker's agreement: the contract allows paying it yearly or advancing up to 70% of it. It must be recorded on the payslip.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/weighted-average-degree-grade-calculator/" data-search="weighted average and degree grade calculator (italian university) weighted average of your exams with cfu credits, base out of 110 and final degree grade weighted average gpa degree grade italian university cfu credits 110 cum laude"><div class="ic">🎓</div><b>Weighted average and degree grade calculator (Italian university)</b><span>Weighted average of your exams with CFU credits, base out of 110 and final degree grade</span></a><a class="card" href="../../en/13th-month-pay-domestic-worker-italy/" data-search="13th-month pay for domestic workers in italy (colf, badante) christmas bonus (tredicesima) for housekeepers and carers, hourly or monthly, even for a few months tredicesima 13th month domestic worker colf badante italy"><div class="ic">🎁</div><b>13th-month pay for domestic workers in Italy (colf, badante)</b><span>Christmas bonus (tredicesima) for housekeepers and carers, hourly or monthly, even for a few months</span></a><a class="card" href="../../en/holiday-entitlement-domestic-worker-italy/" data-search="holiday entitlement for domestic workers in italy (colf, badante) holidays accrued in hours or days, balance and pay-out value holiday entitlement domestic worker colf badante annual leave italy"><div class="ic">🌴</div><b>Holiday entitlement for domestic workers in Italy (colf, badante)</b><span>Holidays accrued in hours or days, balance and pay-out value</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.1.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Gross TFR accrued", "invalid": "Enter the pay and a valid period (the end date must come after the hiring date).", "type": "Type of contract", "type_h": "Hourly (non live-in)", "type_m": "Monthly (live-in or full time)", "rate": "Gross hourly rate (€)", "hours": "Hours per week", "monthly": "Gross monthly pay (€)", "kind": "Board and lodging allowance per month (€, live-in only)", "start": "Hiring date", "end": "End date (or today)", "months": "Months accrued", "month_pay": "Reference monthly pay", "rule": "Contract rule: a month counts if the employment lasted at least 15 days in that month.", "infl": "Average annual inflation for revaluation (%)", "infl_hint": "Coefficient = 1.5% fixed + 75% of inflation (with 0 only the 1.5% applies)", "annual": "Annual pay counted (13 months)", "quota": "TFR for a full year (÷ 13.5)", "years": "Seniority accrued", "reval": "Estimated revaluation", "y": "years", "m": "months", "year": "Year", "months_col": "Months", "quota_col": "Quota", "reval_col": "Revaluation", "fund": "Total at year end"};</script>
+<script>
+(function(){
+
+function monthsWorked(a, b) { // months counted in [a, b] with the CCNL rule: a fraction of month counts if >= 15 days
+  if (!a || !b || b < a) return 0;
+  var n = 0, cur = new Date(a.getFullYear(), a.getMonth(), 1), end = new Date(b.getFullYear(), b.getMonth(), 1);
+  while (cur <= end) {
+    var ms = new Date(cur.getFullYear(), cur.getMonth(), 1), me = new Date(cur.getFullYear(), cur.getMonth() + 1, 0);
+    var s = a > ms ? a : ms, e = b < me ? b : me;
+    if (RT.daysBetween(s, e) + 1 >= 15) n++;
+    cur.setMonth(cur.getMonth() + 1);
+  }
+  return n;
+}
+function monthlyPay() { // reference monthly pay from the "type" selector
+  var hourly = RT.$('#type').value === 'h';
+  if (hourly) { var r = RT.num(RT.$('#rate').value), h = RT.num(RT.$('#hours').value); return (r > 0 && h > 0) ? r * h * 52 / 12 : NaN; }
+  var m = RT.num(RT.$('#monthly').value), k = RT.num(RT.$('#kind').value) || 0; return m > 0 ? m + k : NaN;
+}
+function toggleType() {
+  var hourly = RT.$('#type').value === 'h';
+  RT.$$('.only-h').forEach(function (el) { el.classList.toggle('hide', !hourly); });
+  RT.$$('.only-m').forEach(function (el) { el.classList.toggle('hide', hourly); });
+}
+function setDefaultDates(startId, endId, yearsBack) {
+  var t = new Date(), s = RT.$(startId), e = RT.$(endId);
+  if (s && !s.value) s.value = (t.getFullYear() - (yearsBack || 0)) + '-01-01';
+  if (e && !e.value) e.value = yearsBack ? RT.isoToday() : t.getFullYear() + '-12-31';
+}
+RT.$('#type').addEventListener('change', toggleType); toggleType();
+
+setDefaultDates('#start', '#end', 2);
+var out = RT.$('#out'), err = RT.$('#err'), rows = RT.$('#rows');
+function calc() {
+  var mp = monthlyPay(), a = RT.parseDate(RT.$('#start').value), b = RT.parseDate(RT.$('#end').value);
+  var infl = RT.num(RT.$('#infl').value) || 0;
+  if (!isFinite(mp) || !a || !b || b < a) { out.classList.add('hide'); err.classList.remove('hide'); return; }
+  err.classList.add('hide'); out.classList.remove('hide');
+  var annual = mp * 13, quota = annual / 13.5, coef = 0.015 + 0.75 * infl / 100;
+  var fund = 0, totalMonths = 0, totalReval = 0, html = '';
+  for (var y = a.getFullYear(); y <= b.getFullYear(); y++) {
+    var ys = new Date(y, 0, 1), ye = new Date(y, 11, 31);
+    var s = a > ys ? a : ys, e = b < ye ? b : ye;
+    var n = monthsWorked(s, e); if (n > 12) n = 12;
+    var rev = (y > a.getFullYear()) ? fund * coef : 0; // revaluation of the fund accrued up to the previous year
+    var q = quota * n / 12;
+    fund += rev + q; totalMonths += n; totalReval += rev;
+    html += '<tr><td>' + y + '</td><td>' + n + '</td><td>' + RT.money(q, 'EUR') + '</td><td>' + RT.money(rev, 'EUR') + '</td><td>' + RT.money(fund, 'EUR') + '</td></tr>';
+  }
+  rows.innerHTML = html;
+  RT.$('#main').textContent = T.result + ': ' + RT.money(fund, 'EUR');
+  RT.$('#sub').textContent = RT.money(annual, 'EUR') + ' ÷ 13,5 × ' + totalMonths + '/12';
+  RT.$('#annual').textContent = RT.money(annual, 'EUR');
+  RT.$('#quota').textContent = RT.money(quota, 'EUR');
+  RT.$('#years').textContent = Math.floor(totalMonths / 12) + ' ' + T.y + ', ' + (totalMonths % 12) + ' ' + T.m;
+  RT.$('#reval').textContent = RT.money(totalReval, 'EUR');
+}
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

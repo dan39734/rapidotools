@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolo ferie colf e badante – Rapido Tools</title>
+<meta name="description" content="Calcola le ferie di colf, badanti e baby sitter secondo il CCNL lavoro domestico: 26 giorni l&#x27;anno, maturazione mensile con la regola dei 15 giorni, conversione in ore per chi lavora a ore, ferie residue e valore da pagare a fine rapporto.">
+
+<link rel="canonical" href="https://rapidotools.com/it/calcolo-ferie-colf-badante/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-ferie-colf-badante/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/holiday-entitlement-domestic-worker-italy/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/holiday-entitlement-domestic-worker-italy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Calcolo ferie colf e badante – Rapido Tools">
+<meta property="og:description" content="Calcola le ferie di colf, badanti e baby sitter secondo il CCNL lavoro domestico: 26 giorni l&#x27;anno, maturazione mensile con la regola dei 15 giorni, conversione in ore per chi lavora a ore, ferie residue e valore da pagare a fine rapporto.">
+<meta property="og:url" content="https://rapidotools.com/it/calcolo-ferie-colf-badante/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.1.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calcolo ferie colf e badante", "url": "https://rapidotools.com/it/calcolo-ferie-colf-badante/", "description": "Calcola le ferie di colf, badanti e baby sitter secondo il CCNL lavoro domestico: 26 giorni l'anno, maturazione mensile con la regola dei 15 giorni, conversione in ore per chi lavora a ore, ferie residue e valore da pagare a fine rapporto.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quanti giorni di ferie matura una colf in un mese?", "acceptedAnswer": {"@type": "Answer", "text": "2,17 giorni (26 ÷ 12) su una settimana di sei giorni; per chi lavora a ore, ore settimanali × 26 ÷ 6 ÷ 12 ore al mese."}}, {"@type": "Question", "name": "Le ferie non godute si possono pagare?", "acceptedAnswer": {"@type": "Answer", "text": "Solo alla fine del rapporto di lavoro. Durante il rapporto vanno godute: il contratto vieta di sostituirle con denaro."}}, {"@type": "Question", "name": "Durante le ferie la badante convivente ha diritto a vitto e alloggio?", "acceptedAnswer": {"@type": "Answer", "text": "Sì: la retribuzione delle ferie comprende anche l'indennità sostitutiva di vitto e alloggio, se la lavoratrice non li usufruisce."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/holiday-entitlement-domestic-worker-italy/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-work">🎓 Scuola e lavoro</a></nav>
+<h1>Calcolo ferie colf e badante</h1>
+<p class="lead">Inserisci ore o giorni di lavoro a settimana, la paga e il periodo: ottieni le ferie maturate (in ore o in giorni), quelle residue e quanto valgono se vanno pagate a fine rapporto.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Calcolo ferie colf e badante">
+
+<div class="row">
+  <div class="field"><label for="type">Tipo di rapporto</label><select id="type"><option value="h">A ore (ferie calcolate in ore)</option><option value="m">A giornate (convivente o tempo pieno)</option></select></div>
+  <div class="field only-h"><label for="hours">Ore a settimana</label><input type="number" id="hours" min="1" max="60" step="0.5" value="20"></div>
+  <div class="field only-h"><label for="rate">Paga oraria lorda (€)</label><input type="number" id="rate" min="0" step="0.01" value="9"></div>
+  <div class="field only-m hide"><label for="wdays">Giorni di lavoro a settimana</label><select id="wdays"><option>6</option><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></div>
+  <div class="field only-m hide"><label for="monthly">Retribuzione mensile lorda (€)</label><input type="number" id="monthly" min="0" step="0.01" placeholder="es. 1200"></div>
+</div>
+<div class="row">
+  <div class="field"><label for="start">Inizio del periodo</label><input type="date" id="start"></div>
+  <div class="field"><label for="end">Fine del periodo</label><input type="date" id="end"></div>
+  <div class="field"><label for="taken">Ferie già godute nel periodo (<span id="unit1"></span>)</label><input type="number" id="taken" min="0" step="0.5" value="0"></div>
+</div>
+<p class="msg">Regola del contratto: un mese conta se il rapporto è durato almeno 15 giorni in quel mese.</p>
+<p class="msg bad hide" id="err">Inserisci le ore settimanali (o i giorni), la paga e un periodo valido.</p>
+<div class="result hide" id="out">
+  <div class="big" id="main"></div>
+  <div class="sub" id="sub"></div>
+  <div class="stats">
+    <div class="stat"><b id="year"></b><span>Ferie in un anno intero</span></div>
+    <div class="stat"><b id="acc"></b><span>Ferie maturate nel periodo</span></div>
+    <div class="stat"><b id="mon"></b><span>Mesi maturati</span></div>
+    <div class="stat"><b id="val"></b><span>Valore delle ferie residue (lordo)</span></div>
+  </div>
+</div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Quante ferie spettano a colf e badanti</h2>
+<p>Il CCNL del lavoro domestico riconosce <strong>26 giorni lavorativi di ferie all'anno</strong>, calcolati su una settimana di sei giorni (dal lunedì al sabato): corrispondono a un mese di calendario. Le ferie maturano <strong>in dodicesimi</strong>, cioè 26 ÷ 12 = 2,17 giorni per ogni mese di lavoro; un mese conta se il rapporto è durato almeno 15 giorni. Vanno godute, di regola tra giugno e settembre e in non più di due periodi, e <strong>non possono essere pagate</strong> al posto del riposo finché il rapporto è in corso: si liquidano in denaro solo quelle non godute alla cessazione.</p>
+<h3>Chi lavora a ore: ferie in ore</h3>
+<p>Per part-time e lavoratrici a ore le ferie si esprimono in ore: <strong>ore settimanali × 26 ÷ 6</strong> (cioè ore settimanali × 4,33) in un anno intero. Con 20 ore a settimana spettano 86,67 ore l'anno, 7,22 al mese; con 6 ore a settimana, 26 ore l'anno. Ogni ora di ferie si paga con la paga oraria normale.</p>
+<h3>Chi lavora a giornate</h3>
+<p>Con la settimana di sei giorni spettano 26 giorni; con meno giorni a settimana i giorni di ferie sono in proporzione (5 giorni → 21,67; 3 giorni → 13). Per le conviventi ogni giorno di ferie vale 1/26 della retribuzione mensile, indennità di vitto e alloggio compresa, che spetta anche durante le ferie.</p>
+<h2>Come usare il calcolatore</h2>
+<ul>
+<li><strong>Ferie maturate finora:</strong> periodo dal 1° gennaio (o dall'assunzione) a oggi.</li>
+<li><strong>Ferie residue:</strong> inserisci quelle già godute nello stesso periodo.</li>
+<li><strong>Liquidazione a fine rapporto:</strong> periodo fino all'ultimo giorno di lavoro; il valore delle ferie residue va nell'ultima busta paga insieme a tredicesima e TFR.</li>
+</ul>
+
+<h2>Il contratto di riferimento</h2>
+<p>Le regole applicate sono quelle del <strong>CCNL sulla disciplina del rapporto di lavoro domestico</strong> (colf, badanti, baby sitter), firmato da Fidaldo, Domina e dai sindacati di categoria, che vale per tutti i rapporti regolari in Italia. Gli importi sono <strong>lordi</strong>: contributi INPS (con la quota a carico del lavoratore) e tasse vanno considerati a parte. Questo calcolatore serve per una stima veloce; per la busta paga ufficiale e i casi particolari (part-time verticale, cambi di orario durante l'anno, assenze lunghe) rivolgiti a un'associazione datoriale, a un consulente del lavoro o a un servizio di elaborazione paghe.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Quanti giorni di ferie matura una colf in un mese?</summary><p>2,17 giorni (26 ÷ 12) su una settimana di sei giorni; per chi lavora a ore, ore settimanali × 26 ÷ 6 ÷ 12 ore al mese.</p></details><details><summary>Le ferie non godute si possono pagare?</summary><p>Solo alla fine del rapporto di lavoro. Durante il rapporto vanno godute: il contratto vieta di sostituirle con denaro.</p></details><details><summary>Durante le ferie la badante convivente ha diritto a vitto e alloggio?</summary><p>Sì: la retribuzione delle ferie comprende anche l'indennità sostitutiva di vitto e alloggio, se la lavoratrice non li usufruisce.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/calcolo-media-ponderata-voto-di-laurea/" data-search="calcolo media ponderata e voto di laurea media ponderata degli esami con i cfu, base in 110esimi e voto di laurea media ponderata media universitaria voto di laurea media esami cfu 110 media aritmetica"><div class="ic">🎓</div><b>Calcolo media ponderata e voto di laurea</b><span>Media ponderata degli esami con i CFU, base in 110esimi e voto di laurea</span></a><a class="card" href="../../it/calcolo-tredicesima-colf-badante/" data-search="calcolo tredicesima colf e badante tredicesima di colf, badanti e baby sitter, a ore o mensili, anche per pochi mesi tredicesima colf tredicesima badante tredicesima colf a ore tredicesima baby sitter lavoro domestico calcolo tredicesima"><div class="ic">🎁</div><b>Calcolo tredicesima colf e badante</b><span>Tredicesima di colf, badanti e baby sitter, a ore o mensili, anche per pochi mesi</span></a><a class="card" href="../../it/calcolo-tfr-colf-badante/" data-search="calcolo tfr colf e badante trattamento di fine rapporto di colf, badanti e baby sitter, anno per anno tfr colf tfr badante liquidazione colf trattamento di fine rapporto lavoro domestico calcolo tfr"><div class="ic">💼</div><b>Calcolo TFR colf e badante</b><span>Trattamento di fine rapporto di colf, badanti e baby sitter, anno per anno</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.1.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Inserisci le ore settimanali (o i giorni), la paga e un periodo valido.", "type": "Tipo di rapporto", "type_h": "A ore (ferie calcolate in ore)", "type_m": "A giornate (convivente o tempo pieno)", "rate": "Paga oraria lorda (€)", "hours": "Ore a settimana", "monthly": "Retribuzione mensile lorda (€)", "kind": "Indennità vitto e alloggio al mese (€, se convivente)", "start": "Inizio del periodo", "end": "Fine del periodo", "months": "Mesi maturati", "month_pay": "Retribuzione mensile di riferimento", "rule": "Regola del contratto: un mese conta se il rapporto è durato almeno 15 giorni in quel mese.", "wdays": "Giorni di lavoro a settimana", "taken": "Ferie già godute nel periodo", "unit_h": "ore", "unit_d": "giorni", "year_ent": "Ferie in un anno intero", "accrued": "Ferie maturate nel periodo", "left": "Ferie residue", "value": "Valore delle ferie residue (lordo)", "per_month": "al mese", "left_sub": "{acc} maturate − {tk} godute"};</script>
+<script>
+(function(){
+
+function monthsWorked(a, b) { // months counted in [a, b] with the CCNL rule: a fraction of month counts if >= 15 days
+  if (!a || !b || b < a) return 0;
+  var n = 0, cur = new Date(a.getFullYear(), a.getMonth(), 1), end = new Date(b.getFullYear(), b.getMonth(), 1);
+  while (cur <= end) {
+    var ms = new Date(cur.getFullYear(), cur.getMonth(), 1), me = new Date(cur.getFullYear(), cur.getMonth() + 1, 0);
+    var s = a > ms ? a : ms, e = b < me ? b : me;
+    if (RT.daysBetween(s, e) + 1 >= 15) n++;
+    cur.setMonth(cur.getMonth() + 1);
+  }
+  return n;
+}
+function monthlyPay() { // reference monthly pay from the "type" selector
+  var hourly = RT.$('#type').value === 'h';
+  if (hourly) { var r = RT.num(RT.$('#rate').value), h = RT.num(RT.$('#hours').value); return (r > 0 && h > 0) ? r * h * 52 / 12 : NaN; }
+  var m = RT.num(RT.$('#monthly').value), k = RT.num(RT.$('#kind').value) || 0; return m > 0 ? m + k : NaN;
+}
+function toggleType() {
+  var hourly = RT.$('#type').value === 'h';
+  RT.$$('.only-h').forEach(function (el) { el.classList.toggle('hide', !hourly); });
+  RT.$$('.only-m').forEach(function (el) { el.classList.toggle('hide', hourly); });
+}
+function setDefaultDates(startId, endId, yearsBack) {
+  var t = new Date(), s = RT.$(startId), e = RT.$(endId);
+  if (s && !s.value) s.value = (t.getFullYear() - (yearsBack || 0)) + '-01-01';
+  if (e && !e.value) e.value = yearsBack ? RT.isoToday() : t.getFullYear() + '-12-31';
+}
+RT.$('#type').addEventListener('change', toggleType); toggleType();
+
+setDefaultDates('#start', '#end', 0);
+var out = RT.$('#out'), err = RT.$('#err');
+function calc() {
+  var hourly = RT.$('#type').value === 'h', unit = hourly ? T.unit_h : T.unit_d;
+  RT.$('#unit1').textContent = unit;
+  var a = RT.parseDate(RT.$('#start').value), b = RT.parseDate(RT.$('#end').value), n = monthsWorked(a, b);
+  var perYear, valueEach;
+  if (hourly) { var h = RT.num(RT.$('#hours').value), r = RT.num(RT.$('#rate').value); perYear = h * 26 / 6; valueEach = r; if (!(h > 0)) perYear = NaN; }
+  else { var wd = +RT.$('#wdays').value, m = RT.num(RT.$('#monthly').value); perYear = 26 * wd / 6; valueEach = m > 0 ? m / 26 * 6 / wd : NaN; }
+  if (!isFinite(perYear) || !n) { out.classList.add('hide'); err.classList.remove('hide'); return; }
+  err.classList.add('hide'); out.classList.remove('hide');
+  var acc = perYear / 12 * n, tk = RT.num(RT.$('#taken').value) || 0, left = acc - tk;
+  RT.$('#main').textContent = T.left + ': ' + RT.fmt(left, 2) + ' ' + unit;
+  RT.$('#sub').textContent = T.left_sub.replace('{acc}', RT.fmt(acc, 2) + ' ' + unit).replace('{tk}', RT.fmt(tk, 2) + ' ' + unit);
+  RT.$('#year').textContent = RT.fmt(perYear, 2) + ' ' + unit + ' (' + RT.fmt(perYear / 12, 2) + ' ' + T.per_month + ')';
+  RT.$('#acc').textContent = RT.fmt(acc, 2) + ' ' + unit;
+  RT.$('#mon').textContent = n;
+  RT.$('#val').textContent = isFinite(valueEach) ? RT.money(Math.max(left, 0) * valueEach, 'EUR') : '–';
+}
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

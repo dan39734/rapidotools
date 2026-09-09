@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Numeri in lettere – Rapido Tools</title>
+<meta name="description" content="Convertitore di numeri in lettere: scrive qualsiasi numero o importo in euro in lettere, in italiano e in inglese, anche nel formato per assegni e bonifici. Con la tabella dei numeri da 1 a 100.">
+
+<link rel="canonical" href="https://rapidotools.com/it/numeri-in-lettere/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/numeri-in-lettere/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/numbers-to-words/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/numbers-to-words/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Numeri in lettere – Rapido Tools">
+<meta property="og:description" content="Convertitore di numeri in lettere: scrive qualsiasi numero o importo in euro in lettere, in italiano e in inglese, anche nel formato per assegni e bonifici. Con la tabella dei numeri da 1 a 100.">
+<meta property="og:url" content="https://rapidotools.com/it/numeri-in-lettere/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.1.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Numeri in lettere", "url": "https://rapidotools.com/it/numeri-in-lettere/", "description": "Convertitore di numeri in lettere: scrive qualsiasi numero o importo in euro in lettere, in italiano e in inglese, anche nel formato per assegni e bonifici. Con la tabella dei numeri da 1 a 100.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Come si scrive un importo sull'assegno?", "acceptedAnswer": {"@type": "Answer", "text": "Scegli il formato «Assegno»: ottieni la parte intera in lettere seguita dai centesimi dopo la barra, per esempio «millecento/00». Scrivi tutto attaccato e senza spazi, come chiedono le banche."}}, {"@type": "Question", "name": "Qual è il numero più grande che posso convertire?", "acceptedAnswer": {"@type": "Answer", "text": "Fino a 999.999.999.999,99, cioè quasi mille miliardi, con due decimali per gli importi e fino a sei per i numeri."}}, {"@type": "Question", "name": "Posso scrivere i numeri in inglese?", "acceptedAnswer": {"@type": "Answer", "text": "Sì: scegli «Inglese» nel menu Lingua e, se serve, lo stile britannico con «and». La tabella da 1 a 100 cambia lingua di conseguenza."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/numbers-to-words/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-numbers">🔢 Numeri e conversioni</a></nav>
+<h1>Numeri in lettere</h1>
+<p class="lead">Scrivi un numero (anche con i decimali) e ottieni la forma in lettere: come numero, come importo in euro o nel formato per assegni. Puoi scegliere l&#x27;italiano o l&#x27;inglese.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Numeri in lettere">
+
+<div class="row">
+  <div class="field" style="flex:2 1 220px"><label for="num">Numero</label><input type="text" id="num" inputmode="decimal" value="1234,56" autocomplete="off"></div>
+  <div class="field"><label for="lang">Lingua</label><select id="lang"><option value="it">Italiano</option><option value="en">Inglese</option></select></div>
+  <div class="field"><label for="mode">Formato</label><select id="mode"><option value="num">Numero</option><option value="eur">Importo in euro</option><option value="chk">Assegno (euro/centesimi)</option><option value="usd">Importo in dollari</option><option value="gbp">Importo in sterline</option></select></div>
+</div>
+<div class="row">
+  <div class="field"><label for="case">Maiuscole</label><select id="case"><option value="low">minuscolo</option><option value="cap">Iniziale maiuscola</option><option value="up">TUTTO MAIUSCOLO</option></select></div>
+  <div class="field hide" id="stylef"><label for="style">Stile inglese</label><select id="style"><option value="us">Americano (senza and)</option><option value="uk">Britannico (con and)</option></select></div>
+</div>
+<p class="msg bad hide" id="err"></p>
+<div class="result" id="out">
+  <div class="big" id="main" style="font-size:1.45rem;overflow-wrap:anywhere"></div>
+  <div class="sub" id="sub"></div>
+  <p class="btns"><button class="btn small" type="button" data-copy="#main" data-done="Copiato!">Copia</button></p>
+</div>
+<h2 style="font-size:1.1rem;margin-top:22px">Numeri da 1 a 100 in lettere</h2>
+<div class="table-wrap" id="tbl"></div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Quando servono i numeri in lettere</h2>
+<p>La forma in lettere si usa dove un numero non deve poter essere alterato o frainteso: sugli <strong>assegni</strong> («milleduecentotrentaquattro/56»), nei contratti e negli atti notarili («euro millecento/00»), nelle ricevute, nelle fatture di alcuni paesi e nei documenti ufficiali. Il convertitore scrive il numero seguendo le regole dell'ortografia italiana, oppure quelle inglesi se scegli «Inglese», e ti lascia copiare il risultato con un clic.</p>
+<h2>Le regole dell'italiano</h2>
+<ul>
+<li>I numeri si scrivono <strong>tutti attaccati</strong> fino alle migliaia: <em>duemilatrecentoquarantacinque</em>. Milioni e miliardi sono parole separate: <em>due milioni trecentomila</em>.</li>
+<li>Le decine perdono la vocale finale davanti a <em>uno</em> e <em>otto</em>: <em>ventuno</em>, <em>ventotto</em>, <em>trentuno</em>; <em>cento</em> la perde davanti a <em>otto</em> e <em>ottanta</em>: <em>centotto</em>, <em>centottanta</em>.</li>
+<li><em>Tre</em> in fine di parola composta prende l'accento: <em>ventitré</em>, <em>centotré</em>, <em>duemilatré</em>.</li>
+<li><em>Mille</em> al plurale diventa <em>-mila</em>: <em>mille</em>, <em>duemila</em>, <em>centomila</em>. <em>Un milione</em>, <em>due milioni</em>; <em>un miliardo</em>, <em>due miliardi</em>.</li>
+<li>Gli importi: <em>euro</em> è invariabile (<em>due euro</em>), i centesimi si scrivono <em>e cinquantasei centesimi</em>; sull'assegno si usa la barra: <em>/56</em>, oppure <em>/00</em> se non ci sono centesimi.</li>
+</ul>
+<h2>Le regole dell'inglese</h2>
+<p>In inglese le parole restano separate e le decine composte prendono il trattino: <em>one thousand two hundred thirty-four</em>. Lo stile britannico aggiunge <em>and</em> dopo le centinaia (<em>two hundred and five</em>) e prima di un gruppo finale sotto cento (<em>one thousand and forty-two</em>); quello americano lo omette. Sugli assegni americani i centesimi si scrivono come frazione: <em>and 56/100</em>. I decimali si leggono cifra per cifra: <em>twelve point five six</em>.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Come si scrive un importo sull&#x27;assegno?</summary><p>Scegli il formato «Assegno»: ottieni la parte intera in lettere seguita dai centesimi dopo la barra, per esempio «millecento/00». Scrivi tutto attaccato e senza spazi, come chiedono le banche.</p></details><details><summary>Qual è il numero più grande che posso convertire?</summary><p>Fino a 999.999.999.999,99, cioè quasi mille miliardi, con due decimali per gli importi e fino a sei per i numeri.</p></details><details><summary>Posso scrivere i numeri in inglese?</summary><p>Sì: scegli «Inglese» nel menu Lingua e, se serve, lo stile britannico con «and». La tabella da 1 a 100 cambia lingua di conseguenza.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/calcolo-percentuale/" data-search="calcolo percentuale quanto è il 20% di 150, che percentuale è 30 su 200, variazione tra due numeri calcolare la percentuale percentuale di un numero aumento percentuale variazione percentuale"><div class="ic">％</div><b>Calcolo percentuale</b><span>Quanto è il 20% di 150, che percentuale è 30 su 200, variazione tra due numeri</span></a><a class="card" href="../../it/calcolo-sconto/" data-search="calcolo sconto prezzo finale e risparmio con uno o due sconti, o sconto a partire dai prezzi prezzo scontato saldi sconto del 30% doppio sconto quanto risparmio"><div class="ic">🏷️</div><b>Calcolo sconto</b><span>Prezzo finale e risparmio con uno o due sconti, o sconto a partire dai prezzi</span></a><a class="card" href="../../it/numeri-romani/" data-search="convertitore numeri romani da numero a romano e viceversa, da 1 a 3999, con tabella numeri romani da 1 a 100 2026 in numeri romani mmxxvi come si scrive in romano"><div class="ic">🏛️</div><b>Convertitore numeri romani</b><span>Da numero a romano e viceversa, da 1 a 3999, con tabella</span></a><a class="card" href="../../it/convertitore-unita-di-misura/" data-search="convertitore di unità di misura lunghezza, peso, temperatura, volume, area, velocità, dati pollici in cm miglia in km fahrenheit in celsius libbre in kg once in grammi piedi in metri conversione unità"><div class="ic">📏</div><b>Convertitore di unità di misura</b><span>Lunghezza, peso, temperatura, volume, area, velocità, dati</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.1.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "number": "Numero", "lang": "Lingua", "it": "Italiano", "en": "Inglese", "mode": "Formato", "m_num": "Numero", "m_eur": "Importo in euro", "m_chk": "Assegno (euro/centesimi)", "m_usd": "Importo in dollari", "m_gbp": "Importo in sterline", "case": "Maiuscole", "c_low": "minuscolo", "c_cap": "Iniziale maiuscola", "c_up": "TUTTO MAIUSCOLO", "style": "Stile inglese", "s_us": "Americano (senza and)", "s_uk": "Britannico (con and)", "too_big": "Numero troppo grande: il massimo è 999.999.999.999,99.", "nan": "Scrivi un numero, per esempio 1234,56.", "table": "Numeri da 1 a 100 in lettere", "show": "Mostra la tabella", "hide": "Nascondi la tabella", "big": "Grandi numeri"};</script>
+<script>
+(function(){
+
+var num = RT.$('#num'), lang = RT.$('#lang'), mode = RT.$('#mode'), cas = RT.$('#case'), style = RT.$('#style'), stylef = RT.$('#stylef');
+var main = RT.$('#main'), sub = RT.$('#sub'), err = RT.$('#err');
+lang.value = RT.lang === 'it' ? 'it' : 'en';
+// ---------- Italian ----------
+var IT_U = ['', 'uno', 'due', 'tre', 'quattro', 'cinque', 'sei', 'sette', 'otto', 'nove', 'dieci', 'undici', 'dodici', 'tredici', 'quattordici', 'quindici', 'sedici', 'diciassette', 'diciotto', 'diciannove'];
+var IT_T = ['', '', 'venti', 'trenta', 'quaranta', 'cinquanta', 'sessanta', 'settanta', 'ottanta', 'novanta'];
+function itAccent(w) { return (w.length > 3 && /tre$/.test(w)) ? w.slice(0, -3) + 'tré' : w; }
+function it100(n) {
+  if (n < 20) return IT_U[n];
+  var t = IT_T[Math.floor(n / 10)], u = n % 10;
+  if (u === 1 || u === 8) t = t.slice(0, -1);
+  return t + IT_U[u];
+}
+function it1000(n) {
+  var h = Math.floor(n / 100), r = n % 100, s = '';
+  if (h) s = (h === 1 ? 'cento' : IT_U[h] + 'cento');
+  if (r) { var w = it100(r); if (h && w.charAt(0) === 'o') s = s.slice(0, -1); s += w; }
+  return s;
+}
+function itWords(n) { // 0 .. 999 999 999 999
+  if (n === 0) return 'zero';
+  var parts = [];
+  var bil = Math.floor(n / 1e9), mil = Math.floor(n % 1e9 / 1e6), rest = n % 1e6;
+  if (bil) parts.push(bil === 1 ? 'un miliardo' : itAccent(it1000(bil)) + ' miliardi');
+  if (mil) parts.push(mil === 1 ? 'un milione' : itAccent(it1000(mil)) + ' milioni');
+  if (rest) {
+    var k = Math.floor(rest / 1000), r = rest % 1000, s = '';
+    if (k) s = k === 1 ? 'mille' : it1000(k) + 'mila';
+    s += it1000(r);
+    parts.push(itAccent(s));
+  }
+  return parts.join(' ');
+}
+// ---------- English ----------
+var EN_U = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+var EN_T = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+function en100(n) { if (n < 20) return EN_U[n]; var u = n % 10; return EN_T[Math.floor(n / 10)] + (u ? '-' + EN_U[u] : ''); }
+function en1000(n, uk) {
+  var h = Math.floor(n / 100), r = n % 100, s = '';
+  if (h) s = EN_U[h] + ' hundred';
+  if (r) s += (h ? (uk ? ' and ' : ' ') : '') + en100(r);
+  return s;
+}
+function enWords(n, uk) {
+  if (n === 0) return 'zero';
+  var parts = [], names = ['', ' thousand', ' million', ' billion'], i = 0, lastSmall = false;
+  var groups = [];
+  while (n > 0) { groups.push(n % 1000); n = Math.floor(n / 1000); }
+  for (i = groups.length - 1; i >= 0; i--) {
+    if (!groups[i]) continue;
+    parts.push(en1000(groups[i], uk) + names[i]);
+  }
+  var s = parts.join(' ');
+  // British: "one thousand and forty-two" (and before a final group < 100)
+  if (uk && groups.length > 1 && groups[0] && groups[0] < 100) s = s.replace(/ (\S+)$/, ' and $1');
+  return s;
+}
+function words(n, L, uk) { return L === 'it' ? itWords(n) : enWords(n, uk); }
+function applyCase(s) { var c = cas.value; if (c === 'up') return s.toUpperCase(); if (c === 'cap') return s.charAt(0).toUpperCase() + s.slice(1); return s; }
+function render() {
+  var L = lang.value, uk = style.value === 'uk', m = mode.value;
+  stylef.classList.toggle('hide', L !== 'en');
+  var raw = num.value.trim(), v = RT.num(raw);
+  if (!isFinite(v)) { err.textContent = T.nan; err.classList.remove('hide'); main.textContent = ''; sub.textContent = ''; return; }
+  var neg = v < 0; v = Math.abs(v);
+  var ip = Math.floor(v + 1e-9), cents = Math.round((v - ip) * 100);
+  if (cents === 100) { ip += 1; cents = 0; }
+  if (ip > 999999999999) { err.textContent = T.too_big; err.classList.remove('hide'); main.textContent = ''; sub.textContent = ''; return; }
+  err.classList.add('hide');
+  var s = '', subtxt = '';
+  var minus = L === 'it' ? 'meno ' : 'minus ';
+  if (m === 'num') {
+    // decimals: keep what the user typed (up to 6 digits)
+    var dec = '';
+    var mm = raw.replace(/\s/g, '').match(/[.,](\d{1,6})$/);
+    if (mm) dec = mm[1];
+    s = words(ip, L, uk);
+    if (dec && /[1-9]/.test(dec)) {
+      if (L === 'it') s += ' virgola ' + (dec.charAt(0) === '0' ? dec.split('').map(function (d) { return d === '0' ? 'zero' : IT_U[+d]; }).join(' ') : itWords(+dec));
+      else s += ' point ' + dec.split('').map(function (d) { return d === '0' ? 'zero' : EN_U[+d]; }).join(' ');
+    }
+    subtxt = RT.fmt(v, 6);
+  } else if (m === 'chk') {
+    s = (L === 'it' ? itWords(ip) : enWords(ip, uk)) + (L === 'it' ? '/' + RT.pad(cents) : ' and ' + RT.pad(cents) + '/100');
+    subtxt = RT.money(v, 'EUR');
+  } else {
+    var cur = { eur: ['euro', 'euro', 'centesimo', 'centesimi', 'euro', 'euros', 'cent', 'cents', 'EUR'], usd: ['dollaro', 'dollari', 'centesimo', 'centesimi', 'dollar', 'dollars', 'cent', 'cents', 'USD'], gbp: ['sterlina', 'sterline', 'penny', 'pence', 'pound', 'pounds', 'penny', 'pence', 'GBP'] }[m];
+    if (L === 'it') {
+      var iw = ip === 1 ? 'un' : itWords(ip); if (/(milione|milioni|miliardo|miliardi)$/.test(iw)) iw += ' di';
+      s = iw + ' ' + (ip === 1 ? cur[0] : cur[1]);
+      if (cents) s += ' e ' + (cents === 1 ? 'un' : itWords(cents)) + ' ' + (cents === 1 ? cur[2] : cur[3]);
+    } else {
+      s = enWords(ip, uk) + ' ' + (ip === 1 ? cur[4] : cur[5]);
+      if (cents) s += ' and ' + enWords(cents, uk) + ' ' + (cents === 1 ? cur[6] : cur[7]);
+    }
+    subtxt = RT.money(v, cur[8]);
+  }
+  if (neg) s = minus + s;
+  main.textContent = applyCase(s);
+  sub.textContent = subtxt;
+}
+function table() {
+  var L = lang.value, uk = style.value === 'uk', rows = '';
+  for (var i = 1; i <= 100; i++) rows += '<tr><td class="mono">' + i + '</td><td>' + words(i, L, uk) + '</td></tr>';
+  var bigs = [200, 300, 1000, 2000, 10000, 100000, 1000000, 1000000000];
+  var rows2 = bigs.map(function (b) { return '<tr><td class="mono">' + RT.fmt(b, 0) + '</td><td>' + words(b, L, uk) + '</td></tr>'; }).join('');
+  RT.$('#tbl').innerHTML = '<div class="row" style="align-items:flex-start"><table style="flex:1 1 220px"><tbody>' + rows.split('</tr>').slice(0, 50).join('</tr>') + '</tr></tbody></table>' +
+    '<table style="flex:1 1 220px"><tbody>' + rows.split('</tr>').slice(50, 100).join('</tr>') + '</tr></tbody></table></div>' +
+    '<h3>' + T.big + '</h3><table><tbody>' + rows2 + '</tbody></table>';
+}
+RT.live(document.getElementById('tool'), render);
+lang.addEventListener('change', table); style.addEventListener('change', table);
+table();
+
+})();
+</script>
+</body>
+</html>

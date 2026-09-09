@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolo tredicesima colf e badante – Rapido Tools</title>
+<meta name="description" content="Calcola la tredicesima di colf, badanti e baby sitter secondo il CCNL lavoro domestico: a ore o mensile, con i mesi maturati nell&#x27;anno (regola dei 15 giorni), l&#x27;indennità di vitto e alloggio e il rateo mensile. Gratis, con esempi.">
+
+<link rel="canonical" href="https://rapidotools.com/it/calcolo-tredicesima-colf-badante/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-tredicesima-colf-badante/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/13th-month-pay-domestic-worker-italy/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/13th-month-pay-domestic-worker-italy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Calcolo tredicesima colf e badante – Rapido Tools">
+<meta property="og:description" content="Calcola la tredicesima di colf, badanti e baby sitter secondo il CCNL lavoro domestico: a ore o mensile, con i mesi maturati nell&#x27;anno (regola dei 15 giorni), l&#x27;indennità di vitto e alloggio e il rateo mensile. Gratis, con esempi.">
+<meta property="og:url" content="https://rapidotools.com/it/calcolo-tredicesima-colf-badante/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.1.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calcolo tredicesima colf e badante", "url": "https://rapidotools.com/it/calcolo-tredicesima-colf-badante/", "description": "Calcola la tredicesima di colf, badanti e baby sitter secondo il CCNL lavoro domestico: a ore o mensile, con i mesi maturati nell'anno (regola dei 15 giorni), l'indennità di vitto e alloggio e il rateo mensile. Gratis, con esempi.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quando va pagata la tredicesima alla colf?", "acceptedAnswer": {"@type": "Answer", "text": "Entro dicembre, in genere con la paga di dicembre o prima di Natale. Se il rapporto termina prima, si paga con l'ultima busta paga in proporzione ai mesi maturati."}}, {"@type": "Question", "name": "La badante ha iniziato a metà anno: quanto le spetta?", "acceptedAnswer": {"@type": "Answer", "text": "Un dodicesimo della mensilità per ogni mese in cui ha lavorato almeno 15 giorni: inserisci la data di inizio nel calcolatore e il conto è automatico."}}, {"@type": "Question", "name": "L'indennità di vitto e alloggio entra nella tredicesima?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, per le conviventi: fa parte della retribuzione globale di fatto su cui si calcola la tredicesima."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/13th-month-pay-domestic-worker-italy/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-work">🎓 Scuola e lavoro</a></nav>
+<h1>Calcolo tredicesima colf e badante</h1>
+<p class="lead">Inserisci paga oraria e ore settimanali (oppure la retribuzione mensile) e il periodo lavorato nell&#x27;anno: ottieni la tredicesima lorda da pagare entro dicembre, calcolata come dice il contratto.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Calcolo tredicesima colf e badante">
+
+<div class="row">
+  <div class="field"><label for="type">Tipo di rapporto</label><select id="type"><option value="h">A ore (non convivente)</option><option value="m">Mensile (convivente o tempo pieno)</option></select></div>
+  <div class="field only-h"><label for="rate">Paga oraria lorda (€)</label><input type="number" id="rate" min="0" step="0.01" value="9"></div>
+  <div class="field only-h"><label for="hours">Ore a settimana</label><input type="number" id="hours" min="1" max="60" step="0.5" value="20"></div>
+  <div class="field only-m hide"><label for="monthly">Retribuzione mensile lorda (€)</label><input type="number" id="monthly" min="0" step="0.01" placeholder="es. 1200"></div>
+  <div class="field only-m hide"><label for="kind">Indennità vitto e alloggio al mese (€, se convivente)</label><input type="number" id="kind" min="0" step="0.01" placeholder="0"></div>
+</div>
+
+<div class="row">
+  <div class="field"><label for="start">Inizio del periodo</label><input type="date" id="start"></div>
+  <div class="field"><label for="end">Fine del periodo</label><input type="date" id="end"></div>
+</div>
+<p class="msg">Regola del contratto: un mese conta se il rapporto è durato almeno 15 giorni in quel mese.</p>
+<p class="msg bad hide" id="err">Inserisci la paga e le ore (o la retribuzione mensile) e un periodo valido.</p>
+<div class="result hide" id="out">
+  <div class="big" id="main"></div>
+  <div class="sub" id="sub"></div>
+  <div class="stats">
+    <div class="stat"><b id="mp"></b><span>Retribuzione mensile di riferimento</span></div>
+    <div class="stat"><b id="acc"></b><span>Rateo mensile (1/12)</span></div>
+    <div class="stat"><b id="mon"></b><span>Mesi maturati</span></div>
+  </div>
+</div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Come si calcola la tredicesima di colf e badanti</h2>
+<p>La tredicesima è una mensilità in più, pari alla <strong>retribuzione globale di fatto</strong> di un mese, che matura in dodicesimi: ogni mese di lavoro dà diritto a 1/12. Si paga <strong>entro il mese di dicembre</strong> (di solito con la paga di dicembre o prima di Natale) e, se il rapporto finisce durante l'anno, si liquida in proporzione ai mesi maturati insieme all'ultima busta paga. Un mese conta come maturato se il rapporto è durato <strong>almeno 15 giorni</strong> in quel mese.</p>
+<h3>Colf o badante a ore (non convivente)</h3>
+<p>Per chi è pagato a ore si parte dalla retribuzione media mensile: <strong>paga oraria × ore settimanali × 52 ÷ 12</strong>. Il rateo mensile è un dodicesimo di questa cifra.</p>
+<p><em>Esempio:</em> 9 € l'ora per 20 ore a settimana → 9 × 20 × 52 ÷ 12 = 780 € al mese → rateo 65 € → tredicesima di <strong>780 €</strong> per un anno intero, di 325 € se il rapporto è iniziato ad agosto (5 mesi).</p>
+<h3>Colf o badante convivente (mensile)</h3>
+<p>Si usa la retribuzione mensile lorda <strong>più l'indennità sostitutiva di vitto e alloggio</strong>, che fa parte della retribuzione globale di fatto e quindi entra anche nella tredicesima; il valore giornaliero dell'indennità è fissato ogni anno dalle tabelle del CCNL. Chi non è convivente non ha l'indennità.</p>
+<h2>Cose da sapere</h2>
+<ul>
+<li>La tredicesima matura anche durante ferie, malattia e infortunio; durante la maternità matura solo per la quota a carico del datore (20%).</li>
+<li>Se l'orario è cambiato durante l'anno, il calcolo va fatto per ogni periodo con le sue ore e poi sommato.</li>
+<li>Sulla tredicesima si pagano i <strong>contributi INPS</strong> come sulle altre retribuzioni: la quota a carico della lavoratrice viene trattenuta e i contributi si versano con il trimestre di dicembre.</li>
+<li>Il datore di lavoro domestico non è sostituto d'imposta: la tredicesima si paga lorda e la lavoratrice la dichiara con il resto del reddito.</li>
+</ul>
+
+<h2>Il contratto di riferimento</h2>
+<p>Le regole applicate sono quelle del <strong>CCNL sulla disciplina del rapporto di lavoro domestico</strong> (colf, badanti, baby sitter), firmato da Fidaldo, Domina e dai sindacati di categoria, che vale per tutti i rapporti regolari in Italia. Gli importi sono <strong>lordi</strong>: contributi INPS (con la quota a carico del lavoratore) e tasse vanno considerati a parte. Questo calcolatore serve per una stima veloce; per la busta paga ufficiale e i casi particolari (part-time verticale, cambi di orario durante l'anno, assenze lunghe) rivolgiti a un'associazione datoriale, a un consulente del lavoro o a un servizio di elaborazione paghe.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>Quando va pagata la tredicesima alla colf?</summary><p>Entro dicembre, in genere con la paga di dicembre o prima di Natale. Se il rapporto termina prima, si paga con l'ultima busta paga in proporzione ai mesi maturati.</p></details><details><summary>La badante ha iniziato a metà anno: quanto le spetta?</summary><p>Un dodicesimo della mensilità per ogni mese in cui ha lavorato almeno 15 giorni: inserisci la data di inizio nel calcolatore e il conto è automatico.</p></details><details><summary>L&#x27;indennità di vitto e alloggio entra nella tredicesima?</summary><p>Sì, per le conviventi: fa parte della retribuzione globale di fatto su cui si calcola la tredicesima.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/calcolo-media-ponderata-voto-di-laurea/" data-search="calcolo media ponderata e voto di laurea media ponderata degli esami con i cfu, base in 110esimi e voto di laurea media ponderata media universitaria voto di laurea media esami cfu 110 media aritmetica"><div class="ic">🎓</div><b>Calcolo media ponderata e voto di laurea</b><span>Media ponderata degli esami con i CFU, base in 110esimi e voto di laurea</span></a><a class="card" href="../../it/calcolo-ferie-colf-badante/" data-search="calcolo ferie colf e badante ferie maturate in ore o giorni, residuo e valore da liquidare ferie colf ferie badante ferie colf a ore 26 giorni ferie maturate lavoro domestico calcolo ferie"><div class="ic">🌴</div><b>Calcolo ferie colf e badante</b><span>Ferie maturate in ore o giorni, residuo e valore da liquidare</span></a><a class="card" href="../../it/calcolo-tfr-colf-badante/" data-search="calcolo tfr colf e badante trattamento di fine rapporto di colf, badanti e baby sitter, anno per anno tfr colf tfr badante liquidazione colf trattamento di fine rapporto lavoro domestico calcolo tfr"><div class="ic">💼</div><b>Calcolo TFR colf e badante</b><span>Trattamento di fine rapporto di colf, badanti e baby sitter, anno per anno</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.1.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Tredicesima lorda", "invalid": "Inserisci la paga e le ore (o la retribuzione mensile) e un periodo valido.", "type": "Tipo di rapporto", "type_h": "A ore (non convivente)", "type_m": "Mensile (convivente o tempo pieno)", "rate": "Paga oraria lorda (€)", "hours": "Ore a settimana", "monthly": "Retribuzione mensile lorda (€)", "kind": "Indennità vitto e alloggio al mese (€, se convivente)", "start": "Inizio del periodo", "end": "Fine del periodo", "months": "Mesi maturati", "month_pay": "Retribuzione mensile di riferimento", "rule": "Regola del contratto: un mese conta se il rapporto è durato almeno 15 giorni in quel mese.", "accrual": "Rateo mensile (1/12)", "of": "su 12 mesi", "months_sub": "{n} mesi maturati × {r} al mese"};</script>
+<script>
+(function(){
+
+function monthsWorked(a, b) { // months counted in [a, b] with the CCNL rule: a fraction of month counts if >= 15 days
+  if (!a || !b || b < a) return 0;
+  var n = 0, cur = new Date(a.getFullYear(), a.getMonth(), 1), end = new Date(b.getFullYear(), b.getMonth(), 1);
+  while (cur <= end) {
+    var ms = new Date(cur.getFullYear(), cur.getMonth(), 1), me = new Date(cur.getFullYear(), cur.getMonth() + 1, 0);
+    var s = a > ms ? a : ms, e = b < me ? b : me;
+    if (RT.daysBetween(s, e) + 1 >= 15) n++;
+    cur.setMonth(cur.getMonth() + 1);
+  }
+  return n;
+}
+function monthlyPay() { // reference monthly pay from the "type" selector
+  var hourly = RT.$('#type').value === 'h';
+  if (hourly) { var r = RT.num(RT.$('#rate').value), h = RT.num(RT.$('#hours').value); return (r > 0 && h > 0) ? r * h * 52 / 12 : NaN; }
+  var m = RT.num(RT.$('#monthly').value), k = RT.num(RT.$('#kind').value) || 0; return m > 0 ? m + k : NaN;
+}
+function toggleType() {
+  var hourly = RT.$('#type').value === 'h';
+  RT.$$('.only-h').forEach(function (el) { el.classList.toggle('hide', !hourly); });
+  RT.$$('.only-m').forEach(function (el) { el.classList.toggle('hide', hourly); });
+}
+function setDefaultDates(startId, endId, yearsBack) {
+  var t = new Date(), s = RT.$(startId), e = RT.$(endId);
+  if (s && !s.value) s.value = (t.getFullYear() - (yearsBack || 0)) + '-01-01';
+  if (e && !e.value) e.value = yearsBack ? RT.isoToday() : t.getFullYear() + '-12-31';
+}
+RT.$('#type').addEventListener('change', toggleType); toggleType();
+
+setDefaultDates('#start', '#end', 0);
+var out = RT.$('#out'), err = RT.$('#err');
+function calc() {
+  var mp = monthlyPay(), a = RT.parseDate(RT.$('#start').value), b = RT.parseDate(RT.$('#end').value);
+  var n = monthsWorked(a, b);
+  if (!isFinite(mp) || !n) { out.classList.add('hide'); err.classList.remove('hide'); return; }
+  err.classList.add('hide'); out.classList.remove('hide');
+  var acc = mp / 12, tot = acc * Math.min(n, 12);
+  RT.$('#main').textContent = T.result + ': ' + RT.money(tot, 'EUR');
+  RT.$('#sub').textContent = T.months_sub.replace('{n}', Math.min(n, 12)).replace('{r}', RT.money(acc, 'EUR'));
+  RT.$('#mp').textContent = RT.money(mp, 'EUR');
+  RT.$('#acc').textContent = RT.money(acc, 'EUR');
+  RT.$('#mon').textContent = Math.min(n, 12) + ' ' + T.of;
+}
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

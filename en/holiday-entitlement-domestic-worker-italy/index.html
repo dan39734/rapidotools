@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Holiday entitlement for domestic workers in Italy (colf, badante) – Rapido Tools</title>
+<meta name="description" content="Work out the holidays of a domestic worker in Italy under the national contract: 26 days a year, monthly accrual with the 15-day rule, conversion into hours for hourly workers, balance and pay-out value at the end of employment.">
+
+<link rel="canonical" href="https://rapidotools.com/en/holiday-entitlement-domestic-worker-italy/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-ferie-colf-badante/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/holiday-entitlement-domestic-worker-italy/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/holiday-entitlement-domestic-worker-italy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Holiday entitlement for domestic workers in Italy (colf, badante) – Rapido Tools">
+<meta property="og:description" content="Work out the holidays of a domestic worker in Italy under the national contract: 26 days a year, monthly accrual with the 15-day rule, conversion into hours for hourly workers, balance and pay-out value at the end of employment.">
+<meta property="og:url" content="https://rapidotools.com/en/holiday-entitlement-domestic-worker-italy/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.1.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Holiday entitlement for domestic workers in Italy (colf, badante)", "url": "https://rapidotools.com/en/holiday-entitlement-domestic-worker-italy/", "description": "Work out the holidays of a domestic worker in Italy under the national contract: 26 days a year, monthly accrual with the 15-day rule, conversion into hours for hourly workers, balance and pay-out value at the end of employment.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many holiday days does a domestic worker accrue in a month?", "acceptedAnswer": {"@type": "Answer", "text": "2.17 days (26 ÷ 12) on a six-day week; for hourly workers, weekly hours × 26 ÷ 6 ÷ 12 hours per month."}}, {"@type": "Question", "name": "Can untaken holidays be paid instead?", "acceptedAnswer": {"@type": "Answer", "text": "Only at the end of the employment. During the employment they must be taken: the contract forbids replacing them with money."}}, {"@type": "Question", "name": "Is a live-in carer entitled to board and lodging during holidays?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: holiday pay also includes the board and lodging allowance if the worker doesn't use them."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/calcolo-ferie-colf-badante/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-work">🎓 School &amp; work</a></nav>
+<h1>Holiday entitlement for domestic workers in Italy (colf, badante)</h1>
+<p class="lead">Enter the weekly hours or days, the pay and the period: you get the holidays accrued (in hours or days), the balance and their value if they must be paid out at the end of employment.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Holiday entitlement for domestic workers in Italy (colf, badante)">
+
+<div class="row">
+  <div class="field"><label for="type">Type of contract</label><select id="type"><option value="h">Hourly (holidays counted in hours)</option><option value="m">By days (live-in or full time)</option></select></div>
+  <div class="field only-h"><label for="hours">Hours per week</label><input type="number" id="hours" min="1" max="60" step="0.5" value="20"></div>
+  <div class="field only-h"><label for="rate">Gross hourly rate (€)</label><input type="number" id="rate" min="0" step="0.01" value="9"></div>
+  <div class="field only-m hide"><label for="wdays">Working days per week</label><select id="wdays"><option>6</option><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></div>
+  <div class="field only-m hide"><label for="monthly">Gross monthly pay (€)</label><input type="number" id="monthly" min="0" step="0.01" placeholder="es. 1200"></div>
+</div>
+<div class="row">
+  <div class="field"><label for="start">Start of the period</label><input type="date" id="start"></div>
+  <div class="field"><label for="end">End of the period</label><input type="date" id="end"></div>
+  <div class="field"><label for="taken">Holidays already taken in the period (<span id="unit1"></span>)</label><input type="number" id="taken" min="0" step="0.5" value="0"></div>
+</div>
+<p class="msg">Contract rule: a month counts if the employment lasted at least 15 days in that month.</p>
+<p class="msg bad hide" id="err">Enter the weekly hours (or days), the pay and a valid period.</p>
+<div class="result hide" id="out">
+  <div class="big" id="main"></div>
+  <div class="sub" id="sub"></div>
+  <div class="stats">
+    <div class="stat"><b id="year"></b><span>Holidays in a full year</span></div>
+    <div class="stat"><b id="acc"></b><span>Holidays accrued in the period</span></div>
+    <div class="stat"><b id="mon"></b><span>Months accrued</span></div>
+    <div class="stat"><b id="val"></b><span>Value of the holidays left (gross)</span></div>
+  </div>
+</div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>How many holidays domestic workers get</h2>
+<p>The Italian contract for domestic work grants <strong>26 working days of paid holiday a year</strong>, calculated on a six-day week (Monday to Saturday): the equivalent of one calendar month. Holidays accrue <strong>in twelfths</strong>, i.e. 26 ÷ 12 = 2.17 days for each month of work; a month counts if the employment lasted at least 15 days. They must be taken, normally between June and September and in no more than two periods, and <strong>cannot be paid in lieu</strong> while the employment lasts: only the days not taken at the end of employment are paid out.</p>
+<h3>Hourly workers: holidays in hours</h3>
+<p>For part-time and hourly workers holidays are expressed in hours: <strong>weekly hours × 26 ÷ 6</strong> (i.e. weekly hours × 4.33) in a full year. With 20 hours a week that is 86.67 hours a year, 7.22 a month; with 6 hours a week, 26 hours a year. Each hour of holiday is paid at the normal hourly rate.</p>
+<h3>Workers paid by the day or month</h3>
+<p>With a six-day week the entitlement is 26 days; with fewer days a week it is proportional (5 days → 21.67; 3 days → 13). For live-in workers each day of holiday is worth 1/26 of the monthly pay, board and lodging allowance included, which is also due during holidays.</p>
+<h2>How to use the calculator</h2>
+<ul>
+<li><strong>Holidays accrued so far:</strong> period from 1 January (or from hiring) to today.</li>
+<li><strong>Balance:</strong> enter the holidays already taken in the same period.</li>
+<li><strong>Final settlement:</strong> period up to the last day of work; the value of the holidays left goes on the final payslip together with the 13th month and the TFR.</li>
+</ul>
+
+<h2>The reference contract</h2>
+<p>The rules applied are those of the <strong>Italian national collective agreement for domestic work</strong> (CCNL lavoro domestico: housekeepers, carers, babysitters), which covers every regular domestic employment in Italy. Amounts are <strong>gross</strong>: INPS social contributions (including the worker's share) and taxes are separate. This calculator is meant for a quick estimate; for the official payslip and special cases (vertical part-time, changes of hours during the year, long absences) ask an employers' association, a labour consultant or a payroll service.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>How many holiday days does a domestic worker accrue in a month?</summary><p>2.17 days (26 ÷ 12) on a six-day week; for hourly workers, weekly hours × 26 ÷ 6 ÷ 12 hours per month.</p></details><details><summary>Can untaken holidays be paid instead?</summary><p>Only at the end of the employment. During the employment they must be taken: the contract forbids replacing them with money.</p></details><details><summary>Is a live-in carer entitled to board and lodging during holidays?</summary><p>Yes: holiday pay also includes the board and lodging allowance if the worker doesn't use them.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/weighted-average-degree-grade-calculator/" data-search="weighted average and degree grade calculator (italian university) weighted average of your exams with cfu credits, base out of 110 and final degree grade weighted average gpa degree grade italian university cfu credits 110 cum laude"><div class="ic">🎓</div><b>Weighted average and degree grade calculator (Italian university)</b><span>Weighted average of your exams with CFU credits, base out of 110 and final degree grade</span></a><a class="card" href="../../en/13th-month-pay-domestic-worker-italy/" data-search="13th-month pay for domestic workers in italy (colf, badante) christmas bonus (tredicesima) for housekeepers and carers, hourly or monthly, even for a few months tredicesima 13th month domestic worker colf badante italy"><div class="ic">🎁</div><b>13th-month pay for domestic workers in Italy (colf, badante)</b><span>Christmas bonus (tredicesima) for housekeepers and carers, hourly or monthly, even for a few months</span></a><a class="card" href="../../en/tfr-severance-domestic-worker-italy/" data-search="tfr (severance pay) for domestic workers in italy (colf, badante) end-of-employment pay (tfr) for housekeepers and carers, year by year tfr severance pay domestic worker colf badante end of employment italy"><div class="ic">💼</div><b>TFR (severance pay) for domestic workers in Italy (colf, badante)</b><span>End-of-employment pay (TFR) for housekeepers and carers, year by year</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.1.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Enter the weekly hours (or days), the pay and a valid period.", "type": "Type of contract", "type_h": "Hourly (holidays counted in hours)", "type_m": "By days (live-in or full time)", "rate": "Gross hourly rate (€)", "hours": "Hours per week", "monthly": "Gross monthly pay (€)", "kind": "Board and lodging allowance per month (€, live-in only)", "start": "Start of the period", "end": "End of the period", "months": "Months accrued", "month_pay": "Reference monthly pay", "rule": "Contract rule: a month counts if the employment lasted at least 15 days in that month.", "wdays": "Working days per week", "taken": "Holidays already taken in the period", "unit_h": "hours", "unit_d": "days", "year_ent": "Holidays in a full year", "accrued": "Holidays accrued in the period", "left": "Holidays left", "value": "Value of the holidays left (gross)", "per_month": "per month", "left_sub": "{acc} accrued − {tk} taken"};</script>
+<script>
+(function(){
+
+function monthsWorked(a, b) { // months counted in [a, b] with the CCNL rule: a fraction of month counts if >= 15 days
+  if (!a || !b || b < a) return 0;
+  var n = 0, cur = new Date(a.getFullYear(), a.getMonth(), 1), end = new Date(b.getFullYear(), b.getMonth(), 1);
+  while (cur <= end) {
+    var ms = new Date(cur.getFullYear(), cur.getMonth(), 1), me = new Date(cur.getFullYear(), cur.getMonth() + 1, 0);
+    var s = a > ms ? a : ms, e = b < me ? b : me;
+    if (RT.daysBetween(s, e) + 1 >= 15) n++;
+    cur.setMonth(cur.getMonth() + 1);
+  }
+  return n;
+}
+function monthlyPay() { // reference monthly pay from the "type" selector
+  var hourly = RT.$('#type').value === 'h';
+  if (hourly) { var r = RT.num(RT.$('#rate').value), h = RT.num(RT.$('#hours').value); return (r > 0 && h > 0) ? r * h * 52 / 12 : NaN; }
+  var m = RT.num(RT.$('#monthly').value), k = RT.num(RT.$('#kind').value) || 0; return m > 0 ? m + k : NaN;
+}
+function toggleType() {
+  var hourly = RT.$('#type').value === 'h';
+  RT.$$('.only-h').forEach(function (el) { el.classList.toggle('hide', !hourly); });
+  RT.$$('.only-m').forEach(function (el) { el.classList.toggle('hide', hourly); });
+}
+function setDefaultDates(startId, endId, yearsBack) {
+  var t = new Date(), s = RT.$(startId), e = RT.$(endId);
+  if (s && !s.value) s.value = (t.getFullYear() - (yearsBack || 0)) + '-01-01';
+  if (e && !e.value) e.value = yearsBack ? RT.isoToday() : t.getFullYear() + '-12-31';
+}
+RT.$('#type').addEventListener('change', toggleType); toggleType();
+
+setDefaultDates('#start', '#end', 0);
+var out = RT.$('#out'), err = RT.$('#err');
+function calc() {
+  var hourly = RT.$('#type').value === 'h', unit = hourly ? T.unit_h : T.unit_d;
+  RT.$('#unit1').textContent = unit;
+  var a = RT.parseDate(RT.$('#start').value), b = RT.parseDate(RT.$('#end').value), n = monthsWorked(a, b);
+  var perYear, valueEach;
+  if (hourly) { var h = RT.num(RT.$('#hours').value), r = RT.num(RT.$('#rate').value); perYear = h * 26 / 6; valueEach = r; if (!(h > 0)) perYear = NaN; }
+  else { var wd = +RT.$('#wdays').value, m = RT.num(RT.$('#monthly').value); perYear = 26 * wd / 6; valueEach = m > 0 ? m / 26 * 6 / wd : NaN; }
+  if (!isFinite(perYear) || !n) { out.classList.add('hide'); err.classList.remove('hide'); return; }
+  err.classList.add('hide'); out.classList.remove('hide');
+  var acc = perYear / 12 * n, tk = RT.num(RT.$('#taken').value) || 0, left = acc - tk;
+  RT.$('#main').textContent = T.left + ': ' + RT.fmt(left, 2) + ' ' + unit;
+  RT.$('#sub').textContent = T.left_sub.replace('{acc}', RT.fmt(acc, 2) + ' ' + unit).replace('{tk}', RT.fmt(tk, 2) + ' ' + unit);
+  RT.$('#year').textContent = RT.fmt(perYear, 2) + ' ' + unit + ' (' + RT.fmt(perYear / 12, 2) + ' ' + T.per_month + ')';
+  RT.$('#acc').textContent = RT.fmt(acc, 2) + ' ' + unit;
+  RT.$('#mon').textContent = n;
+  RT.$('#val').textContent = isFinite(valueEach) ? RT.money(Math.max(left, 0) * valueEach, 'EUR') : '–';
+}
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

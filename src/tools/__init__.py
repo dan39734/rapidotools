@@ -3,11 +3,13 @@ import importlib
 
 ORDER = [
     # date
-    "age", "days_between", "add_days", "timer",
+    "age", "days_between", "add_days", "countdown", "timer",
     # text
     "word_counter", "case_converter", "password", "lines",
     # numbers
-    "percentage", "discount", "roman", "units", "random",
+    "percentage", "discount", "number_words", "roman", "units", "random",
+    # school & work
+    "weighted_average", "colf_tredicesima", "colf_ferie", "colf_tfr",
     # health
     "bmi", "calories",
     # money
@@ -18,8 +20,12 @@ ORDER = [
 
 
 def load():
+    """A module exposes either TOOL (one tool) or TOOLS (a list, e.g. a tool plus its preset pages)."""
     out = []
     for name in ORDER:
         mod = importlib.import_module("tools." + name)
-        out.append(mod.TOOL)
+        if hasattr(mod, "TOOLS"):
+            out.extend(mod.TOOLS)
+        else:
+            out.append(mod.TOOL)
     return out

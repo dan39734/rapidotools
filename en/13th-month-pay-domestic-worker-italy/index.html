@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13th-month pay for domestic workers in Italy (colf, badante) – Rapido Tools</title>
+<meta name="description" content="Work out the 13th-month pay of a domestic worker in Italy (colf, badante, babysitter) under the national contract: hourly or monthly, with the months accrued in the year (15-day rule) and the monthly accrual. Free, with examples.">
+
+<link rel="canonical" href="https://rapidotools.com/en/13th-month-pay-domestic-worker-italy/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-tredicesima-colf-badante/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/13th-month-pay-domestic-worker-italy/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/13th-month-pay-domestic-worker-italy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="13th-month pay for domestic workers in Italy (colf, badante) – Rapido Tools">
+<meta property="og:description" content="Work out the 13th-month pay of a domestic worker in Italy (colf, badante, babysitter) under the national contract: hourly or monthly, with the months accrued in the year (15-day rule) and the monthly accrual. Free, with examples.">
+<meta property="og:url" content="https://rapidotools.com/en/13th-month-pay-domestic-worker-italy/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.1.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "13th-month pay for domestic workers in Italy (colf, badante)", "url": "https://rapidotools.com/en/13th-month-pay-domestic-worker-italy/", "description": "Work out the 13th-month pay of a domestic worker in Italy (colf, badante, babysitter) under the national contract: hourly or monthly, with the months accrued in the year (15-day rule) and the monthly accrual. Free, with examples.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When must the 13th month be paid?", "acceptedAnswer": {"@type": "Answer", "text": "By December, usually with the December pay or before Christmas. If the employment ends earlier, it is paid with the final payslip, pro rata to the months accrued."}}, {"@type": "Question", "name": "The carer started mid-year: how much is due?", "acceptedAnswer": {"@type": "Answer", "text": "One twelfth of the monthly pay for every month in which she worked at least 15 days: enter the start date and the calculator does the rest."}}, {"@type": "Question", "name": "Is the board and lodging allowance included?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for live-in workers: it is part of the total actual pay on which the 13th month is calculated."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/calcolo-tredicesima-colf-badante/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-work">🎓 School &amp; work</a></nav>
+<h1>13th-month pay for domestic workers in Italy (colf, badante)</h1>
+<p class="lead">Enter the hourly rate and weekly hours (or the monthly pay) and the period worked in the year: you get the gross 13th-month pay due by December, calculated as the contract says.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="13th-month pay for domestic workers in Italy (colf, badante)">
+
+<div class="row">
+  <div class="field"><label for="type">Type of contract</label><select id="type"><option value="h">Hourly (non live-in)</option><option value="m">Monthly (live-in or full time)</option></select></div>
+  <div class="field only-h"><label for="rate">Gross hourly rate (€)</label><input type="number" id="rate" min="0" step="0.01" value="9"></div>
+  <div class="field only-h"><label for="hours">Hours per week</label><input type="number" id="hours" min="1" max="60" step="0.5" value="20"></div>
+  <div class="field only-m hide"><label for="monthly">Gross monthly pay (€)</label><input type="number" id="monthly" min="0" step="0.01" placeholder="es. 1200"></div>
+  <div class="field only-m hide"><label for="kind">Board and lodging allowance per month (€, live-in only)</label><input type="number" id="kind" min="0" step="0.01" placeholder="0"></div>
+</div>
+
+<div class="row">
+  <div class="field"><label for="start">Start of the period</label><input type="date" id="start"></div>
+  <div class="field"><label for="end">End of the period</label><input type="date" id="end"></div>
+</div>
+<p class="msg">Contract rule: a month counts if the employment lasted at least 15 days in that month.</p>
+<p class="msg bad hide" id="err">Enter the rate and hours (or the monthly pay) and a valid period.</p>
+<div class="result hide" id="out">
+  <div class="big" id="main"></div>
+  <div class="sub" id="sub"></div>
+  <div class="stats">
+    <div class="stat"><b id="mp"></b><span>Reference monthly pay</span></div>
+    <div class="stat"><b id="acc"></b><span>Monthly accrual (1/12)</span></div>
+    <div class="stat"><b id="mon"></b><span>Months accrued</span></div>
+  </div>
+</div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>How the 13th-month pay is calculated for domestic workers</h2>
+<p>In Italy every domestic worker – housekeeper (colf), carer (badante), babysitter – is entitled to a 13th monthly salary, the <em>tredicesima</em>, equal to one month of <strong>total actual pay</strong>. It accrues in twelfths: each month of work earns 1/12. It is paid <strong>by December</strong> (usually with the December pay or before Christmas) and, if the employment ends during the year, it is paid pro rata with the final payslip. A month counts if the employment lasted <strong>at least 15 days</strong> in that month.</p>
+<h3>Hourly workers (non live-in)</h3>
+<p>Start from the average monthly pay: <strong>hourly rate × weekly hours × 52 ÷ 12</strong>. The monthly accrual is one twelfth of that.</p>
+<p><em>Example:</em> €9 per hour for 20 hours a week → 9 × 20 × 52 ÷ 12 = €780 a month → accrual €65 → 13th-month pay of <strong>€780</strong> for a full year, €325 if the employment started in August (5 months).</p>
+<h3>Live-in workers (monthly pay)</h3>
+<p>Use the gross monthly pay <strong>plus the board and lodging allowance</strong> (indennità di vitto e alloggio), which is part of the total actual pay and therefore also of the 13th month; its daily value is set every year by the contract tables. Non live-in workers have no allowance.</p>
+<h2>Good to know</h2>
+<ul>
+<li>The 13th month also accrues during holidays, sickness and injury; during maternity leave only the employer's share (20%) accrues.</li>
+<li>If the hours changed during the year, calculate each period with its own hours and add them up.</li>
+<li><strong>INPS contributions</strong> are due on the 13th month as on any other pay: the worker's share is withheld and contributions are paid with the December quarter.</li>
+<li>Domestic employers are not withholding agents: the 13th month is paid gross and the worker declares it with the rest of her income.</li>
+</ul>
+
+<h2>The reference contract</h2>
+<p>The rules applied are those of the <strong>Italian national collective agreement for domestic work</strong> (CCNL lavoro domestico: housekeepers, carers, babysitters), which covers every regular domestic employment in Italy. Amounts are <strong>gross</strong>: INPS social contributions (including the worker's share) and taxes are separate. This calculator is meant for a quick estimate; for the official payslip and special cases (vertical part-time, changes of hours during the year, long absences) ask an employers' association, a labour consultant or a payroll service.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>When must the 13th month be paid?</summary><p>By December, usually with the December pay or before Christmas. If the employment ends earlier, it is paid with the final payslip, pro rata to the months accrued.</p></details><details><summary>The carer started mid-year: how much is due?</summary><p>One twelfth of the monthly pay for every month in which she worked at least 15 days: enter the start date and the calculator does the rest.</p></details><details><summary>Is the board and lodging allowance included?</summary><p>Yes, for live-in workers: it is part of the total actual pay on which the 13th month is calculated.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/weighted-average-degree-grade-calculator/" data-search="weighted average and degree grade calculator (italian university) weighted average of your exams with cfu credits, base out of 110 and final degree grade weighted average gpa degree grade italian university cfu credits 110 cum laude"><div class="ic">🎓</div><b>Weighted average and degree grade calculator (Italian university)</b><span>Weighted average of your exams with CFU credits, base out of 110 and final degree grade</span></a><a class="card" href="../../en/holiday-entitlement-domestic-worker-italy/" data-search="holiday entitlement for domestic workers in italy (colf, badante) holidays accrued in hours or days, balance and pay-out value holiday entitlement domestic worker colf badante annual leave italy"><div class="ic">🌴</div><b>Holiday entitlement for domestic workers in Italy (colf, badante)</b><span>Holidays accrued in hours or days, balance and pay-out value</span></a><a class="card" href="../../en/tfr-severance-domestic-worker-italy/" data-search="tfr (severance pay) for domestic workers in italy (colf, badante) end-of-employment pay (tfr) for housekeepers and carers, year by year tfr severance pay domestic worker colf badante end of employment italy"><div class="ic">💼</div><b>TFR (severance pay) for domestic workers in Italy (colf, badante)</b><span>End-of-employment pay (TFR) for housekeepers and carers, year by year</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.1.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Gross 13th-month pay", "invalid": "Enter the rate and hours (or the monthly pay) and a valid period.", "type": "Type of contract", "type_h": "Hourly (non live-in)", "type_m": "Monthly (live-in or full time)", "rate": "Gross hourly rate (€)", "hours": "Hours per week", "monthly": "Gross monthly pay (€)", "kind": "Board and lodging allowance per month (€, live-in only)", "start": "Start of the period", "end": "End of the period", "months": "Months accrued", "month_pay": "Reference monthly pay", "rule": "Contract rule: a month counts if the employment lasted at least 15 days in that month.", "accrual": "Monthly accrual (1/12)", "of": "out of 12 months", "months_sub": "{n} months accrued × {r} per month"};</script>
+<script>
+(function(){
+
+function monthsWorked(a, b) { // months counted in [a, b] with the CCNL rule: a fraction of month counts if >= 15 days
+  if (!a || !b || b < a) return 0;
+  var n = 0, cur = new Date(a.getFullYear(), a.getMonth(), 1), end = new Date(b.getFullYear(), b.getMonth(), 1);
+  while (cur <= end) {
+    var ms = new Date(cur.getFullYear(), cur.getMonth(), 1), me = new Date(cur.getFullYear(), cur.getMonth() + 1, 0);
+    var s = a > ms ? a : ms, e = b < me ? b : me;
+    if (RT.daysBetween(s, e) + 1 >= 15) n++;
+    cur.setMonth(cur.getMonth() + 1);
+  }
+  return n;
+}
+function monthlyPay() { // reference monthly pay from the "type" selector
+  var hourly = RT.$('#type').value === 'h';
+  if (hourly) { var r = RT.num(RT.$('#rate').value), h = RT.num(RT.$('#hours').value); return (r > 0 && h > 0) ? r * h * 52 / 12 : NaN; }
+  var m = RT.num(RT.$('#monthly').value), k = RT.num(RT.$('#kind').value) || 0; return m > 0 ? m + k : NaN;
+}
+function toggleType() {
+  var hourly = RT.$('#type').value === 'h';
+  RT.$$('.only-h').forEach(function (el) { el.classList.toggle('hide', !hourly); });
+  RT.$$('.only-m').forEach(function (el) { el.classList.toggle('hide', hourly); });
+}
+function setDefaultDates(startId, endId, yearsBack) {
+  var t = new Date(), s = RT.$(startId), e = RT.$(endId);
+  if (s && !s.value) s.value = (t.getFullYear() - (yearsBack || 0)) + '-01-01';
+  if (e && !e.value) e.value = yearsBack ? RT.isoToday() : t.getFullYear() + '-12-31';
+}
+RT.$('#type').addEventListener('change', toggleType); toggleType();
+
+setDefaultDates('#start', '#end', 0);
+var out = RT.$('#out'), err = RT.$('#err');
+function calc() {
+  var mp = monthlyPay(), a = RT.parseDate(RT.$('#start').value), b = RT.parseDate(RT.$('#end').value);
+  var n = monthsWorked(a, b);
+  if (!isFinite(mp) || !n) { out.classList.add('hide'); err.classList.remove('hide'); return; }
+  err.classList.add('hide'); out.classList.remove('hide');
+  var acc = mp / 12, tot = acc * Math.min(n, 12);
+  RT.$('#main').textContent = T.result + ': ' + RT.money(tot, 'EUR');
+  RT.$('#sub').textContent = T.months_sub.replace('{n}', Math.min(n, 12)).replace('{r}', RT.money(acc, 'EUR'));
+  RT.$('#mp').textContent = RT.money(mp, 'EUR');
+  RT.$('#acc').textContent = RT.money(acc, 'EUR');
+  RT.$('#mon').textContent = Math.min(n, 12) + ' ' + T.of;
+}
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

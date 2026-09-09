@@ -57,7 +57,7 @@ async function makePng(page) { // returns a Buffer of a 1200x800 PNG generated i
     const links = await page.$$eval('a[href]', (as) => as.map((a) => a.getAttribute('href')));
     for (const h of links) {
       if (/^(https?:|mailto:|#|javascript:)/.test(h) || h.startsWith('blob:')) continue;
-      const target = new URL(h, `http://localhost:${PORT}${p}`).pathname.split('#')[0];
+      const target = new URL(h, page.url()).pathname.split('#')[0];
       const tf = path.join(SITE, target.endsWith('/') ? target + 'index.html' : target);
       if (!fs.existsSync(tf)) problems.push(['badlink', p, h]);
     }
@@ -103,6 +103,52 @@ async function makePng(page) { // returns a Buffer of a 1200x800 PNG generated i
   const [dl] = await Promise.all([page.waitForEvent('download'), page.click('#png')]); results.qrDownload = dl.suggestedFilename();
   const [dl2] = await Promise.all([page.waitForEvent('download'), page.click('#svg')]); results.qrSvg = dl2.suggestedFilename();
   await page.click('.tabs button[data-tab="wifi"]'); await page.fill('#ssid', 'CasaMia'); await page.fill('#wpass', 'segreto;123'); await page.dispatchEvent('#wpass', 'input'); results.qrWifi = await text('#info');
+  // --- v1.1.0: countdown pages, numbers to words, weighted average, colf tools ---
+  function isoLocal(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+  function daysFromToday(y, m, d) { const t = new Date(); const a = Date.UTC(t.getFullYear(), t.getMonth(), t.getDate()); const b = Date.UTC(y, m - 1, d); return Math.round((b - a) / 86400000); }
+  const now = new Date(), thisYear = now.getFullYear();
+  const xmasYear = (now.getMonth() === 11 && now.getDate() > 25) ? thisYear + 1 : thisYear;
+  await go('quanti-giorni-mancano-a-natale'); await page.waitForTimeout(1200);
+  results.natale = await text('#main') + ' | ' + await text('#sub') + ' | years=' + (await page.$$('#year option')).length + ' | expected=' + daysFromToday(xmasYear, 12, 25) + ' | tick=' + await text('#tick');
+  await go('quanti-giorni-mancano-a-pasqua'); results.pasqua = await text('#sub') + ' | ' + await page.inputValue('#year');
+  await page.selectOption('#year', '2028'); results.pasqua2028 = await text('#sub');
+  await go('quanti-giorni-mancano-a-carnevale'); results.carnevale = await text('#sub');
+  await go('quanti-giorni-mancano'); await page.fill('#target', thisYear + '-12-31'); await page.dispatchEvent('#target', 'input'); results.generic = await text('#main') + ' expected=' + daysFromToday(thisYear, 12, 31) + ' | ' + await page.inputValue('#msgcopy');
+  await page.fill('#target', '2020-01-01'); await page.dispatchEvent('#target', 'input'); results.genericPast = await text('#main') + ' | ' + await text('#sub');
+  await go('quanti-giorni-mancano-al-mio-compleanno'); await page.fill('#dob', '1990-03-15'); await page.dispatchEvent('#dob', 'input'); results.compleanno = await text('#main') + ' | ' + await text('#sub');
+  await go('quanti-giorni-mancano-all-inizio-della-scuola'); results.scuola = await page.inputValue('#target') + ' | ' + await text('#main');
+  // numbers to words
+  await go('numeri-in-lettere');
+  const nw = {};
+  async function nwCase(val, mode, lang, style) { await page.fill('#num', val); if (mode) await page.selectOption('#mode', mode); if (lang) await page.selectOption('#lang', lang); if (style) await page.selectOption('#style', style); await page.dispatchEvent('#num', 'input'); return await text('#main'); }
+  nw.a = await nwCase('1234,56', 'num', 'it'); nw.b = await nwCase('1234,56', 'eur'); nw.c = await nwCase('1234,56', 'chk'); nw.d = await nwCase('21', 'num'); nw.e = await nwCase('108'); nw.f = await nwCase('1000000'); nw.g = await nwCase('23'); nw.h = await nwCase('2003'); nw.i = await nwCase('180'); nw.j = await nwCase('1,01', 'eur'); nw.k = await nwCase('0'); nw.l = await nwCase('-45'); nw.m = await nwCase('3000000000'); nw.n = await nwCase('1000001');
+  nw.en1 = await nwCase('1042', 'num', 'en', 'uk'); nw.en2 = await nwCase('1042', 'num', 'en', 'us'); nw.en3 = await nwCase('1234,56', 'eur', 'en', 'us'); nw.en4 = await nwCase('1234,56', 'chk'); nw.en5 = await nwCase('205', 'num', 'en', 'uk'); nw.en6 = await nwCase('12,5', 'num', 'en', 'us');
+  nw.tableRows = (await page.$$('#tbl tr')).length; nw.err = await (async () => { await page.fill('#num', 'abc'); await page.dispatchEvent('#num', 'input'); return await text('#err'); })();
+  results.numWords = nw;
+  // weighted average
+  await go('calcolo-media-ponderata-voto-di-laurea');
+  const exams = [[28, 12], [24, 6], [30, 9]];
+  for (let i = 0; i < exams.length; i++) { await page.fill(`#rows tr:nth-child(${i + 1}) .g`, String(exams[i][0])); await page.fill(`#rows tr:nth-child(${i + 1}) .c`, String(exams[i][1])); }
+  await page.dispatchEvent('#rows tr:nth-child(3) .c', 'input');
+  results.media = await text('#main') + ' | ' + await text('#aavg') + ' | ' + await text('#tot') + ' | ' + await text('#base') + ' | ' + await text('#final');
+  await page.check('#rows tr:nth-child(3) .l'); await page.selectOption('#lodev', '33'); results.mediaLode = await text('#main');
+  await page.fill('#gavg', '28'); await page.fill('#gcfu', '30'); await page.dispatchEvent('#gcfu', 'input'); results.mediaGoal = await text('#goal');
+  await page.click('.tabs button[data-tab="avg"]'); await page.fill('#avgin', '27'); await page.dispatchEvent('#avgin', 'input'); results.mediaKnown = await text('#base') + ' | ' + await text('#final');
+  // colf: tredicesima
+  await go('calcolo-tredicesima-colf-badante'); await page.fill('#start', thisYear + '-01-01'); await page.fill('#end', thisYear + '-12-31'); await page.dispatchEvent('#end', 'input');
+  results.tredicesima = await text('#main') + ' | ' + await text('#mon');
+  await page.fill('#start', thisYear + '-08-01'); await page.dispatchEvent('#start', 'input'); results.tredicesima5 = await text('#main') + ' | ' + await text('#mon');
+  await page.fill('#start', thisYear + '-08-20'); await page.dispatchEvent('#start', 'input'); results.tredicesima4 = await text('#mon');
+  await page.selectOption('#type', 'm'); await page.fill('#monthly', '1200'); await page.fill('#kind', '200'); await page.fill('#start', thisYear + '-01-01'); await page.dispatchEvent('#start', 'input'); results.tredicesimaM = await text('#main');
+  // colf: ferie
+  await go('calcolo-ferie-colf-badante'); await page.fill('#start', thisYear + '-01-01'); await page.fill('#end', thisYear + '-12-31'); await page.fill('#taken', '10'); await page.dispatchEvent('#taken', 'input');
+  results.ferie = await text('#main') + ' | ' + await text('#year') + ' | ' + await text('#val');
+  await page.selectOption('#type', 'm'); await page.selectOption('#wdays', '5'); await page.fill('#monthly', '1300'); await page.dispatchEvent('#monthly', 'input'); results.ferieM = await text('#main') + ' | ' + await text('#year') + ' | ' + await text('#val');
+  // colf: tfr
+  await go('calcolo-tfr-colf-badante'); await page.fill('#start', '2025-01-01'); await page.fill('#end', '2026-12-31'); await page.dispatchEvent('#end', 'input');
+  results.tfr = await text('#main') + ' | ' + await text('#quota') + ' | ' + await text('#years') + ' rows=' + (await page.$$('#rows tr')).length;
+  await page.fill('#infl', '2'); await page.dispatchEvent('#infl', 'input'); results.tfrReval = await text('#main') + ' | ' + await text('#reval');
+  await page.fill('#end', '2024-01-01'); await page.dispatchEvent('#end', 'input'); results.tfrErr = await page.$eval('#err', (e) => e.classList.contains('hide') ? 'hidden' : e.textContent);
   // home search
   await page.goto(base, { waitUntil: 'load' }); await page.fill('#tool-search', 'iva'); results.search = (await page.$$eval('.card', (cs) => cs.filter((c) => c.style.display !== 'none').map((c) => c.querySelector('b').textContent))).join(' | ');
   // root redirect
@@ -111,13 +157,16 @@ async function makePng(page) { // returns a Buffer of a 1200x800 PNG generated i
   // 3. English spot checks
   await page.goto(`http://localhost:${PORT}/en/vat-calculator/`, { waitUntil: 'load' }); results.vatEn = await text('#net') + ' ' + await text('#gross') + ' rate=' + await page.inputValue('#rate');
   await page.goto(`http://localhost:${PORT}/en/loan-calculator/`, { waitUntil: 'load' }); results.loanEn = await text('#pmt');
+  await page.goto(`http://localhost:${PORT}/en/days-until-christmas/`, { waitUntil: 'load' }); results.xmasEn = await text('#main') + ' | ' + await text('#sub');
+  await page.goto(`http://localhost:${PORT}/en/numbers-to-words/`, { waitUntil: 'load' }); results.wordsEn = await text('#main') + ' | lang=' + await page.inputValue('#lang');
+  await page.goto(`http://localhost:${PORT}/en/13th-month-pay-domestic-worker-italy/`, { waitUntil: 'load' }); results.tredEn = await text('#main');
 
   console.log(JSON.stringify(results, null, 1));
   console.log('PROBLEMS:', problems.length); problems.forEach((p) => console.log('  ', p.join(' | ')));
 
   // 4. screenshots
   fs.mkdirSync('/tmp/shots', { recursive: true });
-  const shots = [['it/', 'home-it-desktop', 1280, false], ['en/', 'home-en-mobile', 390, false], ['it/calcolo-rata-mutuo/', 'loan-it-mobile', 390, false], ['en/qr-code-generator/', 'qr-en-desktop', 1280, false], ['it/calcolo-eta/', 'age-it-dark', 390, true], ['it/ridimensiona-comprimi-immagini/', 'resize-it-desktop', 1280, false]];
+  const shots = [['it/', 'home-it-desktop', 1280, false], ['en/', 'home-en-mobile', 390, false], ['it/calcolo-rata-mutuo/', 'loan-it-mobile', 390, false], ['en/qr-code-generator/', 'qr-en-desktop', 1280, false], ['it/calcolo-eta/', 'age-it-dark', 390, true], ['it/ridimensiona-comprimi-immagini/', 'resize-it-desktop', 1280, false], ['it/quanti-giorni-mancano-a-natale/', 'natale-it-mobile', 390, false], ['it/calcolo-media-ponderata-voto-di-laurea/', 'media-it-desktop', 1280, false], ['it/numeri-in-lettere/', 'lettere-it-desktop', 1280, false], ['it/calcolo-tredicesima-colf-badante/', 'tredicesima-it-mobile', 390, false], ['en/days-until-easter/', 'easter-en-desktop', 1280, true], ['it/', 'home-it-v11', 1280, false]];
   for (const [p, name, w, dark] of shots) {
     const c2 = await browser.newContext({ viewport: { width: w, height: w > 600 ? 900 : 844 }, colorScheme: dark ? 'dark' : 'light', locale: 'it-IT', deviceScaleFactor: 1 });
     const pg = await c2.newPage(); await pg.goto(`http://localhost:${PORT}/${p}`, { waitUntil: 'load' });
