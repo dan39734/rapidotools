@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Running pace calculator and race time – Rapido Tools</title>
+<meta name="description" content="Work out your running pace (min per km or mile) from distance and time, your finish time from a pace, and convert km/h ↔ min/km for the treadmill. With predicted times for 5K, 10K, half marathon and marathon.">
+
+<link rel="canonical" href="https://rapidotools.com/en/running-pace-calculator/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-passo-corsa/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/running-pace-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/running-pace-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Running pace calculator and race time – Rapido Tools">
+<meta property="og:description" content="Work out your running pace (min per km or mile) from distance and time, your finish time from a pace, and convert km/h ↔ min/km for the treadmill. With predicted times for 5K, 10K, half marathon and marathon.">
+<meta property="og:url" content="https://rapidotools.com/en/running-pace-calculator/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.2.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Running pace calculator and race time", "url": "https://rapidotools.com/en/running-pace-calculator/", "description": "Work out your running pace (min per km or mile) from distance and time, your finish time from a pace, and convert km/h ↔ min/km for the treadmill. With predicted times for 5K, 10K, half marathon and marathon.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is 5:30 per km in km/h?", "acceptedAnswer": {"@type": "Answer", "text": "10.91 km/h: 5:30 is 5.5 minutes and 60 ÷ 5.5 = 10.91."}}, {"@type": "Question", "name": "What pace do I need for a 4-hour marathon?", "acceptedAnswer": {"@type": "Answer", "text": "5:41 per km (about 9:09 per mile): 240 minutes divided by 42.195 km is 5.69 minutes, i.e. 5 minutes 41 seconds."}}, {"@type": "Question", "name": "What pace do I need to run 10 km in 50 minutes?", "acceptedAnswer": {"@type": "Answer", "text": "5:00 per km, i.e. 12 km/h."}}, {"@type": "Question", "name": "Does the calculator account for hills?", "acceptedAnswer": {"@type": "Answer", "text": "No: it works out the average pace as if on a flat course. Hills, wind and heat slow you down; for predictions use a recent race on a similar course."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/calcolo-passo-corsa/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-health">❤️ Health</a></nav>
+<h1>Running pace calculator and race time</h1>
+<p class="lead">Enter a distance and a time to get your pace and predicted times for other distances, or start from a pace to get your finish time. There is also a km/h ↔ min/km converter.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Running pace calculator and race time">
+
+<div class="tabs" role="tablist">
+  <button type="button" class="on" data-tab="pace">Find your pace</button>
+  <button type="button" data-tab="time">Find your time</button>
+  <button type="button" data-tab="conv">Km/h ↔ min/km</button>
+</div>
+<div id="tab-pace">
+  <div class="field"><label for="dist">Distance (km)</label><input type="text" inputmode="decimal" id="dist" value="10"></div>
+  <div class="inline" style="margin:-4px 0 14px">
+    <button class="btn small" type="button" data-d="5">5 km</button><button class="btn small" type="button" data-d="10">10 km</button>
+    <button class="btn small" type="button" data-d="21.0975">Half marathon</button><button class="btn small" type="button" data-d="42.195">Marathon</button>
+  </div>
+  <div class="lbl">Time</div>
+  <div class="row" style="margin-top:6px">
+    <div class="field" style="flex:1 1 70px"><label for="th">hours</label><input type="number" id="th" min="0" step="1" value="0"></div>
+    <div class="field" style="flex:1 1 70px"><label for="tm">minutes</label><input type="number" id="tm" min="0" step="1" value="55"></div>
+    <div class="field" style="flex:1 1 70px"><label for="ts">seconds</label><input type="number" id="ts" min="0" max="59" step="1" value="0"></div>
+  </div>
+  <p class="msg bad hide" id="perr">Enter a distance and a time greater than zero.</p>
+  <div class="result hide" id="pout">
+    <div class="big" id="pmain"></div>
+    <div class="sub" id="psub"></div>
+    <div class="stats">
+      <div class="stat"><b id="pkmh"></b><span>Average speed</span></div>
+      <div class="stat"><b id="pmi"></b><span>Pace per mile</span></div>
+      <div class="stat"><b id="p400"></b><span>Time per 400 m (one track lap)</span></div>
+      <div class="stat"><b id="pmph"></b><span>Speed in miles per hour</span></div>
+    </div>
+    <h3 style="font-size:1rem;margin-top:16px">Predicted times for other distances (Riegel formula)</h3>
+    <div class="table-wrap"><table><thead><tr><th>Distance</th><th>Time</th><th>Pace</th></tr></thead><tbody id="riegel"></tbody></table></div>
+    <details style="margin-top:12px"><summary style="cursor:pointer;font-weight:600">Kilometre splits</summary>
+      <div class="table-wrap laps"><table><tbody id="splits"></tbody></table></div>
+    </details>
+  </div>
+</div>
+<div id="tab-time" class="hide">
+  <div class="lbl">Pace</div>
+  <div class="row" style="margin-top:6px">
+    <div class="field" style="flex:1 1 70px"><label for="pm">minutes</label><input type="number" id="pm" min="0" step="1" value="5"></div>
+    <div class="field" style="flex:1 1 70px"><label for="ps">seconds</label><input type="number" id="ps" min="0" max="59" step="1" value="15"></div>
+    <div class="field" style="flex:1 1 110px"><label for="pu">Unit</label><select id="pu"><option value="km">min/km</option><option value="mi">min/mile</option></select></div>
+  </div>
+  <div class="field"><label for="dist2">Race distance (km)</label><input type="text" inputmode="decimal" id="dist2" value="21,0975"></div>
+  <div class="inline" style="margin:-4px 0 14px">
+    <button class="btn small" type="button" data-d2="5">5 km</button><button class="btn small" type="button" data-d2="10">10 km</button>
+    <button class="btn small" type="button" data-d2="21.0975">Half marathon</button><button class="btn small" type="button" data-d2="42.195">Marathon</button>
+  </div>
+  <div class="result hide" id="tout">
+    <div class="big" id="tmain"></div>
+    <div class="sub" id="tsub"></div>
+    <h3 style="font-size:1rem;margin-top:16px">Times at this pace</h3>
+    <div class="table-wrap"><table><thead><tr><th>Distance</th><th>Time</th></tr></thead><tbody id="ttable"></tbody></table></div>
+  </div>
+</div>
+<div id="tab-conv" class="hide">
+  <div class="field"><label for="kmh">Speed (km/h)</label><input type="text" inputmode="decimal" id="kmh" value="12"></div>
+  <div class="result" style="margin-top:0"><div class="big" id="cres"></div><div class="sub" id="csub"></div></div>
+  <h3 style="font-size:1rem">From pace to speed</h3>
+  <div class="row">
+    <div class="field" style="flex:1 1 70px"><label for="cm">minutes</label><input type="number" id="cm" min="0" step="1" value="5"></div>
+    <div class="field" style="flex:1 1 70px"><label for="cs">seconds</label><input type="number" id="cs" min="0" max="59" step="1" value="30"></div>
+  </div>
+  <div class="result" style="margin-top:0"><div class="big" id="cres2"></div><div class="sub" id="csub2"></div></div>
+  <h3 style="font-size:1rem">Treadmill table</h3>
+  <div class="table-wrap laps" style="max-height:320px"><table><thead><tr><th>km/h</th><th>min/km</th><th>min/mile</th><th>10K</th><th>Half</th></tr></thead><tbody id="treadmill"></tbody></table></div>
+</div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>How running pace is calculated</h2>
+<p>Pace is the time it takes you to run one kilometre (or one mile): divide the total time by the distance. 10 km in 55 minutes → 55 ÷ 10 = 5.5 minutes, i.e. <strong>5:30 per km</strong> (5 minutes 30 seconds, not 5.30). Speed in km/h is the inverse: 60 ÷ 5.5 = 10.9 km/h. The first tab also shows the pace per mile, the time for a 400-metre track lap and the kilometre splits.</p>
+<h2>From km/h to min/km (treadmill)</h2>
+<p>Treadmills show speed in km/h, while running watches and apps show pace in min/km. To convert, divide 60 by the speed: at 12 km/h the pace is 60 ÷ 12 = 5 minutes per km; at 10.5 km/h it is 5.71 minutes, i.e. 5:43 per km. The third tab has a table from 6 to 20 km/h with 10K and half-marathon times.</p>
+<h2>Predicted times with the Riegel formula</h2>
+<p>From a race result the calculator estimates your times over other distances with Pete Riegel's formula: <strong>T2 = T1 × (D2 ÷ D1)<sup>1.06</sup></strong>. The 1.06 exponent reflects the fact that pace drops a little as the distance grows. Example: a 50-minute 10K runner can aim for a half marathon in about 1:50:19 and a marathon in about 3:50:01. It is an estimate: it works well if you are trained for the longer distance, and it tends to be optimistic for the marathon without long runs.</p>
+<h2>Race distances</h2>
+<p>5K and 10K are the most common road race distances; the half marathon is 21.0975 km and the marathon 42.195 km. A mile is 1.609 km, which is why pace per mile is about 1.6 times pace per kilometre.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>What is 5:30 per km in km/h?</summary><p>10.91 km/h: 5:30 is 5.5 minutes and 60 ÷ 5.5 = 10.91.</p></details><details><summary>What pace do I need for a 4-hour marathon?</summary><p>5:41 per km (about 9:09 per mile): 240 minutes divided by 42.195 km is 5.69 minutes, i.e. 5 minutes 41 seconds.</p></details><details><summary>What pace do I need to run 10 km in 50 minutes?</summary><p>5:00 per km, i.e. 12 km/h.</p></details><details><summary>Does the calculator account for hills?</summary><p>No: it works out the average pace as if on a flat course. Hills, wind and heat slow you down; for predictions use a recent race on a similar course.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/bmi-calculator/" data-search="bmi calculator (body mass index) your body mass index, weight category and healthy weight range body mass index healthy weight ideal weight overweight underweight"><div class="ic">⚖️</div><b>BMI calculator (body mass index)</b><span>Your body mass index, weight category and healthy weight range</span></a><a class="card" href="../../en/calorie-calculator/" data-search="daily calorie needs calculator basal metabolic rate, maintenance calories and targets to lose or gain weight how many calories a day bmr tdee calories to lose weight maintenance calories"><div class="ic">🍎</div><b>Daily calorie needs calculator</b><span>Basal metabolic rate, maintenance calories and targets to lose or gain weight</span></a><a class="card" href="../../en/age-calculator/" data-search="age calculator exact years, months and days from a date of birth how old am i birthday date of birth"><div class="ic">🎂</div><b>Age calculator</b><span>Exact years, months and days from a date of birth</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.2.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "tab_pace": "Find your pace", "tab_time": "Find your time", "tab_conv": "Km/h ↔ min/km", "dist_l": "Distance (km)", "half": "Half marathon", "marathon": "Marathon", "time_l": "Time", "h_l": "hours", "m_l": "minutes", "s_l": "seconds", "per_km": "/km", "per_mi": "/mile", "pace_sub": "Average pace over {d} km in {t}", "speed_l": "Average speed", "mi_l": "Pace per mile", "lap_l": "Time per 400 m (one track lap)", "mph_l": "Speed in miles per hour", "riegel_t": "Predicted times for other distances (Riegel formula)", "col_dist": "Distance", "col_time": "Time", "col_pace": "Pace", "splits_t": "Kilometre splits", "perr": "Enter a distance and a time greater than zero.", "pace_in": "Pace", "unit_l": "Unit", "u_km": "min/km", "u_mi": "min/mile", "dist2_l": "Race distance (km)", "time_sub": "{d} km at {p} ({s} km/h)", "std_t": "Times at this pace", "kmh_l": "Speed (km/h)", "conv_sub": "= {mi} · {mph} mph", "conv2_t": "From pace to speed", "conv_sub2": "= {mph} mph · {mi}", "tread_t": "Treadmill table", "col_kmh": "km/h", "col_mkm": "min/km", "col_mmi": "min/mile", "col_10": "10K", "col_half": "Half"};</script>
+<script>
+(function(){
+
+var mode = 'pace', MILE = 1.609344, HALF = 21.0975, MAR = 42.195;
+var STD = [[1, '1 km'], [5, '5 km'], [10, '10 km'], [15, '15 km'], [HALF, T.half], [30, '30 km'], [MAR, T.marathon]];
+function v(id) { return RT.num(RT.$('#' + id).value); }
+function tm(s) { // h:mm:ss or m:ss
+  s = Math.round(s); var h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60;
+  return h ? h + ':' + RT.pad(m) + ':' + RT.pad(x) : m + ':' + RT.pad(x);
+}
+function secs(h, m, s) { h = isFinite(h) ? h : 0; m = isFinite(m) ? m : 0; s = isFinite(s) ? s : 0; return h * 3600 + m * 60 + s; }
+function kmh(paceSec) { return 3600 / paceSec; }
+function rows(el, list) {
+  el.innerHTML = '';
+  list.forEach(function (r) { var tr = document.createElement('tr'); r.forEach(function (c) { var td = document.createElement('td'); td.textContent = c; tr.appendChild(td); }); el.appendChild(tr); });
+}
+function calcPace() {
+  var d = v('dist'), t = secs(v('th'), v('tm'), v('ts')), out = RT.$('#pout'), err = RT.$('#perr');
+  if (!(d > 0) || !(t > 0)) { out.classList.add('hide'); err.classList.toggle('hide', !(RT.$('#dist').value || RT.$('#tm').value)); return; }
+  err.classList.add('hide'); out.classList.remove('hide');
+  var p = t / d;
+  RT.$('#pmain').textContent = tm(p) + ' ' + T.per_km;
+  RT.$('#psub').textContent = T.pace_sub.replace('{d}', RT.fmt(d, 4)).replace('{t}', tm(t));
+  RT.$('#pkmh').textContent = RT.fmt(kmh(p), 2) + ' km/h';
+  RT.$('#pmi').textContent = tm(p * MILE) + ' ' + T.per_mi;
+  RT.$('#p400').textContent = tm(p * 0.4);
+  RT.$('#pmph').textContent = RT.fmt(kmh(p) / MILE, 2) + ' mph';
+  rows(RT.$('#riegel'), STD.filter(function (s) { return s[0] > 1 && Math.abs(s[0] - d) > 1e-6; }).map(function (s) {
+    var t2 = t * Math.pow(s[0] / d, 1.06); return [s[1], tm(t2), tm(t2 / s[0]) + ' ' + T.per_km];
+  }));
+  var sp = [], n = Math.floor(d + 1e-9);
+  for (var k = 1; k <= n && k <= 100; k++) sp.push([k + ' km', tm(p * k)]);
+  if (d - n > 0.001 && n < 100) sp.push([RT.fmt(d, 3) + ' km', tm(t)]);
+  rows(RT.$('#splits'), sp);
+}
+function calcTime() {
+  var p = secs(0, v('pm'), v('ps')), unit = RT.$('#pu').value, d = v('dist2'), out = RT.$('#tout');
+  if (!(p > 0) || !(d > 0)) { out.classList.add('hide'); return; }
+  out.classList.remove('hide');
+  var pk = unit === 'mi' ? p / MILE : p; // seconds per km
+  RT.$('#tmain').textContent = tm(pk * d);
+  RT.$('#tsub').textContent = T.time_sub.replace('{d}', RT.fmt(d, 4)).replace('{p}', tm(pk) + ' ' + T.per_km).replace('{s}', RT.fmt(kmh(pk), 2));
+  rows(RT.$('#ttable'), STD.map(function (s) { return [s[1], tm(pk * s[0])]; }));
+}
+function calcConv() {
+  var s = v('kmh'), r1 = RT.$('#cres'), s1 = RT.$('#csub');
+  if (s > 0) { r1.textContent = tm(3600 / s) + ' ' + T.per_km; s1.textContent = T.conv_sub.replace('{mi}', tm(3600 / s * MILE) + ' ' + T.per_mi).replace('{mph}', RT.fmt(s / MILE, 2)); }
+  else { r1.textContent = '–'; s1.textContent = ''; }
+  var p = secs(0, v('cm'), v('cs')), r2 = RT.$('#cres2'), s2 = RT.$('#csub2');
+  if (p > 0) { r2.textContent = RT.fmt(kmh(p), 2) + ' km/h'; s2.textContent = T.conv_sub2.replace('{mph}', RT.fmt(kmh(p) / MILE, 2)).replace('{mi}', tm(p * MILE) + ' ' + T.per_mi); }
+  else { r2.textContent = '–'; s2.textContent = ''; }
+}
+function calc() { if (mode === 'pace') calcPace(); else if (mode === 'time') calcTime(); else calcConv(); }
+RT.$$('.tabs button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    RT.$$('.tabs button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    mode = b.getAttribute('data-tab');
+    ['pace', 'time', 'conv'].forEach(function (k) { RT.$('#tab-' + k).classList.toggle('hide', k !== mode); });
+    calc();
+  });
+});
+RT.$$('[data-d]').forEach(function (b) { b.addEventListener('click', function () { RT.$('#dist').value = RT.fmt(+b.getAttribute('data-d'), 4); calc(); }); });
+RT.$$('[data-d2]').forEach(function (b) { b.addEventListener('click', function () { RT.$('#dist2').value = RT.fmt(+b.getAttribute('data-d2'), 4); calc(); }); });
+(function () { // treadmill table 6–20 km/h
+  var list = [];
+  for (var s = 6; s <= 20.001; s += 0.5) list.push([RT.fmt(s, 1), tm(3600 / s), tm(3600 / s * MILE), tm(3600 / s * 10), tm(3600 / s * HALF)]);
+  rows(RT.$('#treadmill'), list);
+})();
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

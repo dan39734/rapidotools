@@ -16,8 +16,8 @@ from site_text import SITE_NAME, DOMAIN, YEAR, LANGS, TEXT, CAT_ORDER, STATIC_SL
 from pages import PAGES  # noqa: E402
 import tools  # noqa: E402
 
-VERSION = "1.1.0"
-LASTMOD = "2026-09-10"
+VERSION = "1.2.0"
+LASTMOD = "2026-09-11"
 
 LOGO_SVG = ('<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" '
             'fill="currentColor"/></svg>')

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolo ore lavorate, somma ore e minuti – Rapido Tools</title>
+<meta name="description" content="Calcola le ore lavorate tra entrata e uscita togliendo la pausa, anche con il turno di notte, con il totale della settimana, gli straordinari e la paga. Somma ore e minuti e converti in ore decimali (7:45 = 7,75).">
+
+<link rel="canonical" href="https://rapidotools.com/it/calcolo-ore-lavorate/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-ore-lavorate/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/hours-worked-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/hours-worked-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Calcolo ore lavorate, somma ore e minuti – Rapido Tools">
+<meta property="og:description" content="Calcola le ore lavorate tra entrata e uscita togliendo la pausa, anche con il turno di notte, con il totale della settimana, gli straordinari e la paga. Somma ore e minuti e converti in ore decimali (7:45 = 7,75).">
+<meta property="og:url" content="https://rapidotools.com/it/calcolo-ore-lavorate/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.2.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calcolo ore lavorate, somma ore e minuti", "url": "https://rapidotools.com/it/calcolo-ore-lavorate/", "description": "Calcola le ore lavorate tra entrata e uscita togliendo la pausa, anche con il turno di notte, con il totale della settimana, gli straordinari e la paga. Somma ore e minuti e converti in ore decimali (7:45 = 7,75).", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "7 ore e 30 minuti in decimali quanto fa?", "acceptedAnswer": {"@type": "Answer", "text": "7,5. I minuti si dividono per 60: 30 ÷ 60 = 0,5. Allo stesso modo 15 minuti sono 0,25 e 45 minuti 0,75."}}, {"@type": "Question", "name": "Come si calcolano le ore di un turno di notte?", "acceptedAnswer": {"@type": "Answer", "text": "Inserisci entrata e uscita così come sono: se l'uscita è prima dell'entrata (per esempio 22:00 e 6:00) il calcolatore conta il passaggio della mezzanotte."}}, {"@type": "Question", "name": "Posso calcolare la paga della settimana?", "acceptedAnswer": {"@type": "Answer", "text": "Sì: inserisci la paga oraria e il calcolatore la moltiplica per le ore decimali. È una stima lorda: tasse, contributi e maggiorazioni dipendono dal tuo contratto."}}, {"@type": "Question", "name": "Il calcolatore salva i miei orari?", "acceptedAnswer": {"@type": "Answer", "text": "No: i dati restano nella pagina e spariscono quando la chiudi. Puoi copiare il riepilogo con il pulsante."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/hours-worked-calculator/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-work">🎓 Scuola e lavoro</a></nav>
+<h1>Calcolo ore lavorate, somma ore e minuti</h1>
+<p class="lead">Tre strumenti in uno: il foglio ore della settimana (entrata, uscita e pausa → ore lavorate, straordinari e paga), la somma di ore e minuti, e la conversione tra ore e minuti e ore decimali.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Calcolo ore lavorate, somma ore e minuti">
+
+<div class="tabs" role="tablist">
+  <button type="button" class="on" data-tab="week">Ore lavorate</button>
+  <button type="button" data-tab="sum">Somma ore</button>
+  <button type="button" data-tab="dec">Ore decimali</button>
+</div>
+<div id="tab-week">
+  <div class="table-wrap"><table><thead><tr><th>Giorno</th><th>Entrata</th><th>Uscita</th><th>Pausa (min)</th><th>Ore</th></tr></thead><tbody id="wk"></tbody></table></div>
+  <div class="inline" style="margin-top:10px">
+    <button class="btn small" type="button" id="copymon">Copia il lunedì fino a venerdì</button>
+    <button class="btn small" type="button" id="wclear">Svuota</button>
+  </div>
+  <div class="row" style="margin-top:12px">
+    <div class="field"><label for="rate">Paga oraria (facoltativa)</label><input type="text" inputmode="decimal" id="rate" placeholder="es. 9,50"></div>
+    <div class="field"><label for="std">Ore settimanali da contratto</label><input type="number" id="std" min="0" max="80" step="0.5" value="40"></div>
+  </div>
+  <p class="msg warn hide" id="werr">In un giorno la pausa è più lunga del tempo tra entrata e uscita: controlla i valori segnati con ⚠.</p>
+  <div class="result">
+    <div class="big" id="wmain"></div>
+    <div class="sub" id="wsub"></div>
+    <div class="stats">
+      <div class="stat"><b id="wavg"></b><span>Media al giorno</span></div>
+      <div class="stat"><b id="wdec"></b><span>Ore decimali</span></div>
+      <div class="stat"><b id="wover"></b><span id="woverl"></span></div>
+      <div class="stat"><b id="wpay"></b><span>Paga lorda</span></div>
+    </div>
+    <p class="btns"><button class="btn small" type="button" data-copy="#wsum" data-done="Copiato!">Copia il riepilogo</button><input type="hidden" id="wsum"></p>
+  </div>
+</div>
+<div id="tab-sum" class="hide">
+  <div class="table-wrap"><table><thead><tr><th></th><th>Ore</th><th>Minuti</th><th></th></tr></thead><tbody id="srows"></tbody></table></div>
+  <div class="inline" style="margin-top:10px">
+    <button class="btn small" type="button" id="sadd">+ Aggiungi riga</button>
+    <button class="btn small" type="button" id="sreset">Azzera</button>
+  </div>
+  <div class="result">
+    <div class="big" id="smain"></div>
+    <div class="sub" id="ssub"></div>
+  </div>
+</div>
+<div id="tab-dec" class="hide">
+  <h3 style="font-size:1rem;margin-top:0">Da ore e minuti a ore decimali</h3>
+  <div class="row">
+    <div class="field"><label for="dh">Ore</label><input type="number" id="dh" min="0" step="1" value="7"></div>
+    <div class="field"><label for="dm">Minuti</label><input type="number" id="dm" min="0" step="1" value="45"></div>
+  </div>
+  <div class="result" style="margin-top:0"><div class="big" id="dres"></div><div class="sub" id="dsub"></div></div>
+  <h3 style="font-size:1rem">Da ore decimali a ore e minuti</h3>
+  <div class="row">
+    <div class="field"><label for="dd">Ore decimali (es. 7,3)</label><input type="text" inputmode="decimal" id="dd" value="7,3"></div>
+  </div>
+  <div class="result" style="margin-top:0"><div class="big" id="dres2"></div><div class="sub" id="dsub2"></div></div>
+</div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Come si calcolano le ore lavorate</h2>
+<p>Per ogni giorno si fa l'ora di uscita meno l'ora di entrata e si toglie la pausa. Dalle 8:30 alle 17:15 con 45 minuti di pausa: 17:15 − 8:30 = 8 h 45 min, meno 45 minuti = <strong>8 ore</strong>. Se esci dopo mezzanotte (turno di notte, per esempio dalle 22:00 alle 6:00) il calcolatore capisce da solo che l'uscita è il giorno dopo e conta 8 ore; la riga viene segnata con 🌙.</p>
+<p>Il totale della settimana si legge in ore e minuti (per esempio 38 h 30 min) e in ore decimali (38,50): sono queste ultime da moltiplicare per la paga oraria, 38,5 × 10 € = 385 €. Se inserisci le ore settimanali previste dal contratto (spesso 40, in molti contratti 36 o 38) vedi anche le ore in più: se e come vengano pagate come straordinario lo stabilisce il tuo contratto.</p>
+<h2>Ore e minuti in ore decimali (ore in centesimi)</h2>
+<p>Buste paga, fatture e fogli di calcolo usano spesso le ore decimali, dette anche «in centesimi»: 7 ore e 45 minuti non sono 7,45 ma <strong>7,75</strong>, perché 45 minuti sono tre quarti d'ora. Per convertire si dividono i minuti per 60 (45 ÷ 60 = 0,75); per tornare indietro si moltiplica la parte decimale per 60 (0,3 × 60 = 18 minuti, quindi 7,3 ore = 7 h 18 min).</p>
+<div class="table-wrap" style="max-width:320px"><table><tr><th>Minuti</th><th>Ore decimali</th></tr><tr><td>5</td><td>0,08</td></tr><tr><td>10</td><td>0,17</td></tr><tr><td>15</td><td>0,25</td></tr><tr><td>20</td><td>0,33</td></tr><tr><td>25</td><td>0,42</td></tr><tr><td>30</td><td>0,5</td></tr><tr><td>35</td><td>0,58</td></tr><tr><td>40</td><td>0,67</td></tr><tr><td>45</td><td>0,75</td></tr><tr><td>50</td><td>0,83</td></tr><tr><td>55</td><td>0,92</td></tr><tr><td>60</td><td>1</td></tr></table></div>
+<h2>Sommare e sottrarre ore e minuti</h2>
+<p>Quando si sommano degli orari i minuti si riportano ogni 60, non ogni 100: 2 h 40 min + 1 h 30 min = <strong>4 h 10 min</strong> (e non 3,70). La scheda «Somma ore» fa il riporto per te, accetta anche le sottrazioni (scegli «−» nella riga) e, se il totale supera le 24 ore, lo mostra anche in giorni: utile per sommare le ore di un mese, i tempi di un progetto o le ore di volo.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>7 ore e 30 minuti in decimali quanto fa?</summary><p>7,5. I minuti si dividono per 60: 30 ÷ 60 = 0,5. Allo stesso modo 15 minuti sono 0,25 e 45 minuti 0,75.</p></details><details><summary>Come si calcolano le ore di un turno di notte?</summary><p>Inserisci entrata e uscita così come sono: se l'uscita è prima dell'entrata (per esempio 22:00 e 6:00) il calcolatore conta il passaggio della mezzanotte.</p></details><details><summary>Posso calcolare la paga della settimana?</summary><p>Sì: inserisci la paga oraria e il calcolatore la moltiplica per le ore decimali. È una stima lorda: tasse, contributi e maggiorazioni dipendono dal tuo contratto.</p></details><details><summary>Il calcolatore salva i miei orari?</summary><p>No: i dati restano nella pagina e spariscono quando la chiudi. Puoi copiare il riepilogo con il pulsante.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/calcolo-media-ponderata-voto-di-laurea/" data-search="calcolo media ponderata e voto di laurea media ponderata degli esami con i cfu, base in 110esimi e voto di laurea media ponderata media universitaria voto di laurea media esami cfu 110 media aritmetica"><div class="ic">🎓</div><b>Calcolo media ponderata e voto di laurea</b><span>Media ponderata degli esami con i CFU, base in 110esimi e voto di laurea</span></a><a class="card" href="../../it/calcolo-tredicesima-colf-badante/" data-search="calcolo tredicesima colf e badante tredicesima di colf, badanti e baby sitter, a ore o mensili, anche per pochi mesi tredicesima colf tredicesima badante tredicesima colf a ore tredicesima baby sitter lavoro domestico calcolo tredicesima"><div class="ic">🎁</div><b>Calcolo tredicesima colf e badante</b><span>Tredicesima di colf, badanti e baby sitter, a ore o mensili, anche per pochi mesi</span></a><a class="card" href="../../it/calcolo-ferie-colf-badante/" data-search="calcolo ferie colf e badante ferie maturate in ore o giorni, residuo e valore da liquidare ferie colf ferie badante ferie colf a ore 26 giorni ferie maturate lavoro domestico calcolo ferie"><div class="ic">🌴</div><b>Calcolo ferie colf e badante</b><span>Ferie maturate in ore o giorni, residuo e valore da liquidare</span></a><a class="card" href="../../it/calcolo-tfr-colf-badante/" data-search="calcolo tfr colf e badante trattamento di fine rapporto di colf, badanti e baby sitter, anno per anno tfr colf tfr badante liquidazione colf trattamento di fine rapporto lavoro domestico calcolo tfr"><div class="ic">💼</div><b>Calcolo TFR colf e badante</b><span>Trattamento di fine rapporto di colf, badanti e baby sitter, anno per anno</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.2.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "tab_week": "Ore lavorate", "tab_sum": "Somma ore", "tab_dec": "Ore decimali", "days": ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"], "day_h": "Giorno", "in_l": "Entrata", "out_l": "Uscita", "brk_l": "Pausa (min)", "worked_h": "Ore", "copy_mon": "Copia il lunedì fino a venerdì", "clear": "Svuota", "rate_l": "Paga oraria (facoltativa)", "rate_ph": "es. 9,50", "std_l": "Ore settimanali da contratto", "week_sub": "= {d} ore decimali · {n} giorni lavorati", "avg_day": "Media al giorno", "dec_l": "Ore decimali", "over_l": "Ore oltre le {s} settimanali", "pay_l": "Paga lorda", "brk_err": "In un giorno la pausa è più lunga del tempo tra entrata e uscita: controlla i valori segnati con ⚠.", "copy_res": "Copia il riepilogo", "summary": "Totale settimana: {t} ({d} ore) · {n} giorni · media {a} al giorno", "sign_l": "Più o meno", "hours_l": "Ore", "minutes_l": "Minuti", "remove_l": "Togli", "add_row": "+ Aggiungi riga", "sum_sub": "= {d} ore decimali · {m} minuti", "as_day": "{g} giorno {h} h {m} min", "as_days": "{g} giorni {h} h {m} min", "to_dec_t": "Da ore e minuti a ore decimali", "from_dec_t": "Da ore decimali a ore e minuti", "dec_in": "Ore decimali (es. 7,3)", "dec_sub": "{hm} = {m} minuti", "dec_sub2": "{d} = {m} minuti", "hour_w": "ora", "hours_w": "ore"};</script>
+<script>
+(function(){
+
+var mode = 'week', wk = RT.$('#wk'), srows = RT.$('#srows');
+function toMin(v) { if (!v) return NaN; var p = String(v).split(':'); if (p.length < 2) return NaN; var h = +p[0], m = +p[1]; return (isFinite(h) && isFinite(m)) ? h * 60 + m : NaN; }
+function hm(mins) {
+  var neg = mins < 0, a = Math.round(Math.abs(mins)), h = Math.floor(a / 60), m = a % 60;
+  return (neg ? '−' : '') + RT.fmt(h, 0) + ' h ' + RT.pad(m) + ' min';
+}
+function hms(secs) {
+  var a = Math.round(Math.abs(secs)), h = Math.floor(a / 3600), m = Math.floor(a % 3600 / 60), s = a % 60;
+  return RT.fmt(h, 0) + ' h ' + RT.pad(m) + ' min' + (s ? ' ' + RT.pad(s) + ' s' : '');
+}
+function clock(mins) { var a = Math.round(mins); return Math.floor(a / 60) + ':' + RT.pad(a % 60); }
+function hoursWord(x) { return Math.abs(x) === 1 ? T.hour_w : T.hours_w; }
+// weekly timesheet rows
+T.days.forEach(function (d, i) {
+  var tr = document.createElement('tr'), on = i < 5;
+  tr.innerHTML = '<td><b></b></td>' +
+    '<td><input type="time" class="ti" style="min-width:96px"></td>' +
+    '<td><input type="time" class="to" style="min-width:96px"></td>' +
+    '<td><input type="number" class="tb" min="0" max="720" step="5" style="min-width:70px"></td>' +
+    '<td class="mono tr" style="white-space:nowrap"></td>';
+  tr.querySelector('b').textContent = d;
+  RT.$('.ti', tr).value = on ? '09:00' : ''; RT.$('.to', tr).value = on ? '18:00' : ''; RT.$('.tb', tr).value = on ? '60' : '';
+  RT.$('.ti', tr).setAttribute('aria-label', T.in_l + ' – ' + d); RT.$('.to', tr).setAttribute('aria-label', T.out_l + ' – ' + d); RT.$('.tb', tr).setAttribute('aria-label', T.brk_l + ' – ' + d);
+  wk.appendChild(tr);
+});
+function calcWeek() {
+  var tot = 0, days = 0, bad = false;
+  RT.$$('tr', wk).forEach(function (tr) {
+    var a = toMin(RT.$('.ti', tr).value), b = toMin(RT.$('.to', tr).value), br = RT.num(RT.$('.tb', tr).value), cell = RT.$('.tr', tr);
+    if (!isFinite(a) || !isFinite(b)) { cell.textContent = ''; return; }
+    var span = b - a, night = span < 0; if (night) span += 1440;
+    if (!isFinite(br) || br < 0) br = 0;
+    var w = span - br;
+    if (w < 0) { cell.textContent = '⚠'; bad = true; return; }
+    cell.textContent = clock(w) + (night ? ' 🌙' : '');
+    tot += w; if (w > 0) days++;
+  });
+  var dec = tot / 60;
+  RT.$('#wmain').textContent = hm(tot);
+  RT.$('#wsub').textContent = T.week_sub.replace('{d}', RT.fmtFixed(dec, 2)).replace('{n}', days);
+  RT.$('#wavg').textContent = days ? hm(tot / days) : '–';
+  RT.$('#wdec').textContent = RT.fmtFixed(dec, 2);
+  var std = RT.num(RT.$('#std').value), over = isFinite(std) && std > 0 ? Math.max(0, tot - std * 60) : 0;
+  RT.$('#wover').textContent = hm(over); RT.$('#woverl').textContent = T.over_l.replace('{s}', RT.fmt(isFinite(std) ? std : 0, 1));
+  var rate = RT.num(RT.$('#rate').value), pay = isFinite(rate) && rate > 0 ? rate * dec : NaN;
+  RT.$('#wpay').textContent = isFinite(pay) ? RT.money(pay) : '–';
+  RT.$('#werr').classList.toggle('hide', !bad);
+  RT.$('#wsum').value = T.summary.replace('{t}', hm(tot)).replace('{d}', RT.fmtFixed(dec, 2)).replace('{n}', days).replace('{a}', days ? hm(tot / days) : '–') + (isFinite(pay) ? ' · ' + T.pay_l + ' ' + RT.money(pay) : '');
+}
+function addSRow(sign, h, m) {
+  var tr = document.createElement('tr');
+  tr.innerHTML = '<td><select class="ss" style="width:auto"><option value="1">+</option><option value="-1">−</option></select></td>' +
+    '<td><input type="number" class="sh" min="0" step="1" style="min-width:70px"></td>' +
+    '<td><input type="number" class="sm" min="0" step="1" style="min-width:70px"></td>' +
+    '<td><button type="button" class="btn small rm">✕</button></td>';
+  RT.$('.ss', tr).value = sign === -1 ? '-1' : '1'; RT.$('.sh', tr).value = h === undefined ? '' : h; RT.$('.sm', tr).value = m === undefined ? '' : m;
+  RT.$('.ss', tr).setAttribute('aria-label', T.sign_l); RT.$('.sh', tr).setAttribute('aria-label', T.hours_l); RT.$('.sm', tr).setAttribute('aria-label', T.minutes_l); RT.$('.rm', tr).setAttribute('aria-label', T.remove_l);
+  srows.appendChild(tr);
+  RT.$$('input,select', tr).forEach(function (el) { el.addEventListener('input', calc); el.addEventListener('change', calc); });
+  RT.$('.rm', tr).addEventListener('click', function () { tr.remove(); calc(); });
+}
+function calcSum() {
+  var tot = 0;
+  RT.$$('tr', srows).forEach(function (tr) {
+    var h = RT.num(RT.$('.sh', tr).value), m = RT.num(RT.$('.sm', tr).value);
+    if (!isFinite(h) && !isFinite(m)) return;
+    tot += ((isFinite(h) ? h * 60 : 0) + (isFinite(m) ? m : 0)) * +RT.$('.ss', tr).value;
+  });
+  RT.$('#smain').textContent = hm(tot);
+  var sub = T.sum_sub.replace('{d}', RT.fmtFixed(tot / 60, 2)).replace('{m}', RT.fmt(tot, 0));
+  if (Math.abs(tot) >= 1440) { var a = Math.round(Math.abs(tot)), g = Math.floor(a / 1440), r = a % 1440; sub += ' · ' + (g === 1 ? T.as_day : T.as_days).replace('{g}', g).replace('{h}', Math.floor(r / 60)).replace('{m}', RT.pad(r % 60)); }
+  RT.$('#ssub').textContent = sub;
+}
+function calcDec() {
+  var h = RT.num(RT.$('#dh').value), m = RT.num(RT.$('#dm').value);
+  if (!isFinite(h) && !isFinite(m)) { RT.$('#dres').textContent = '–'; RT.$('#dsub').textContent = ''; }
+  else {
+    var mins = (isFinite(h) ? h * 60 : 0) + (isFinite(m) ? m : 0), d = mins / 60;
+    RT.$('#dres').textContent = RT.fmt(d, 4) + ' ' + hoursWord(d);
+    RT.$('#dsub').textContent = T.dec_sub.replace('{hm}', hm(mins)).replace('{m}', RT.fmt(mins, 2));
+  }
+  var x = RT.num(RT.$('#dd').value);
+  if (!isFinite(x)) { RT.$('#dres2').textContent = '–'; RT.$('#dsub2').textContent = ''; }
+  else { RT.$('#dres2').textContent = hms(x * 3600); RT.$('#dsub2').textContent = T.dec_sub2.replace('{d}', RT.fmt(x, 4) + ' ' + hoursWord(x)).replace('{m}', RT.fmt(x * 60, 2)); }
+}
+function calc() { if (mode === 'week') calcWeek(); else if (mode === 'sum') calcSum(); else calcDec(); }
+RT.$$('.tabs button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    RT.$$('.tabs button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    mode = b.getAttribute('data-tab');
+    ['week', 'sum', 'dec'].forEach(function (k) { RT.$('#tab-' + k).classList.toggle('hide', k !== mode); });
+    calc();
+  });
+});
+RT.$('#copymon').addEventListener('click', function () {
+  var rows = RT.$$('tr', wk), first = rows[0];
+  for (var i = 1; i < 5; i++) { ['.ti', '.to', '.tb'].forEach(function (c) { RT.$(c, rows[i]).value = RT.$(c, first).value; }); }
+  calc();
+});
+RT.$('#wclear').addEventListener('click', function () { RT.$$('input', wk).forEach(function (el) { el.value = ''; }); calc(); });
+RT.$('#sadd').addEventListener('click', function () { addSRow(1); RT.$('.sh', srows.lastChild).focus(); });
+RT.$('#sreset').addEventListener('click', function () { srows.innerHTML = ''; for (var i = 0; i < 4; i++) addSRow(1); calc(); });
+addSRow(1, 7, 30); addSRow(1, 8, 15); addSRow(1, 6, 45); addSRow(1);
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

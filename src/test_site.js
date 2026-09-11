@@ -149,6 +149,56 @@ async function makePng(page) { // returns a Buffer of a 1200x800 PNG generated i
   results.tfr = await text('#main') + ' | ' + await text('#quota') + ' | ' + await text('#years') + ' rows=' + (await page.$$('#rows tr')).length;
   await page.fill('#infl', '2'); await page.dispatchEvent('#infl', 'input'); results.tfrReval = await text('#main') + ' | ' + await text('#reval');
   await page.fill('#end', '2024-01-01'); await page.dispatchEvent('#end', 'input'); results.tfrErr = await page.$eval('#err', (e) => e.classList.contains('hide') ? 'hidden' : e.textContent);
+  // --- v1.2.0: working days, hours worked, proportions, running pace ---
+  const v12 = {};
+  await go('calcolo-giorni-lavorativi');
+  async function wd(a, b) { await page.fill('#d1', a); await page.fill('#d2', b); await page.dispatchEvent('#d2', 'input'); return await text('#main'); }
+  v12.sept = await wd('2026-09-01', '2026-09-30');
+  v12.y2026 = await wd('2026-01-01', '2026-12-31') + ' | hol=' + await text('#s3') + ' | rows=' + (await page.$$('#list tr')).length;
+  await page.selectOption('#patron', 'milano'); await page.dispatchEvent('#patron', 'change'); v12.milano = await text('#main');
+  await page.selectOption('#patron', ''); await page.selectOption('#week', '6'); await page.dispatchEvent('#week', 'change'); v12.sixDays = await text('#main');
+  await page.selectOption('#week', '5'); await page.dispatchEvent('#week', 'change');
+  v12.oct2027 = await wd('2027-10-01', '2027-10-08') + ' | ' + (await page.$$eval('#list tr', (trs) => trs.map((t) => t.children[1].textContent).join(',')));
+  await page.selectOption('#patron', 'custom'); await page.fill('#pdate', '2026-10-05'); await page.dispatchEvent('#pdate', 'input'); v12.custom = await wd('2026-10-01', '2026-10-09');
+  await page.selectOption('#patron', '');
+  await page.click('.tabs button[data-tab="add"]');
+  async function addw(s, n, back) { await page.fill('#start', s); await page.fill('#n', String(n)); if (back) await page.check('#back'); else await page.uncheck('#back'); await page.dispatchEvent('#n', 'input'); return await text('#main'); }
+  v12.add10 = await addw('2026-09-11', 10); v12.back10 = await addw('2026-09-11', 10, true); v12.xmas = await addw('2026-12-23', 3) + ' | skipped=' + await text('#s3');
+  results.workingDays = v12;
+  const h = {};
+  await go('calcolo-ore-lavorate'); h.def = await text('#wmain') + ' | ' + await text('#wsub') + ' | over=' + await text('#wover');
+  await page.fill('#wk tr:nth-child(1) .ti', '22:00'); await page.fill('#wk tr:nth-child(1) .to', '06:00'); await page.fill('#wk tr:nth-child(1) .tb', '0'); await page.dispatchEvent('#wk tr:nth-child(1) .tb', 'input');
+  h.night = await text('#wmain') + ' | mon=' + await text('#wk tr:nth-child(1) .tr');
+  await page.fill('#wk tr:nth-child(6) .ti', '08:00'); await page.fill('#wk tr:nth-child(6) .to', '12:30'); await page.dispatchEvent('#wk tr:nth-child(6) .to', 'input');
+  await page.fill('#rate', '10'); await page.dispatchEvent('#rate', 'input'); h.pay = await text('#wmain') + ' | ' + await text('#wpay') + ' | over=' + await text('#wover') + ' | avg=' + await text('#wavg');
+  await page.fill('#wk tr:nth-child(2) .tb', '600'); await page.dispatchEvent('#wk tr:nth-child(2) .tb', 'input'); h.brkErr = await page.$eval('#werr', (e) => !e.classList.contains('hide'));
+  await page.click('.tabs button[data-tab="sum"]'); h.sum = await text('#smain') + ' | ' + await text('#ssub');
+  await page.selectOption('#srows tr:nth-child(2) .ss', '-1'); await page.dispatchEvent('#srows tr:nth-child(2) .ss', 'change'); h.sumMinus = await text('#smain');
+  await page.fill('#srows tr:nth-child(4) .sh', '30'); await page.dispatchEvent('#srows tr:nth-child(4) .sh', 'input'); h.sumDays = await text('#smain') + ' | ' + await text('#ssub');
+  await page.click('.tabs button[data-tab="dec"]'); h.dec = await text('#dres') + ' | ' + await text('#dsub') + ' || ' + await text('#dres2') + ' | ' + await text('#dsub2');
+  await page.fill('#dh', '0'); await page.fill('#dm', '135'); await page.dispatchEvent('#dm', 'input'); h.dec135 = await text('#dres') + ' | ' + await text('#dsub');
+  results.hours = h;
+  const pr = {};
+  await go('calcolo-proporzioni'); pr.three = await text('#tres') + ' | ' + await text('#tsub');
+  await page.fill('#ta', '4'); await page.fill('#tb', '6'); await page.fill('#tc', '3'); await page.check('input[name="kind"][value="i"]'); await page.dispatchEvent('#tc', 'input'); pr.inv = await text('#tres') + ' | ' + await text('#tsub');
+  await page.click('.tabs button[data-tab="prop"]'); pr.prop = await text('#pres') + ' | ' + await text('#psub');
+  await page.fill('#pd', '15'); await page.dispatchEvent('#pd', 'input'); pr.check = await text('#pres');
+  await page.fill('#pd', '14'); await page.dispatchEvent('#pd', 'input'); pr.checkNo = await text('#pres') + ' | ' + await text('#psub');
+  await page.fill('#pa', ''); await page.dispatchEvent('#pa', 'input'); pr.findA = await text('#pres');
+  await page.fill('#pb', ''); await page.dispatchEvent('#pb', 'input'); pr.twoEmpty = await text('#psub');
+  await page.click('.tabs button[data-tab="recipe"]'); pr.recipe = await text('#rfac') + ' | ' + JSON.stringify(await page.inputValue('#rout'));
+  await page.selectOption('#by', 'pan'); await page.dispatchEvent('#by', 'change'); pr.pan = await text('#rfac') + ' | ' + await text('#rsub');
+  await page.selectOption('#s2', 'q'); await page.fill('#a2', '30'); await page.fill('#b2', '20'); await page.dispatchEvent('#b2', 'input'); pr.panRect = await text('#rfac') + ' | ' + await text('#rsub') + ' | b2visible=' + await page.$eval('#wb2', (e) => !e.classList.contains('hide'));
+  await page.selectOption('#by', 'factor'); await page.fill('#fx', '2'); await page.fill('#ing', '1 1/2 cucchiai di olio\n½ limone\n1.000 g di farina\n2,5 dl di panna\nsale q.b.'); await page.dispatchEvent('#ing', 'input'); pr.parse = JSON.stringify(await page.inputValue('#rout'));
+  results.proportion = pr;
+  const rp = {};
+  await go('calcolo-passo-corsa'); rp.def = await text('#pmain') + ' | ' + await text('#pkmh') + ' | ' + await text('#pmi') + ' | 400m=' + await text('#p400') + ' | riegel=' + (await page.$$eval('#riegel tr', (trs) => trs.map((t) => t.children[0].textContent + ' ' + t.children[1].textContent).join(', '))) + ' | splits=' + (await page.$$('#splits tr')).length;
+  await page.click('[data-d="21.0975"]'); await page.fill('#th', '1'); await page.fill('#tm', '45'); await page.dispatchEvent('#tm', 'input'); rp.half = await text('#pmain') + ' | ' + await text('#pkmh') + ' | splits=' + (await page.$$('#splits tr')).length;
+  await page.click('.tabs button[data-tab="time"]'); rp.time = await text('#tmain') + ' | ' + await text('#tsub') + ' | rows=' + (await page.$$('#ttable tr')).length;
+  await page.click('[data-d2="42.195"]'); await page.fill('#pm', '5'); await page.fill('#ps', '41'); await page.dispatchEvent('#ps', 'input'); rp.mar = await text('#tmain');
+  await page.selectOption('#pu', 'mi'); await page.fill('#pm', '8'); await page.fill('#ps', '0'); await page.dispatchEvent('#ps', 'input'); rp.mile = await text('#tmain') + ' | ' + await text('#tsub');
+  await page.click('.tabs button[data-tab="conv"]'); rp.conv = await text('#cres') + ' | ' + await text('#csub') + ' || ' + await text('#cres2') + ' | ' + await text('#csub2') + ' | tread=' + (await page.$$('#treadmill tr')).length;
+  results.running = rp;
   // home search
   await page.goto(base, { waitUntil: 'load' }); await page.fill('#tool-search', 'iva'); results.search = (await page.$$eval('.card', (cs) => cs.filter((c) => c.style.display !== 'none').map((c) => c.querySelector('b').textContent))).join(' | ');
   // root redirect
@@ -166,7 +216,7 @@ async function makePng(page) { // returns a Buffer of a 1200x800 PNG generated i
 
   // 4. screenshots
   fs.mkdirSync('/tmp/shots', { recursive: true });
-  const shots = [['it/', 'home-it-desktop', 1280, false], ['en/', 'home-en-mobile', 390, false], ['it/calcolo-rata-mutuo/', 'loan-it-mobile', 390, false], ['en/qr-code-generator/', 'qr-en-desktop', 1280, false], ['it/calcolo-eta/', 'age-it-dark', 390, true], ['it/ridimensiona-comprimi-immagini/', 'resize-it-desktop', 1280, false], ['it/quanti-giorni-mancano-a-natale/', 'natale-it-mobile', 390, false], ['it/calcolo-media-ponderata-voto-di-laurea/', 'media-it-desktop', 1280, false], ['it/numeri-in-lettere/', 'lettere-it-desktop', 1280, false], ['it/calcolo-tredicesima-colf-badante/', 'tredicesima-it-mobile', 390, false], ['en/days-until-easter/', 'easter-en-desktop', 1280, true], ['it/', 'home-it-v11', 1280, false]];
+  const shots = [['it/', 'home-it-desktop', 1280, false], ['en/', 'home-en-mobile', 390, false], ['it/calcolo-rata-mutuo/', 'loan-it-mobile', 390, false], ['en/qr-code-generator/', 'qr-en-desktop', 1280, false], ['it/calcolo-eta/', 'age-it-dark', 390, true], ['it/ridimensiona-comprimi-immagini/', 'resize-it-desktop', 1280, false], ['it/quanti-giorni-mancano-a-natale/', 'natale-it-mobile', 390, false], ['it/calcolo-media-ponderata-voto-di-laurea/', 'media-it-desktop', 1280, false], ['it/numeri-in-lettere/', 'lettere-it-desktop', 1280, false], ['it/calcolo-tredicesima-colf-badante/', 'tredicesima-it-mobile', 390, false], ['en/days-until-easter/', 'easter-en-desktop', 1280, true], ['it/', 'home-it-v11', 1280, false], ['it/calcolo-giorni-lavorativi/', 'v12-giorni-lavorativi-it-desktop', 1280, false], ['it/calcolo-ore-lavorate/', 'v12-ore-lavorate-it-desktop', 1280, false], ['it/calcolo-proporzioni/', 'v12-proporzioni-it-mobile', 390, false], ['it/calcolo-passo-corsa/', 'v12-passo-corsa-it-mobile', 390, false], ['en/working-days-calculator-italy/', 'v12-working-days-en-dark', 390, true]];
   for (const [p, name, w, dark] of shots) {
     const c2 = await browser.newContext({ viewport: { width: w, height: w > 600 ? 900 : 844 }, colorScheme: dark ? 'dark' : 'light', locale: 'it-IT', deviceScaleFactor: 1 });
     const pg = await c2.newPage(); await pg.goto(`http://localhost:${PORT}/${p}`, { waitUntil: 'load' });

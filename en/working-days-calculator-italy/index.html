@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Working days calculator with Italian public holidays – Rapido Tools</title>
+<meta name="description" content="Count the working days between two dates excluding weekends, Italian public holidays (including 4 October from 2026) and the local patron saint&#x27;s day. Find the date N working days ahead. Tables for 2026 and 2027.">
+
+<link rel="canonical" href="https://rapidotools.com/en/working-days-calculator-italy/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-giorni-lavorativi/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/working-days-calculator-italy/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/working-days-calculator-italy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Working days calculator with Italian public holidays – Rapido Tools">
+<meta property="og:description" content="Count the working days between two dates excluding weekends, Italian public holidays (including 4 October from 2026) and the local patron saint&#x27;s day. Find the date N working days ahead. Tables for 2026 and 2027.">
+<meta property="og:url" content="https://rapidotools.com/en/working-days-calculator-italy/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.2.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Working days calculator with Italian public holidays", "url": "https://rapidotools.com/en/working-days-calculator-italy/", "description": "Count the working days between two dates excluding weekends, Italian public holidays (including 4 October from 2026) and the local patron saint's day. Find the date N working days ahead. Tables for 2026 and 2027.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is 4 October a public holiday in Italy?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: from 2026, 4 October (St Francis of Assisi) is a national holiday again (Law no. 151 of 2025). In 2026 it falls on a Sunday; in 2027 it falls on a Monday, the first year it removes a working day."}}, {"@type": "Question", "name": "Is Saturday a working day?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your schedule: for most offices it isn't. If you also work on Saturdays, choose \"Monday–Saturday\" and only Sundays and holidays will be removed."}}, {"@type": "Question", "name": "Are the start and end dates included?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, when counting between two dates both are included. In the \"Add working days\" tab the starting date is not counted."}}, {"@type": "Question", "name": "When is Easter Monday?", "acceptedAnswer": {"@type": "Answer", "text": "Easter Monday (Pasquetta) is the day after Easter and moves every year: in 2026 it is 6 April, in 2027 29 March. The calculator works it out for any year."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/calcolo-giorni-lavorativi/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-date">📅 Dates &amp; time</a></nav>
+<h1>Working days calculator with Italian public holidays</h1>
+<p class="lead">Pick two dates to count the working days without weekends and Italian public holidays, see which holidays fall in the period and how many working hours there are. The second tab finds the date a given number of working days ahead.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Working days calculator with Italian public holidays">
+
+<div class="tabs" role="tablist">
+  <button type="button" class="on" data-tab="range">Between two dates</button>
+  <button type="button" data-tab="add">Add working days</button>
+</div>
+<div id="tab-range">
+  <div class="row">
+    <div class="field"><label for="d1">Start date</label><input type="date" id="d1"></div>
+    <div class="field"><label for="d2">End date</label><input type="date" id="d2"></div>
+    <div class="field"><label for="hpd">Working hours per day</label><input type="number" id="hpd" min="0" max="24" step="0.5" value="8"></div>
+  </div>
+  <div class="inline"><button class="btn small" type="button" id="today">Today</button></div>
+</div>
+<div id="tab-add" class="hide">
+  <div class="row">
+    <div class="field"><label for="start">Starting date</label><input type="date" id="start"></div>
+    <div class="field"><label for="n">Working days to add</label><input type="number" id="n" min="1" max="5000" step="1" value="10"></div>
+  </div>
+  <label class="check"><input type="checkbox" id="back"> Count backwards (before the date)</label>
+</div>
+<div class="row" style="margin-top:12px">
+  <div class="field"><label for="week">Working week</label><select id="week"><option value="5">Monday–Friday</option><option value="6">Monday–Saturday</option></select></div>
+  <div class="field"><label for="patron">Patron saint's day (optional)</label><select id="patron"><option value="">None</option></select></div>
+  <div class="field hide" id="pwrap"><label for="pdate">Patron saint's day (repeats every year)</label><input type="date" id="pdate"></div>
+</div>
+<p class="msg bad hide" id="err"></p>
+<div class="result hide" id="out">
+  <div class="big" id="main"></div>
+  <div class="sub" id="sub"></div>
+  <div class="stats">
+    <div class="stat"><b id="s1"></b><span id="l1"></span></div>
+    <div class="stat"><b id="s2"></b><span id="l2"></span></div>
+    <div class="stat"><b id="s3"></b><span id="l3"></span></div>
+    <div class="stat"><b id="s4"></b><span id="l4"></span></div>
+  </div>
+  <h3 style="font-size:1rem;margin-top:16px">Holidays in the period</h3>
+  <div class="table-wrap" id="listwrap"><table><thead><tr><th>Date</th><th>Holiday</th><th>Effect</th></tr></thead><tbody id="list"></tbody></table></div>
+  <p class="msg hide" id="nolist">No public holidays in the period.</p>
+</div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>How working days are counted</h2>
+<p>The calculator counts every day from the start date to the end date, <strong>both included</strong>, then removes Saturdays and Sundays (only Sundays if you work Monday to Saturday) and the public holidays that fall on a weekday. A holiday that falls on a Sunday removes nothing, because that day was not a working day anyway.</p>
+<p><em>Example:</em> from 1 to 30 September 2026 there are 30 days, 8 of them Saturdays and Sundays and no holidays: that makes <strong>22</strong> working days, or 176 working hours at 8 hours a day.</p>
+<h2>Public holidays in Italy</h2>
+<p>Nationwide holidays in Italy are 1 January (New Year's Day), 6 January (Epiphany), Easter Sunday and Easter Monday (Pasquetta), 25 April (Liberation Day), 1 May (Labour Day), 2 June (Republic Day), 15 August (Ferragosto), 1 November (All Saints' Day), 8 December (Immaculate Conception), 25 and 26 December (Christmas and St Stephen's Day). <strong>From 2026, 4 October is a public holiday again</strong>: St Francis of Assisi, patron saint of Italy (Law no. 151 of 8 October 2025). In 2026 it falls on a Sunday; from 2027 it gives an extra day off. Easter Monday moves every year with Easter, which the calculator works out with the Gregorian calendar algorithm.</p>
+<p>Italian public holidays in 2026 and 2027 with the day of the week (✱ = falls on a Saturday or Sunday):</p>
+<div class="table-wrap"><table><tr><th>Holiday</th><th>2026</th><th>2027</th></tr><tr><td>New Year's Day</td><td>Thursday 1 January</td><td>Friday 1 January</td></tr><tr><td>Epiphany</td><td>Tuesday 6 January</td><td>Wednesday 6 January</td></tr><tr><td>Easter Sunday</td><td>Sunday 5 April ✱</td><td>Sunday 28 March ✱</td></tr><tr><td>Easter Monday (Pasquetta)</td><td>Monday 6 April</td><td>Monday 29 March</td></tr><tr><td>Liberation Day</td><td>Saturday 25 April ✱</td><td>Sunday 25 April ✱</td></tr><tr><td>Labour Day</td><td>Friday 1 May</td><td>Saturday 1 May ✱</td></tr><tr><td>Republic Day</td><td>Tuesday 2 June</td><td>Wednesday 2 June</td></tr><tr><td>Assumption Day (Ferragosto)</td><td>Saturday 15 August ✱</td><td>Sunday 15 August ✱</td></tr><tr><td>St Francis of Assisi</td><td>Sunday 4 October ✱</td><td>Monday 4 October</td></tr><tr><td>All Saints' Day</td><td>Sunday 1 November ✱</td><td>Monday 1 November</td></tr><tr><td>Immaculate Conception</td><td>Tuesday 8 December</td><td>Wednesday 8 December</td></tr><tr><td>Christmas Day</td><td>Friday 25 December</td><td>Saturday 25 December ✱</td></tr><tr><td>St Stephen's Day</td><td>Saturday 26 December ✱</td><td>Sunday 26 December ✱</td></tr></table></div>
+<h2>Working days month by month</h2>
+<p>Working days in each month with a Monday-to-Friday week and national holidays (no patron saint). Italy has <strong>254</strong> working days in 2026 and <strong>254</strong> in 2027.</p>
+<div class="table-wrap"><table><tr><th>Month</th><th>2026</th><th>2027</th></tr><tr><td>January</td><td>20</td><td>19</td></tr><tr><td>February</td><td>20</td><td>20</td></tr><tr><td>March</td><td>22</td><td>22</td></tr><tr><td>April</td><td>21</td><td>22</td></tr><tr><td>May</td><td>20</td><td>21</td></tr><tr><td>June</td><td>21</td><td>21</td></tr><tr><td>July</td><td>23</td><td>22</td></tr><tr><td>August</td><td>21</td><td>22</td></tr><tr><td>September</td><td>22</td><td>22</td></tr><tr><td>October</td><td>22</td><td>20</td></tr><tr><td>November</td><td>21</td><td>21</td></tr><tr><td>December</td><td>21</td><td>22</td></tr><tr><td><strong>Total</strong></td><td><strong>254</strong></td><td><strong>254</strong></td></tr></table></div>
+<h2>The patron saint's day</h2>
+<p>Every Italian town also celebrates its patron saint, a day off under many employment contracts: for example 29 June in Rome, 7 December in Milan, 19 September in Naples, 24 June in Turin, Florence and Genoa. Pick your city from the menu, or choose "Other date…" and enter your town's patron saint's day: it is removed every year when it falls on a working day.</p>
+<h2>Deadlines in working days</h2>
+<p>The "Add working days" tab finds the date that falls N working days after (or before) a given date. The starting date itself is not counted: counting starts from the next working day. This is how delivery times or notice periods expressed "in working days" are usually worked out. For legal or tax deadlines always check the specific rules: many are counted in calendar days.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>Is 4 October a public holiday in Italy?</summary><p>Yes: from 2026, 4 October (St Francis of Assisi) is a national holiday again (Law no. 151 of 2025). In 2026 it falls on a Sunday; in 2027 it falls on a Monday, the first year it removes a working day.</p></details><details><summary>Is Saturday a working day?</summary><p>It depends on your schedule: for most offices it isn't. If you also work on Saturdays, choose "Monday–Saturday" and only Sundays and holidays will be removed.</p></details><details><summary>Are the start and end dates included?</summary><p>Yes, when counting between two dates both are included. In the "Add working days" tab the starting date is not counted.</p></details><details><summary>When is Easter Monday?</summary><p>Easter Monday (Pasquetta) is the day after Easter and moves every year: in 2026 it is 6 April, in 2027 29 March. The calculator works it out for any year.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/age-calculator/" data-search="age calculator exact years, months and days from a date of birth how old am i birthday date of birth"><div class="ic">🎂</div><b>Age calculator</b><span>Exact years, months and days from a date of birth</span></a><a class="card" href="../../en/days-between-dates/" data-search="days between two dates days, weeks and working days between two dates date difference day counter how many days until business days"><div class="ic">📆</div><b>Days between two dates</b><span>Days, weeks and working days between two dates</span></a><a class="card" href="../../en/add-days-to-date/" data-search="add or subtract days from a date what date is 30, 60 or 90 days from now? weeks, months and working days too 30 days from today 60 days from today 90 days from today date calculator deadline"><div class="ic">➕</div><b>Add or subtract days from a date</b><span>What date is 30, 60 or 90 days from now? Weeks, months and working days too</span></a><a class="card" href="../../en/days-until/" data-search="how many days until a date? countdown to any date: days, weeks, hours and seconds countdown days until how long until days left days since christmas new year epiphany valentine carnival easter summer ferragosto halloween school birthday"><div class="ic">⏳</div><b>How many days until a date?</b><span>Countdown to any date: days, weeks, hours and seconds</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.2.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "tab_range": "Between two dates", "tab_add": "Add working days", "from": "Start date", "to": "End date", "today": "Today", "start": "Starting date", "ndays": "Working days to add", "back": "Count backwards (before the date)", "week": "Working week", "week5": "Monday–Friday", "week6": "Monday–Saturday", "patron": "Patron saint's day (optional)", "patron_none": "None", "patron_custom": "Other date…", "pdate": "Patron saint's day (repeats every year)", "hpd_l": "Working hours per day", "wday": "working day", "wdays": "working days", "range_sub": "From {a} to {b}, both included", "add_sub": "{n} after {d} (the starting date is not counted)", "add_sub_back": "{n} before {d} (the starting date is not counted)", "total": "Calendar days", "cal_days": "Calendar days elapsed", "weekends5": "Saturdays and Sundays", "weekends6": "Sundays", "hol_lost": "Holidays on working days", "hol_skipped": "Holidays skipped", "hours": "Working hours ({h} a day)", "short_date": "Date in figures", "list_t": "Holidays in the period", "col_date": "Date", "col_name": "Holiday", "col_state": "Effect", "lost": "one working day less", "on_weekend": "falls on the weekend", "none": "No public holidays in the period.", "too_long": "The period is too long: choose at most 100 years.", "bad_n": "Enter a number of days between 1 and 5000.", "h_newyear": "New Year's Day", "h_epiphany": "Epiphany", "h_easter": "Easter Sunday", "h_eastermon": "Easter Monday (Pasquetta)", "h_liberation": "Liberation Day", "h_labour": "Labour Day", "h_republic": "Republic Day", "h_assumption": "Assumption Day (Ferragosto)", "h_francis": "St Francis of Assisi", "h_allsaints": "All Saints' Day", "h_immaculate": "Immaculate Conception", "h_christmas": "Christmas Day", "h_stephen": "St Stephen's Day", "h_patron": "Patron saint's day", "h_patron_of": "Patron saint's day: {c} ({s})"};</script>
+<script>
+(function(){
+
+var CITIES = [["ancona", "Ancona", "Ancona", 5, 4, "San Ciriaco"], ["bari", "Bari", "Bari", 12, 6, "San Nicola"], ["bergamo", "Bergamo", "Bergamo", 8, 26, "Sant'Alessandro"], ["bologna", "Bologna", "Bologna", 10, 4, "San Petronio"], ["brescia", "Brescia", "Brescia", 2, 15, "Santi Faustino e Giovita"], ["cagliari", "Cagliari", "Cagliari", 10, 30, "San Saturnino"], ["catania", "Catania", "Catania", 2, 5, "Sant'Agata"], ["firenze", "Firenze", "Florence", 6, 24, "San Giovanni Battista"], ["genova", "Genova", "Genoa", 6, 24, "San Giovanni Battista"], ["lecce", "Lecce", "Lecce", 8, 26, "Sant'Oronzo"], ["messina", "Messina", "Messina", 6, 3, "Madonna della Lettera"], ["milano", "Milano", "Milan", 12, 7, "Sant'Ambrogio"], ["modena", "Modena", "Modena", 1, 31, "San Geminiano"], ["napoli", "Napoli", "Naples", 9, 19, "San Gennaro"], ["padova", "Padova", "Padua", 6, 13, "Sant'Antonio"], ["palermo", "Palermo", "Palermo", 7, 15, "Santa Rosalia"], ["parma", "Parma", "Parma", 1, 13, "Sant'Ilario"], ["pescara", "Pescara", "Pescara", 10, 10, "San Cetteo"], ["pisa", "Pisa", "Pisa", 6, 17, "San Ranieri"], ["reggio-calabria", "Reggio Calabria", "Reggio Calabria", 4, 23, "San Giorgio"], ["roma", "Roma", "Rome", 6, 29, "Santi Pietro e Paolo"], ["salerno", "Salerno", "Salerno", 9, 21, "San Matteo"], ["taranto", "Taranto", "Taranto", 5, 10, "San Cataldo"], ["torino", "Torino", "Turin", 6, 24, "San Giovanni Battista"], ["trento", "Trento", "Trento", 6, 26, "San Vigilio"], ["trieste", "Trieste", "Trieste", 11, 3, "San Giusto"], ["udine", "Udine", "Udine", 7, 12, "Santi Ermacora e Fortunato"], ["venezia", "Venezia", "Venice", 4, 25, "San Marco"], ["verona", "Verona", "Verona", 5, 21, "San Zeno"]];
+var CITY = {}; CITIES.forEach(function (c) { CITY[c[0]] = c; });
+var mode = 'range', out = RT.$('#out'), err = RT.$('#err');
+var d1 = RT.$('#d1'), d2 = RT.$('#d2'), start = RT.$('#start'), nIn = RT.$('#n'), back = RT.$('#back');
+var week = RT.$('#week'), psel = RT.$('#patron'), pdate = RT.$('#pdate'), pwrap = RT.$('#pwrap'), hpd = RT.$('#hpd');
+// fill the patron menu (alphabetical in the page language)
+(function () {
+  var it = RT.lang === 'it', list = CITIES.slice().sort(function (a, b) { return (it ? a[1] : a[2]).localeCompare(it ? b[1] : b[2]); });
+  list.forEach(function (c) {
+    var o = document.createElement('option'); o.value = c[0];
+    var day = RT.date(new Date(2000, c[3] - 1, c[4]), { day: 'numeric', month: 'long' });
+    o.textContent = it ? c[1] + ' – ' + c[5] + ' (' + day + ')' : c[2] + ' (' + day + ')';
+    psel.appendChild(o);
+  });
+  var o = document.createElement('option'); o.value = 'custom'; o.textContent = T.patron_custom; psel.appendChild(o);
+})();
+function easter(y) { // Gregorian computus (Meeus/Jones/Butcher)
+  var a = y % 19, b = Math.floor(y / 100), c = y % 100, d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25),
+      g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30, i = Math.floor(c / 4), k = c % 4,
+      l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451),
+      mo = Math.floor((h + l - 7 * m + 114) / 31), da = ((h + l - 7 * m + 114) % 31) + 1;
+  return new Date(y, mo - 1, da);
+}
+var HC = {};
+function holidays(y) {
+  if (HC[y]) return HC[y];
+  var h = {};
+  function add(m, d, name) { h[m + '-' + d] = name; }
+  add(1, 1, T.h_newyear); add(1, 6, T.h_epiphany);
+  var e = easter(y), em = new Date(y, e.getMonth(), e.getDate() + 1);
+  add(e.getMonth() + 1, e.getDate(), T.h_easter); add(em.getMonth() + 1, em.getDate(), T.h_eastermon);
+  add(4, 25, T.h_liberation); add(5, 1, T.h_labour); add(6, 2, T.h_republic); add(8, 15, T.h_assumption);
+  if (y >= 2026) add(10, 4, T.h_francis);
+  add(11, 1, T.h_allsaints); add(12, 8, T.h_immaculate); add(12, 25, T.h_christmas); add(12, 26, T.h_stephen);
+  return (HC[y] = h);
+}
+function patron() {
+  var v = psel.value;
+  pwrap.classList.toggle('hide', v !== 'custom');
+  if (!v) return null;
+  if (v === 'custom') { var p = RT.parseDate(pdate.value); return p ? { m: p.getMonth() + 1, d: p.getDate(), name: T.h_patron } : null; }
+  var c = CITY[v]; return { m: c[3], d: c[4], name: T.h_patron_of.replace('{s}', c[5]).replace('{c}', RT.lang === 'it' ? c[1] : c[2]) };
+}
+function info(d, P) {
+  var wd = d.getDay(), m = d.getMonth() + 1, day = d.getDate();
+  var name = holidays(d.getFullYear())[m + '-' + day] || null;
+  if (P && P.m === m && P.d === day) name = name ? name + ' + ' + P.name : P.name;
+  var weekend = wd === 0 || (wd === 6 && week.value === '5');
+  return { hol: name, weekend: weekend, work: !weekend && !name };
+}
+function pl(n, one, many) { return RT.fmt(n, 0) + ' ' + (n === 1 ? one : many); }
+function full(d) { return RT.weekday(d) + ' ' + RT.date(d); }
+function table(rows) {
+  var body = RT.$('#list'); body.innerHTML = '';
+  rows.forEach(function (r) {
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td></td><td></td><td></td>';
+    tr.children[0].textContent = full(r[0]); tr.children[1].textContent = r[1];
+    tr.children[2].textContent = r[2] ? T.on_weekend : T.lost; tr.children[2].className = r[2] ? 'msg' : 'msg warn';
+    body.appendChild(tr);
+  });
+  RT.$('#listwrap').classList.toggle('hide', !rows.length);
+  RT.$('#nolist').classList.toggle('hide', rows.length > 0);
+}
+function fail(msg) { out.classList.add('hide'); err.textContent = msg || ''; err.classList.toggle('hide', !msg); }
+function calcRange() {
+  var a = RT.parseDate(d1.value), b = RT.parseDate(d2.value);
+  if (!a || !b) return fail('');
+  if (b < a) { var t = a; a = b; b = t; }
+  var total = RT.daysBetween(a, b) + 1;
+  if (total > 36600) return fail(T.too_long);
+  var P = patron(), work = 0, wend = 0, hol = 0, rows = [], cur = new Date(a.getFullYear(), a.getMonth(), a.getDate());
+  for (var i = 0; i < total; i++) {
+    var r = info(cur, P);
+    if (r.work) work++; else if (r.weekend) wend++; else hol++;
+    if (r.hol && rows.length < 80) rows.push([new Date(cur), r.hol, r.weekend]);
+    cur.setDate(cur.getDate() + 1);
+  }
+  fail('');
+  RT.$('#main').textContent = pl(work, T.wday, T.wdays);
+  RT.$('#sub').textContent = T.range_sub.replace('{a}', full(a)).replace('{b}', full(b));
+  RT.$('#s1').textContent = RT.fmt(total, 0); RT.$('#l1').textContent = T.total;
+  RT.$('#s2').textContent = RT.fmt(wend, 0); RT.$('#l2').textContent = week.value === '5' ? T.weekends5 : T.weekends6;
+  RT.$('#s3').textContent = RT.fmt(hol, 0); RT.$('#l3').textContent = T.hol_lost;
+  var h = RT.num(hpd.value); if (!isFinite(h) || h < 0) h = 0;
+  RT.$('#s4').textContent = RT.fmt(work * h, 2); RT.$('#l4').textContent = T.hours.replace('{h}', RT.fmt(h, 2));
+  table(rows); out.classList.remove('hide');
+}
+function calcAdd() {
+  var s = RT.parseDate(start.value), n = RT.num(nIn.value);
+  if (!s || !isFinite(n)) return fail('');
+  n = Math.round(n);
+  if (n < 1 || n > 5000) return fail(T.bad_n);
+  var P = patron(), cur = new Date(s.getFullYear(), s.getMonth(), s.getDate()), step = back.checked ? -1 : 1, count = 0, wend = 0, hol = 0, rows = [];
+  while (count < n) {
+    cur.setDate(cur.getDate() + step);
+    var r = info(cur, P);
+    if (r.work) count++; else if (r.weekend) wend++; else hol++;
+    if (r.hol && !r.work && rows.length < 80) rows.push([new Date(cur), r.hol, r.weekend]);
+  }
+  fail('');
+  RT.$('#main').textContent = full(cur);
+  RT.$('#sub').textContent = (back.checked ? T.add_sub_back : T.add_sub).replace('{n}', pl(n, T.wday, T.wdays)).replace('{d}', full(s));
+  RT.$('#s1').textContent = RT.fmt(Math.abs(RT.daysBetween(s, cur)), 0); RT.$('#l1').textContent = T.cal_days;
+  RT.$('#s2').textContent = RT.fmt(wend, 0); RT.$('#l2').textContent = week.value === '5' ? T.weekends5 : T.weekends6;
+  RT.$('#s3').textContent = RT.fmt(hol, 0); RT.$('#l3').textContent = T.hol_skipped;
+  RT.$('#s4').textContent = RT.date(cur, { day: '2-digit', month: '2-digit', year: 'numeric' }); RT.$('#l4').textContent = T.short_date;
+  table(rows); out.classList.remove('hide');
+}
+function calc() { if (mode === 'range') calcRange(); else calcAdd(); }
+RT.$$('.tabs button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    RT.$$('.tabs button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    mode = b.getAttribute('data-tab');
+    RT.$('#tab-range').classList.toggle('hide', mode !== 'range'); RT.$('#tab-add').classList.toggle('hide', mode !== 'add');
+    calc();
+  });
+});
+d1.value = RT.isoToday();
+var t0 = new Date(); var end = new Date(t0.getFullYear(), t0.getMonth() + 1, 0);
+if (RT.daysBetween(t0, end) < 7) end = new Date(t0.getFullYear(), t0.getMonth() + 2, 0);
+d2.value = end.getFullYear() + '-' + RT.pad(end.getMonth() + 1) + '-' + RT.pad(end.getDate());
+start.value = RT.isoToday();
+RT.$('#today').addEventListener('click', function () { d1.value = RT.isoToday(); calc(); });
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

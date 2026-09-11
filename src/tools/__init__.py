@@ -3,15 +3,15 @@ import importlib
 
 ORDER = [
     # date
-    "age", "days_between", "add_days", "countdown", "timer",
+    "age", "days_between", "working_days", "add_days", "countdown", "timer",
     # text
     "word_counter", "case_converter", "password", "lines",
     # numbers
-    "percentage", "discount", "number_words", "roman", "units", "random",
+    "percentage", "proportion", "discount", "number_words", "roman", "units", "random",
     # school & work
-    "weighted_average", "colf_tredicesima", "colf_ferie", "colf_tfr",
+    "hours_calc", "weighted_average", "colf_tredicesima", "colf_ferie", "colf_tfr",
     # health
-    "bmi", "calories",
+    "bmi", "calories", "running_pace",
     # money
     "loan", "vat", "split_bill",
     # images

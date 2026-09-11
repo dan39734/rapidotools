@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proportion calculator and recipe scaler – Rapido Tools</title>
+<meta name="description" content="Solve a proportion (a : b = c : x) and the rule of three, direct or inverse, with the working shown. Scale a recipe for more or fewer people or for a bigger or smaller round or rectangular pan.">
+
+<link rel="canonical" href="https://rapidotools.com/en/proportion-calculator/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-proporzioni/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/proportion-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/proportion-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Proportion calculator and recipe scaler – Rapido Tools">
+<meta property="og:description" content="Solve a proportion (a : b = c : x) and the rule of three, direct or inverse, with the working shown. Scale a recipe for more or fewer people or for a bigger or smaller round or rectangular pan.">
+<meta property="og:url" content="https://rapidotools.com/en/proportion-calculator/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.2.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Proportion calculator and recipe scaler", "url": "https://rapidotools.com/en/proportion-calculator/", "description": "Solve a proportion (a : b = c : x) and the rule of three, direct or inverse, with the working shown. Scale a recipe for more or fewer people or for a bigger or smaller round or rectangular pan.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I solve a proportion with x?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply the two numbers diagonally across and divide by the third: in 2 : 5 = 6 : x, x = 5 × 6 ÷ 2 = 15."}}, {"@type": "Question", "name": "How do quantities change from a 24 cm to a 26 cm pan?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply them by (26 ÷ 24)², about 1.17: 200 g of flour becomes about 235 g."}}, {"@type": "Question", "name": "Can I type fractions like 1/2 or ½?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: at the start of each line the calculator reads whole and decimal numbers (2.5), fractions (1/2, 1 1/2) and the symbols ½, ¼, ¾. Lines without a number, like \"salt to taste\", stay as they are."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../en/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../en/">All tools</a><a class="lang" href="../../it/calcolo-proporzioni/" data-setlang="it" hreflang="it" lang="it">Italiano</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../en/">Home</a> › <a href="../../en/#cat-numbers">🔢 Numbers &amp; conversions</a></nav>
+<h1>Proportion calculator and recipe scaler</h1>
+<p class="lead">Three tools: the rule of three (direct or inverse), a proportion with the unknown in any box, and a recipe scaler for a different number of people or a different pan.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Proportion calculator and recipe scaler">
+
+<div class="tabs" role="tablist">
+  <button type="button" class="on" data-tab="three">Rule of three</button>
+  <button type="button" data-tab="prop">a : b = c : d</button>
+  <button type="button" data-tab="recipe">Recipe scaler</button>
+</div>
+<div id="tab-three">
+  <div class="inline"><span>If</span><input type="text" inputmode="decimal" id="ta" value="3" style="width:100px" aria-label="A"><span>goes with</span><input type="text" inputmode="decimal" id="tb" value="12" style="width:100px" aria-label="B"><span>then</span><input type="text" inputmode="decimal" id="tc" value="5" style="width:100px" aria-label="C"><span>goes with x</span></div>
+  <div style="margin-top:10px">
+    <label class="check"><input type="radio" name="kind" value="d" checked> Direct (when one grows, so does the other)</label>
+    <label class="check"><input type="radio" name="kind" value="i"> Inverse (when one grows, the other shrinks)</label>
+  </div>
+  <div class="result"><div class="big" id="tres"></div><div class="sub" id="tsub"></div></div>
+</div>
+<div id="tab-prop" class="hide">
+  <div class="inline" style="font-size:1.3rem;font-weight:700">
+    <input type="text" inputmode="decimal" id="pa" value="2" style="width:90px" aria-label="a"><span>:</span>
+    <input type="text" inputmode="decimal" id="pb" value="5" style="width:90px" aria-label="b"><span>=</span>
+    <input type="text" inputmode="decimal" id="pc" value="6" style="width:90px" aria-label="c"><span>:</span>
+    <input type="text" inputmode="decimal" id="pd" value="" style="width:90px" aria-label="d" placeholder="x">
+  </div>
+  <p class="msg">Leave the box you want to find empty. If you fill them all, I check whether the proportion holds.</p>
+  <div class="result"><div class="big" id="pres"></div><div class="sub" id="psub"></div></div>
+</div>
+<div id="tab-recipe" class="hide">
+  <div class="field"><label for="by">Scale the recipe by</label><select id="by"><option value="people">Number of people</option><option value="pan">Pan size</option><option value="factor">A multiplier</option></select></div>
+  <div class="row" id="w-people">
+    <div class="field"><label for="p1">People in the recipe</label><input type="number" id="p1" min="1" step="1" value="4"></div>
+    <div class="field"><label for="p2">People you want to serve</label><input type="number" id="p2" min="1" step="1" value="6"></div>
+  </div>
+  <div id="w-pan" class="hide">
+    <div class="row">
+      <div class="field"><label for="s1">Pan in the recipe</label><select id="s1"><option value="r">Round</option><option value="q">Rectangular or square</option></select></div>
+      <div class="field"><label for="a1" id="la1">Diameter (cm)</label><input type="text" inputmode="decimal" id="a1" value="24"></div>
+      <div class="field hide" id="wb1"><label for="b1">Short side (cm)</label><input type="text" inputmode="decimal" id="b1" value="20"></div>
+    </div>
+    <div class="row">
+      <div class="field"><label for="s2">Your pan</label><select id="s2"><option value="r">Round</option><option value="q">Rectangular or square</option></select></div>
+      <div class="field"><label for="a2" id="la2">Diameter (cm)</label><input type="text" inputmode="decimal" id="a2" value="28"></div>
+      <div class="field hide" id="wb2"><label for="b2">Short side (cm)</label><input type="text" inputmode="decimal" id="b2" value="20"></div>
+    </div>
+  </div>
+  <div class="row hide" id="w-factor"><div class="field"><label for="fx">Multiply by</label><input type="text" inputmode="decimal" id="fx" value="1,5"></div></div>
+  <div class="field"><label for="ing">Ingredients (one per line, quantity first)</label><textarea id="ing" style="min-height:190px"></textarea></div>
+  <div class="result">
+    <div class="big" id="rfac"></div>
+    <div class="sub" id="rsub"></div>
+    <div class="out" style="margin-top:10px"><textarea id="rout" readonly aria-label="New quantities" style="min-height:190px"></textarea><button class="btn small copy" type="button" data-copy="#rout" data-done="Copied!">Copy</button></div>
+  </div>
+</div>
+
+</section>
+<p class="msg">🔒 Everything runs in your browser: no data is sent to any server.</p>
+<article class="article">
+
+<h2>The rule of three: direct and inverse proportion</h2>
+<p>Two quantities are <strong>directly proportional</strong> when doubling one doubles the other: if 3 kg of apples cost 12, then 5 kg cost 12 × 5 ÷ 3 = <strong>20</strong>. They are <strong>inversely proportional</strong> when doubling one halves the other: if 4 workers finish a job in 6 days, 3 workers take 4 × 6 ÷ 3 = <strong>8 days</strong>. In the first tab, type the three numbers you know and choose the type of proportion.</p>
+<h2>How to solve a proportion a : b = c : d</h2>
+<p>In a proportion the product of the means (b and c) equals the product of the extremes (a and d): a × d = b × c. To find an extreme, multiply the means and divide by the other extreme; to find a mean, multiply the extremes and divide by the other mean. Example: 2 : 5 = 6 : x → x = 5 × 6 ÷ 2 = <strong>15</strong>. In the second tab you can leave any box empty; if you fill all four, the calculator checks whether the proportion holds.</p>
+<h2>How to scale a recipe</h2>
+<p>To change the number of servings, multiply every ingredient by the ratio between the people: from 4 to 6 people the factor is 6 ÷ 4 = 1.5, so 250 g of flour becomes 375 g. To change the pan, what matters is the <strong>area</strong>, not the diameter: a 28 cm round pan has 1.36 times the area of a 24 cm one (28² ÷ 24²), so the quantities are multiplied by 1.36, not by 28 ÷ 24 = 1.17. The calculator also converts between round and rectangular pans, assuming the same batter depth.</p>
+<p>Round eggs to the nearest whole egg or weigh them: a medium egg without its shell weighs about 50 grams. Baking powder, salt and spices follow the same factor. There is no fixed rule for baking time: in a bigger, shallower pan the cake bakes a little faster, in a deeper one a little slower, so check with a skewer.</p>
+
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>How do I solve a proportion with x?</summary><p>Multiply the two numbers diagonally across and divide by the third: in 2 : 5 = 6 : x, x = 5 × 6 ÷ 2 = 15.</p></details><details><summary>How do quantities change from a 24 cm to a 26 cm pan?</summary><p>Multiply them by (26 ÷ 24)², about 1.17: 200 g of flour becomes about 235 g.</p></details><details><summary>Can I type fractions like 1/2 or ½?</summary><p>Yes: at the start of each line the calculator reads whole and decimal numbers (2.5), fractions (1/2, 1 1/2) and the symbols ½, ¼, ¾. Lines without a number, like "salt to taste", stay as they are.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Related tools</h2><div class="grid"><a class="card" href="../../en/percentage-calculator/" data-search="percentage calculator what is 20% of 150, what percent is 30 of 200, change between two numbers percent of a number percentage increase percentage change percent difference"><div class="ic">％</div><b>Percentage calculator</b><span>What is 20% of 150, what percent is 30 of 200, change between two numbers</span></a><a class="card" href="../../en/discount-calculator/" data-search="discount calculator final price and savings with one or two discounts, or the discount from two prices sale price 30% off double discount how much do i save percent off"><div class="ic">🏷️</div><b>Discount calculator</b><span>Final price and savings with one or two discounts, or the discount from two prices</span></a><a class="card" href="../../en/numbers-to-words/" data-search="numbers to words spell out a number or an amount in words, in english and italian number to words spell number amount in words cheque check writing numbers in italian"><div class="ic">🔤</div><b>Numbers to words</b><span>Spell out a number or an amount in words, in English and Italian</span></a><a class="card" href="../../en/roman-numerals/" data-search="roman numerals converter number to roman and back, from 1 to 3999, with a reference table 2026 in roman numerals mmxxvi roman numeral chart convert roman"><div class="ic">🏛️</div><b>Roman numerals converter</b><span>Number to Roman and back, from 1 to 3999, with a reference table</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Free tools that run in your browser.</span>
+<span class="spacer"></span>
+<span><a href="../../en/about/">About</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/contact/">Contact</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.2.0"></script>
+<script>var T={"copy": "Copy", "copied": "Copied!", "download": "Download", "reset": "Reset", "calculate": "Calculate", "result": "Result", "invalid": "Please check the values you entered.", "tab_three": "Rule of three", "tab_prop": "a : b = c : d", "tab_recipe": "Recipe scaler", "if_": "If", "goes_with": "goes with", "then_": "then", "goes_with_x": "goes with x", "direct": "Direct (when one grows, so does the other)", "inverse": "Inverse (when one grows, the other shrinks)", "direct_s": "direct proportion", "inverse_s": "inverse proportion", "fill3": "Enter the three numbers.", "div0": "Impossible: it would mean dividing by zero.", "leave_empty": "Leave the box you want to find empty. If you fill them all, I check whether the proportion holds.", "one_empty": "Leave only one box empty.", "is_ok": "The proportion is correct ✓", "is_not": "Not a proportion ✗", "by_l": "Scale the recipe by", "by_people": "Number of people", "by_pan": "Pan size", "by_factor": "A multiplier", "p_from": "People in the recipe", "p_to": "People you want to serve", "pan_from": "Pan in the recipe", "pan_to": "Your pan", "round": "Round", "rect": "Rectangular or square", "diam": "Diameter (cm)", "side1": "Long side (cm)", "side2": "Short side (cm)", "factor_l": "Multiply by", "ing_l": "Ingredients (one per line, quantity first)", "factor_is": "Quantities × {k}", "people_sub": "From {a} to {b} people", "pan_sub": "Area: from {a} cm² to {b} cm²", "res_l": "New quantities", "sample": "250 g plain flour\n150 g sugar\n3 eggs\n100 ml milk\n80 g butter\n1/2 sachet baking powder\n1 pinch of salt\nlemon zest to taste"};</script>
+<script>
+(function(){
+
+var mode = 'three';
+var FR = { '½': 1 / 2, '¼': 1 / 4, '¾': 3 / 4, '⅓': 1 / 3, '⅔': 2 / 3, '⅛': 1 / 8 };
+function v(id) { return RT.num(RT.$('#' + id).value); }
+function f(n) { return RT.fmt(n, 6); }
+// --- rule of three
+function calcThree() {
+  var a = v('ta'), b = v('tb'), c = v('tc'), inv = RT.$('input[name="kind"]:checked').value === 'i', res = RT.$('#tres'), sub = RT.$('#tsub');
+  if (![a, b, c].every(isFinite)) { res.textContent = '–'; sub.textContent = T.fill3; return; }
+  if ((!inv && a === 0) || (inv && c === 0)) { res.textContent = '–'; sub.textContent = T.div0; return; }
+  var x = inv ? a * b / c : b * c / a;
+  res.textContent = 'x = ' + f(x);
+  sub.textContent = inv ? 'x = ' + f(a) + ' × ' + f(b) + ' ÷ ' + f(c) + ' (' + T.inverse_s + ')' : 'x = ' + f(b) + ' × ' + f(c) + ' ÷ ' + f(a) + ' (' + T.direct_s + ')';
+}
+// --- a : b = c : d
+function calcProp() {
+  var ids = ['pa', 'pb', 'pc', 'pd'], vals = ids.map(function (id) { return RT.$('#' + id).value.trim() === '' ? null : v(id); });
+  var res = RT.$('#pres'), sub = RT.$('#psub'), empty = vals.filter(function (x) { return x === null; }).length;
+  if (vals.some(function (x) { return x !== null && !isFinite(x); })) { res.textContent = '–'; sub.textContent = T.invalid; return; }
+  if (empty > 1) { res.textContent = '–'; sub.textContent = T.one_empty; return; }
+  var a = vals[0], b = vals[1], c = vals[2], d = vals[3];
+  if (empty === 0) {
+    var ok = Math.abs(a * d - b * c) <= 1e-9 * Math.max(1, Math.abs(a * d), Math.abs(b * c));
+    res.textContent = ok ? T.is_ok : T.is_not;
+    sub.textContent = f(a) + ' × ' + f(d) + (ok ? ' = ' : ' ≠ ') + f(b) + ' × ' + f(c) + ' (' + f(a * d) + (ok ? ' = ' : ' ≠ ') + f(b * c) + ')';
+    return;
+  }
+  var x, how;
+  if (a === null) { if (d === 0) return fail0(); x = b * c / d; how = f(b) + ' × ' + f(c) + ' ÷ ' + f(d); }
+  else if (b === null) { if (c === 0) return fail0(); x = a * d / c; how = f(a) + ' × ' + f(d) + ' ÷ ' + f(c); }
+  else if (c === null) { if (b === 0) return fail0(); x = a * d / b; how = f(a) + ' × ' + f(d) + ' ÷ ' + f(b); }
+  else { if (a === 0) return fail0(); x = b * c / a; how = f(b) + ' × ' + f(c) + ' ÷ ' + f(a); }
+  res.textContent = 'x = ' + f(x);
+  sub.textContent = 'x = ' + how;
+  function fail0() { res.textContent = '–'; sub.textContent = T.div0; }
+}
+// --- recipe
+function parseLead(s) {
+  var m, val = null;
+  if ((m = s.match(/^(\s*)(\d+)\s+(\d+)\s*\/\s*(\d+)/))) val = +m[2] + m[3] / m[4];
+  else if ((m = s.match(/^(\s*)(\d+)\s*\/\s*(\d+)/))) val = m[2] / m[3];
+  else if ((m = s.match(/^(\s*)(\d*)\s*([½¼¾⅓⅔⅛])/))) val = (m[2] ? +m[2] : 0) + FR[m[3]];
+  else if ((m = s.match(/^(\s*)(\d{1,3}(?:\.\d{3})+|\d{1,3}(?:,\d{3})+|\d+(?:[.,]\d+)?)(?![\d\/])/))) {
+    var t = m[2], thou = RT.lang === 'it' ? /^\d{1,3}(\.\d{3})+$/ : /^\d{1,3}(,\d{3})+$/;
+    val = thou.test(t) ? parseFloat(t.replace(/[.,]/g, '')) : parseFloat(t.replace(',', '.'));
+  }
+  if (val === null || !isFinite(val)) return null;
+  return { pre: m[1], val: val, rest: s.slice(m[0].length) };
+}
+function fq(x) {
+  if (x >= 10) return RT.fmt(Math.round(x), 0);
+  if (x >= 1) return RT.fmt(Math.round(x * 10) / 10, 1);
+  return RT.fmt(Math.round(x * 100) / 100, 2);
+}
+function area(shape, a, b) { return shape === 'r' ? Math.PI * a * a / 4 : a * b; }
+function panUi(n) {
+  var round = RT.$('#s' + n).value === 'r';
+  RT.$('#la' + n).textContent = round ? T.diam : T.side1;
+  RT.$('#wb' + n).classList.toggle('hide', round);
+}
+function factor() {
+  var by = RT.$('#by').value;
+  ['people', 'pan', 'factor'].forEach(function (k) { RT.$('#w-' + k).classList.toggle('hide', k !== by); });
+  if (by === 'people') {
+    var p1 = v('p1'), p2 = v('p2');
+    if (!(p1 > 0) || !(p2 > 0)) return null;
+    return { k: p2 / p1, sub: T.people_sub.replace('{a}', RT.fmt(p1, 2)).replace('{b}', RT.fmt(p2, 2)) };
+  }
+  if (by === 'pan') {
+    panUi(1); panUi(2);
+    var s1 = RT.$('#s1').value, s2 = RT.$('#s2').value, A1 = area(s1, v('a1'), v('b1')), A2 = area(s2, v('a2'), v('b2'));
+    if (!(A1 > 0) || !(A2 > 0)) return null;
+    return { k: A2 / A1, sub: T.pan_sub.replace('{a}', RT.fmt(A1, 0)).replace('{b}', RT.fmt(A2, 0)) };
+  }
+  var k = v('fx');
+  return k > 0 ? { k: k, sub: '' } : null;
+}
+function calcRecipe() {
+  var F = factor(), res = RT.$('#rfac'), sub = RT.$('#rsub'), outTa = RT.$('#rout');
+  if (!F) { res.textContent = '–'; sub.textContent = T.invalid; outTa.value = ''; return; }
+  res.textContent = T.factor_is.replace('{k}', RT.fmt(F.k, 3));
+  sub.textContent = F.sub;
+  outTa.value = RT.$('#ing').value.split('\n').map(function (line) {
+    var p = parseLead(line);
+    return p ? p.pre + fq(p.val * F.k) + p.rest : line;
+  }).join('\n');
+}
+function calc() { if (mode === 'three') calcThree(); else if (mode === 'prop') calcProp(); else calcRecipe(); }
+RT.$$('.tabs button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    RT.$$('.tabs button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    mode = b.getAttribute('data-tab');
+    ['three', 'prop', 'recipe'].forEach(function (k) { RT.$('#tab-' + k).classList.toggle('hide', k !== mode); });
+    calc();
+  });
+});
+RT.$('#ing').value = T.sample;
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolo passo di corsa e tempo di gara – Rapido Tools</title>
+<meta name="description" content="Calcola il passo di corsa (minuti al km) da distanza e tempo, il tempo finale partendo dal passo e la conversione km/h ↔ min/km per il tapis roulant. Con previsione dei tempi su 5 km, 10 km, mezza maratona e maratona.">
+
+<link rel="canonical" href="https://rapidotools.com/it/calcolo-passo-corsa/">
+<link rel="alternate" hreflang="it" href="https://rapidotools.com/it/calcolo-passo-corsa/"><link rel="alternate" hreflang="en" href="https://rapidotools.com/en/running-pace-calculator/"><link rel="alternate" hreflang="x-default" href="https://rapidotools.com/en/running-pace-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rapido Tools">
+<meta property="og:title" content="Calcolo passo di corsa e tempo di gara – Rapido Tools">
+<meta property="og:description" content="Calcola il passo di corsa (minuti al km) da distanza e tempo, il tempo finale partendo dal passo e la conversione km/h ↔ min/km per il tapis roulant. Con previsione dei tempi su 5 km, 10 km, mezza maratona e maratona.">
+<meta property="og:url" content="https://rapidotools.com/it/calcolo-passo-corsa/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="stylesheet" href="../../assets/style.css?v=1.2.0">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calcolo passo di corsa e tempo di gara", "url": "https://rapidotools.com/it/calcolo-passo-corsa/", "description": "Calcola il passo di corsa (minuti al km) da distanza e tempo, il tempo finale partendo dal passo e la conversione km/h ↔ min/km per il tapis roulant. Con previsione dei tempi su 5 km, 10 km, mezza maratona e maratona.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "it", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "5:30 al km quanti km/h sono?", "acceptedAnswer": {"@type": "Answer", "text": "10,91 km/h: 5:30 sono 5,5 minuti e 60 ÷ 5,5 = 10,91."}}, {"@type": "Question", "name": "A che passo si corre una maratona in 4 ore?", "acceptedAnswer": {"@type": "Answer", "text": "A 5:41 al km: 4 ore sono 240 minuti, divisi per 42,195 km fanno 5,69 minuti, cioè 5 minuti e 41 secondi."}}, {"@type": "Question", "name": "Che passo serve per correre 10 km in 50 minuti?", "acceptedAnswer": {"@type": "Answer", "text": "5:00 al km, cioè 12 km/h."}}, {"@type": "Question", "name": "Il calcolatore tiene conto delle salite?", "acceptedAnswer": {"@type": "Answer", "text": "No: calcola il passo medio come su un percorso piatto. Salite, vento e caldo rallentano; per le previsioni usa una gara recente su un percorso simile."}}]}]</script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" href="../../it/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg><span>Rapido<em>Tools</em></span></a>
+<nav class="nav"><a href="../../it/">Strumenti</a><a class="lang" href="../../en/running-pace-calculator/" data-setlang="en" hreflang="en" lang="en">English</a></nav>
+</div></header>
+
+<main class="container">
+<nav class="crumbs"><a href="../../it/">Home</a> › <a href="../../it/#cat-health">❤️ Salute</a></nav>
+<h1>Calcolo passo di corsa e tempo di gara</h1>
+<p class="lead">Inserisci distanza e tempo per sapere a che passo hai corso e quanto potresti fare su altre distanze, oppure parti dal passo per sapere in quanto chiudi una gara. C&#x27;è anche il convertitore tra km/h e min/km.</p>
+<!-- AD:top -->
+<section class="tool" id="tool" aria-label="Calcolo passo di corsa e tempo di gara">
+
+<div class="tabs" role="tablist">
+  <button type="button" class="on" data-tab="pace">Calcola il passo</button>
+  <button type="button" data-tab="time">Calcola il tempo</button>
+  <button type="button" data-tab="conv">Km/h ↔ min/km</button>
+</div>
+<div id="tab-pace">
+  <div class="field"><label for="dist">Distanza (km)</label><input type="text" inputmode="decimal" id="dist" value="10"></div>
+  <div class="inline" style="margin:-4px 0 14px">
+    <button class="btn small" type="button" data-d="5">5 km</button><button class="btn small" type="button" data-d="10">10 km</button>
+    <button class="btn small" type="button" data-d="21.0975">Mezza maratona</button><button class="btn small" type="button" data-d="42.195">Maratona</button>
+  </div>
+  <div class="lbl">Tempo</div>
+  <div class="row" style="margin-top:6px">
+    <div class="field" style="flex:1 1 70px"><label for="th">ore</label><input type="number" id="th" min="0" step="1" value="0"></div>
+    <div class="field" style="flex:1 1 70px"><label for="tm">minuti</label><input type="number" id="tm" min="0" step="1" value="55"></div>
+    <div class="field" style="flex:1 1 70px"><label for="ts">secondi</label><input type="number" id="ts" min="0" max="59" step="1" value="0"></div>
+  </div>
+  <p class="msg bad hide" id="perr">Inserisci una distanza e un tempo maggiori di zero.</p>
+  <div class="result hide" id="pout">
+    <div class="big" id="pmain"></div>
+    <div class="sub" id="psub"></div>
+    <div class="stats">
+      <div class="stat"><b id="pkmh"></b><span>Velocità media</span></div>
+      <div class="stat"><b id="pmi"></b><span>Passo al miglio</span></div>
+      <div class="stat"><b id="p400"></b><span>Tempo ogni 400 m (un giro di pista)</span></div>
+      <div class="stat"><b id="pmph"></b><span>Velocità in miglia orarie</span></div>
+    </div>
+    <h3 style="font-size:1rem;margin-top:16px">Tempi previsti su altre distanze (formula di Riegel)</h3>
+    <div class="table-wrap"><table><thead><tr><th>Distanza</th><th>Tempo</th><th>Passo</th></tr></thead><tbody id="riegel"></tbody></table></div>
+    <details style="margin-top:12px"><summary style="cursor:pointer;font-weight:600">Parziali chilometro per chilometro</summary>
+      <div class="table-wrap laps"><table><tbody id="splits"></tbody></table></div>
+    </details>
+  </div>
+</div>
+<div id="tab-time" class="hide">
+  <div class="lbl">Passo</div>
+  <div class="row" style="margin-top:6px">
+    <div class="field" style="flex:1 1 70px"><label for="pm">minuti</label><input type="number" id="pm" min="0" step="1" value="5"></div>
+    <div class="field" style="flex:1 1 70px"><label for="ps">secondi</label><input type="number" id="ps" min="0" max="59" step="1" value="15"></div>
+    <div class="field" style="flex:1 1 110px"><label for="pu">Unità</label><select id="pu"><option value="km">min/km</option><option value="mi">min/miglio</option></select></div>
+  </div>
+  <div class="field"><label for="dist2">Distanza della gara (km)</label><input type="text" inputmode="decimal" id="dist2" value="21,0975"></div>
+  <div class="inline" style="margin:-4px 0 14px">
+    <button class="btn small" type="button" data-d2="5">5 km</button><button class="btn small" type="button" data-d2="10">10 km</button>
+    <button class="btn small" type="button" data-d2="21.0975">Mezza maratona</button><button class="btn small" type="button" data-d2="42.195">Maratona</button>
+  </div>
+  <div class="result hide" id="tout">
+    <div class="big" id="tmain"></div>
+    <div class="sub" id="tsub"></div>
+    <h3 style="font-size:1rem;margin-top:16px">Tempi a questo passo</h3>
+    <div class="table-wrap"><table><thead><tr><th>Distanza</th><th>Tempo</th></tr></thead><tbody id="ttable"></tbody></table></div>
+  </div>
+</div>
+<div id="tab-conv" class="hide">
+  <div class="field"><label for="kmh">Velocità (km/h)</label><input type="text" inputmode="decimal" id="kmh" value="12"></div>
+  <div class="result" style="margin-top:0"><div class="big" id="cres"></div><div class="sub" id="csub"></div></div>
+  <h3 style="font-size:1rem">Da passo a velocità</h3>
+  <div class="row">
+    <div class="field" style="flex:1 1 70px"><label for="cm">minuti</label><input type="number" id="cm" min="0" step="1" value="5"></div>
+    <div class="field" style="flex:1 1 70px"><label for="cs">secondi</label><input type="number" id="cs" min="0" max="59" step="1" value="30"></div>
+  </div>
+  <div class="result" style="margin-top:0"><div class="big" id="cres2"></div><div class="sub" id="csub2"></div></div>
+  <h3 style="font-size:1rem">Tabella per il tapis roulant</h3>
+  <div class="table-wrap laps" style="max-height:320px"><table><thead><tr><th>km/h</th><th>min/km</th><th>min/miglio</th><th>10 km</th><th>Mezza</th></tr></thead><tbody id="treadmill"></tbody></table></div>
+</div>
+
+</section>
+<p class="msg">🔒 Tutto avviene nel tuo browser: nessun dato viene inviato a un server.</p>
+<article class="article">
+
+<h2>Come si calcola il passo di corsa</h2>
+<p>Il passo (o ritmo) è il tempo che impieghi a percorrere un chilometro: si divide il tempo totale per i chilometri. 10 km in 55 minuti → 55 ÷ 10 = 5,5 minuti, cioè <strong>5:30 al km</strong> (5 minuti e 30 secondi, non 5,30). La velocità in km/h è l'inverso: 60 ÷ 5,5 = 10,9 km/h. Nella prima scheda trovi anche il passo al miglio, il tempo per un giro di pista da 400 metri e i parziali chilometro per chilometro.</p>
+<h2>Da km/h a min/km (tapis roulant)</h2>
+<p>Il tapis roulant mostra la velocità in km/h, gli orologi e le app di corsa il passo in min/km. Per passare dall'una all'altro si divide 60 per la velocità: a 12 km/h il passo è 60 ÷ 12 = 5 minuti al km; a 10,5 km/h è 5,71 minuti, cioè 5:43 al km. La terza scheda ha una tabella da 6 a 20 km/h con i tempi sui 10 km e sulla mezza maratona.</p>
+<h2>I tempi previsti con la formula di Riegel</h2>
+<p>Dal risultato di una gara il calcolatore stima i tempi su altre distanze con la formula di Pete Riegel: <strong>T2 = T1 × (D2 ÷ D1)<sup>1,06</sup></strong>. L'esponente 1,06 tiene conto del fatto che, allungando la distanza, il ritmo cala un po'. Esempio: chi corre i 10 km in 50 minuti può puntare alla mezza maratona in circa 1:50:19 e alla maratona in circa 3:50:01. È una stima: funziona bene se sei allenato per la distanza più lunga, mentre per la maratona tende a essere ottimistica senza i lunghi.</p>
+<h2>Le distanze delle gare</h2>
+<p>I 5 km e i 10 km sono le distanze più comuni delle corse su strada; la mezza maratona misura 21,0975 km e la maratona 42,195 km. Un miglio corrisponde a 1,609 km, per questo il passo al miglio è circa 1,6 volte quello al chilometro.</p>
+
+<h2>Domande frequenti</h2><div class="faq"><details><summary>5:30 al km quanti km/h sono?</summary><p>10,91 km/h: 5:30 sono 5,5 minuti e 60 ÷ 5,5 = 10,91.</p></details><details><summary>A che passo si corre una maratona in 4 ore?</summary><p>A 5:41 al km: 4 ore sono 240 minuti, divisi per 42,195 km fanno 5,69 minuti, cioè 5 minuti e 41 secondi.</p></details><details><summary>Che passo serve per correre 10 km in 50 minuti?</summary><p>5:00 al km, cioè 12 km/h.</p></details><details><summary>Il calcolatore tiene conto delle salite?</summary><p>No: calcola il passo medio come su un percorso piatto. Salite, vento e caldo rallentano; per le previsioni usa una gara recente su un percorso simile.</p></details></div>
+</article>
+<!-- AD:bottom -->
+<section class="related"><h2>Strumenti correlati</h2><div class="grid"><a class="card" href="../../it/calcolo-bmi/" data-search="calcolo bmi (indice di massa corporea) il tuo indice di massa corporea, la fascia di peso e il peso forma imc indice di massa corporea peso forma peso ideale sovrappeso sottopeso"><div class="ic">⚖️</div><b>Calcolo BMI (indice di massa corporea)</b><span>Il tuo indice di massa corporea, la fascia di peso e il peso forma</span></a><a class="card" href="../../it/calcolo-calorie-giornaliere/" data-search="calcolo del fabbisogno calorico giornaliero metabolismo basale, calorie di mantenimento e per dimagrire o aumentare quante calorie al giorno metabolismo basale tdee calorie per dimagrire fabbisogno energetico"><div class="ic">🍎</div><b>Calcolo del fabbisogno calorico giornaliero</b><span>Metabolismo basale, calorie di mantenimento e per dimagrire o aumentare</span></a><a class="card" href="../../it/calcolo-eta/" data-search="calcolo età anni, mesi e giorni esatti da una data di nascita quanti anni ho età esatta compleanno data di nascita"><div class="ic">🎂</div><b>Calcolo età</b><span>Anni, mesi e giorni esatti da una data di nascita</span></a></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<span>© 2026 Rapido Tools · Strumenti gratuiti che funzionano nel tuo browser.</span>
+<span class="spacer"></span>
+<span><a href="../../it/informazioni/">Informazioni</a> · <a href="../../it/privacy/">Privacy</a> · <a href="../../it/contatti/">Contatti</a></span>
+</div></footer>
+<script src="../../assets/site.js?v=1.2.0"></script>
+<script>var T={"copy": "Copia", "copied": "Copiato!", "download": "Scarica", "reset": "Azzera", "calculate": "Calcola", "result": "Risultato", "invalid": "Controlla i valori inseriti.", "tab_pace": "Calcola il passo", "tab_time": "Calcola il tempo", "tab_conv": "Km/h ↔ min/km", "dist_l": "Distanza (km)", "half": "Mezza maratona", "marathon": "Maratona", "time_l": "Tempo", "h_l": "ore", "m_l": "minuti", "s_l": "secondi", "per_km": "/km", "per_mi": "/miglio", "pace_sub": "Passo medio su {d} km in {t}", "speed_l": "Velocità media", "mi_l": "Passo al miglio", "lap_l": "Tempo ogni 400 m (un giro di pista)", "mph_l": "Velocità in miglia orarie", "riegel_t": "Tempi previsti su altre distanze (formula di Riegel)", "col_dist": "Distanza", "col_time": "Tempo", "col_pace": "Passo", "splits_t": "Parziali chilometro per chilometro", "perr": "Inserisci una distanza e un tempo maggiori di zero.", "pace_in": "Passo", "unit_l": "Unità", "u_km": "min/km", "u_mi": "min/miglio", "dist2_l": "Distanza della gara (km)", "time_sub": "{d} km a {p} ({s} km/h)", "std_t": "Tempi a questo passo", "kmh_l": "Velocità (km/h)", "conv_sub": "= {mi} · {mph} mph", "conv2_t": "Da passo a velocità", "conv_sub2": "= {mph} mph · {mi}", "tread_t": "Tabella per il tapis roulant", "col_kmh": "km/h", "col_mkm": "min/km", "col_mmi": "min/miglio", "col_10": "10 km", "col_half": "Mezza"};</script>
+<script>
+(function(){
+
+var mode = 'pace', MILE = 1.609344, HALF = 21.0975, MAR = 42.195;
+var STD = [[1, '1 km'], [5, '5 km'], [10, '10 km'], [15, '15 km'], [HALF, T.half], [30, '30 km'], [MAR, T.marathon]];
+function v(id) { return RT.num(RT.$('#' + id).value); }
+function tm(s) { // h:mm:ss or m:ss
+  s = Math.round(s); var h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60;
+  return h ? h + ':' + RT.pad(m) + ':' + RT.pad(x) : m + ':' + RT.pad(x);
+}
+function secs(h, m, s) { h = isFinite(h) ? h : 0; m = isFinite(m) ? m : 0; s = isFinite(s) ? s : 0; return h * 3600 + m * 60 + s; }
+function kmh(paceSec) { return 3600 / paceSec; }
+function rows(el, list) {
+  el.innerHTML = '';
+  list.forEach(function (r) { var tr = document.createElement('tr'); r.forEach(function (c) { var td = document.createElement('td'); td.textContent = c; tr.appendChild(td); }); el.appendChild(tr); });
+}
+function calcPace() {
+  var d = v('dist'), t = secs(v('th'), v('tm'), v('ts')), out = RT.$('#pout'), err = RT.$('#perr');
+  if (!(d > 0) || !(t > 0)) { out.classList.add('hide'); err.classList.toggle('hide', !(RT.$('#dist').value || RT.$('#tm').value)); return; }
+  err.classList.add('hide'); out.classList.remove('hide');
+  var p = t / d;
+  RT.$('#pmain').textContent = tm(p) + ' ' + T.per_km;
+  RT.$('#psub').textContent = T.pace_sub.replace('{d}', RT.fmt(d, 4)).replace('{t}', tm(t));
+  RT.$('#pkmh').textContent = RT.fmt(kmh(p), 2) + ' km/h';
+  RT.$('#pmi').textContent = tm(p * MILE) + ' ' + T.per_mi;
+  RT.$('#p400').textContent = tm(p * 0.4);
+  RT.$('#pmph').textContent = RT.fmt(kmh(p) / MILE, 2) + ' mph';
+  rows(RT.$('#riegel'), STD.filter(function (s) { return s[0] > 1 && Math.abs(s[0] - d) > 1e-6; }).map(function (s) {
+    var t2 = t * Math.pow(s[0] / d, 1.06); return [s[1], tm(t2), tm(t2 / s[0]) + ' ' + T.per_km];
+  }));
+  var sp = [], n = Math.floor(d + 1e-9);
+  for (var k = 1; k <= n && k <= 100; k++) sp.push([k + ' km', tm(p * k)]);
+  if (d - n > 0.001 && n < 100) sp.push([RT.fmt(d, 3) + ' km', tm(t)]);
+  rows(RT.$('#splits'), sp);
+}
+function calcTime() {
+  var p = secs(0, v('pm'), v('ps')), unit = RT.$('#pu').value, d = v('dist2'), out = RT.$('#tout');
+  if (!(p > 0) || !(d > 0)) { out.classList.add('hide'); return; }
+  out.classList.remove('hide');
+  var pk = unit === 'mi' ? p / MILE : p; // seconds per km
+  RT.$('#tmain').textContent = tm(pk * d);
+  RT.$('#tsub').textContent = T.time_sub.replace('{d}', RT.fmt(d, 4)).replace('{p}', tm(pk) + ' ' + T.per_km).replace('{s}', RT.fmt(kmh(pk), 2));
+  rows(RT.$('#ttable'), STD.map(function (s) { return [s[1], tm(pk * s[0])]; }));
+}
+function calcConv() {
+  var s = v('kmh'), r1 = RT.$('#cres'), s1 = RT.$('#csub');
+  if (s > 0) { r1.textContent = tm(3600 / s) + ' ' + T.per_km; s1.textContent = T.conv_sub.replace('{mi}', tm(3600 / s * MILE) + ' ' + T.per_mi).replace('{mph}', RT.fmt(s / MILE, 2)); }
+  else { r1.textContent = '–'; s1.textContent = ''; }
+  var p = secs(0, v('cm'), v('cs')), r2 = RT.$('#cres2'), s2 = RT.$('#csub2');
+  if (p > 0) { r2.textContent = RT.fmt(kmh(p), 2) + ' km/h'; s2.textContent = T.conv_sub2.replace('{mph}', RT.fmt(kmh(p) / MILE, 2)).replace('{mi}', tm(p * MILE) + ' ' + T.per_mi); }
+  else { r2.textContent = '–'; s2.textContent = ''; }
+}
+function calc() { if (mode === 'pace') calcPace(); else if (mode === 'time') calcTime(); else calcConv(); }
+RT.$$('.tabs button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    RT.$$('.tabs button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    mode = b.getAttribute('data-tab');
+    ['pace', 'time', 'conv'].forEach(function (k) { RT.$('#tab-' + k).classList.toggle('hide', k !== mode); });
+    calc();
+  });
+});
+RT.$$('[data-d]').forEach(function (b) { b.addEventListener('click', function () { RT.$('#dist').value = RT.fmt(+b.getAttribute('data-d'), 4); calc(); }); });
+RT.$$('[data-d2]').forEach(function (b) { b.addEventListener('click', function () { RT.$('#dist2').value = RT.fmt(+b.getAttribute('data-d2'), 4); calc(); }); });
+(function () { // treadmill table 6–20 km/h
+  var list = [];
+  for (var s = 6; s <= 20.001; s += 0.5) list.push([RT.fmt(s, 1), tm(3600 / s), tm(3600 / s * MILE), tm(3600 / s * 10), tm(3600 / s * HALF)]);
+  rows(RT.$('#treadmill'), list);
+})();
+RT.live(document.getElementById('tool'), calc);
+
+})();
+</script>
+</body>
+</html>
