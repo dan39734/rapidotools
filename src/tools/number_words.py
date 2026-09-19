@@ -4,14 +4,15 @@ TOOL = {
     "icon": "🔤",
     "slug": {"it": "numeri-in-lettere", "en": "numbers-to-words"},
     "title": {"it": "Numeri in lettere", "en": "Numbers to words"},
+    "seo_title": {"it": "Numeri in lettere: come si scrive un numero o un importo", "en": "Numbers to words: how to spell out a number or an amount"},
     "short": {"it": "Scrivi un numero o un importo in lettere, in italiano e in inglese", "en": "Spell out a number or an amount in words, in English and Italian"},
-    "keywords": {"it": ["numeri in lettere", "cifre in lettere", "importo in lettere", "assegno", "convertitore numeri lettere", "numeri in inglese"], "en": ["number to words", "spell number", "amount in words", "cheque", "check writing", "numbers in italian"]},
+    "keywords": {"it": ["numeri in lettere", "come si scrive", "come si scrivono i numeri in lettere", "cifre in lettere", "importo in lettere", "milioni in lettere", "assegno", "convertitore numeri lettere", "numeri in inglese"], "en": ["number to words", "spell number", "amount in words", "cheque", "check writing", "numbers in italian"]},
     "meta": {
-        "it": "Convertitore di numeri in lettere: scrive qualsiasi numero o importo in euro in lettere, in italiano e in inglese, anche nel formato per assegni e bonifici. Con la tabella dei numeri da 1 a 100.",
+        "it": "Come si scrive un numero in lettere? Scrivi la cifra e ottieni subito la forma corretta: numeri, importi in euro, milioni e miliardi, formato per assegni, in italiano e in inglese.",
         "en": "Number to words converter: spells out any number or amount in words, in English and Italian, including the cheque format. With a table of the numbers from 1 to 100.",
     },
     "intro": {
-        "it": "Scrivi un numero (anche con i decimali) e ottieni la forma in lettere: come numero, come importo in euro o nel formato per assegni. Puoi scegliere l'italiano o l'inglese.",
+        "it": "Scrivi la cifra e ottieni subito come si scrive in lettere: come numero, come importo in euro o nel formato per l'assegno, in italiano o in inglese. Funziona anche con i milioni e i miliardi.",
         "en": "Type a number (decimals too) and get it spelled out: as a number, as an amount of money or in cheque format. Choose English or Italian.",
     },
     "strings": {
@@ -168,6 +169,15 @@ table();
         "it": """
 <h2>Quando servono i numeri in lettere</h2>
 <p>La forma in lettere si usa dove un numero non deve poter essere alterato o frainteso: sugli <strong>assegni</strong> («milleduecentotrentaquattro/56»), nei contratti e negli atti notarili («euro millecento/00»), nelle ricevute, nelle fatture di alcuni paesi e nei documenti ufficiali. Il convertitore scrive il numero seguendo le regole dell'ortografia italiana, oppure quelle inglesi se scegli «Inglese», e ti lascia copiare il risultato con un clic.</p>
+<h2>Come si scrive un importo in milioni di euro</h2>
+<p>È la domanda più frequente, perché i milioni si comportano diversamente dalle migliaia: fino a 999.999 il numero si scrive tutto attaccato, da un milione in su <em>milioni</em> e <em>miliardi</em> restano parole a sé, e davanti alla valuta vuole il <em>di</em>. Qualche esempio scritto come lo produce il convertitore:</p>
+<ul>
+<li><strong>223.000.000 €</strong> → <em>duecentoventitré milioni di euro</em></li>
+<li><strong>1.500.000 €</strong> → <em>un milione cinquecentomila euro</em> (niente <em>di</em>: il numero non finisce con «milioni»)</li>
+<li><strong>2.350.000,50 €</strong> → <em>due milioni trecentocinquantamila euro e cinquanta centesimi</em></li>
+<li><strong>1.000.000.000 €</strong> → <em>un miliardo di euro</em></li>
+</ul>
+<p>La regola pratica: se l'ultima parola del numero è <em>milione</em>, <em>milioni</em>, <em>miliardo</em> o <em>miliardi</em>, si scrive «di euro»; se dopo i milioni c'è altro (<em>…cinquecentomila</em>), il <em>di</em> sparisce.</p>
 <h2>Le regole dell'italiano</h2>
 <ul>
 <li>I numeri si scrivono <strong>tutti attaccati</strong> fino alle migliaia: <em>duemilatrecentoquarantacinque</em>. Milioni e miliardi sono parole separate: <em>due milioni trecentomila</em>.</li>
@@ -195,11 +205,14 @@ table();
     },
     "faq": {
         "it": [
+            ("Come si scrive 223 milioni di euro?", "Si scrive «duecentoventitré milioni di euro»: <em>milioni</em> resta parola separata e davanti alla valuta va il «di». Lo stesso vale per qualsiasi altro importo tondo in milioni o miliardi."),
+            ("Come si scrivono i numeri in lettere in italiano?", "Tutto attaccato fino alle migliaia (<em>duemilatrecentoquarantacinque</em>), con milioni e miliardi come parole separate. Le decine perdono la vocale davanti a <em>uno</em> e <em>otto</em> (<em>ventuno</em>, <em>ventotto</em>) e il <em>tre</em> finale prende l'accento (<em>ventitré</em>). Scrivi la cifra qui sopra e il convertitore applica da solo tutte le regole."),
             ("Come si scrive un importo sull'assegno?", "Scegli il formato «Assegno»: ottieni la parte intera in lettere seguita dai centesimi dopo la barra, per esempio «millecento/00». Scrivi tutto attaccato e senza spazi, come chiedono le banche."),
             ("Qual è il numero più grande che posso convertire?", "Fino a 999.999.999.999,99, cioè quasi mille miliardi, con due decimali per gli importi e fino a sei per i numeri."),
             ("Posso scrivere i numeri in inglese?", "Sì: scegli «Inglese» nel menu Lingua e, se serve, lo stile britannico con «and». La tabella da 1 a 100 cambia lingua di conseguenza."),
         ],
         "en": [
+            ("How do you write millions in words?", "Millions and billions stay separate words: 223,000,000 is <em>two hundred twenty-three million</em>. Type the figure above and the converter applies the rules for you, in English or Italian."),
             ("How do I write an amount on a cheque?", "Choose the \"Cheque\" format: you get the whole part in words followed by the cents as a fraction, for example \"one thousand one hundred and 00/100\"."),
             ("What is the largest number I can convert?", "Up to 999,999,999,999.99 – almost a trillion – with two decimals for amounts and up to six for plain numbers."),
             ("Can I get the Italian spelling?", "Yes: choose \"Italian\" in the Language menu. The table from 1 to 100 switches language too."),

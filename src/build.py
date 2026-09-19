@@ -16,8 +16,8 @@ from site_text import SITE_NAME, DOMAIN, YEAR, LANGS, TEXT, CAT_ORDER, STATIC_SL
 from pages import PAGES  # noqa: E402
 import tools  # noqa: E402
 
-VERSION = "1.2.0"
-LASTMOD = "2026-09-11"
+VERSION = "1.3.0"
+LASTMOD = "2026-09-19"
 
 LOGO_SVG = ('<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" '
             'fill="currentColor"/></svg>')
@@ -212,7 +212,10 @@ def build_tool(tool, lang, all_tools):
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": re.sub(r"<[^>]+>", "", a)}} for q, a in faq]})
     alternates = {l: tool_url(tool, l) for l in LANGS}
     alternates["x-default"] = tool_url(tool, "en")
-    title = "%s – %s" % (tool["title"][lang], SITE_NAME)
+    # seo_title (optional): used only for <title>/og:title, so that the page can carry the
+    # exact wording people search for without changing the H1 or the cards on the home page.
+    seo = (tool.get("seo_title") or {}).get(lang)
+    title = seo if seo else "%s – %s" % (tool["title"][lang], SITE_NAME)
     page = layout(lang, title=title, meta=tool["meta"][lang], canonical_path=tool_url(tool, lang), alternates=alternates,
                   body=body, rel=rel, scripts=scripts, jsonld=jsonld)
     write(tool_url(tool, lang) + "index.html", page)

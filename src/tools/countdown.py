@@ -21,8 +21,12 @@ function easter(y) { // Gregorian computus (Meeus/Jones/Butcher)
   return new Date(y, mo - 1, da);
 }
 function today0() { var n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); }
+var YEARLY = { fixed: 1, easter: 1, blackfriday: 1 };
 function occ(y) { // the event's date in year y
   if (CFG.type === 'easter') { var d = easter(y); d.setDate(d.getDate() + CFG.off); return d; }
+  if (CFG.type === 'blackfriday') { // day after the 4th Thursday of November
+    var n1 = new Date(y, 10, 1), thu = 1 + ((4 - n1.getDay() + 7) % 7) + 21; return new Date(y, 10, thu + 1);
+  }
   return new Date(y, CFG.m - 1, CFG.d);
 }
 function pl(n, one, many) { return RT.fmt(n, 0) + ' ' + (n === 1 ? one : many); }
@@ -36,7 +40,7 @@ function fillYears() {
 }
 function getTarget() {
   var t = today0();
-  if (CFG.type === 'fixed' || CFG.type === 'easter') return occ(+yearSel.value);
+  if (YEARLY[CFG.type]) return occ(+yearSel.value);
   if (CFG.type === 'birthday') {
     var b = RT.parseDate(dob.value); if (!b) return null;
     var d = new Date(t.getFullYear(), b.getMonth(), b.getDate());
@@ -74,7 +78,7 @@ function tickFn() {
   var s = Math.floor(diff / 1000), dd = Math.floor(s / 86400), hh = Math.floor(s % 86400 / 3600), mm = Math.floor(s % 3600 / 60), ss = s % 60;
   tick.textContent = T.tick.replace('{d}', dd).replace('{h}', RT.pad(hh)).replace('{m}', RT.pad(mm)).replace('{s}', RT.pad(ss));
 }
-if (CFG.type === 'fixed' || CFG.type === 'easter') { fillYears(); yearSel.addEventListener('change', render); }
+if (YEARLY[CFG.type]) { fillYears(); yearSel.addEventListener('change', render); }
 if (CFG.type === 'custom') {
   var t0 = today0(), def = new Date(t0.getFullYear(), CFG.m - 1, CFG.d); if (def < t0) def = new Date(t0.getFullYear() + 1, CFG.m - 1, CFG.d);
   target.value = iso(def);
@@ -152,23 +156,26 @@ PRESETS = [
         "id": "countdown_natale", "icon": "🎄", "cfg": {"type": "fixed", "m": 12, "d": 25},
         "slug": {"it": "quanti-giorni-mancano-a-natale", "en": "days-until-christmas"},
         "title": {"it": "Quanti giorni mancano a Natale?", "en": "How many days until Christmas?"},
+        "seo_title": {"it": "Quanti giorni mancano a Natale? Countdown al 25 dicembre", "en": "How many days until Christmas? Countdown to 25 December"},
         "event": {"it": "Natale", "en": "Christmas"},
         "short": {"it": "Conto alla rovescia al 25 dicembre, aggiornato al secondo", "en": "Countdown to 25 December, updated every second"},
         "keywords": {"it": ["natale", "conto alla rovescia natale", "quanto manca a natale", "giorni a natale"], "en": ["christmas countdown", "days to christmas", "how long until christmas"]},
         "meta": {
-            "it": "Quanti giorni mancano a Natale? Conto alla rovescia al 25 dicembre con giorni, settimane, ore, minuti e secondi, il giorno della settimana in cui cade e i giorni lavorativi che restano.",
+            "it": "Quanti giorni mancano a Natale? Il conto alla rovescia al 25 dicembre aggiornato al secondo: giorni, ore e minuti che mancano, il giorno della settimana in cui cade e i giorni lavorativi che restano per i regali.",
             "en": "How many days until Christmas? Live countdown to 25 December with days, weeks, hours, minutes and seconds, the weekday it falls on and the working days left.",
         },
         "intro": {
-            "it": "Il conto alla rovescia parte da oggi e arriva al 25 dicembre: giorni, settimane, ore e secondi che mancano a Natale, con il giorno della settimana in cui cade.",
-            "en": "The countdown runs from today to 25 December: days, weeks, hours and seconds until Christmas, with the weekday it falls on.",
+            "it": "Natale è il 25 dicembre. Qui sotto trovi quanti giorni mancano esattamente — e quante ore, minuti e secondi — in che giorno della settimana cade e quanti giorni lavorativi restano per regali e spedizioni.",
+            "en": "Christmas is on 25 December. Below you'll find exactly how many days are left — and how many hours, minutes and seconds — which weekday it falls on and how many working days are left for presents and deliveries.",
         },
         "article": {
             "it": """
-<h2>Come funziona il conto alla rovescia di Natale</h2>
-<p>Il calcolatore conta i giorni interi che separano oggi dal 25 dicembre. Se Natale è già passato, il conteggio salta automaticamente al Natale dell'anno prossimo; con il menu «Anno» puoi guardare anche più avanti, per esempio per sapere in che giorno della settimana cadrà il Natale tra due anni. La riga con ore, minuti e secondi si aggiorna da sola.</p>
+<h2>Quanti giorni mancano al 25 dicembre?</h2>
+<p>Il numero grande in cima alla pagina è la risposta: i giorni interi che separano oggi dal <strong>25 dicembre</strong>, oggi escluso. Se Natale è già passato, il conteggio salta automaticamente al Natale dell'anno prossimo; con il menu «Anno» puoi guardare anche più avanti, per esempio per sapere in che giorno della settimana cadrà il Natale tra due anni.</p>
+<h2>Tra quante ore è Natale?</h2>
+<p>Sotto ai giorni scorre la riga con <strong>ore, minuti e secondi</strong>, che si aggiorna da sola e arriva alla mezzanotte con cui inizia il 25 dicembre. Usa l'orologio del tuo dispositivo, quindi il conteggio è quello del posto in cui sei.</p>
 <h2>Natale cade sempre lo stesso giorno?</h2>
-<p>Sì: il 25 dicembre è una data fissa, quindi cambia solo il giorno della settimana. Il 24 dicembre è la Vigilia, il 26 è Santo Stefano (festivo in Italia) e il 6 gennaio l'Epifania chiude le feste. Per le vacanze scolastiche di Natale, di solito dal 23 dicembre al 6 gennaio, controlla il calendario della tua regione.</p>
+<p>Sì: il 25 dicembre è una data fissa, quindi cambia solo il giorno della settimana. Il 24 dicembre è la Vigilia, il 26 è Santo Stefano (festivo in Italia) e il 6 gennaio l'Epifania chiude le feste. Per le vacanze scolastiche di Natale, di solito dal 23 dicembre al 6 gennaio, controlla il calendario della tua regione. Subito dopo arrivano <a href="../quanti-giorni-mancano-a-capodanno/">Capodanno</a> e <a href="../quanti-giorni-mancano-alla-befana/">la Befana</a>; per una data qualsiasi c'è il <a href="../quanti-giorni-mancano/">conto alla rovescia libero</a>.</p>
 <h2>A cosa serve sapere quanti giorni mancano</h2>
 <ul>
 <li><strong>Regali e spedizioni:</strong> i giorni lavorativi mostrati nel riquadro sono quelli utili per consegne e uffici.</li>
@@ -177,10 +184,12 @@ PRESETS = [
 </ul>
 """,
             "en": """
-<h2>How the Christmas countdown works</h2>
-<p>The calculator counts the whole days between today and 25 December. Once Christmas has passed, the count automatically moves to next year's Christmas; with the "Year" menu you can look further ahead, for instance to see which weekday Christmas falls on in two years. The line with hours, minutes and seconds updates on its own.</p>
+<h2>How many days until 25 December?</h2>
+<p>The big number at the top of the page is the answer: the whole days between today and <strong>25 December</strong>, today excluded. Once Christmas has passed, the count automatically moves to next year's Christmas; with the "Year" menu you can look further ahead, for instance to see which weekday Christmas falls on in two years.</p>
+<h2>How many hours until Christmas?</h2>
+<p>Under the days runs the line with <strong>hours, minutes and seconds</strong>, which updates on its own and ends at the midnight that starts 25 December. It uses your device's clock, so the count matches wherever you are.</p>
 <h2>Does Christmas always fall on the same date?</h2>
-<p>Yes: 25 December is a fixed date, so only the weekday changes. 24 December is Christmas Eve, 26 December is Boxing Day (St Stephen's Day) and 6 January, Epiphany, closes the holiday season.</p>
+<p>Yes: 25 December is a fixed date, so only the weekday changes. 24 December is Christmas Eve, 26 December is Boxing Day (St Stephen's Day) and 6 January, Epiphany, closes the holiday season. Right after come <a href="../days-until-new-year/">New Year</a> and <a href="../days-until-epiphany/">Epiphany</a>; for any other date there is the <a href="../days-until/">free countdown</a>.</p>
 <h2>Why the number matters</h2>
 <ul>
 <li><strong>Gifts and deliveries:</strong> the working days in the box are the ones that count for shipping and offices.</li>
@@ -191,11 +200,15 @@ PRESETS = [
         },
         "faq": {
             "it": [
+                ("Quanti giorni mancano al 25 dicembre?", "Sono i giorni interi che separano oggi da Natale: li trovi nel numero grande in cima alla pagina, aggiornato ogni giorno. Se il 25 dicembre è già passato, il conteggio salta da solo all'anno prossimo."),
+                ("Tra quante ore è Natale?", "La riga sotto al conteggio dei giorni mostra ore, minuti e secondi che mancano e scorre in tempo reale fino alla mezzanotte con cui inizia il 25 dicembre."),
                 ("Il conteggio include il giorno di Natale?", "No: mostra i giorni interi che mancano. Il 24 dicembre il risultato è «1 giorno», il 25 dicembre diventa «È oggi!»."),
                 ("Che giorno della settimana sarà Natale?", "Lo leggi sotto il numero grande, insieme alla data completa. Scegli un altro anno dal menu per vedere gli anni successivi."),
                 ("Quanti giorni lavorativi mancano?", "Il riquadro «Giorni lavorativi» conta solo i giorni da lunedì a venerdì, senza togliere le festività: l'8 dicembre, se cade in settimana, va sottratto a mano."),
             ],
             "en": [
+                ("How many days until 25 December?", "The whole days between today and Christmas: you'll find them in the big number at the top of the page. Once 25 December has passed, the count moves to next year by itself."),
+                ("How many hours until Christmas?", "The line under the days shows the hours, minutes and seconds left and runs in real time until the midnight that starts 25 December."),
                 ("Does the count include Christmas Day?", "No: it shows the whole days left. On 24 December the result is \"1 day\"; on 25 December it becomes \"It's today!\"."),
                 ("Which weekday will Christmas be?", "You can read it under the big number, together with the full date. Pick another year from the menu to see the following years."),
                 ("How many working days are left?", "The \"Working days\" box counts Monday to Friday only, without removing public holidays."),
@@ -577,21 +590,24 @@ PRESETS = [
         "id": "countdown_halloween", "icon": "🎃", "cfg": {"type": "fixed", "m": 10, "d": 31},
         "slug": {"it": "quanti-giorni-mancano-a-halloween", "en": "days-until-halloween"},
         "title": {"it": "Quanti giorni mancano a Halloween?", "en": "How many days until Halloween?"},
+        "seo_title": {"it": "Quanti giorni mancano a Halloween? Conto alla rovescia", "en": "How many days until Halloween? Live countdown"},
         "event": {"it": "Halloween", "en": "Halloween"},
         "short": {"it": "Conto alla rovescia al 31 ottobre", "en": "Countdown to 31 October"},
         "keywords": {"it": ["halloween", "31 ottobre", "quanto manca a halloween", "festa di halloween"], "en": ["halloween countdown", "days to halloween", "31 october"]},
         "meta": {
-            "it": "Quanti giorni mancano a Halloween? Conto alla rovescia al 31 ottobre con giorni, settimane, ore, minuti e secondi, e il giorno della settimana in cui cade.",
-            "en": "How many days until Halloween? Countdown to 31 October with days, weeks, hours, minutes and seconds, and the weekday it falls on.",
+            "it": "Quanti giorni mancano a Halloween? Il conto alla rovescia al 31 ottobre aggiornato al secondo: giorni, ore e minuti che mancano e il giorno della settimana in cui cade.",
+            "en": "How many days until Halloween? A countdown to 31 October updated every second: the days, hours and minutes left and the weekday it falls on.",
         },
         "intro": {
-            "it": "Conta i giorni che mancano alla notte del 31 ottobre e scopri se Halloween cade in settimana o nel weekend.",
-            "en": "Count the days left until the night of 31 October and see whether Halloween falls on a weekday or at the weekend.",
+            "it": "Halloween è il 31 ottobre. Qui sotto trovi quanti giorni mancano esattamente — e quante ore, minuti e secondi — e in che giorno della settimana cade quest'anno.",
+            "en": "Halloween is on 31 October. Below you'll find exactly how many days are left — and how many hours, minutes and seconds — and which weekday it falls on this year.",
         },
         "article": {
             "it": """
-<h2>Il conto alla rovescia a Halloween</h2>
-<p>Halloween è sempre il 31 ottobre, la vigilia di Ognissanti (1° novembre, festivo in Italia). Il calcolatore conta i giorni interi che mancano e mostra il giorno della settimana: se il 31 cade di venerdì o sabato le feste sono più affollate, e il 1° novembre festivo regala comunque un giorno di riposo dopo la notte di «dolcetto o scherzetto».</p>
+<h2>Tra quanti giorni è Halloween?</h2>
+<p>Il numero grande in cima alla pagina è la risposta: sono i giorni interi che mancano al <strong>31 ottobre</strong>, oggi escluso. Il giorno prima leggerai «1 giorno», il 31 ottobre «È oggi!». Halloween è una data fissa, quindi non cambia mai: cambia solo il giorno della settimana, che trovi scritto sotto al conteggio insieme alla data completa.</p>
+<h2>Tra quante ore è Halloween?</h2>
+<p>Sotto ai giorni scorre la riga con <strong>ore, minuti e secondi</strong>, che si aggiorna da sola e arriva alla mezzanotte con cui inizia il 31 ottobre. Usa l'orologio del tuo dispositivo, quindi il conteggio è quello del posto in cui sei.</p>
 <h2>Cosa preparare, e quando</h2>
 <ul>
 <li><strong>Costumi e decorazioni:</strong> ordinali online guardando i giorni lavorativi che restano per le consegne.</li>
@@ -599,11 +615,13 @@ PRESETS = [
 <li><strong>Feste a scuola e in ufficio:</strong> spesso anticipate al venerdì precedente se il 31 cade nel weekend.</li>
 </ul>
 <h2>Le date vicine</h2>
-<p>Il 1° novembre è Ognissanti e il 2 novembre la Commemorazione dei defunti; il ponte dei Santi è tra i più usati per una breve vacanza d'autunno.</p>
+<p>Il 1° novembre è Ognissanti (festivo in Italia) e il 2 novembre la Commemorazione dei defunti: il ponte dei Santi è tra i più usati per una breve vacanza d'autunno. Dopo Halloween il conto alla rovescia più cercato è quello di <a href="../quanti-giorni-mancano-a-natale/">quanti giorni mancano a Natale</a>, seguito da <a href="../quanti-giorni-mancano-a-capodanno/">Capodanno</a>. Per una data qualsiasi — un compleanno, un viaggio, una scadenza — c'è il <a href="../quanti-giorni-mancano/">conto alla rovescia libero</a>.</p>
 """,
             "en": """
-<h2>The Halloween countdown</h2>
-<p>Halloween is always on 31 October, the eve of All Saints' Day. The calculator counts the whole days left and shows the weekday: when the 31st falls on a Friday or Saturday, parties are busier; in Italy 1 November is a public holiday, which makes the night of trick-or-treating a little easier.</p>
+<h2>How many days until Halloween?</h2>
+<p>The big number at the top of the page is the answer: the whole days left until <strong>31 October</strong>, today excluded. The day before you'll read "1 day"; on 31 October it becomes "It's today!". Halloween is a fixed date, so only the weekday changes — you can read it under the count, together with the full date.</p>
+<h2>How many hours until Halloween?</h2>
+<p>Under the days runs the line with <strong>hours, minutes and seconds</strong>, which updates on its own and ends at the midnight that starts 31 October. It uses your device's clock, so the count matches wherever you are.</p>
 <h2>What to prepare, and when</h2>
 <ul>
 <li><strong>Costumes and decorations:</strong> order online keeping an eye on the working days left for deliveries.</li>
@@ -611,19 +629,318 @@ PRESETS = [
 <li><strong>School and office parties:</strong> often moved to the previous Friday when the 31st falls at the weekend.</li>
 </ul>
 <h2>Nearby dates</h2>
-<p>1 November is All Saints' Day and 2 November All Souls' Day; in many countries the first days of November are a popular short autumn break.</p>
+<p>1 November is All Saints' Day and 2 November All Souls' Day; in many countries the first days of November are a popular short autumn break. After Halloween the most searched countdown is <a href="../days-until-christmas/">how many days until Christmas</a>, followed by <a href="../days-until-new-year/">New Year</a>. For any other date there is the <a href="../days-until/">free countdown</a>.</p>
 """,
         },
         "faq": {
             "it": [
+                ("Tra quanti giorni è Halloween?", "Sono i giorni interi che mancano al 31 ottobre: li trovi nel numero grande in cima alla pagina, aggiornato ogni giorno. Se Halloween è già passato, il conteggio salta da solo all'anno prossimo."),
+                ("Tra quante ore è Halloween?", "La riga sotto al conteggio dei giorni mostra ore, minuti e secondi che mancano e scorre in tempo reale fino alla mezzanotte con cui inizia il 31 ottobre."),
+                ("Che giorno della settimana cade Halloween quest'anno?", "Lo leggi sotto il numero grande, insieme alla data completa. Con il menu «Anno» vedi anche gli anni successivi."),
                 ("Halloween è festivo in Italia?", "No, il 31 ottobre è un giorno normale; è festivo il giorno dopo, 1° novembre (Ognissanti)."),
-                ("Che giorno cade Halloween quest'anno?", "Lo leggi sotto il numero grande. Con il menu «Anno» vedi anche gli anni successivi."),
                 ("Il conteggio include il 31 ottobre?", "No: mostra i giorni interi che mancano; il 31 ottobre il risultato è «È oggi!»."),
             ],
             "en": [
+                ("How many days until Halloween?", "The whole days left until 31 October: you'll find them in the big number at the top of the page. Once Halloween has passed, the count moves to next year by itself."),
+                ("How many hours until Halloween?", "The line under the days shows the hours, minutes and seconds left and runs in real time until the midnight that starts 31 October."),
+                ("What weekday is Halloween this year?", "Read it under the big number, together with the full date. With the \"Year\" menu you can see the following years too."),
                 ("Is Halloween a public holiday?", "No, 31 October is a normal day; in Italy and several other countries the following day, 1 November, is a holiday."),
-                ("What weekday is Halloween this year?", "Read it under the big number. With the \"Year\" menu you can see the following years too."),
                 ("Does the count include 31 October?", "No: it shows the whole days left; on 31 October the result is \"It's today!\"."),
+            ],
+        },
+    },
+    {
+        "id": "countdown_black_friday", "icon": "🛍️", "cfg": {"type": "blackfriday"},
+        "slug": {"it": "quanti-giorni-mancano-al-black-friday", "en": "days-until-black-friday"},
+        "title": {"it": "Quanti giorni mancano al Black Friday?", "en": "How many days until Black Friday?"},
+        "seo_title": {"it": "Quanti giorni mancano al Black Friday? Conto alla rovescia", "en": "How many days until Black Friday? Live countdown"},
+        "event": {"it": "il Black Friday", "en": "Black Friday"},
+        "short": {"it": "Conto alla rovescia al venerdì degli sconti di fine novembre", "en": "Countdown to the Friday of deals at the end of November"},
+        "keywords": {"it": ["black friday", "quando è il black friday", "sconti novembre", "cyber monday"], "en": ["black friday countdown", "when is black friday", "cyber monday"]},
+        "meta": {
+            "it": "Quanti giorni mancano al Black Friday? Il conto alla rovescia aggiornato al secondo, con la data esatta di quest'anno (il venerdì dopo il quarto giovedì di novembre) e quella del Cyber Monday.",
+            "en": "How many days until Black Friday? A countdown updated every second, with this year's exact date (the Friday after the fourth Thursday of November) and Cyber Monday's.",
+        },
+        "intro": {
+            "it": "Il Black Friday non ha una data fissa: è il venerdì dopo il quarto giovedì di novembre, quindi cade tra il 23 e il 29. Qui sotto trovi la data esatta di quest'anno e quanti giorni, ore, minuti e secondi mancano.",
+            "en": "Black Friday has no fixed date: it's the Friday after the fourth Thursday of November, so it falls between the 23rd and the 29th. Below you'll find this year's exact date and how many days, hours, minutes and seconds are left.",
+        },
+        "article": {
+            "it": """
+<h2>Quando è il Black Friday?</h2>
+<p>Il Black Friday è il giorno dopo il <em>Thanksgiving</em> americano, che cade il quarto giovedì di novembre: per questo la data cambia ogni anno ma resta sempre nell'ultima settimana del mese. Il calcolatore la trova da solo per l'anno scelto nel menu e conta i giorni interi che mancano, oggi escluso; la riga con ore, minuti e secondi arriva alla mezzanotte con cui inizia il venerdì.</p>
+<h2>Le date del Black Friday</h2>
+<ul>
+<li><strong>2025:</strong> venerdì 28 novembre</li>
+<li><strong>2026:</strong> venerdì 27 novembre</li>
+<li><strong>2027:</strong> venerdì 26 novembre</li>
+<li><strong>2028:</strong> venerdì 24 novembre</li>
+</ul>
+<h2>Cyber Monday e «Black Week»</h2>
+<p>Il <strong>Cyber Monday</strong> è il lunedì successivo, tre giorni dopo il Black Friday, dedicato in origine agli acquisti online. Ormai molti negozi anticipano gli sconti a tutta la settimana («Black Week») o all'intero mese di novembre: il conteggio qui sopra vale per il venerdì ufficiale, che resta il giorno delle offerte più aggressive.</p>
+<h2>Come prepararsi</h2>
+<ul>
+<li><strong>Lista dei desideri:</strong> segna i prezzi qualche settimana prima, così riconosci gli sconti veri da quelli gonfiati.</li>
+<li><strong>Consegne:</strong> i giorni lavorativi nel riquadro dicono quanto tempo hai perché gli ordini arrivino prima di <a href="../quanti-giorni-mancano-a-natale/">Natale</a>.</li>
+<li><strong>Altre date utili:</strong> <a href="../quanti-giorni-mancano-all-immacolata/">l'Immacolata</a> apre la stagione dei regali; per qualsiasi altra scadenza c'è il <a href="../quanti-giorni-mancano/">conto alla rovescia libero</a>.</li>
+</ul>
+""",
+            "en": """
+<h2>When is Black Friday?</h2>
+<p>Black Friday is the day after American Thanksgiving, which falls on the fourth Thursday of November: that's why the date changes every year but always stays in the last week of the month. The calculator finds it for the year chosen in the menu and counts the whole days left, today excluded; the line with hours, minutes and seconds ends at the midnight that starts the Friday.</p>
+<h2>Black Friday dates</h2>
+<ul>
+<li><strong>2025:</strong> Friday 28 November</li>
+<li><strong>2026:</strong> Friday 27 November</li>
+<li><strong>2027:</strong> Friday 26 November</li>
+<li><strong>2028:</strong> Friday 24 November</li>
+</ul>
+<h2>Cyber Monday and "Black Week"</h2>
+<p><strong>Cyber Monday</strong> is the following Monday, three days after Black Friday, originally dedicated to online shopping. Many shops now stretch the deals over the whole week ("Black Week") or the entire month of November: the count above is for the official Friday, still the day with the most aggressive offers.</p>
+<h2>How to prepare</h2>
+<ul>
+<li><strong>Wish list:</strong> note prices a few weeks ahead, so you can tell real discounts from inflated ones.</li>
+<li><strong>Deliveries:</strong> the working days in the box tell you how long you have for orders to arrive before <a href="../days-until-christmas/">Christmas</a>.</li>
+<li><strong>Other dates:</strong> for any other deadline there is the <a href="../days-until/">free countdown</a>.</li>
+</ul>
+""",
+        },
+        "faq": {
+            "it": [
+                ("Quando è il Black Friday quest'anno?", "La data esatta è scritta sotto il numero grande: è il venerdì dopo il quarto giovedì di novembre. Nel 2026 è il 27 novembre, nel 2027 il 26 novembre."),
+                ("Tra quanti giorni è il Black Friday?", "Sono i giorni interi che mancano al venerdì degli sconti: li trovi nel numero grande in cima alla pagina, aggiornato ogni giorno. Passato il Black Friday, il conteggio salta da solo all'anno prossimo."),
+                ("Quando è il Cyber Monday?", "Il lunedì subito dopo il Black Friday, cioè tre giorni più tardi: nel 2026 è il 30 novembre."),
+                ("Il Black Friday è festivo in Italia?", "No, è un normale giorno lavorativo: negli Stati Uniti è il ponte dopo il Thanksgiving, in Italia è solo la giornata degli sconti."),
+            ],
+            "en": [
+                ("When is Black Friday this year?", "The exact date is written under the big number: it's the Friday after the fourth Thursday of November. In 2026 it's 27 November, in 2027 it's 26 November."),
+                ("How many days until Black Friday?", "The whole days left until the Friday of deals: you'll find them in the big number at the top of the page. Once Black Friday has passed, the count moves to next year by itself."),
+                ("When is Cyber Monday?", "The Monday right after Black Friday, three days later: in 2026 it's 30 November."),
+                ("Is Black Friday a public holiday?", "Not in Europe: it's a normal working day. In the United States it's the long weekend after Thanksgiving."),
+            ],
+        },
+    },
+    {
+        "id": "countdown_avvento", "icon": "🕯️", "cfg": {"type": "fixed", "m": 12, "d": 1},
+        "slug": {"it": "quanti-giorni-mancano-al-1-dicembre", "en": "days-until-1-december"},
+        "title": {"it": "Quanti giorni mancano al 1° dicembre?", "en": "How many days until 1 December?"},
+        "seo_title": {"it": "Quanti giorni mancano al 1° dicembre? Countdown all'Avvento", "en": "How many days until 1 December? Advent countdown"},
+        "event": {"it": "il 1° dicembre", "en": "1 December"},
+        "short": {"it": "Conto alla rovescia al primo giorno del calendario dell'Avvento", "en": "Countdown to the first day of the Advent calendar"},
+        "keywords": {"it": ["1 dicembre", "calendario dell'avvento", "avvento", "inizio dicembre", "quanto manca a dicembre"], "en": ["1 december", "advent calendar", "advent countdown", "december countdown"]},
+        "meta": {
+            "it": "Quanti giorni mancano al 1° dicembre? Conto alla rovescia aggiornato al secondo al primo giorno del calendario dell'Avvento, con il giorno della settimana in cui cade e i giorni che restano poi fino a Natale.",
+            "en": "How many days until 1 December? A countdown updated every second to the first day of the Advent calendar, with the weekday it falls on and the days left until Christmas.",
+        },
+        "intro": {
+            "it": "Il 1° dicembre si apre la prima casella del calendario dell'Avvento e parte il mese di Natale. Qui sotto trovi quanti giorni, ore, minuti e secondi mancano e in che giorno della settimana cade.",
+            "en": "On 1 December the first door of the Advent calendar opens and the Christmas month begins. Below you'll find how many days, hours, minutes and seconds are left and which weekday it falls on.",
+        },
+        "article": {
+            "it": """
+<h2>Tra quanti giorni è il 1° dicembre?</h2>
+<p>Il numero grande in cima alla pagina è la risposta: i giorni interi che mancano al <strong>1° dicembre</strong>, oggi escluso. Il 30 novembre leggerai «1 giorno», il 1° dicembre «È oggi!». Sotto ai giorni scorre la riga con ore, minuti e secondi, che arriva alla mezzanotte con cui inizia il mese.</p>
+<h2>Il calendario dell'Avvento</h2>
+<p>Il calendario dell'Avvento va dal 1° al 24 dicembre: 24 caselle, una al giorno, fino alla <a href="../quanti-giorni-mancano-alla-vigilia-di-natale/">Vigilia</a>. Se ne stai preparando uno in casa — cioccolatini, bigliettini, piccoli regali — i giorni mostrati qui sopra sono quelli che hai per finirlo. L'Avvento liturgico invece comincia la quarta domenica prima di Natale, quindi tra il 27 novembre e il 3 dicembre.</p>
+<h2>Cosa parte a dicembre</h2>
+<ul>
+<li><strong>Addobbi:</strong> tradizionalmente si fanno all'<a href="../quanti-giorni-mancano-all-immacolata/">Immacolata</a>, l'8 dicembre, ma molti cominciano già il 1°.</li>
+<li><strong>Regali:</strong> dal 1° dicembre al 25 ci sono 24 giorni, e i giorni lavorativi utili per le consegne sono meno di venti.</li>
+<li><strong>Le altre date:</strong> <a href="../quanti-giorni-mancano-a-natale/">Natale</a>, <a href="../quanti-giorni-mancano-a-capodanno/">Capodanno</a>, oppure il <a href="../quanti-giorni-mancano/">conto alla rovescia libero</a> per qualsiasi giorno.</li>
+</ul>
+""",
+            "en": """
+<h2>How many days until 1 December?</h2>
+<p>The big number at the top of the page is the answer: the whole days left until <strong>1 December</strong>, today excluded. On 30 November you'll read "1 day"; on 1 December it becomes "It's today!". Under the days runs the line with hours, minutes and seconds, ending at the midnight that starts the month.</p>
+<h2>The Advent calendar</h2>
+<p>The Advent calendar runs from 1 to 24 December: 24 doors, one a day, until <a href="../days-until-christmas-eve/">Christmas Eve</a>. If you're making one at home — chocolates, notes, small gifts — the days shown above are the ones you have left to finish it. Liturgical Advent instead begins on the fourth Sunday before Christmas, so between 27 November and 3 December.</p>
+<h2>What starts in December</h2>
+<ul>
+<li><strong>Decorations:</strong> in Italy they traditionally go up on <a href="../days-until-immaculate-conception/">8 December</a>, but many start on the 1st.</li>
+<li><strong>Presents:</strong> from 1 to 25 December there are 24 days, and fewer than twenty working days for deliveries.</li>
+<li><strong>Other dates:</strong> <a href="../days-until-christmas/">Christmas</a>, <a href="../days-until-new-year/">New Year</a>, or the <a href="../days-until/">free countdown</a> for any day.</li>
+</ul>
+""",
+        },
+        "faq": {
+            "it": [
+                ("Quanti giorni mancano a dicembre?", "Il conteggio in cima alla pagina arriva al 1° dicembre, cioè all'inizio del mese: sono i giorni interi che mancano, oggi escluso."),
+                ("Quando si apre il calendario dell'Avvento?", "La prima casella si apre il 1° dicembre e l'ultima il 24, la Vigilia di Natale: 24 caselle in tutto."),
+                ("Quando inizia l'Avvento?", "Quello del calendario il 1° dicembre; quello liturgico la quarta domenica prima di Natale, tra il 27 novembre e il 3 dicembre."),
+                ("Il conteggio include il 1° dicembre?", "No: mostra i giorni interi che mancano; il 1° dicembre il risultato è «È oggi!»."),
+            ],
+            "en": [
+                ("How many days until December?", "The count at the top of the page runs to 1 December, the start of the month: the whole days left, today excluded."),
+                ("When does the Advent calendar open?", "The first door opens on 1 December and the last on 24 December, Christmas Eve: 24 doors in all."),
+                ("When does Advent start?", "The calendar on 1 December; liturgical Advent on the fourth Sunday before Christmas, between 27 November and 3 December."),
+                ("Does the count include 1 December?", "No: it shows the whole days left; on 1 December the result is \"It's today!\"."),
+            ],
+        },
+    },
+    {
+        "id": "countdown_immacolata", "icon": "🎄", "cfg": {"type": "fixed", "m": 12, "d": 8},
+        "slug": {"it": "quanti-giorni-mancano-all-immacolata", "en": "days-until-immaculate-conception"},
+        "title": {"it": "Quanti giorni mancano all'Immacolata?", "en": "How many days until 8 December (Immaculate Conception)?"},
+        "seo_title": {"it": "Quanti giorni mancano all'8 dicembre? Countdown all'Immacolata", "en": "How many days until 8 December? Immaculate Conception countdown"},
+        "event": {"it": "l'Immacolata", "en": "8 December"},
+        "short": {"it": "Conto alla rovescia all'8 dicembre, festa e giorno dell'albero", "en": "Countdown to 8 December, Italy's public holiday and tree-decorating day"},
+        "keywords": {"it": ["immacolata", "8 dicembre", "otto dicembre", "ponte dell'immacolata", "albero di natale"], "en": ["8 december", "immaculate conception", "italy holiday december", "christmas tree day"]},
+        "meta": {
+            "it": "Quanti giorni mancano all'8 dicembre? Conto alla rovescia all'Immacolata aggiornato al secondo, con il giorno della settimana in cui cade e se quest'anno c'è il ponte.",
+            "en": "How many days until 8 December? A countdown to the Immaculate Conception, Italy's public holiday, updated every second, with the weekday it falls on and whether it makes a long weekend.",
+        },
+        "intro": {
+            "it": "L'Immacolata è l'8 dicembre, festa nazionale e per tradizione il giorno in cui si fa l'albero di Natale. Qui sotto trovi quanti giorni, ore, minuti e secondi mancano e in che giorno della settimana cade quest'anno.",
+            "en": "The Immaculate Conception is on 8 December, a public holiday in Italy and traditionally the day the Christmas tree goes up. Below you'll find how many days, hours, minutes and seconds are left and which weekday it falls on this year.",
+        },
+        "article": {
+            "it": """
+<h2>Tra quanti giorni è l'8 dicembre?</h2>
+<p>Il numero grande in cima alla pagina è la risposta: i giorni interi che mancano all'<strong>8 dicembre</strong>, oggi escluso. È una data fissa, quindi cambia solo il giorno della settimana, scritto sotto al conteggio insieme alla data completa. La riga con ore, minuti e secondi si aggiorna da sola.</p>
+<h2>C'è il ponte dell'Immacolata?</h2>
+<p>Dipende dal giorno della settimana: se l'8 dicembre cade di <strong>martedì o giovedì</strong> basta un giorno di ferie per un ponte di quattro giorni; di <strong>lunedì o venerdì</strong> il weekend è lungo da solo; di sabato o domenica la festa si perde (in Italia non viene recuperata). Nel 2026 l'8 dicembre è un martedì.</p>
+<h2>Cosa si fa l'8 dicembre</h2>
+<ul>
+<li><strong>L'albero e il presepe:</strong> per tradizione si preparano proprio in questo giorno e si smontano all'Epifania, il 6 gennaio.</li>
+<li><strong>Mercatini e luminarie:</strong> in molte città si accendono nel weekend dell'Immacolata.</li>
+<li><strong>I regali:</strong> da qui a <a href="../quanti-giorni-mancano-a-natale/">Natale</a> restano 17 giorni, e meno di quindici lavorativi per le consegne. La <a href="../quanti-giorni-mancano-alla-vigilia-di-natale/">Vigilia</a> è il 24. Per qualsiasi altra data c'è il <a href="../quanti-giorni-mancano/">conto alla rovescia libero</a>.</li>
+</ul>
+""",
+            "en": """
+<h2>How many days until 8 December?</h2>
+<p>The big number at the top of the page is the answer: the whole days left until <strong>8 December</strong>, today excluded. It's a fixed date, so only the weekday changes — it's written under the count together with the full date. The line with hours, minutes and seconds updates on its own.</p>
+<h2>Is it a long weekend?</h2>
+<p>It depends on the weekday: when 8 December falls on a <strong>Tuesday or Thursday</strong>, one day off makes a four-day break; on a <strong>Monday or Friday</strong> the weekend is long by itself; on a Saturday or Sunday the holiday is lost (Italy doesn't move it). In 2026, 8 December is a Tuesday.</p>
+<h2>What happens on 8 December</h2>
+<ul>
+<li><strong>Tree and nativity scene:</strong> in Italy they traditionally go up on this day and come down on Epiphany, 6 January.</li>
+<li><strong>Markets and lights:</strong> many cities switch on their Christmas lights on this weekend.</li>
+<li><strong>Presents:</strong> from here to <a href="../days-until-christmas/">Christmas</a> there are 17 days, and fewer than fifteen working days for deliveries. <a href="../days-until-christmas-eve/">Christmas Eve</a> is the 24th. For any other date there is the <a href="../days-until/">free countdown</a>.</li>
+</ul>
+""",
+        },
+        "faq": {
+            "it": [
+                ("Quanti giorni mancano all'8 dicembre?", "Sono i giorni interi che separano oggi dall'Immacolata: li trovi nel numero grande in cima alla pagina, aggiornato ogni giorno. Passato l'8 dicembre, il conteggio salta da solo all'anno prossimo."),
+                ("L'8 dicembre è festivo?", "Sì, in Italia l'Immacolata Concezione è festa nazionale: scuole, uffici e la maggior parte dei negozi sono chiusi."),
+                ("Che giorno cade l'Immacolata quest'anno?", "Lo leggi sotto il numero grande, insieme alla data completa. Nel 2026 è martedì, nel 2027 mercoledì."),
+                ("Quando si fa l'albero di Natale?", "Per tradizione l'8 dicembre, festa dell'Immacolata, e si toglie il 6 gennaio. Molti lo fanno prima, già dal 1° dicembre."),
+            ],
+            "en": [
+                ("How many days until 8 December?", "The whole days between today and the Immaculate Conception: you'll find them in the big number at the top of the page. Once 8 December has passed, the count moves to next year by itself."),
+                ("Is 8 December a public holiday?", "Yes, in Italy the Immaculate Conception is a national holiday: schools, offices and most shops are closed."),
+                ("What weekday is 8 December this year?", "Read it under the big number, together with the full date. In 2026 it's a Tuesday, in 2027 a Wednesday."),
+                ("When does the Christmas tree go up in Italy?", "Traditionally on 8 December, and it comes down on 6 January. Many families start earlier, from 1 December."),
+            ],
+        },
+    },
+    {
+        "id": "countdown_inverno", "icon": "❄️", "cfg": {"type": "fixed", "m": 12, "d": 21},
+        "slug": {"it": "quanti-giorni-mancano-all-inverno", "en": "days-until-winter"},
+        "title": {"it": "Quanti giorni mancano all'inverno?", "en": "How many days until winter?"},
+        "seo_title": {"it": "Quanti giorni mancano all'inverno? Countdown al 21 dicembre", "en": "How many days until winter? Countdown to 21 December"},
+        "event": {"it": "l'inverno", "en": "winter"},
+        "short": {"it": "Conto alla rovescia al solstizio del 21 dicembre, il giorno più corto", "en": "Countdown to the solstice on 21 December, the shortest day"},
+        "keywords": {"it": ["inverno", "inizio inverno", "solstizio d'inverno", "21 dicembre", "giorno più corto"], "en": ["winter countdown", "first day of winter", "winter solstice", "21 december", "shortest day"]},
+        "meta": {
+            "it": "Quanti giorni mancano all'inverno? Conto alla rovescia al 21 dicembre, il solstizio e il giorno più corto dell'anno, aggiornato al secondo, con il giorno della settimana in cui cade.",
+            "en": "How many days until winter? A countdown to 21 December, the solstice and shortest day of the year, updated every second, with the weekday it falls on.",
+        },
+        "intro": {
+            "it": "L'inverno astronomico comincia con il solstizio, il 21 dicembre (a volte il 22): il giorno più corto dell'anno. Qui sotto trovi quanti giorni, ore, minuti e secondi mancano e in che giorno della settimana cade.",
+            "en": "Astronomical winter begins with the solstice, on 21 December (sometimes the 22nd): the shortest day of the year. Below you'll find how many days, hours, minutes and seconds are left and which weekday it falls on.",
+        },
+        "article": {
+            "it": """
+<h2>Tra quanti giorni inizia l'inverno?</h2>
+<p>Il numero grande in cima alla pagina è la risposta: i giorni interi che mancano al <strong>21 dicembre</strong>, oggi escluso. Sotto scorre la riga con ore, minuti e secondi, che arriva alla mezzanotte con cui inizia il giorno del solstizio.</p>
+<h2>Quando inizia l'inverno: 21 o 22 dicembre?</h2>
+<p>L'inverno astronomico parte con il <strong>solstizio</strong>, il momento in cui il Sole raggiunge il punto più basso nel cielo dell'emisfero nord. Nella maggior parte degli anni cade il 21 dicembre (nel 2026 alle 21:50 ora italiana), qualche volta il 22: il calcolatore usa il 21. L'<em>inverno meteorologico</em>, quello delle statistiche del clima, inizia invece il 1° dicembre e dura fino al 28 febbraio; la primavera astronomica comincia con l'equinozio del 20 marzo.</p>
+<h2>Il giorno più corto dell'anno</h2>
+<p>Al solstizio la luce dura meno che in qualsiasi altro giorno: a Milano circa 8 ore e 45 minuti, a Palermo circa 9 ore e 30. Dal giorno dopo le giornate si allungano di nuovo, anche se all'inizio di pochi secondi. Il freddo più intenso arriva di solito a gennaio, perché terra e mare si raffreddano con ritardo.</p>
+<h2>Le date vicine</h2>
+<p>Tre giorni dopo il solstizio c'è la <a href="../quanti-giorni-mancano-alla-vigilia-di-natale/">Vigilia</a>, poi <a href="../quanti-giorni-mancano-a-natale/">Natale</a> e <a href="../quanti-giorni-mancano-a-capodanno/">Capodanno</a>; dall'altra parte dell'anno c'è il conto alla rovescia all'<a href="../quanti-giorni-mancano-all-estate/">estate</a>. Per qualsiasi data usa il <a href="../quanti-giorni-mancano/">conto alla rovescia libero</a>.</p>
+""",
+            "en": """
+<h2>How many days until winter starts?</h2>
+<p>The big number at the top of the page is the answer: the whole days left until <strong>21 December</strong>, today excluded. Under it runs the line with hours, minutes and seconds, ending at the midnight that starts the day of the solstice.</p>
+<h2>When does winter start: 21 or 22 December?</h2>
+<p>Astronomical winter begins with the <strong>solstice</strong>, the moment the Sun reaches its lowest point in the northern sky. Most years it falls on 21 December (in 2026 at 20:50 UTC), occasionally on the 22nd: the calculator uses the 21st. <em>Meteorological winter</em>, the one used for climate statistics, runs from 1 December to 28 February; astronomical spring begins with the equinox on 20 March.</p>
+<h2>The shortest day of the year</h2>
+<p>At the solstice daylight is shorter than on any other day: about 7 h 50 min in London, about 8 h 45 min in Milan. From the next day on, days get longer again, by a few seconds at first. The coldest weather usually comes in January, because land and sea cool down with a delay.</p>
+<h2>Nearby dates</h2>
+<p>Three days after the solstice comes <a href="../days-until-christmas-eve/">Christmas Eve</a>, then <a href="../days-until-christmas/">Christmas</a> and <a href="../days-until-new-year/">New Year</a>; on the other side of the year there is the countdown to <a href="../days-until-summer/">summer</a>. For any date use the <a href="../days-until/">free countdown</a>.</p>
+""",
+        },
+        "faq": {
+            "it": [
+                ("Quando inizia l'inverno?", "Con il solstizio, il 21 dicembre nella maggior parte degli anni (a volte il 22). L'inverno meteorologico invece parte il 1° dicembre."),
+                ("Tra quanti giorni è l'inverno?", "Sono i giorni interi che mancano al 21 dicembre: li trovi nel numero grande in cima alla pagina, aggiornato ogni giorno."),
+                ("Qual è il giorno più corto dell'anno?", "Il giorno del solstizio d'inverno, il 21 dicembre: da lì in poi la luce torna ad allungarsi."),
+                ("Quando finisce l'inverno?", "Con l'equinozio di primavera, il 20 marzo (a volte il 21). Quello meteorologico finisce il 28 febbraio."),
+            ],
+            "en": [
+                ("When does winter start?", "With the solstice, on 21 December most years (sometimes the 22nd). Meteorological winter starts on 1 December instead."),
+                ("How many days until winter?", "The whole days left until 21 December: you'll find them in the big number at the top of the page, updated every day."),
+                ("What is the shortest day of the year?", "The day of the winter solstice, 21 December: from then on daylight gets longer again."),
+                ("When does winter end?", "With the spring equinox, on 20 March (sometimes the 21st). Meteorological winter ends on 28 February."),
+            ],
+        },
+    },
+    {
+        "id": "countdown_vigilia", "icon": "🌟", "cfg": {"type": "fixed", "m": 12, "d": 24},
+        "slug": {"it": "quanti-giorni-mancano-alla-vigilia-di-natale", "en": "days-until-christmas-eve"},
+        "title": {"it": "Quanti giorni mancano alla Vigilia di Natale?", "en": "How many days until Christmas Eve?"},
+        "seo_title": {"it": "Quanti giorni mancano alla Vigilia di Natale? Countdown al 24", "en": "How many days until Christmas Eve? Countdown to 24 December"},
+        "event": {"it": "la Vigilia di Natale", "en": "Christmas Eve"},
+        "short": {"it": "Conto alla rovescia al 24 dicembre, la sera dei regali", "en": "Countdown to 24 December, the night before Christmas"},
+        "keywords": {"it": ["vigilia", "vigilia di natale", "24 dicembre", "cenone della vigilia", "notte di natale"], "en": ["christmas eve countdown", "24 december", "night before christmas"]},
+        "meta": {
+            "it": "Quanti giorni mancano alla Vigilia di Natale? Conto alla rovescia al 24 dicembre aggiornato al secondo: giorni, ore e minuti che mancano, il giorno della settimana in cui cade e i giorni lavorativi per gli ultimi regali.",
+            "en": "How many days until Christmas Eve? A countdown to 24 December updated every second: the days, hours and minutes left, the weekday it falls on and the working days for last-minute presents.",
+        },
+        "intro": {
+            "it": "La Vigilia è il 24 dicembre, la sera del cenone e, in molte famiglie, dei regali. Qui sotto trovi quanti giorni, ore, minuti e secondi mancano e in che giorno della settimana cade quest'anno.",
+            "en": "Christmas Eve is on 24 December, the night of the big dinner and, in many families, of the presents. Below you'll find how many days, hours, minutes and seconds are left and which weekday it falls on this year.",
+        },
+        "article": {
+            "it": """
+<h2>Tra quanti giorni è la Vigilia di Natale?</h2>
+<p>Il numero grande in cima alla pagina è la risposta: i giorni interi che mancano al <strong>24 dicembre</strong>, oggi escluso. Il 23 leggerai «1 giorno», il 24 «È oggi!» e il giorno dopo il conteggio passa da solo alla Vigilia dell'anno prossimo. Sotto scorre la riga con ore, minuti e secondi, che arriva alla mezzanotte con cui inizia il 24.</p>
+<h2>Vigilia o Natale: quale conto alla rovescia usare?</h2>
+<p>Se in famiglia i regali si aprono la sera del 24, o alla mezzanotte, questo è il conteggio giusto; se li aprite la mattina del 25 usa il <a href="../quanti-giorni-mancano-a-natale/">conto alla rovescia a Natale</a>, che segna sempre un giorno in più. Il 24 dicembre non è festivo in Italia: negozi e uffici sono aperti, spesso con orario ridotto nel pomeriggio.</p>
+<h2>Cosa cade prima e dopo</h2>
+<ul>
+<li><strong>Prima:</strong> <a href="../quanti-giorni-mancano-all-immacolata/">l'Immacolata</a> (8 dicembre) e il <a href="../quanti-giorni-mancano-all-inverno/">solstizio d'inverno</a> (21 dicembre); il calendario dell'Avvento chiude proprio il 24.</li>
+<li><strong>Dopo:</strong> Natale, Santo Stefano (26 dicembre, festivo), <a href="../quanti-giorni-mancano-a-capodanno/">Capodanno</a> e <a href="../quanti-giorni-mancano-alla-befana/">la Befana</a>, che chiude le feste.</li>
+<li><strong>Regali dell'ultimo minuto:</strong> i giorni lavorativi nel riquadro sono quelli utili perché un ordine arrivi in tempo. Per qualsiasi altra data c'è il <a href="../quanti-giorni-mancano/">conto alla rovescia libero</a>.</li>
+</ul>
+""",
+            "en": """
+<h2>How many days until Christmas Eve?</h2>
+<p>The big number at the top of the page is the answer: the whole days left until <strong>24 December</strong>, today excluded. On the 23rd you'll read "1 day", on the 24th "It's today!", and the day after the count moves by itself to next year's Christmas Eve. Under it runs the line with hours, minutes and seconds, ending at the midnight that starts the 24th.</p>
+<h2>Christmas Eve or Christmas Day: which countdown?</h2>
+<p>If your family opens presents on the evening of the 24th, or at midnight, this is the right count; if you open them on the morning of the 25th, use the <a href="../days-until-christmas/">countdown to Christmas</a>, which always shows one day more. 24 December is not a public holiday in Italy: shops and offices are open, often with shorter hours in the afternoon.</p>
+<h2>What comes before and after</h2>
+<ul>
+<li><strong>Before:</strong> <a href="../days-until-immaculate-conception/">8 December</a> and the <a href="../days-until-winter/">winter solstice</a> (21 December); the Advent calendar ends on the 24th.</li>
+<li><strong>After:</strong> Christmas, Boxing Day (26 December), <a href="../days-until-new-year/">New Year</a> and <a href="../days-until-epiphany/">Epiphany</a>, which closes the season.</li>
+<li><strong>Last-minute presents:</strong> the working days in the box are the ones that count for an order to arrive in time. For any other date there is the <a href="../days-until/">free countdown</a>.</li>
+</ul>
+""",
+        },
+        "faq": {
+            "it": [
+                ("Quanti giorni mancano al 24 dicembre?", "Sono i giorni interi che separano oggi dalla Vigilia: li trovi nel numero grande in cima alla pagina, aggiornato ogni giorno. Passato il 24, il conteggio salta da solo all'anno prossimo."),
+                ("Tra quante ore è la Vigilia di Natale?", "La riga sotto al conteggio dei giorni mostra ore, minuti e secondi che mancano e scorre in tempo reale fino alla mezzanotte con cui inizia il 24 dicembre."),
+                ("La Vigilia di Natale è festiva?", "No, in Italia il 24 dicembre è un giorno lavorativo; sono festivi il 25 (Natale) e il 26 (Santo Stefano)."),
+                ("Che giorno cade la Vigilia quest'anno?", "Lo leggi sotto il numero grande, insieme alla data completa. Con il menu «Anno» vedi anche gli anni successivi."),
+            ],
+            "en": [
+                ("How many days until 24 December?", "The whole days between today and Christmas Eve: you'll find them in the big number at the top of the page. Once the 24th has passed, the count moves to next year by itself."),
+                ("How many hours until Christmas Eve?", "The line under the days shows the hours, minutes and seconds left and runs in real time until the midnight that starts 24 December."),
+                ("Is Christmas Eve a public holiday?", "Not in Italy: 24 December is a working day; 25 and 26 December are the holidays."),
+                ("What weekday is Christmas Eve this year?", "Read it under the big number, together with the full date. With the \"Year\" menu you can see the following years too."),
             ],
         },
     },
@@ -802,16 +1119,28 @@ def _others_html(lang, exclude_id, all_pages, rel="../"):
     return '<h2>%s</h2><p class="btns">%s</p>' % (BASE_STRINGS[lang]["others"], " ".join(items))
 
 
+def _a(event):
+    """Italian 'a' + article contraction: 'il Black Friday' -> 'al Black Friday', 'la Befana' -> 'alla Befana'."""
+    for art, al in (("il ", "al "), ("lo ", "allo "), ("la ", "alla "), ("l'", "all'"), ("i ", "ai "), ("gli ", "agli "), ("le ", "alle ")):
+        if event.startswith(art):
+            return al + event[len(art):]
+    return "a " + event
+
+
 def _strings(p, lang):
     s = dict(BASE_STRINGS[lang])
+    ev = p["event"][lang]
+    if lang == "it":
+        s["share"] = s["share"].replace("a {event}", _a(ev))
+        s["share_past"] = s["share_past"].replace("{event}", ev[0].upper() + ev[1:])
     for k in ("share", "share_today", "share_past"):
-        s[k] = s[k].replace("{event}", p["event"][lang])
+        s[k] = s[k].replace("{event}", ev)
     return s
 
 
 def make_tool(p, all_pages):
     cfg = dict(p["cfg"])
-    if cfg["type"] == "fixed" or cfg["type"] == "easter":
+    if cfg["type"] in ("fixed", "easter", "blackfriday"):
         ui = UI_FIXED
     elif cfg["type"] == "birthday":
         ui = UI_BIRTHDAY
@@ -821,7 +1150,7 @@ def make_tool(p, all_pages):
     return {
         "id": p["id"], "cat": "date", "icon": p["icon"],
         "slug": p["slug"], "title": p["title"], "short": p["short"], "keywords": p["keywords"],
-        "meta": p["meta"], "intro": p["intro"],
+        "meta": p["meta"], "intro": p["intro"], "seo_title": p.get("seo_title"),
         "strings": {"it": _strings(p, "it"), "en": _strings(p, "en")},
         "ui": ui,
         "js": JS.replace("__CFG__", json.dumps(cfg)),
